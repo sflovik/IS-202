@@ -70,6 +70,9 @@ public class mainWindow extends javax.swing.JFrame {
         jPanelInnlevering = new javax.swing.JPanel();
         jPanelMøte = new javax.swing.JPanel();
         jPanelStatusrapport = new javax.swing.JPanel();
+        jPanelStatistikk = new javax.swing.JPanel();
+        jScrollPaneTabellStatistikk = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -480,6 +483,22 @@ public class mainWindow extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Statusrapport", jPanelStatusrapport);
 
+        jPanelStatistikk.setLayout(new javax.swing.BoxLayout(jPanelStatistikk, javax.swing.BoxLayout.LINE_AXIS));
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "Fornavn", "Etternavn", "Modul 1", "Modul 2", "Modul 3", "Modul 4", "Modul 5", "Modul 6", "Modul 7", "Modul 8", "Modul 9", "Modul 10", "Title 13", "Modul 12", "Modul 13", "Modul 14"
+            }
+        ));
+        jScrollPaneTabellStatistikk.setViewportView(jTable1);
+
+        jPanelStatistikk.add(jScrollPaneTabellStatistikk);
+
+        jTabbedPane1.addTab("Statistikk", jPanelStatistikk);
+
         getContentPane().add(jTabbedPane1, java.awt.BorderLayout.CENTER);
 
         pack();
@@ -564,6 +583,7 @@ public class mainWindow extends javax.swing.JFrame {
     private javax.swing.JPanel jPanelModuler;
     private javax.swing.JPanel jPanelMøte;
     private javax.swing.JPanel jPanelRightMain;
+    private javax.swing.JPanel jPanelStatistikk;
     private javax.swing.JPanel jPanelStatusrapport;
     private javax.swing.JPanel jPanelTopBot;
     private javax.swing.JPanel jPanelTopCentre;
@@ -571,10 +591,12 @@ public class mainWindow extends javax.swing.JFrame {
     private javax.swing.JPanel jPanelTopTop;
     private javax.swing.JScrollPane jScrollPaneMeny;
     private javax.swing.JScrollPane jScrollPaneModuloversikt;
+    private javax.swing.JScrollPane jScrollPaneTabellStatistikk;
     private javax.swing.JSeparator jSeperatorLeftLeft;
     private javax.swing.JSeparator jSeperatorLeftRight;
     private javax.swing.JSeparator jSeperatorTopBot;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTable jTable1;
     private javax.swing.JTextArea jTextArea2;
     private javax.swing.JTree jTreeMeny;
     // End of variables declaration//GEN-END:variables
