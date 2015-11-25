@@ -259,7 +259,11 @@ private void login() {
                     System.out.println("Valid user");
                     System.out.println("User logged in:");
                     System.out.println(role);
-                    System.out.println(user);        
+                    System.out.println(user);  
+                    dispose();
+                    slit.mainWindow guiHjem = new slit.mainWindow();
+                    guiHjem.setVisible(true);
+                    guiHjem.setExtendedState(slit.mainWindow.MAXIMIZED_BOTH);
                 }
                 // Om credentials ikke er godkjent
                 else {
@@ -286,10 +290,7 @@ private void login() {
         pass = jPasswordFieldLogin.getText();
         role = jComboBoxRoleLogin.getSelectedItem().toString();
         login();
-        dispose();
-        slit.ejb.hjem.hjemmeside guiHjem = new slit.ejb.hjem.hjemmeside();
-        guiHjem.setVisible(true);
-        guiHjem.setExtendedState(slit.ejb.registrer.RegisterComplete.MAXIMIZED_BOTH);
+        
     }//GEN-LAST:event_jButtonLoginActionPerformed
 
     private void jButtonRegBrukerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegBrukerActionPerformed
