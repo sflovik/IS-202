@@ -17,7 +17,7 @@ public class Main {
     public static void main(String[] args) {
         slit.ejb.login.Login oppstart = new slit.ejb.login.Login(); 
         oppstart.setVisible(true);
-       
+       /**
         try {
 
             String db_url = "jdbc:mysql://localhost:3306/slit";
@@ -28,17 +28,17 @@ public class Main {
             Connection con = DriverManager.getConnection(db_url, db_user, db_pass);
             
             Statement stmt = con.createStatement( );
-            String SQL ="SELECT * FROM Student";
-            String fag ="SELECT fagkode FROM Fag"; 
+            String SQL ="SELECT * FROM Statistikk";
             ResultSet result = stmt.executeQuery (SQL);
             
             while (result.next() ) {
-                int id_col = result.getInt("ID");
-                String name = result.getString("name");
-                String lastname = result.getString("lastname");
-                String email = result.getString("epost");
+                int id_col = result.getInt("Bruker_brukerId");
+                String name = result.getString("brukerFornavn");
+                String surname = result.getString("brukerEtternavn");
+                String dato = result.getString("levertmodulDato");
+                int antLeverte = result.getInt("COUNT(sensurId)");
                 System.out.println("ID: "+ " " + id_col +" " +  "Fornavn: " + " " + name + 
-               "  " + "Etternavn: " +" "+ lastname + " " + "e-post:" + " " + email + " ");
+               "  " + "Etternavn: " +" "+ surname + " " + "e-post:" + " " + dato + " " + antLeverte);
                 
              
             }
@@ -47,7 +47,7 @@ public class Main {
             System.out.println( err.getMessage( ));
             
         } 
-        
+        */
         // TODO code application logic here
     }
     

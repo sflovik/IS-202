@@ -5,6 +5,12 @@
  */
 package slit;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
 /**
  *
  * @author Sondre
@@ -14,8 +20,13 @@ public class mainWindow extends javax.swing.JFrame {
     /**
      * Creates new form mainWindow
      */
+    private ArrayList<mainWindow> test;
+    final static String newline = "\n";
     public mainWindow() {
         initComponents();
+        statistikkVisning();
+            
+        
     }
 
     /**
@@ -71,8 +82,17 @@ public class mainWindow extends javax.swing.JFrame {
         jPanelMøte = new javax.swing.JPanel();
         jPanelStatusrapport = new javax.swing.JPanel();
         jPanelStatistikk = new javax.swing.JPanel();
-        jScrollPaneTabellStatistikk = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jPanelStatistikkMain = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTextAreaId = new javax.swing.JTextArea();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTextAreaName = new javax.swing.JTextArea();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        jTextAreaSurname = new javax.swing.JTextArea();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        jTextAreaDate = new javax.swing.JTextArea();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        jTextAreaLeverte = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -99,7 +119,7 @@ public class mainWindow extends javax.swing.JFrame {
                     .addGroup(jPanelTopCentreLayout.createSequentialGroup()
                         .addGap(116, 116, 116)
                         .addComponent(jLabelTittel)
-                        .addContainerGap(869, Short.MAX_VALUE))))
+                        .addContainerGap(680, Short.MAX_VALUE))))
         );
         jPanelTopCentreLayout.setVerticalGroup(
             jPanelTopCentreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -120,7 +140,7 @@ public class mainWindow extends javax.swing.JFrame {
         jPanelTopTop.setLayout(jPanelTopTopLayout);
         jPanelTopTopLayout.setHorizontalGroup(
             jPanelTopTopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1546, Short.MAX_VALUE)
+            .addGap(0, 1357, Short.MAX_VALUE)
         );
         jPanelTopTopLayout.setVerticalGroup(
             jPanelTopTopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -136,7 +156,7 @@ public class mainWindow extends javax.swing.JFrame {
         jPanelTopBot.setLayout(jPanelTopBotLayout);
         jPanelTopBotLayout.setHorizontalGroup(
             jPanelTopBotLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSeperatorTopBot, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1546, Short.MAX_VALUE)
+            .addComponent(jSeperatorTopBot, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1357, Short.MAX_VALUE)
         );
         jPanelTopBotLayout.setVerticalGroup(
             jPanelTopBotLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -261,7 +281,7 @@ public class mainWindow extends javax.swing.JFrame {
         jPanelLeftMainLayout.setVerticalGroup(
             jPanelLeftMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanelLeftLeft, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanelLeftCentre, javax.swing.GroupLayout.DEFAULT_SIZE, 495, Short.MAX_VALUE)
+            .addComponent(jPanelLeftCentre, javax.swing.GroupLayout.DEFAULT_SIZE, 450, Short.MAX_VALUE)
             .addComponent(jPanelLeftRight, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jPanelLeftRightRight, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
@@ -277,7 +297,7 @@ public class mainWindow extends javax.swing.JFrame {
         );
         jPanelRightMainLayout.setVerticalGroup(
             jPanelRightMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 495, Short.MAX_VALUE)
+            .addGap(0, 450, Short.MAX_VALUE)
         );
 
         getContentPane().add(jPanelRightMain, java.awt.BorderLayout.LINE_END);
@@ -286,11 +306,11 @@ public class mainWindow extends javax.swing.JFrame {
         jPanelHjem.setLayout(jPanelHjemLayout);
         jPanelHjemLayout.setHorizontalGroup(
             jPanelHjemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1158, Short.MAX_VALUE)
+            .addGap(0, 969, Short.MAX_VALUE)
         );
         jPanelHjemLayout.setVerticalGroup(
             jPanelHjemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 467, Short.MAX_VALUE)
+            .addGap(0, 422, Short.MAX_VALUE)
         );
 
         jTabbedPane1.addTab("Hjem", jPanelHjem);
@@ -373,7 +393,7 @@ public class mainWindow extends javax.swing.JFrame {
             .addGroup(jPanelModulerLayout.createSequentialGroup()
                 .addGap(29, 29, 29)
                 .addComponent(jScrollPaneModuloversikt, javax.swing.GroupLayout.PREFERRED_SIZE, 424, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 277, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 182, Short.MAX_VALUE)
                 .addGroup(jPanelModulerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(jButtonModul4, javax.swing.GroupLayout.DEFAULT_SIZE, 95, Short.MAX_VALUE)
                     .addComponent(jLabelModuler109, javax.swing.GroupLayout.Alignment.LEADING)
@@ -397,7 +417,7 @@ public class mainWindow extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelModulerLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButtonModul13, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(213, Short.MAX_VALUE))
+                .addContainerGap(119, Short.MAX_VALUE))
         );
         jPanelModulerLayout.setVerticalGroup(
             jPanelModulerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -448,11 +468,11 @@ public class mainWindow extends javax.swing.JFrame {
         jPanelInnlevering.setLayout(jPanelInnleveringLayout);
         jPanelInnleveringLayout.setHorizontalGroup(
             jPanelInnleveringLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1158, Short.MAX_VALUE)
+            .addGap(0, 969, Short.MAX_VALUE)
         );
         jPanelInnleveringLayout.setVerticalGroup(
             jPanelInnleveringLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 467, Short.MAX_VALUE)
+            .addGap(0, 422, Short.MAX_VALUE)
         );
 
         jTabbedPane1.addTab("Innlevering", jPanelInnlevering);
@@ -461,11 +481,11 @@ public class mainWindow extends javax.swing.JFrame {
         jPanelMøte.setLayout(jPanelMøteLayout);
         jPanelMøteLayout.setHorizontalGroup(
             jPanelMøteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1158, Short.MAX_VALUE)
+            .addGap(0, 969, Short.MAX_VALUE)
         );
         jPanelMøteLayout.setVerticalGroup(
             jPanelMøteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 467, Short.MAX_VALUE)
+            .addGap(0, 422, Short.MAX_VALUE)
         );
 
         jTabbedPane1.addTab("Møte", jPanelMøte);
@@ -474,28 +494,60 @@ public class mainWindow extends javax.swing.JFrame {
         jPanelStatusrapport.setLayout(jPanelStatusrapportLayout);
         jPanelStatusrapportLayout.setHorizontalGroup(
             jPanelStatusrapportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1158, Short.MAX_VALUE)
+            .addGap(0, 969, Short.MAX_VALUE)
         );
         jPanelStatusrapportLayout.setVerticalGroup(
             jPanelStatusrapportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 467, Short.MAX_VALUE)
+            .addGap(0, 422, Short.MAX_VALUE)
         );
 
         jTabbedPane1.addTab("Statusrapport", jPanelStatusrapport);
 
-        jPanelStatistikk.setLayout(new javax.swing.BoxLayout(jPanelStatistikk, javax.swing.BoxLayout.LINE_AXIS));
+        jPanelStatistikk.setLayout(new java.awt.BorderLayout());
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null}
-            },
-            new String [] {
-                "Fornavn", "Etternavn", "Modul 1", "Modul 2", "Modul 3", "Modul 4", "Modul 5", "Modul 6", "Modul 7", "Modul 8", "Modul 9", "Modul 10", "Title 13", "Modul 12", "Modul 13", "Modul 14"
-            }
-        ));
-        jScrollPaneTabellStatistikk.setViewportView(jTable1);
+        jPanelStatistikkMain.setLayout(new javax.swing.BoxLayout(jPanelStatistikkMain, javax.swing.BoxLayout.LINE_AXIS));
 
-        jPanelStatistikk.add(jScrollPaneTabellStatistikk);
+        jScrollPane2.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+
+        jTextAreaId.setColumns(20);
+        jTextAreaId.setRows(5);
+        jScrollPane2.setViewportView(jTextAreaId);
+
+        jPanelStatistikkMain.add(jScrollPane2);
+
+        jScrollPane3.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+
+        jTextAreaName.setColumns(20);
+        jTextAreaName.setRows(5);
+        jScrollPane3.setViewportView(jTextAreaName);
+
+        jPanelStatistikkMain.add(jScrollPane3);
+
+        jScrollPane4.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+
+        jTextAreaSurname.setColumns(20);
+        jTextAreaSurname.setRows(5);
+        jScrollPane4.setViewportView(jTextAreaSurname);
+
+        jPanelStatistikkMain.add(jScrollPane4);
+
+        jScrollPane5.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+
+        jTextAreaDate.setColumns(20);
+        jTextAreaDate.setRows(5);
+        jScrollPane5.setViewportView(jTextAreaDate);
+
+        jPanelStatistikkMain.add(jScrollPane5);
+
+        jScrollPane6.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+
+        jTextAreaLeverte.setColumns(20);
+        jTextAreaLeverte.setRows(5);
+        jScrollPane6.setViewportView(jTextAreaLeverte);
+
+        jPanelStatistikkMain.add(jScrollPane6);
+
+        jPanelStatistikk.add(jPanelStatistikkMain, java.awt.BorderLayout.CENTER);
 
         jTabbedPane1.addTab("Statistikk", jPanelStatistikk);
 
@@ -503,7 +555,76 @@ public class mainWindow extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+    public void statistikkVisning() {
+        try {
 
+            String db_url = "jdbc:mysql://localhost:3306/slit";
+            String db_user = "root";
+            String db_pass = "root";
+            
+            System.out.println("The URL is: " + db_url);
+            Connection con = DriverManager.getConnection(db_url, db_user, db_pass);
+            
+            Statement stmt = con.createStatement( );
+            String SQL ="SELECT * FROM Statistikk";
+            ResultSet result = stmt.executeQuery (SQL);
+            
+            int id_col = 0;
+            String name = "";
+            String surname ="";
+            String dato = "";
+            int antLeverte = 0;
+
+            while (result.next() ) {
+                id_col = result.getInt("Bruker_brukerId");
+                name = result.getString("brukerFornavn");
+                surname = result.getString("brukerEtternavn");
+                dato = result.getString("levertmodulDato");
+                antLeverte = result.getInt("COUNT(sensurId)");
+              //  System.out.println("ID: "+ " " + id_col +"     " +  "Fornavn: " + 
+              //      "     " + name + "     " + "Etternavn: " +" "+ surname + "     " 
+              //          + "Dato og klokkeslett:" + " " + dato + "     "
+              //      + "Antall godkjente moduler:" + antLeverte);
+                
+                jTextAreaId.append(" " + "Bruker ID:"+ " " + id_col + newline);
+                jTextAreaName.append(" " + "Fornavn:" + " " + name + newline);
+                jTextAreaSurname.append(" " + "Etternavn:" + " " + surname + newline);
+                jTextAreaDate.append(" " + "Aktivitet:" + " " + dato + newline);
+                jTextAreaLeverte.append(" " + "Moduler med sensur:" + " " + antLeverte + newline);
+                /**
+                " +  "Fornavn: " + 
+                    " " + name + "          " + "Etternavn: " +" "+ surname + "          " 
+                        + "Dato og klokkeslett:" + " " + dato + "          "
+                    + "Antall godkjente moduler:" + antLeverte + " "
+                        + newline);
+                        * /
+                        
+                // For å gjøre int om til string, om det trengs
+                /**
+                StringBuilder ID = new StringBuilder();
+                    ID.append("");
+                    ID.append(id_col);
+                    String idString = ID.toString();
+                
+                StringBuilder leverte = new StringBuilder();
+                    leverte.append("");
+                    leverte.append(antLeverte);
+                    String antLeverteString = leverte.toString();
+               */     
+            }
+            
+            
+            
+            
+           
+        }
+          catch (SQLException err) {
+            System.out.println( err.getMessage( ));
+            
+        } 
+       
+        
+    }
     private void jButtonModul5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonModul5ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonModul5ActionPerformed
@@ -543,7 +664,7 @@ public class mainWindow extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(mainWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-
+        
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -584,20 +705,29 @@ public class mainWindow extends javax.swing.JFrame {
     private javax.swing.JPanel jPanelMøte;
     private javax.swing.JPanel jPanelRightMain;
     private javax.swing.JPanel jPanelStatistikk;
+    private javax.swing.JPanel jPanelStatistikkMain;
     private javax.swing.JPanel jPanelStatusrapport;
     private javax.swing.JPanel jPanelTopBot;
     private javax.swing.JPanel jPanelTopCentre;
     private javax.swing.JPanel jPanelTopMain;
     private javax.swing.JPanel jPanelTopTop;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPaneMeny;
     private javax.swing.JScrollPane jScrollPaneModuloversikt;
-    private javax.swing.JScrollPane jScrollPaneTabellStatistikk;
     private javax.swing.JSeparator jSeperatorLeftLeft;
     private javax.swing.JSeparator jSeperatorLeftRight;
     private javax.swing.JSeparator jSeperatorTopBot;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTextArea jTextArea2;
+    private javax.swing.JTextArea jTextAreaDate;
+    private javax.swing.JTextArea jTextAreaId;
+    private javax.swing.JTextArea jTextAreaLeverte;
+    private javax.swing.JTextArea jTextAreaName;
+    private javax.swing.JTextArea jTextAreaSurname;
     private javax.swing.JTree jTreeMeny;
     // End of variables declaration//GEN-END:variables
 }
