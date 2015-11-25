@@ -68,8 +68,28 @@ public class mainWindow extends javax.swing.JFrame {
         jButtonModul13 = new javax.swing.JButton();
         jButtonModul14 = new javax.swing.JButton();
         jPanelInnlevering = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jList1 = new javax.swing.JList();
+        jLabel1 = new javax.swing.JLabel();
         jPanelMøte = new javax.swing.JPanel();
         jPanelStatusrapport = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
+        jLabelQuestion1Statusrapp = new javax.swing.JLabel();
+        ModulValg = new javax.swing.JComboBox();
+        jLabelQuestion2Statusrapp = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextAreaAnswerQuestion2 = new javax.swing.JTextArea();
+        jLabelQuestion3Statusrapp = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTextAreaAnswerQuestion3 = new javax.swing.JTextArea();
+        jLabelQuestion4Statusrapp = new javax.swing.JLabel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        jTextAreaAnswerQuestion4 = new javax.swing.JTextArea();
+        jLabelQuestion5Statusrapp = new javax.swing.JLabel();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        jTextAreaAnswerQuestion5 = new javax.swing.JTextArea();
+        jButtonLagre = new javax.swing.JButton();
+        jLabelStatusrapport = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -258,7 +278,7 @@ public class mainWindow extends javax.swing.JFrame {
         jPanelLeftMainLayout.setVerticalGroup(
             jPanelLeftMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanelLeftLeft, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanelLeftCentre, javax.swing.GroupLayout.DEFAULT_SIZE, 495, Short.MAX_VALUE)
+            .addComponent(jPanelLeftCentre, javax.swing.GroupLayout.DEFAULT_SIZE, 511, Short.MAX_VALUE)
             .addComponent(jPanelLeftRight, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jPanelLeftRightRight, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
@@ -274,7 +294,7 @@ public class mainWindow extends javax.swing.JFrame {
         );
         jPanelRightMainLayout.setVerticalGroup(
             jPanelRightMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 495, Short.MAX_VALUE)
+            .addGap(0, 511, Short.MAX_VALUE)
         );
 
         getContentPane().add(jPanelRightMain, java.awt.BorderLayout.LINE_END);
@@ -287,7 +307,7 @@ public class mainWindow extends javax.swing.JFrame {
         );
         jPanelHjemLayout.setVerticalGroup(
             jPanelHjemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 467, Short.MAX_VALUE)
+            .addGap(0, 483, Short.MAX_VALUE)
         );
 
         jTabbedPane1.addTab("Hjem", jPanelHjem);
@@ -441,15 +461,39 @@ public class mainWindow extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Moduler", jPanelModuler);
 
+        jList1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jList1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jList1.setForeground(new java.awt.Color(0, 0, 204));
+        jList1.setModel(new javax.swing.AbstractListModel() {
+            String[] strings = { "Innlevering modul 1", "", "Innlevering modul 2", "", "Innlevering modul 3", "", "Innlevering modul 4", "", "Innlevering modul 5", "", "Innlevering modul 6", "", "Innlevering modul 7", "", "Innlevering modul 8", "", "Innlevering modul 9", "", "Innlevering modul 10", "", "Innlevering modul 11", "", "Innlevering modul 12", "", "Innlevering modul 13", "", "Innlevering modul 14" };
+            public int getSize() { return strings.length; }
+            public Object getElementAt(int i) { return strings[i]; }
+        });
+        jList1.setToolTipText("");
+        jScrollPane2.setViewportView(jList1);
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel1.setText("Modul innleveringer:");
+
         javax.swing.GroupLayout jPanelInnleveringLayout = new javax.swing.GroupLayout(jPanelInnlevering);
         jPanelInnlevering.setLayout(jPanelInnleveringLayout);
         jPanelInnleveringLayout.setHorizontalGroup(
             jPanelInnleveringLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1158, Short.MAX_VALUE)
+            .addGroup(jPanelInnleveringLayout.createSequentialGroup()
+                .addGap(91, 91, 91)
+                .addGroup(jPanelInnleveringLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 625, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(442, Short.MAX_VALUE))
         );
         jPanelInnleveringLayout.setVerticalGroup(
             jPanelInnleveringLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 467, Short.MAX_VALUE)
+            .addGroup(jPanelInnleveringLayout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addComponent(jLabel1)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(80, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Innlevering", jPanelInnlevering);
@@ -462,21 +506,104 @@ public class mainWindow extends javax.swing.JFrame {
         );
         jPanelMøteLayout.setVerticalGroup(
             jPanelMøteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 467, Short.MAX_VALUE)
+            .addGap(0, 483, Short.MAX_VALUE)
         );
 
         jTabbedPane1.addTab("Møte", jPanelMøte);
 
-        javax.swing.GroupLayout jPanelStatusrapportLayout = new javax.swing.GroupLayout(jPanelStatusrapport);
-        jPanelStatusrapport.setLayout(jPanelStatusrapportLayout);
-        jPanelStatusrapportLayout.setHorizontalGroup(
-            jPanelStatusrapportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1158, Short.MAX_VALUE)
+        jPanelStatusrapport.setLayout(new javax.swing.BoxLayout(jPanelStatusrapport, javax.swing.BoxLayout.LINE_AXIS));
+
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        jPanel2.setForeground(new java.awt.Color(0, 0, 204));
+        jPanel2.setToolTipText("Statusrapport");
+
+        jLabelQuestion1Statusrapp.setText("Hvilken modul jobber du med?");
+
+        ModulValg.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Modul 1", "Modul 2", "Modul 3", "Modul 4 ", "Modul 5", "Modul 6 ", "Modul 7", "Modul 8", "Modul 9", "Modul 10" }));
+
+        jLabelQuestion2Statusrapp.setText("Hva har du jobbet med denne uken?");
+
+        jTextAreaAnswerQuestion2.setColumns(20);
+        jTextAreaAnswerQuestion2.setRows(5);
+        jScrollPane1.setViewportView(jTextAreaAnswerQuestion2);
+
+        jLabelQuestion3Statusrapp.setText("Hva har du lært denne uken?");
+
+        jTextAreaAnswerQuestion3.setColumns(20);
+        jTextAreaAnswerQuestion3.setRows(5);
+        jScrollPane3.setViewportView(jTextAreaAnswerQuestion3);
+
+        jLabelQuestion4Statusrapp.setText("Er det noe du har hatt problemer med?");
+
+        jTextAreaAnswerQuestion4.setColumns(20);
+        jTextAreaAnswerQuestion4.setRows(5);
+        jScrollPane4.setViewportView(jTextAreaAnswerQuestion4);
+
+        jLabelQuestion5Statusrapp.setText("Har du et tema du ønsker å gå igjennom på forelesning?");
+
+        jTextAreaAnswerQuestion5.setColumns(20);
+        jTextAreaAnswerQuestion5.setRows(5);
+        jScrollPane5.setViewportView(jTextAreaAnswerQuestion5);
+
+        jButtonLagre.setText("Lagre/Send");
+
+        jLabelStatusrapport.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabelStatusrapport.setText("Statusrapport");
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(90, 90, 90)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(jButtonLagre)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jScrollPane5)
+                            .addComponent(ModulValg, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabelQuestion2Statusrapp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabelQuestion1Statusrapp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabelQuestion4Statusrapp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabelQuestion5Statusrapp, javax.swing.GroupLayout.DEFAULT_SIZE, 544, Short.MAX_VALUE)
+                            .addComponent(jLabelQuestion3Statusrapp)
+                            .addComponent(jLabelStatusrapport, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane4)))
+                    .addComponent(jScrollPane1)
+                    .addComponent(jScrollPane3))
+                .addContainerGap(514, Short.MAX_VALUE))
         );
-        jPanelStatusrapportLayout.setVerticalGroup(
-            jPanelStatusrapportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 467, Short.MAX_VALUE)
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabelStatusrapport)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabelQuestion1Statusrapp)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(ModulValg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabelQuestion2Statusrapp)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabelQuestion3Statusrapp)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabelQuestion4Statusrapp)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabelQuestion5Statusrapp)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jButtonLagre)
+                .addGap(0, 27, Short.MAX_VALUE))
         );
+
+        jPanelStatusrapport.add(jPanel2);
 
         jTabbedPane1.addTab("Statusrapport", jPanelStatusrapport);
 
@@ -534,6 +661,8 @@ public class mainWindow extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox ModulValg;
+    private javax.swing.JButton jButtonLagre;
     private javax.swing.JButton jButtonModul1;
     private javax.swing.JButton jButtonModul10;
     private javax.swing.JButton jButtonModul11;
@@ -549,10 +678,19 @@ public class mainWindow extends javax.swing.JFrame {
     private javax.swing.JButton jButtonModul8;
     private javax.swing.JButton jButtonModul9;
     private javax.swing.JButton jButtonProfil;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabelModuler109;
     private javax.swing.JLabel jLabelModuler110;
+    private javax.swing.JLabel jLabelQuestion1Statusrapp;
+    private javax.swing.JLabel jLabelQuestion2Statusrapp;
+    private javax.swing.JLabel jLabelQuestion3Statusrapp;
+    private javax.swing.JLabel jLabelQuestion4Statusrapp;
+    private javax.swing.JLabel jLabelQuestion5Statusrapp;
+    private javax.swing.JLabel jLabelStatusrapport;
     private javax.swing.JLabel jLabelTittel;
+    private javax.swing.JList jList1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanelBotMain;
     private javax.swing.JPanel jPanelHjem;
     private javax.swing.JPanel jPanelInnlevering;
@@ -569,6 +707,11 @@ public class mainWindow extends javax.swing.JFrame {
     private javax.swing.JPanel jPanelTopCentre;
     private javax.swing.JPanel jPanelTopMain;
     private javax.swing.JPanel jPanelTopTop;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPaneMeny;
     private javax.swing.JScrollPane jScrollPaneModuloversikt;
     private javax.swing.JSeparator jSeperatorLeftLeft;
@@ -576,6 +719,10 @@ public class mainWindow extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeperatorTopBot;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTextArea jTextArea2;
+    private javax.swing.JTextArea jTextAreaAnswerQuestion2;
+    private javax.swing.JTextArea jTextAreaAnswerQuestion3;
+    private javax.swing.JTextArea jTextAreaAnswerQuestion4;
+    private javax.swing.JTextArea jTextAreaAnswerQuestion5;
     private javax.swing.JTree jTreeMeny;
     // End of variables declaration//GEN-END:variables
 }
