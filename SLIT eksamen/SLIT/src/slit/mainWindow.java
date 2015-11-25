@@ -80,7 +80,6 @@ public class mainWindow extends javax.swing.JFrame {
         jButtonModul14 = new javax.swing.JButton();
         jPanelInnlevering = new javax.swing.JPanel();
         jPanelMøte = new javax.swing.JPanel();
-        jPanelStatusrapport = new javax.swing.JPanel();
         jPanelStatistikk = new javax.swing.JPanel();
         jPanelStatistikkMain = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -93,6 +92,24 @@ public class mainWindow extends javax.swing.JFrame {
         jTextAreaDate = new javax.swing.JTextArea();
         jScrollPane6 = new javax.swing.JScrollPane();
         jTextAreaLeverte = new javax.swing.JTextArea();
+        jPanelStatusrapport = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabelStatusrapportQuestion1 = new javax.swing.JLabel();
+        jLabelStatusrapportQuestion3 = new javax.swing.JLabel();
+        jLabelStatusrapportQuestion5 = new javax.swing.JLabel();
+        jLabelStatusrapportQuestion4 = new javax.swing.JLabel();
+        jScrollPane7 = new javax.swing.JScrollPane();
+        jTextArea3 = new javax.swing.JTextArea();
+        jScrollPane8 = new javax.swing.JScrollPane();
+        jTextArea4 = new javax.swing.JTextArea();
+        jScrollPane9 = new javax.swing.JScrollPane();
+        jTextArea5 = new javax.swing.JTextArea();
+        jScrollPane10 = new javax.swing.JScrollPane();
+        jTextArea6 = new javax.swing.JTextArea();
+        jButtonSendRapport = new javax.swing.JButton();
+        jScrollPane11 = new javax.swing.JScrollPane();
+        jTextArea7 = new javax.swing.JTextArea();
+        jLabelStatusrapportQuestion2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -281,7 +298,7 @@ public class mainWindow extends javax.swing.JFrame {
         jPanelLeftMainLayout.setVerticalGroup(
             jPanelLeftMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanelLeftLeft, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanelLeftCentre, javax.swing.GroupLayout.DEFAULT_SIZE, 450, Short.MAX_VALUE)
+            .addComponent(jPanelLeftCentre, javax.swing.GroupLayout.DEFAULT_SIZE, 495, Short.MAX_VALUE)
             .addComponent(jPanelLeftRight, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jPanelLeftRightRight, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
@@ -297,7 +314,7 @@ public class mainWindow extends javax.swing.JFrame {
         );
         jPanelRightMainLayout.setVerticalGroup(
             jPanelRightMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 450, Short.MAX_VALUE)
+            .addGap(0, 495, Short.MAX_VALUE)
         );
 
         getContentPane().add(jPanelRightMain, java.awt.BorderLayout.LINE_END);
@@ -310,7 +327,7 @@ public class mainWindow extends javax.swing.JFrame {
         );
         jPanelHjemLayout.setVerticalGroup(
             jPanelHjemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 422, Short.MAX_VALUE)
+            .addGap(0, 467, Short.MAX_VALUE)
         );
 
         jTabbedPane1.addTab("Hjem", jPanelHjem);
@@ -472,7 +489,7 @@ public class mainWindow extends javax.swing.JFrame {
         );
         jPanelInnleveringLayout.setVerticalGroup(
             jPanelInnleveringLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 422, Short.MAX_VALUE)
+            .addGap(0, 467, Short.MAX_VALUE)
         );
 
         jTabbedPane1.addTab("Innlevering", jPanelInnlevering);
@@ -485,23 +502,10 @@ public class mainWindow extends javax.swing.JFrame {
         );
         jPanelMøteLayout.setVerticalGroup(
             jPanelMøteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 422, Short.MAX_VALUE)
+            .addGap(0, 467, Short.MAX_VALUE)
         );
 
         jTabbedPane1.addTab("Møte", jPanelMøte);
-
-        javax.swing.GroupLayout jPanelStatusrapportLayout = new javax.swing.GroupLayout(jPanelStatusrapport);
-        jPanelStatusrapport.setLayout(jPanelStatusrapportLayout);
-        jPanelStatusrapportLayout.setHorizontalGroup(
-            jPanelStatusrapportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 969, Short.MAX_VALUE)
-        );
-        jPanelStatusrapportLayout.setVerticalGroup(
-            jPanelStatusrapportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 422, Short.MAX_VALUE)
-        );
-
-        jTabbedPane1.addTab("Statusrapport", jPanelStatusrapport);
 
         jPanelStatistikk.setLayout(new java.awt.BorderLayout());
 
@@ -550,6 +554,103 @@ public class mainWindow extends javax.swing.JFrame {
         jPanelStatistikk.add(jPanelStatistikkMain, java.awt.BorderLayout.CENTER);
 
         jTabbedPane1.addTab("Statistikk", jPanelStatistikk);
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(51, 51, 255));
+        jLabel1.setText("Statusrapport:");
+
+        jLabelStatusrapportQuestion1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabelStatusrapportQuestion1.setText("Hvilken modul har du jobbet med?");
+
+        jLabelStatusrapportQuestion3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabelStatusrapportQuestion3.setText("Har du møtt på noen problemer?");
+
+        jLabelStatusrapportQuestion5.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabelStatusrapportQuestion5.setText("Har du et tema du ønsker at vi skal gjennom gå i en forelsning? ");
+
+        jLabelStatusrapportQuestion4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabelStatusrapportQuestion4.setText("Hva har du lært?");
+
+        jTextArea3.setColumns(20);
+        jTextArea3.setRows(5);
+        jScrollPane7.setViewportView(jTextArea3);
+
+        jTextArea4.setColumns(20);
+        jTextArea4.setRows(5);
+        jScrollPane8.setViewportView(jTextArea4);
+
+        jTextArea5.setColumns(20);
+        jTextArea5.setRows(5);
+        jScrollPane9.setViewportView(jTextArea5);
+
+        jTextArea6.setColumns(20);
+        jTextArea6.setRows(5);
+        jScrollPane10.setViewportView(jTextArea6);
+
+        jButtonSendRapport.setText("Send/lagre");
+
+        jScrollPane11.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
+
+        jTextArea7.setColumns(20);
+        jTextArea7.setRows(5);
+        jScrollPane11.setViewportView(jTextArea7);
+
+        jLabelStatusrapportQuestion2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabelStatusrapportQuestion2.setText("Hva gar du jobbet med denne uken?");
+
+        javax.swing.GroupLayout jPanelStatusrapportLayout = new javax.swing.GroupLayout(jPanelStatusrapport);
+        jPanelStatusrapport.setLayout(jPanelStatusrapportLayout);
+        jPanelStatusrapportLayout.setHorizontalGroup(
+            jPanelStatusrapportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelStatusrapportLayout.createSequentialGroup()
+                .addGap(133, 133, 133)
+                .addGroup(jPanelStatusrapportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jButtonSendRapport)
+                    .addGroup(jPanelStatusrapportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabelStatusrapportQuestion1)
+                        .addComponent(jLabel1)
+                        .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabelStatusrapportQuestion5)
+                        .addComponent(jLabelStatusrapportQuestion2)
+                        .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabelStatusrapportQuestion3)
+                        .addComponent(jLabelStatusrapportQuestion4)
+                        .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(456, Short.MAX_VALUE))
+        );
+        jPanelStatusrapportLayout.setVerticalGroup(
+            jPanelStatusrapportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelStatusrapportLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabelStatusrapportQuestion1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabelStatusrapportQuestion2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabelStatusrapportQuestion3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabelStatusrapportQuestion4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabelStatusrapportQuestion5, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButtonSendRapport)
+                .addContainerGap(22, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("Statusrapport", jPanelStatusrapport);
 
         getContentPane().add(jTabbedPane1, java.awt.BorderLayout.CENTER);
 
@@ -689,9 +790,16 @@ public class mainWindow extends javax.swing.JFrame {
     private javax.swing.JButton jButtonModul8;
     private javax.swing.JButton jButtonModul9;
     private javax.swing.JButton jButtonProfil;
+    private javax.swing.JButton jButtonSendRapport;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabelModuler109;
     private javax.swing.JLabel jLabelModuler110;
+    private javax.swing.JLabel jLabelStatusrapportQuestion1;
+    private javax.swing.JLabel jLabelStatusrapportQuestion2;
+    private javax.swing.JLabel jLabelStatusrapportQuestion3;
+    private javax.swing.JLabel jLabelStatusrapportQuestion4;
+    private javax.swing.JLabel jLabelStatusrapportQuestion5;
     private javax.swing.JLabel jLabelTittel;
     private javax.swing.JPanel jPanelBotMain;
     private javax.swing.JPanel jPanelHjem;
@@ -711,11 +819,16 @@ public class mainWindow extends javax.swing.JFrame {
     private javax.swing.JPanel jPanelTopCentre;
     private javax.swing.JPanel jPanelTopMain;
     private javax.swing.JPanel jPanelTopTop;
+    private javax.swing.JScrollPane jScrollPane10;
+    private javax.swing.JScrollPane jScrollPane11;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
+    private javax.swing.JScrollPane jScrollPane7;
+    private javax.swing.JScrollPane jScrollPane8;
+    private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JScrollPane jScrollPaneMeny;
     private javax.swing.JScrollPane jScrollPaneModuloversikt;
     private javax.swing.JSeparator jSeperatorLeftLeft;
@@ -723,6 +836,11 @@ public class mainWindow extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeperatorTopBot;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTextArea jTextArea2;
+    private javax.swing.JTextArea jTextArea3;
+    private javax.swing.JTextArea jTextArea4;
+    private javax.swing.JTextArea jTextArea5;
+    private javax.swing.JTextArea jTextArea6;
+    private javax.swing.JTextArea jTextArea7;
     private javax.swing.JTextArea jTextAreaDate;
     private javax.swing.JTextArea jTextAreaId;
     private javax.swing.JTextArea jTextAreaLeverte;
