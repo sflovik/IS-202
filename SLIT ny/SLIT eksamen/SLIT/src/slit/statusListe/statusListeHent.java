@@ -3,26 +3,22 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package slit;
-import java.sql.*;
+package slit.statusListe;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
 /**
  *
  * @author Sondre
  */
-public class Main {
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-<<<<<<< HEAD
-        slit.ejb.login.Login oppstart = new slit.ejb.login.Login(); 
-        oppstart.setVisible(true);
+public class statusListeHent {
+    
+  public static void hentListe(String[] args) {
        
-=======
-        register gui = new register(); 
-        gui.setVisible(true);
->>>>>>> f01fb41afb1d05b43a4ef30bd5a637a054432f2d
         try {
 
             String db_url = "jdbc:mysql://localhost:3306/slit";
@@ -34,7 +30,6 @@ public class Main {
             
             Statement stmt = con.createStatement( );
             String SQL ="SELECT * FROM Student";
-            String fag ="SELECT fagkode FROM Fag"; 
             ResultSet result = stmt.executeQuery (SQL);
             
             while (result.next() ) {

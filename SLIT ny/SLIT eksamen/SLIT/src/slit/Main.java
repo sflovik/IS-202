@@ -15,14 +15,9 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-<<<<<<< HEAD
         slit.ejb.login.Login oppstart = new slit.ejb.login.Login(); 
         oppstart.setVisible(true);
        
-=======
-        register gui = new register(); 
-        gui.setVisible(true);
->>>>>>> f01fb41afb1d05b43a4ef30bd5a637a054432f2d
         try {
 
             String db_url = "jdbc:mysql://localhost:3306/slit";
