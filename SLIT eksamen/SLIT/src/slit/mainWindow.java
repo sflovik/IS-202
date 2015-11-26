@@ -5,6 +5,12 @@
  */
 package slit;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
 /**
  *
  * @author Sondre
@@ -14,8 +20,13 @@ public class mainWindow extends javax.swing.JFrame {
     /**
      * Creates new form mainWindow
      */
+    private ArrayList<mainWindow> test;
+    final static String newline = "\n";
     public mainWindow() {
         initComponents();
+        statistikkVisning();
+            
+        
     }
 
     /**
@@ -26,7 +37,9 @@ public class mainWindow extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
 
+        jToggleButton1 = new javax.swing.JToggleButton();
         jPanelTopMain = new javax.swing.JPanel();
         jPanelTopCentre = new javax.swing.JPanel();
         jButtonProfil = new javax.swing.JButton();
@@ -68,8 +81,54 @@ public class mainWindow extends javax.swing.JFrame {
         jButtonModul13 = new javax.swing.JButton();
         jButtonModul14 = new javax.swing.JButton();
         jPanelInnlevering = new javax.swing.JPanel();
-        jPanelMøte = new javax.swing.JPanel();
+        jPanelStatistikk = new javax.swing.JPanel();
+        jPanelStatistikkMain = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTextAreaId = new javax.swing.JTextArea();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTextAreaName = new javax.swing.JTextArea();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        jTextAreaSurname = new javax.swing.JTextArea();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        jTextAreaDate = new javax.swing.JTextArea();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        jTextAreaLeverte = new javax.swing.JTextArea();
         jPanelStatusrapport = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabelStatusrapportQuestion1 = new javax.swing.JLabel();
+        jLabelStatusrapportQuestion3 = new javax.swing.JLabel();
+        jLabelStatusrapportQuestion5 = new javax.swing.JLabel();
+        jLabelStatusrapportQuestion4 = new javax.swing.JLabel();
+        jScrollPane7 = new javax.swing.JScrollPane();
+        jTextArea3 = new javax.swing.JTextArea();
+        jScrollPane8 = new javax.swing.JScrollPane();
+        jTextArea4 = new javax.swing.JTextArea();
+        jScrollPane9 = new javax.swing.JScrollPane();
+        jTextArea5 = new javax.swing.JTextArea();
+        jScrollPane10 = new javax.swing.JScrollPane();
+        jTextArea6 = new javax.swing.JTextArea();
+        jButtonSendRapport = new javax.swing.JButton();
+        jScrollPane11 = new javax.swing.JScrollPane();
+        jTextArea7 = new javax.swing.JTextArea();
+        jLabelStatusrapportQuestion2 = new javax.swing.JLabel();
+        jPanelMøte = new javax.swing.JPanel();
+        jPanelMøteLeft = new javax.swing.JPanel();
+        jTextFieldDeltaker = new javax.swing.JTextField();
+        jLabelMøtedeltaker = new javax.swing.JLabel();
+        jLabelTidspunkt = new javax.swing.JLabel();
+        jTextFieldTidspunkt = new javax.swing.JTextField();
+        jLabelSted = new javax.swing.JLabel();
+        jTextFieldSted = new javax.swing.JTextField();
+        jButtonLagre = new javax.swing.JButton();
+        jButtonSlett = new javax.swing.JButton();
+        jPanelMøteTop = new javax.swing.JPanel();
+        jPanelMøtebot = new javax.swing.JPanel();
+        jPanelMøteRight = new javax.swing.JPanel();
+        jPanelMøteCentre = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+
+        jToggleButton1.setText("jToggleButton1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -96,7 +155,7 @@ public class mainWindow extends javax.swing.JFrame {
                     .addGroup(jPanelTopCentreLayout.createSequentialGroup()
                         .addGap(116, 116, 116)
                         .addComponent(jLabelTittel)
-                        .addContainerGap(869, Short.MAX_VALUE))))
+                        .addContainerGap(680, Short.MAX_VALUE))))
         );
         jPanelTopCentreLayout.setVerticalGroup(
             jPanelTopCentreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -117,7 +176,7 @@ public class mainWindow extends javax.swing.JFrame {
         jPanelTopTop.setLayout(jPanelTopTopLayout);
         jPanelTopTopLayout.setHorizontalGroup(
             jPanelTopTopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1546, Short.MAX_VALUE)
+            .addGap(0, 1387, Short.MAX_VALUE)
         );
         jPanelTopTopLayout.setVerticalGroup(
             jPanelTopTopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -133,7 +192,7 @@ public class mainWindow extends javax.swing.JFrame {
         jPanelTopBot.setLayout(jPanelTopBotLayout);
         jPanelTopBotLayout.setHorizontalGroup(
             jPanelTopBotLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSeperatorTopBot, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1546, Short.MAX_VALUE)
+            .addComponent(jSeperatorTopBot, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1387, Short.MAX_VALUE)
         );
         jPanelTopBotLayout.setVerticalGroup(
             jPanelTopBotLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -258,7 +317,7 @@ public class mainWindow extends javax.swing.JFrame {
         jPanelLeftMainLayout.setVerticalGroup(
             jPanelLeftMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanelLeftLeft, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanelLeftCentre, javax.swing.GroupLayout.DEFAULT_SIZE, 495, Short.MAX_VALUE)
+            .addComponent(jPanelLeftCentre, javax.swing.GroupLayout.DEFAULT_SIZE, 707, Short.MAX_VALUE)
             .addComponent(jPanelLeftRight, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jPanelLeftRightRight, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
@@ -274,7 +333,7 @@ public class mainWindow extends javax.swing.JFrame {
         );
         jPanelRightMainLayout.setVerticalGroup(
             jPanelRightMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 495, Short.MAX_VALUE)
+            .addGap(0, 707, Short.MAX_VALUE)
         );
 
         getContentPane().add(jPanelRightMain, java.awt.BorderLayout.LINE_END);
@@ -283,11 +342,11 @@ public class mainWindow extends javax.swing.JFrame {
         jPanelHjem.setLayout(jPanelHjemLayout);
         jPanelHjemLayout.setHorizontalGroup(
             jPanelHjemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1158, Short.MAX_VALUE)
+            .addGap(0, 997, Short.MAX_VALUE)
         );
         jPanelHjemLayout.setVerticalGroup(
             jPanelHjemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 467, Short.MAX_VALUE)
+            .addGap(0, 677, Short.MAX_VALUE)
         );
 
         jTabbedPane1.addTab("Hjem", jPanelHjem);
@@ -370,7 +429,7 @@ public class mainWindow extends javax.swing.JFrame {
             .addGroup(jPanelModulerLayout.createSequentialGroup()
                 .addGap(29, 29, 29)
                 .addComponent(jScrollPaneModuloversikt, javax.swing.GroupLayout.PREFERRED_SIZE, 424, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 277, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 196, Short.MAX_VALUE)
                 .addGroup(jPanelModulerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(jButtonModul4, javax.swing.GroupLayout.DEFAULT_SIZE, 95, Short.MAX_VALUE)
                     .addComponent(jLabelModuler109, javax.swing.GroupLayout.Alignment.LEADING)
@@ -394,7 +453,7 @@ public class mainWindow extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelModulerLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButtonModul13, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(213, Short.MAX_VALUE))
+                .addContainerGap(133, Short.MAX_VALUE))
         );
         jPanelModulerLayout.setVerticalGroup(
             jPanelModulerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -445,46 +504,351 @@ public class mainWindow extends javax.swing.JFrame {
         jPanelInnlevering.setLayout(jPanelInnleveringLayout);
         jPanelInnleveringLayout.setHorizontalGroup(
             jPanelInnleveringLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1158, Short.MAX_VALUE)
+            .addGap(0, 997, Short.MAX_VALUE)
         );
         jPanelInnleveringLayout.setVerticalGroup(
             jPanelInnleveringLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 467, Short.MAX_VALUE)
+            .addGap(0, 677, Short.MAX_VALUE)
         );
 
         jTabbedPane1.addTab("Innlevering", jPanelInnlevering);
 
-        javax.swing.GroupLayout jPanelMøteLayout = new javax.swing.GroupLayout(jPanelMøte);
-        jPanelMøte.setLayout(jPanelMøteLayout);
-        jPanelMøteLayout.setHorizontalGroup(
-            jPanelMøteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1158, Short.MAX_VALUE)
-        );
-        jPanelMøteLayout.setVerticalGroup(
-            jPanelMøteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 467, Short.MAX_VALUE)
-        );
+        jPanelStatistikk.setLayout(new java.awt.BorderLayout());
 
-        jTabbedPane1.addTab("Møte", jPanelMøte);
+        jPanelStatistikkMain.setLayout(new javax.swing.BoxLayout(jPanelStatistikkMain, javax.swing.BoxLayout.LINE_AXIS));
+
+        jScrollPane2.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+
+        jTextAreaId.setColumns(20);
+        jTextAreaId.setRows(5);
+        jScrollPane2.setViewportView(jTextAreaId);
+
+        jPanelStatistikkMain.add(jScrollPane2);
+
+        jScrollPane3.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+
+        jTextAreaName.setColumns(20);
+        jTextAreaName.setRows(5);
+        jScrollPane3.setViewportView(jTextAreaName);
+
+        jPanelStatistikkMain.add(jScrollPane3);
+
+        jScrollPane4.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+
+        jTextAreaSurname.setColumns(20);
+        jTextAreaSurname.setRows(5);
+        jScrollPane4.setViewportView(jTextAreaSurname);
+
+        jPanelStatistikkMain.add(jScrollPane4);
+
+        jScrollPane5.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+
+        jTextAreaDate.setColumns(20);
+        jTextAreaDate.setRows(5);
+        jScrollPane5.setViewportView(jTextAreaDate);
+
+        jPanelStatistikkMain.add(jScrollPane5);
+
+        jScrollPane6.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+
+        jTextAreaLeverte.setColumns(20);
+        jTextAreaLeverte.setRows(5);
+        jScrollPane6.setViewportView(jTextAreaLeverte);
+
+        jPanelStatistikkMain.add(jScrollPane6);
+
+        jPanelStatistikk.add(jPanelStatistikkMain, java.awt.BorderLayout.CENTER);
+
+        jTabbedPane1.addTab("Statistikk", jPanelStatistikk);
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(51, 51, 255));
+        jLabel1.setText("Statusrapport:");
+
+        jLabelStatusrapportQuestion1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabelStatusrapportQuestion1.setText("Hvilken modul har du jobbet med?");
+
+        jLabelStatusrapportQuestion3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabelStatusrapportQuestion3.setText("Har du møtt på noen problemer?");
+
+        jLabelStatusrapportQuestion5.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabelStatusrapportQuestion5.setText("Har du et tema du ønsker at vi skal gjennom gå i en forelsning? ");
+
+        jLabelStatusrapportQuestion4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabelStatusrapportQuestion4.setText("Hva har du lært?");
+
+        jTextArea3.setColumns(20);
+        jTextArea3.setRows(5);
+        jScrollPane7.setViewportView(jTextArea3);
+
+        jTextArea4.setColumns(20);
+        jTextArea4.setRows(5);
+        jScrollPane8.setViewportView(jTextArea4);
+
+        jTextArea5.setColumns(20);
+        jTextArea5.setRows(5);
+        jScrollPane9.setViewportView(jTextArea5);
+
+        jTextArea6.setColumns(20);
+        jTextArea6.setRows(5);
+        jScrollPane10.setViewportView(jTextArea6);
+
+        jButtonSendRapport.setText("Send/lagre");
+
+        jScrollPane11.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
+
+        jTextArea7.setColumns(20);
+        jTextArea7.setRows(5);
+        jScrollPane11.setViewportView(jTextArea7);
+
+        jLabelStatusrapportQuestion2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabelStatusrapportQuestion2.setText("Hva gar du jobbet med denne uken?");
 
         javax.swing.GroupLayout jPanelStatusrapportLayout = new javax.swing.GroupLayout(jPanelStatusrapport);
         jPanelStatusrapport.setLayout(jPanelStatusrapportLayout);
         jPanelStatusrapportLayout.setHorizontalGroup(
             jPanelStatusrapportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1158, Short.MAX_VALUE)
+            .addGroup(jPanelStatusrapportLayout.createSequentialGroup()
+                .addGap(133, 133, 133)
+                .addGroup(jPanelStatusrapportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jButtonSendRapport)
+                    .addGroup(jPanelStatusrapportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabelStatusrapportQuestion1)
+                        .addComponent(jLabel1)
+                        .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabelStatusrapportQuestion5)
+                        .addComponent(jLabelStatusrapportQuestion2)
+                        .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabelStatusrapportQuestion3)
+                        .addComponent(jLabelStatusrapportQuestion4)
+                        .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(484, Short.MAX_VALUE))
         );
         jPanelStatusrapportLayout.setVerticalGroup(
             jPanelStatusrapportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 467, Short.MAX_VALUE)
+            .addGroup(jPanelStatusrapportLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabelStatusrapportQuestion1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabelStatusrapportQuestion2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabelStatusrapportQuestion3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabelStatusrapportQuestion4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabelStatusrapportQuestion5, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButtonSendRapport)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Statusrapport", jPanelStatusrapport);
+
+        jPanelMøteLeft.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanelMøteLeft.setLayout(new java.awt.GridBagLayout());
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.ipadx = 126;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(35, 25, 0, 0);
+        jPanelMøteLeft.add(jTextFieldDeltaker, gridBagConstraints);
+
+        jLabelMøtedeltaker.setText("Møtedeltaker:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(38, 28, 0, 0);
+        jPanelMøteLeft.add(jLabelMøtedeltaker, gridBagConstraints);
+
+        jLabelTidspunkt.setText("Tidspunkt:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(45, 28, 0, 0);
+        jPanelMøteLeft.add(jLabelTidspunkt, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.ipadx = 126;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(42, 25, 0, 0);
+        jPanelMøteLeft.add(jTextFieldTidspunkt, gridBagConstraints);
+
+        jLabelSted.setText("Sted:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(34, 28, 0, 0);
+        jPanelMøteLeft.add(jLabelSted, gridBagConstraints);
+
+        jTextFieldSted.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldStedActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.ipadx = 126;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(31, 25, 0, 0);
+        jPanelMøteLeft.add(jTextFieldSted, gridBagConstraints);
+
+        jButtonLagre.setText("Lagre");
+        jButtonLagre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonLagreActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(33, 15, 243, 0);
+        jPanelMøteLeft.add(jButtonLagre, gridBagConstraints);
+
+        jButtonSlett.setText("Slett");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(33, 26, 243, 145);
+        jPanelMøteLeft.add(jButtonSlett, gridBagConstraints);
+
+        jPanelMøte.add(jPanelMøteLeft);
+
+        jPanelMøteTop.setLayout(new javax.swing.BoxLayout(jPanelMøteTop, javax.swing.BoxLayout.LINE_AXIS));
+        jPanelMøte.add(jPanelMøteTop);
+
+        jPanelMøtebot.setLayout(new javax.swing.BoxLayout(jPanelMøtebot, javax.swing.BoxLayout.LINE_AXIS));
+        jPanelMøte.add(jPanelMøtebot);
+
+        jPanelMøteRight.setLayout(new javax.swing.BoxLayout(jPanelMøteRight, javax.swing.BoxLayout.LINE_AXIS));
+        jPanelMøte.add(jPanelMøteRight);
+
+        jPanelMøteCentre.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Møteplan", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 18), new java.awt.Color(0, 0, 255))); // NOI18N
+        jPanelMøteCentre.setLayout(new javax.swing.BoxLayout(jPanelMøteCentre, javax.swing.BoxLayout.LINE_AXIS));
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
+
+        jPanelMøteCentre.add(jScrollPane1);
+
+        jPanelMøte.add(jPanelMøteCentre);
+
+        jTabbedPane1.addTab("Møte", jPanelMøte);
 
         getContentPane().add(jTabbedPane1, java.awt.BorderLayout.CENTER);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+    public void statistikkVisning() {
+        try {
 
+            String db_url = "jdbc:mysql://localhost:3306/slit";
+            String db_user = "root";
+            String db_pass = "root";
+            
+            System.out.println("The URL is: " + db_url);
+            Connection con = DriverManager.getConnection(db_url, db_user, db_pass);
+            
+            Statement stmt = con.createStatement( );
+            String SQL ="SELECT * FROM Statistikk";
+            ResultSet result = stmt.executeQuery (SQL);
+            
+            int id_col = 0;
+            String name = "";
+            String surname ="";
+            String dato = "";
+            int antLeverte = 0;
+
+            while (result.next() ) {
+                id_col = result.getInt("Bruker_brukerId");
+                name = result.getString("brukerFornavn");
+                surname = result.getString("brukerEtternavn");
+                dato = result.getString("levertmodulDato");
+                antLeverte = result.getInt("COUNT(sensurId)");
+              //  System.out.println("ID: "+ " " + id_col +"     " +  "Fornavn: " + 
+              //      "     " + name + "     " + "Etternavn: " +" "+ surname + "     " 
+              //          + "Dato og klokkeslett:" + " " + dato + "     "
+              //      + "Antall godkjente moduler:" + antLeverte);
+                
+                jTextAreaId.append(" " + "Bruker ID:"+ " " + id_col + newline);
+                jTextAreaName.append(" " + "Fornavn:" + " " + name + newline);
+                jTextAreaSurname.append(" " + "Etternavn:" + " " + surname + newline);
+                jTextAreaDate.append(" " + "Aktivitet:" + " " + dato + newline);
+                jTextAreaLeverte.append(" " + "Moduler med sensur:" + " " + antLeverte + newline);
+                /**
+                " +  "Fornavn: " + 
+                    " " + name + "          " + "Etternavn: " +" "+ surname + "          " 
+                        + "Dato og klokkeslett:" + " " + dato + "          "
+                    + "Antall godkjente moduler:" + antLeverte + " "
+                        + newline);
+                        * /
+                        
+                // For å gjøre int om til string, om det trengs
+                /**
+                StringBuilder ID = new StringBuilder();
+                    ID.append("");
+                    ID.append(id_col);
+                    String idString = ID.toString();
+                
+                StringBuilder leverte = new StringBuilder();
+                    leverte.append("");
+                    leverte.append(antLeverte);
+                    String antLeverteString = leverte.toString();
+               */     
+            }
+            
+            
+            
+            
+           
+        }
+          catch (SQLException err) {
+            System.out.println( err.getMessage( ));
+            
+        } 
+       
+        
+    }
     private void jButtonModul5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonModul5ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonModul5ActionPerformed
@@ -497,6 +861,18 @@ public class mainWindow extends javax.swing.JFrame {
     
     // TODO add your handling code here:
     }//GEN-LAST:event_jButtonModul1ActionPerformed
+
+    private void jTextFieldStedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldStedActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldStedActionPerformed
+
+    private void jButtonLagreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLagreActionPerformed
+        // TODO add your handling code here:
+        
+        
+        
+        
+    }//GEN-LAST:event_jButtonLagreActionPerformed
 
     /**
      * @param args the command line arguments
@@ -524,7 +900,7 @@ public class mainWindow extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(mainWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-
+        
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -534,6 +910,7 @@ public class mainWindow extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButtonLagre;
     private javax.swing.JButton jButtonModul1;
     private javax.swing.JButton jButtonModul10;
     private javax.swing.JButton jButtonModul11;
@@ -549,9 +926,20 @@ public class mainWindow extends javax.swing.JFrame {
     private javax.swing.JButton jButtonModul8;
     private javax.swing.JButton jButtonModul9;
     private javax.swing.JButton jButtonProfil;
+    private javax.swing.JButton jButtonSendRapport;
+    private javax.swing.JButton jButtonSlett;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabelModuler109;
     private javax.swing.JLabel jLabelModuler110;
+    private javax.swing.JLabel jLabelMøtedeltaker;
+    private javax.swing.JLabel jLabelStatusrapportQuestion1;
+    private javax.swing.JLabel jLabelStatusrapportQuestion2;
+    private javax.swing.JLabel jLabelStatusrapportQuestion3;
+    private javax.swing.JLabel jLabelStatusrapportQuestion4;
+    private javax.swing.JLabel jLabelStatusrapportQuestion5;
+    private javax.swing.JLabel jLabelSted;
+    private javax.swing.JLabel jLabelTidspunkt;
     private javax.swing.JLabel jLabelTittel;
     private javax.swing.JPanel jPanelBotMain;
     private javax.swing.JPanel jPanelHjem;
@@ -563,19 +951,52 @@ public class mainWindow extends javax.swing.JFrame {
     private javax.swing.JPanel jPanelLeftRightRight;
     private javax.swing.JPanel jPanelModuler;
     private javax.swing.JPanel jPanelMøte;
+    private javax.swing.JPanel jPanelMøteCentre;
+    private javax.swing.JPanel jPanelMøteLeft;
+    private javax.swing.JPanel jPanelMøteRight;
+    private javax.swing.JPanel jPanelMøteTop;
+    private javax.swing.JPanel jPanelMøtebot;
     private javax.swing.JPanel jPanelRightMain;
+    private javax.swing.JPanel jPanelStatistikk;
+    private javax.swing.JPanel jPanelStatistikkMain;
     private javax.swing.JPanel jPanelStatusrapport;
     private javax.swing.JPanel jPanelTopBot;
     private javax.swing.JPanel jPanelTopCentre;
     private javax.swing.JPanel jPanelTopMain;
     private javax.swing.JPanel jPanelTopTop;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane10;
+    private javax.swing.JScrollPane jScrollPane11;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
+    private javax.swing.JScrollPane jScrollPane7;
+    private javax.swing.JScrollPane jScrollPane8;
+    private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JScrollPane jScrollPaneMeny;
     private javax.swing.JScrollPane jScrollPaneModuloversikt;
     private javax.swing.JSeparator jSeperatorLeftLeft;
     private javax.swing.JSeparator jSeperatorLeftRight;
     private javax.swing.JSeparator jSeperatorTopBot;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTable jTable1;
     private javax.swing.JTextArea jTextArea2;
+    private javax.swing.JTextArea jTextArea3;
+    private javax.swing.JTextArea jTextArea4;
+    private javax.swing.JTextArea jTextArea5;
+    private javax.swing.JTextArea jTextArea6;
+    private javax.swing.JTextArea jTextArea7;
+    private javax.swing.JTextArea jTextAreaDate;
+    private javax.swing.JTextArea jTextAreaId;
+    private javax.swing.JTextArea jTextAreaLeverte;
+    private javax.swing.JTextArea jTextAreaName;
+    private javax.swing.JTextArea jTextAreaSurname;
+    private javax.swing.JTextField jTextFieldDeltaker;
+    private javax.swing.JTextField jTextFieldSted;
+    private javax.swing.JTextField jTextFieldTidspunkt;
+    private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JTree jTreeMeny;
     // End of variables declaration//GEN-END:variables
 }
