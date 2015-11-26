@@ -37,7 +37,9 @@ public class mainWindow extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
 
+        jToggleButton1 = new javax.swing.JToggleButton();
         jPanelTopMain = new javax.swing.JPanel();
         jPanelTopCentre = new javax.swing.JPanel();
         jButtonProfil = new javax.swing.JButton();
@@ -79,7 +81,6 @@ public class mainWindow extends javax.swing.JFrame {
         jButtonModul13 = new javax.swing.JButton();
         jButtonModul14 = new javax.swing.JButton();
         jPanelInnlevering = new javax.swing.JPanel();
-        jPanelMøte = new javax.swing.JPanel();
         jPanelStatistikk = new javax.swing.JPanel();
         jPanelStatistikkMain = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -110,6 +111,24 @@ public class mainWindow extends javax.swing.JFrame {
         jScrollPane11 = new javax.swing.JScrollPane();
         jTextArea7 = new javax.swing.JTextArea();
         jLabelStatusrapportQuestion2 = new javax.swing.JLabel();
+        jPanelMøte = new javax.swing.JPanel();
+        jPanelMøteLeft = new javax.swing.JPanel();
+        jTextFieldDeltaker = new javax.swing.JTextField();
+        jLabelMøtedeltaker = new javax.swing.JLabel();
+        jLabelTidspunkt = new javax.swing.JLabel();
+        jTextFieldTidspunkt = new javax.swing.JTextField();
+        jLabelSted = new javax.swing.JLabel();
+        jTextFieldSted = new javax.swing.JTextField();
+        jButtonLagre = new javax.swing.JButton();
+        jButtonSlett = new javax.swing.JButton();
+        jPanelMøteTop = new javax.swing.JPanel();
+        jPanelMøtebot = new javax.swing.JPanel();
+        jPanelMøteRight = new javax.swing.JPanel();
+        jPanelMøteCentre = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+
+        jToggleButton1.setText("jToggleButton1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -157,7 +176,7 @@ public class mainWindow extends javax.swing.JFrame {
         jPanelTopTop.setLayout(jPanelTopTopLayout);
         jPanelTopTopLayout.setHorizontalGroup(
             jPanelTopTopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1357, Short.MAX_VALUE)
+            .addGap(0, 1387, Short.MAX_VALUE)
         );
         jPanelTopTopLayout.setVerticalGroup(
             jPanelTopTopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -173,7 +192,7 @@ public class mainWindow extends javax.swing.JFrame {
         jPanelTopBot.setLayout(jPanelTopBotLayout);
         jPanelTopBotLayout.setHorizontalGroup(
             jPanelTopBotLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSeperatorTopBot, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1357, Short.MAX_VALUE)
+            .addComponent(jSeperatorTopBot, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1387, Short.MAX_VALUE)
         );
         jPanelTopBotLayout.setVerticalGroup(
             jPanelTopBotLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -298,7 +317,7 @@ public class mainWindow extends javax.swing.JFrame {
         jPanelLeftMainLayout.setVerticalGroup(
             jPanelLeftMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanelLeftLeft, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanelLeftCentre, javax.swing.GroupLayout.DEFAULT_SIZE, 495, Short.MAX_VALUE)
+            .addComponent(jPanelLeftCentre, javax.swing.GroupLayout.DEFAULT_SIZE, 707, Short.MAX_VALUE)
             .addComponent(jPanelLeftRight, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jPanelLeftRightRight, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
@@ -314,7 +333,7 @@ public class mainWindow extends javax.swing.JFrame {
         );
         jPanelRightMainLayout.setVerticalGroup(
             jPanelRightMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 495, Short.MAX_VALUE)
+            .addGap(0, 707, Short.MAX_VALUE)
         );
 
         getContentPane().add(jPanelRightMain, java.awt.BorderLayout.LINE_END);
@@ -323,11 +342,11 @@ public class mainWindow extends javax.swing.JFrame {
         jPanelHjem.setLayout(jPanelHjemLayout);
         jPanelHjemLayout.setHorizontalGroup(
             jPanelHjemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 969, Short.MAX_VALUE)
+            .addGap(0, 997, Short.MAX_VALUE)
         );
         jPanelHjemLayout.setVerticalGroup(
             jPanelHjemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 467, Short.MAX_VALUE)
+            .addGap(0, 677, Short.MAX_VALUE)
         );
 
         jTabbedPane1.addTab("Hjem", jPanelHjem);
@@ -410,7 +429,7 @@ public class mainWindow extends javax.swing.JFrame {
             .addGroup(jPanelModulerLayout.createSequentialGroup()
                 .addGap(29, 29, 29)
                 .addComponent(jScrollPaneModuloversikt, javax.swing.GroupLayout.PREFERRED_SIZE, 424, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 182, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 196, Short.MAX_VALUE)
                 .addGroup(jPanelModulerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(jButtonModul4, javax.swing.GroupLayout.DEFAULT_SIZE, 95, Short.MAX_VALUE)
                     .addComponent(jLabelModuler109, javax.swing.GroupLayout.Alignment.LEADING)
@@ -434,7 +453,7 @@ public class mainWindow extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelModulerLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButtonModul13, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(119, Short.MAX_VALUE))
+                .addContainerGap(133, Short.MAX_VALUE))
         );
         jPanelModulerLayout.setVerticalGroup(
             jPanelModulerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -485,27 +504,14 @@ public class mainWindow extends javax.swing.JFrame {
         jPanelInnlevering.setLayout(jPanelInnleveringLayout);
         jPanelInnleveringLayout.setHorizontalGroup(
             jPanelInnleveringLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 969, Short.MAX_VALUE)
+            .addGap(0, 997, Short.MAX_VALUE)
         );
         jPanelInnleveringLayout.setVerticalGroup(
             jPanelInnleveringLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 467, Short.MAX_VALUE)
+            .addGap(0, 677, Short.MAX_VALUE)
         );
 
         jTabbedPane1.addTab("Innlevering", jPanelInnlevering);
-
-        javax.swing.GroupLayout jPanelMøteLayout = new javax.swing.GroupLayout(jPanelMøte);
-        jPanelMøte.setLayout(jPanelMøteLayout);
-        jPanelMøteLayout.setHorizontalGroup(
-            jPanelMøteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 969, Short.MAX_VALUE)
-        );
-        jPanelMøteLayout.setVerticalGroup(
-            jPanelMøteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 467, Short.MAX_VALUE)
-        );
-
-        jTabbedPane1.addTab("Møte", jPanelMøte);
 
         jPanelStatistikk.setLayout(new java.awt.BorderLayout());
 
@@ -618,7 +624,7 @@ public class mainWindow extends javax.swing.JFrame {
                         .addComponent(jLabelStatusrapportQuestion4)
                         .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(456, Short.MAX_VALUE))
+                .addContainerGap(484, Short.MAX_VALUE))
         );
         jPanelStatusrapportLayout.setVerticalGroup(
             jPanelStatusrapportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -647,10 +653,127 @@ public class mainWindow extends javax.swing.JFrame {
                 .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButtonSendRapport)
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Statusrapport", jPanelStatusrapport);
+
+        jPanelMøteLeft.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanelMøteLeft.setLayout(new java.awt.GridBagLayout());
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.ipadx = 126;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(35, 25, 0, 0);
+        jPanelMøteLeft.add(jTextFieldDeltaker, gridBagConstraints);
+
+        jLabelMøtedeltaker.setText("Møtedeltaker:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(38, 28, 0, 0);
+        jPanelMøteLeft.add(jLabelMøtedeltaker, gridBagConstraints);
+
+        jLabelTidspunkt.setText("Tidspunkt:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(45, 28, 0, 0);
+        jPanelMøteLeft.add(jLabelTidspunkt, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.ipadx = 126;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(42, 25, 0, 0);
+        jPanelMøteLeft.add(jTextFieldTidspunkt, gridBagConstraints);
+
+        jLabelSted.setText("Sted:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(34, 28, 0, 0);
+        jPanelMøteLeft.add(jLabelSted, gridBagConstraints);
+
+        jTextFieldSted.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldStedActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.ipadx = 126;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(31, 25, 0, 0);
+        jPanelMøteLeft.add(jTextFieldSted, gridBagConstraints);
+
+        jButtonLagre.setText("Lagre");
+        jButtonLagre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonLagreActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(33, 15, 243, 0);
+        jPanelMøteLeft.add(jButtonLagre, gridBagConstraints);
+
+        jButtonSlett.setText("Slett");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(33, 26, 243, 145);
+        jPanelMøteLeft.add(jButtonSlett, gridBagConstraints);
+
+        jPanelMøte.add(jPanelMøteLeft);
+
+        jPanelMøteTop.setLayout(new javax.swing.BoxLayout(jPanelMøteTop, javax.swing.BoxLayout.LINE_AXIS));
+        jPanelMøte.add(jPanelMøteTop);
+
+        jPanelMøtebot.setLayout(new javax.swing.BoxLayout(jPanelMøtebot, javax.swing.BoxLayout.LINE_AXIS));
+        jPanelMøte.add(jPanelMøtebot);
+
+        jPanelMøteRight.setLayout(new javax.swing.BoxLayout(jPanelMøteRight, javax.swing.BoxLayout.LINE_AXIS));
+        jPanelMøte.add(jPanelMøteRight);
+
+        jPanelMøteCentre.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Møteplan", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 18), new java.awt.Color(0, 0, 255))); // NOI18N
+        jPanelMøteCentre.setLayout(new javax.swing.BoxLayout(jPanelMøteCentre, javax.swing.BoxLayout.LINE_AXIS));
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
+
+        jPanelMøteCentre.add(jScrollPane1);
+
+        jPanelMøte.add(jPanelMøteCentre);
+
+        jTabbedPane1.addTab("Møte", jPanelMøte);
 
         getContentPane().add(jTabbedPane1, java.awt.BorderLayout.CENTER);
 
@@ -739,6 +862,18 @@ public class mainWindow extends javax.swing.JFrame {
     // TODO add your handling code here:
     }//GEN-LAST:event_jButtonModul1ActionPerformed
 
+    private void jTextFieldStedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldStedActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldStedActionPerformed
+
+    private void jButtonLagreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLagreActionPerformed
+        // TODO add your handling code here:
+        
+        
+        
+        
+    }//GEN-LAST:event_jButtonLagreActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -775,6 +910,7 @@ public class mainWindow extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButtonLagre;
     private javax.swing.JButton jButtonModul1;
     private javax.swing.JButton jButtonModul10;
     private javax.swing.JButton jButtonModul11;
@@ -791,15 +927,19 @@ public class mainWindow extends javax.swing.JFrame {
     private javax.swing.JButton jButtonModul9;
     private javax.swing.JButton jButtonProfil;
     private javax.swing.JButton jButtonSendRapport;
+    private javax.swing.JButton jButtonSlett;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabelModuler109;
     private javax.swing.JLabel jLabelModuler110;
+    private javax.swing.JLabel jLabelMøtedeltaker;
     private javax.swing.JLabel jLabelStatusrapportQuestion1;
     private javax.swing.JLabel jLabelStatusrapportQuestion2;
     private javax.swing.JLabel jLabelStatusrapportQuestion3;
     private javax.swing.JLabel jLabelStatusrapportQuestion4;
     private javax.swing.JLabel jLabelStatusrapportQuestion5;
+    private javax.swing.JLabel jLabelSted;
+    private javax.swing.JLabel jLabelTidspunkt;
     private javax.swing.JLabel jLabelTittel;
     private javax.swing.JPanel jPanelBotMain;
     private javax.swing.JPanel jPanelHjem;
@@ -811,6 +951,11 @@ public class mainWindow extends javax.swing.JFrame {
     private javax.swing.JPanel jPanelLeftRightRight;
     private javax.swing.JPanel jPanelModuler;
     private javax.swing.JPanel jPanelMøte;
+    private javax.swing.JPanel jPanelMøteCentre;
+    private javax.swing.JPanel jPanelMøteLeft;
+    private javax.swing.JPanel jPanelMøteRight;
+    private javax.swing.JPanel jPanelMøteTop;
+    private javax.swing.JPanel jPanelMøtebot;
     private javax.swing.JPanel jPanelRightMain;
     private javax.swing.JPanel jPanelStatistikk;
     private javax.swing.JPanel jPanelStatistikkMain;
@@ -819,6 +964,7 @@ public class mainWindow extends javax.swing.JFrame {
     private javax.swing.JPanel jPanelTopCentre;
     private javax.swing.JPanel jPanelTopMain;
     private javax.swing.JPanel jPanelTopTop;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane11;
     private javax.swing.JScrollPane jScrollPane2;
@@ -835,6 +981,7 @@ public class mainWindow extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeperatorLeftRight;
     private javax.swing.JSeparator jSeperatorTopBot;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTable jTable1;
     private javax.swing.JTextArea jTextArea2;
     private javax.swing.JTextArea jTextArea3;
     private javax.swing.JTextArea jTextArea4;
@@ -846,6 +993,10 @@ public class mainWindow extends javax.swing.JFrame {
     private javax.swing.JTextArea jTextAreaLeverte;
     private javax.swing.JTextArea jTextAreaName;
     private javax.swing.JTextArea jTextAreaSurname;
+    private javax.swing.JTextField jTextFieldDeltaker;
+    private javax.swing.JTextField jTextFieldSted;
+    private javax.swing.JTextField jTextFieldTidspunkt;
+    private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JTree jTreeMeny;
     // End of variables declaration//GEN-END:variables
 }
