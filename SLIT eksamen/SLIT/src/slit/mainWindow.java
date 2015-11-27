@@ -68,6 +68,15 @@ public class mainWindow extends javax.swing.JFrame {
         jPanelBotMain = new javax.swing.JPanel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanelHjem = new javax.swing.JPanel();
+        jPanelDagensMain = new javax.swing.JPanel();
+        jScrollPane9 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
+        jPanelFilerMain = new javax.swing.JPanel();
+        jScrollPane11 = new javax.swing.JScrollPane();
+        jTextArea3 = new javax.swing.JTextArea();
+        jPanelVarslingerMain = new javax.swing.JPanel();
+        jScrollPane12 = new javax.swing.JScrollPane();
+        jTextArea4 = new javax.swing.JTextArea();
         jPanelModuler = new javax.swing.JPanel();
         jScrollPaneModuloversikt = new javax.swing.JScrollPane();
         jTextArea2 = new javax.swing.JTextArea();
@@ -329,15 +338,95 @@ public class mainWindow extends javax.swing.JFrame {
         getContentPane().add(jPanelLeftMain, java.awt.BorderLayout.LINE_START);
         getContentPane().add(jPanelBotMain, java.awt.BorderLayout.PAGE_END);
 
+        jPanelDagensMain.setLayout(new java.awt.GridBagLayout());
+
+        jScrollPane9.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Dagens", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 18), new java.awt.Color(0, 0, 255))); // NOI18N
+
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jTextArea1.setText("Fyll\n\nFyllFyll\n\nFyllFyll\n\nFyllFyll\n\nFyllFyll\n\nFyllFyll\n\nFyllFyll\n\nFyllFyll\n\nFyllFyll\n\nFyllFyll\n\nFyllFyll\n\nFyllFyll\n\nFyllFyll\n\nFyllFyll\n\nFyllFyll\n\n\n\n\n\n\n\nFyllFyllFyllFyllFyllFyllFyllFyllFyllFyllFyllFyllFyllFyllFyll");
+        jScrollPane9.setViewportView(jTextArea1);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.ipadx = 429;
+        gridBagConstraints.ipady = 451;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(11, 10, 11, 10);
+        jPanelDagensMain.add(jScrollPane9, gridBagConstraints);
+
+        jPanelFilerMain.setLayout(new java.awt.GridBagLayout());
+
+        jScrollPane11.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Dokumenter", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 18), new java.awt.Color(0, 0, 255))); // NOI18N
+
+        jTextArea3.setColumns(20);
+        jTextArea3.setRows(5);
+        jTextArea3.setText("FyllFyllFyllFyllFyllFyllFyllFyllFyllFyllFyllFyllFyllFyllFyll\n\n\nFyllFyllFyllFyllFyllFyllFyllFyllFyllFyllFyllFyllFyllFyllFyll\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFyllFyllFyllFyllFyllFyllFyllFyllFyllFyllFyllFyllFyllFyllFyll");
+        jScrollPane11.setViewportView(jTextArea3);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.ipadx = 453;
+        gridBagConstraints.ipady = 456;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(11, 10, 11, 10);
+        jPanelFilerMain.add(jScrollPane11, gridBagConstraints);
+
+        jPanelVarslingerMain.setLayout(new java.awt.GridBagLayout());
+
+        jScrollPane12.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Varslinger", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 18), new java.awt.Color(0, 0, 255))); // NOI18N
+
+        jTextArea4.setColumns(20);
+        jTextArea4.setRows(5);
+        jTextArea4.setText("Fyll\n\n\nFyllFyllFyllFyllFyllFyllFyllFyllFyllFyllFyllFyllFyllFyllFyll\n\n\nFyllFyllFyllFyllFyllFyllFyllFyllFyllFyllFyllFyllFyllFyllFyll");
+        jScrollPane12.setViewportView(jTextArea4);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.ipadx = 1016;
+        gridBagConstraints.ipady = 12;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(11, 10, 11, 10);
+        jPanelVarslingerMain.add(jScrollPane12, gridBagConstraints);
+
         javax.swing.GroupLayout jPanelHjemLayout = new javax.swing.GroupLayout(jPanelHjem);
         jPanelHjem.setLayout(jPanelHjemLayout);
         jPanelHjemLayout.setHorizontalGroup(
             jPanelHjemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1099, Short.MAX_VALUE)
+            .addGroup(jPanelHjemLayout.createSequentialGroup()
+                .addGroup(jPanelHjemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelHjemLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jPanelDagensMain, javax.swing.GroupLayout.PREFERRED_SIZE, 563, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jPanelFilerMain, javax.swing.GroupLayout.DEFAULT_SIZE, 506, Short.MAX_VALUE))
+                    .addGroup(jPanelHjemLayout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(jPanelVarslingerMain, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         jPanelHjemLayout.setVerticalGroup(
             jPanelHjemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 717, Short.MAX_VALUE)
+            .addGroup(jPanelHjemLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanelHjemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPanelDagensMain, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanelFilerMain, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanelVarslingerMain, javax.swing.GroupLayout.DEFAULT_SIZE, 86, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         jTabbedPane1.addTab("Hjem", jPanelHjem);
@@ -691,10 +780,11 @@ public class mainWindow extends javax.swing.JFrame {
                     .addComponent(jLabelBekreftIdentitet)
                     .addComponent(jTextFieldUke, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanelStatusrapportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jTextFieldEpost, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabelStatusrapportQuestion2))
+                .addGroup(jPanelStatusrapportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanelStatusrapportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jTextFieldEpost, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabelStatusrapportQuestion2)))
                 .addGroup(jPanelStatusrapportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelStatusrapportLayout.createSequentialGroup()
                         .addGap(14, 14, 14)
@@ -983,6 +1073,8 @@ public class mainWindow extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelStatusrapportQuestion5;
     private javax.swing.JLabel jLabelTittel;
     private javax.swing.JPanel jPanelBotMain;
+    private javax.swing.JPanel jPanelDagensMain;
+    private javax.swing.JPanel jPanelFilerMain;
     private javax.swing.JPanel jPanelHjem;
     private javax.swing.JPanel jPanelInnlevering;
     private javax.swing.JPanel jPanelLeftCentre;
@@ -1004,9 +1096,12 @@ public class mainWindow extends javax.swing.JFrame {
     private javax.swing.JPanel jPanelTopCentre;
     private javax.swing.JPanel jPanelTopMain;
     private javax.swing.JPanel jPanelTopTop;
+    private javax.swing.JPanel jPanelVarslingerMain;
     private javax.swing.JPasswordField jPasswordFieldPassord;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane10;
+    private javax.swing.JScrollPane jScrollPane11;
+    private javax.swing.JScrollPane jScrollPane12;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
@@ -1014,6 +1109,7 @@ public class mainWindow extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;
+    private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JScrollPane jScrollPaneMeny;
     private javax.swing.JScrollPane jScrollPaneModuloversikt;
     private javax.swing.JSeparator jSeperatorLeftLeft;
@@ -1021,7 +1117,10 @@ public class mainWindow extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeperatorTopBot;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable jTable1;
+    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextArea jTextArea2;
+    private javax.swing.JTextArea jTextArea3;
+    private javax.swing.JTextArea jTextArea4;
     private javax.swing.JTextArea jTextAreaAnnerledes;
     private javax.swing.JTextArea jTextAreaDate;
     private javax.swing.JTextArea jTextAreaGått;
