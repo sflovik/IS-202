@@ -808,36 +808,23 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="133" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="jLabelStatusrapportQuestion1" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                          <Component id="jScrollPane10" pref="380" max="32767" attributes="0"/>
-                          <Component id="jLabelStatusrapportQuestion5" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabelStatusrapportQuestion2" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jScrollPane7" alignment="0" pref="380" max="32767" attributes="0"/>
-                          <Component id="jLabelStatusrapportQuestion3" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabelStatusrapportQuestion4" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jScrollPane8" alignment="0" pref="380" max="32767" attributes="0"/>
-                          <Component id="jTextFieldUke" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jTextFieldTimer" max="32767" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="109" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="jLabelBekreftIdentitet" min="-2" max="-2" attributes="0"/>
-                          <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="jLabel4" pref="54" max="32767" attributes="0"/>
-                                  <Component id="jLabel2" max="32767" attributes="0"/>
-                              </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="jTextFieldEpost" max="32767" attributes="0"/>
-                                  <Component id="jPasswordFieldPassord" pref="154" max="32767" attributes="0"/>
-                              </Group>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="jLabelStatusrapportQuestion1" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                              <Component id="jScrollPane10" pref="380" max="32767" attributes="0"/>
+                              <Component id="jLabelStatusrapportQuestion5" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabelStatusrapportQuestion2" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jScrollPane7" alignment="0" pref="380" max="32767" attributes="0"/>
+                              <Component id="jLabelStatusrapportQuestion3" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabelStatusrapportQuestion4" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jScrollPane8" alignment="0" pref="380" max="32767" attributes="0"/>
+                              <Component id="jTextFieldUke" alignment="0" max="32767" attributes="0"/>
+                              <Component id="jTextFieldTimer" max="32767" attributes="0"/>
                           </Group>
                           <Component id="jButtonSendRapport" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="155" max="32767" attributes="0"/>
+                      <EmptySpace pref="476" max="32767" attributes="0"/>
                       <Component id="jPanelRightMain" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -851,42 +838,16 @@
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="jLabelStatusrapportQuestion1" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLabelBekreftIdentitet" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextFieldUke" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabel2" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextFieldEpost" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabelStatusrapportQuestion2" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jPasswordFieldPassord" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <Group type="102" attributes="0">
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jScrollPane7" min="-2" pref="59" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
+                      <Component id="jTextFieldUke" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                      <Component id="jLabelStatusrapportQuestion2" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jScrollPane7" min="-2" pref="59" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Group type="102" alignment="1" attributes="0">
-                              <Component id="jButtonSendRapport" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="1" attributes="0">
-                              <Component id="jLabelStatusrapportQuestion3" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="jScrollPane10" min="-2" pref="63" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
+                      <Component id="jLabelStatusrapportQuestion3" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="jScrollPane10" min="-2" pref="63" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Component id="jLabelStatusrapportQuestion4" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jScrollPane8" min="-2" pref="62" max="-2" attributes="0"/>
@@ -894,6 +855,8 @@
                       <Component id="jLabelStatusrapportQuestion5" min="-2" pref="17" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jTextFieldTimer" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="jButtonSendRapport" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
@@ -1008,28 +971,6 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Hvordan har det g&#xe5;tt?"/>
               </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="jLabelBekreftIdentitet">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Times New Roman" size="24" style="0"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="Bekreft identitet"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="jLabel2">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="E-post:"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="jLabel4">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Passord:"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JTextField" name="jTextFieldEpost">
-            </Component>
-            <Component class="javax.swing.JPasswordField" name="jPasswordFieldPassord">
             </Component>
             <Container class="javax.swing.JPanel" name="jPanelRightMain">
 

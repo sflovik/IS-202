@@ -8,6 +8,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
+import slit.Main;
+import slit.db;
+import slit.localUser;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -238,47 +241,16 @@ private String role = "";
         pack();
     }// </editor-fold>//GEN-END:initComponents
 private void login() {
-        try {
-            if (user != null && pass != null) {
-                // Definer string "sql" for å sammenligne variabler med felt i databasen / setter opp SQL-query som en string
-                String sql = "SELECT * FROM Bruker WHERE brukerEmail= '" 
-                        + user +"' AND brukerPassord='" + pass + "' AND brukerRolle='"+ role +"'";
-                // Definer login credentials på databasen med url, brukernavn og passord
-                String db_url = "jdbc:mysql://localhost:3306/slit";
-                String db_user = "root";
-                String db_pass = "root";
-                // Printer ut databasens URL (hjelp ved evt. feilsøking)
-                System.out.println("The URL is: " + db_url);
-                // Sett opp en ny connection ved bruk av variablene som er definert
-                Connection con = DriverManager.getConnection(db_url, db_user, db_pass);
-                // Definer en ny Statement (eks. "stmt") og nytt ResultSet (eks. "rs")
-                Statement stmt = con.createStatement( );
-                ResultSet rs = stmt.executeQuery(sql);
-                // Om credentials er godkjent
-                if (rs.next()) {
-                    System.out.println("Valid user");
-                    System.out.println("User logged in:");
-                    System.out.println(role);
-                    System.out.println(user);  
-                    dispose();
-                    slit.mainWindow guiHjem = new slit.mainWindow();
-                    guiHjem.setVisible(true);
-                    guiHjem.setExtendedState(slit.mainWindow.MAXIMIZED_BOTH);
+
+     localUser localuser = db.login(user, pass, role);
+        if(localuser != null){
+        Main.user = localuser;
+       
                 }
-                // Om credentials ikke er godkjent
-                else {
-                    System.out.println("Invalid user");
-                    System.out.println("Login failed for user:");
-                    System.out.println(role);
-                    System.out.println(user);
-                }
-            }
+                
+               
             
-        }
-        catch (SQLException err) {
-            System.out.println(err.getMessage());
-        }
-    }
+}
    
     private void jTextFieldEmailLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldEmailLoginActionPerformed
         // TODO add your handling code here:
@@ -289,6 +261,10 @@ private void login() {
         user = jTextFieldEmailLogin.getText();
         pass = jPasswordFieldLogin.getText();
         role = jComboBoxRoleLogin.getSelectedItem().toString();
+        localUser localuser = new localUser(user, pass, role);
+        localuser.setUser(user);
+        localuser.setPass(pass);
+        localuser.setRole(role);
         login();
         
     }//GEN-LAST:event_jButtonLoginActionPerformed

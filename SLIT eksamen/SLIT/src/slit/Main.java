@@ -14,6 +14,8 @@ public class Main {
     /**
      * @param args the command line arguments
      */
+    public static localUser user;
+ 
     public static void main(String[] args) {
         slit.ejb.login.Login oppstart = new slit.ejb.login.Login(); 
         oppstart.setVisible(true);
