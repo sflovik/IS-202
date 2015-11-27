@@ -1,4 +1,2 @@
 Hola
 Bitches
-
-Qué
