@@ -240,7 +240,7 @@ private String role = "";
 private void login() {
         try {
             if (user != null && pass != null) {
-                // Definer string "sql" for å sammenligne variabler med felt i databasen
+                // Definer string "sql" for å sammenligne variabler med felt i databasen / setter opp SQL-query som en string
                 String sql = "SELECT * FROM Bruker WHERE brukerEmail= '" 
                         + user +"' AND brukerPassord='" + pass + "' AND brukerRolle='"+ role +"'";
                 // Definer login credentials på databasen med url, brukernavn og passord
