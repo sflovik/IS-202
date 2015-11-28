@@ -62,6 +62,17 @@ public class mainWindowForeleser extends javax.swing.JFrame {
         jPanelRightMain = new javax.swing.JPanel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanelHjem = new javax.swing.JPanel();
+        jPanelDagensMain = new javax.swing.JPanel();
+        jScrollPane12 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
+        jButton1 = new javax.swing.JButton();
+        jPanelDokumenterMain = new javax.swing.JPanel();
+        jScrollPane13 = new javax.swing.JScrollPane();
+        jTextArea8 = new javax.swing.JTextArea();
+        jButton2 = new javax.swing.JButton();
+        jPanelVarslingerMain = new javax.swing.JPanel();
+        jScrollPane14 = new javax.swing.JScrollPane();
+        jTextArea9 = new javax.swing.JTextArea();
         jPanelModuler = new javax.swing.JPanel();
         jScrollPaneModuloversikt = new javax.swing.JScrollPane();
         jTextArea2 = new javax.swing.JTextArea();
@@ -339,15 +350,115 @@ public class mainWindowForeleser extends javax.swing.JFrame {
 
         getContentPane().add(jPanelRightMain, java.awt.BorderLayout.LINE_END);
 
+        jScrollPane12.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Dagens", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 18), new java.awt.Color(0, 51, 255))); // NOI18N
+
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jScrollPane12.setViewportView(jTextArea1);
+
+        jButton1.setText("Lagre endringer");
+
+        javax.swing.GroupLayout jPanelDagensMainLayout = new javax.swing.GroupLayout(jPanelDagensMain);
+        jPanelDagensMain.setLayout(jPanelDagensMainLayout);
+        jPanelDagensMainLayout.setHorizontalGroup(
+            jPanelDagensMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelDagensMainLayout.createSequentialGroup()
+                .addGap(442, 442, 442)
+                .addComponent(jButton1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanelDagensMainLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane12)
+                .addContainerGap())
+        );
+        jPanelDagensMainLayout.setVerticalGroup(
+            jPanelDagensMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelDagensMainLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane12, javax.swing.GroupLayout.PREFERRED_SIZE, 430, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton1)
+                .addContainerGap(29, Short.MAX_VALUE))
+        );
+
+        jScrollPane13.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Dokumenter", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 18), new java.awt.Color(0, 51, 255))); // NOI18N
+
+        jTextArea8.setColumns(20);
+        jTextArea8.setRows(5);
+        jScrollPane13.setViewportView(jTextArea8);
+
+        jButton2.setText("Lagre endringer");
+
+        javax.swing.GroupLayout jPanelDokumenterMainLayout = new javax.swing.GroupLayout(jPanelDokumenterMain);
+        jPanelDokumenterMain.setLayout(jPanelDokumenterMainLayout);
+        jPanelDokumenterMainLayout.setHorizontalGroup(
+            jPanelDokumenterMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelDokumenterMainLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanelDokumenterMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane13)
+                    .addGroup(jPanelDokumenterMainLayout.createSequentialGroup()
+                        .addGap(0, 283, Short.MAX_VALUE)
+                        .addComponent(jButton2)))
+                .addContainerGap())
+        );
+        jPanelDokumenterMainLayout.setVerticalGroup(
+            jPanelDokumenterMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelDokumenterMainLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane13, javax.swing.GroupLayout.PREFERRED_SIZE, 430, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton2)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jScrollPane14.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Varslinger", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 18), new java.awt.Color(0, 51, 255))); // NOI18N
+
+        jTextArea9.setColumns(20);
+        jTextArea9.setRows(5);
+        jScrollPane14.setViewportView(jTextArea9);
+
+        javax.swing.GroupLayout jPanelVarslingerMainLayout = new javax.swing.GroupLayout(jPanelVarslingerMain);
+        jPanelVarslingerMain.setLayout(jPanelVarslingerMainLayout);
+        jPanelVarslingerMainLayout.setHorizontalGroup(
+            jPanelVarslingerMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelVarslingerMainLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane14)
+                .addContainerGap())
+        );
+        jPanelVarslingerMainLayout.setVerticalGroup(
+            jPanelVarslingerMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelVarslingerMainLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane14, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
         javax.swing.GroupLayout jPanelHjemLayout = new javax.swing.GroupLayout(jPanelHjem);
         jPanelHjem.setLayout(jPanelHjemLayout);
         jPanelHjemLayout.setHorizontalGroup(
             jPanelHjemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 997, Short.MAX_VALUE)
+            .addGroup(jPanelHjemLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanelHjemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jPanelVarslingerMain, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanelHjemLayout.createSequentialGroup()
+                        .addComponent(jPanelDagensMain, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jPanelDokumenterMain, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
         );
         jPanelHjemLayout.setVerticalGroup(
             jPanelHjemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 677, Short.MAX_VALUE)
+            .addGroup(jPanelHjemLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanelHjemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanelDagensMain, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanelDokumenterMain, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jPanelVarslingerMain, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         jTabbedPane1.addTab("Hjem", jPanelHjem);
@@ -912,6 +1023,8 @@ public class mainWindowForeleser extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButtonLagre;
     private javax.swing.JButton jButtonModul1;
     private javax.swing.JButton jButtonModul10;
@@ -944,6 +1057,8 @@ public class mainWindowForeleser extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelTidspunkt;
     private javax.swing.JLabel jLabelTittel;
     private javax.swing.JPanel jPanelBotMain;
+    private javax.swing.JPanel jPanelDagensMain;
+    private javax.swing.JPanel jPanelDokumenterMain;
     private javax.swing.JPanel jPanelHjem;
     private javax.swing.JPanel jPanelInnlevering;
     private javax.swing.JPanel jPanelLeftCentre;
@@ -966,9 +1081,13 @@ public class mainWindowForeleser extends javax.swing.JFrame {
     private javax.swing.JPanel jPanelTopCentre;
     private javax.swing.JPanel jPanelTopMain;
     private javax.swing.JPanel jPanelTopTop;
+    private javax.swing.JPanel jPanelVarslingerMain;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane11;
+    private javax.swing.JScrollPane jScrollPane12;
+    private javax.swing.JScrollPane jScrollPane13;
+    private javax.swing.JScrollPane jScrollPane14;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
@@ -984,12 +1103,15 @@ public class mainWindowForeleser extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeperatorTopBot;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable jTable1;
+    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextArea jTextArea2;
     private javax.swing.JTextArea jTextArea3;
     private javax.swing.JTextArea jTextArea4;
     private javax.swing.JTextArea jTextArea5;
     private javax.swing.JTextArea jTextArea6;
     private javax.swing.JTextArea jTextArea7;
+    private javax.swing.JTextArea jTextArea8;
+    private javax.swing.JTextArea jTextArea9;
     private javax.swing.JTextArea jTextAreaDate;
     private javax.swing.JTextArea jTextAreaId;
     private javax.swing.JTextArea jTextAreaLeverte;
