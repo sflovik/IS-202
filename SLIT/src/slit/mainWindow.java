@@ -15,6 +15,11 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import javax.swing.JFileChooser;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import javax.swing.JOptionPane; 
 /**
  *
  * @author Sondre
@@ -1027,7 +1032,14 @@ public class mainWindow extends javax.swing.JFrame {
         hjelp = jTextAreaHjelp.getText();
 
         sendStatusrapport();
-
+        
+	jTextFieldUke.setText("");
+        jTextAreaGått.setText("");
+        jTextAreaAnnerledes.setText("");
+        jTextAreaHjelp.setText("");
+        jTextFieldTimer.setText("");
+        
+        JOptionPane.showMessageDialog(null, "<Dine endringer er blitt lagret>", "Alert", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_jButtonSendRapportActionPerformed
 
     private void jButtonModul2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonModul2ActionPerformed
