@@ -10,6 +10,9 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import slit.Constants;
+import slit.Main;
+import slit.localUser;
 import static slit.mainWindow.newline;
 
 /**

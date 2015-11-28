@@ -135,11 +135,6 @@ public class mainWindow extends javax.swing.JFrame {
         jTextAreaAnnerledes = new javax.swing.JTextArea();
         jButtonSendRapport = new javax.swing.JButton();
         jLabelStatusrapportQuestion2 = new javax.swing.JLabel();
-        jLabelBekreftIdentitet = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jTextFieldEpost = new javax.swing.JTextField();
-        jPasswordFieldPassord = new javax.swing.JPasswordField();
         jPanelRightMain = new javax.swing.JPanel();
         jTextFieldUke = new javax.swing.JTextField();
         jTextFieldTimer = new javax.swing.JTextField();
@@ -703,13 +698,6 @@ public class mainWindow extends javax.swing.JFrame {
         jLabelStatusrapportQuestion2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabelStatusrapportQuestion2.setText("Hvordan har det gått?");
 
-        jLabelBekreftIdentitet.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
-        jLabelBekreftIdentitet.setText("Bekreft identitet");
-
-        jLabel2.setText("E-post:");
-
-        jLabel4.setText("Passord:");
-
         javax.swing.GroupLayout jPanelRightMainLayout = new javax.swing.GroupLayout(jPanelRightMain);
         jPanelRightMain.setLayout(jPanelRightMainLayout);
         jPanelRightMainLayout.setHorizontalGroup(
@@ -727,31 +715,21 @@ public class mainWindow extends javax.swing.JFrame {
             jPanelStatusrapportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelStatusrapportLayout.createSequentialGroup()
                 .addGap(133, 133, 133)
-                .addGroup(jPanelStatusrapportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabelStatusrapportQuestion1)
-                    .addComponent(jLabel1)
-                    .addComponent(jScrollPane10, javax.swing.GroupLayout.DEFAULT_SIZE, 380, Short.MAX_VALUE)
-                    .addComponent(jLabelStatusrapportQuestion5)
-                    .addComponent(jLabelStatusrapportQuestion2)
-                    .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 380, Short.MAX_VALUE)
-                    .addComponent(jLabelStatusrapportQuestion3)
-                    .addComponent(jLabelStatusrapportQuestion4)
-                    .addComponent(jScrollPane8, javax.swing.GroupLayout.DEFAULT_SIZE, 380, Short.MAX_VALUE)
-                    .addComponent(jTextFieldUke)
-                    .addComponent(jTextFieldTimer))
-                .addGap(109, 109, 109)
                 .addGroup(jPanelStatusrapportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabelBekreftIdentitet)
-                    .addGroup(jPanelStatusrapportLayout.createSequentialGroup()
-                        .addGroup(jPanelStatusrapportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 54, Short.MAX_VALUE)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanelStatusrapportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextFieldEpost)
-                            .addComponent(jPasswordFieldPassord, javax.swing.GroupLayout.DEFAULT_SIZE, 154, Short.MAX_VALUE)))
+                    .addGroup(jPanelStatusrapportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jLabelStatusrapportQuestion1)
+                        .addComponent(jLabel1)
+                        .addComponent(jScrollPane10, javax.swing.GroupLayout.DEFAULT_SIZE, 380, Short.MAX_VALUE)
+                        .addComponent(jLabelStatusrapportQuestion5)
+                        .addComponent(jLabelStatusrapportQuestion2)
+                        .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 380, Short.MAX_VALUE)
+                        .addComponent(jLabelStatusrapportQuestion3)
+                        .addComponent(jLabelStatusrapportQuestion4)
+                        .addComponent(jScrollPane8, javax.swing.GroupLayout.DEFAULT_SIZE, 380, Short.MAX_VALUE)
+                        .addComponent(jTextFieldUke)
+                        .addComponent(jTextFieldTimer))
                     .addComponent(jButtonSendRapport))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 491, Short.MAX_VALUE)
                 .addComponent(jPanelRightMain, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -763,34 +741,16 @@ public class mainWindow extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabelStatusrapportQuestion1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanelStatusrapportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabelBekreftIdentitet)
-                    .addComponent(jTextFieldUke, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanelStatusrapportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanelStatusrapportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jTextFieldEpost, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabelStatusrapportQuestion2)))
-                .addGroup(jPanelStatusrapportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanelStatusrapportLayout.createSequentialGroup()
-                        .addGap(14, 14, 14)
-                        .addGroup(jPanelStatusrapportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel4)
-                            .addComponent(jPasswordFieldPassord, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanelStatusrapportLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addComponent(jTextFieldUke, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(19, 19, 19)
+                .addComponent(jLabelStatusrapportQuestion2)
+                .addGap(9, 9, 9)
+                .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(11, 11, 11)
-                .addGroup(jPanelStatusrapportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanelStatusrapportLayout.createSequentialGroup()
-                        .addComponent(jButtonSendRapport)
-                        .addGap(59, 59, 59))
-                    .addGroup(jPanelStatusrapportLayout.createSequentialGroup()
-                        .addComponent(jLabelStatusrapportQuestion3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                .addComponent(jLabelStatusrapportQuestion3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabelStatusrapportQuestion4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -798,9 +758,11 @@ public class mainWindow extends javax.swing.JFrame {
                 .addComponent(jLabelStatusrapportQuestion5, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTextFieldTimer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButtonSendRapport)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanelStatusrapportLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(14, Short.MAX_VALUE)
                 .addComponent(jPanelRightMain, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -933,71 +895,9 @@ public class mainWindow extends javax.swing.JFrame {
         
     }
     private void sendStatusrapport() {
-        try {
-            if (user != null && pass != null) {
-                // Definer string "sql" for å sammenligne variabler med felt i databasen / setter opp SQL-query som en string
-                
-                String ID = "SELECT * FROM Bruker WHERE brukerEmail= '" 
-                        + user +"' AND brukerPassord='" + pass + "' ";
-                
-               
-                
-                // Definer login credentials på databasen med url, brukernavn og passord
-                String db_url = "jdbc:mysql://localhost:3306/slit";
-                String db_user = "root";
-                String db_pass = "root";
-                // Printer ut databasens URL (hjelp ved evt. feilsøking)
-                System.out.println("The URL is: " + db_url);
-                // Sett opp en ny connection ved bruk av variablene som er definert
-                Connection con = DriverManager.getConnection(db_url, db_user, db_pass);
-                // Definer en ny Statement (eks. "stmt") og nytt ResultSet (eks. "rs")
-                Statement stmt = con.createStatement( );
-                ResultSet result = stmt.executeQuery (ID);
-                
-                int brukerId = 0;
+        if (Main.user != null)
+        db.sendRapport(uke, gått, annerledes, hjelp, timer);
               
-                 // Om credentials er godkjent
-                if (result.next()) {
-                    brukerId = result.getInt("BrukerId");
-                    System.out.println("Valid user");
-                    System.out.println("Statusrapport innsendt av:");
-                    System.out.println(user); 
-                   // System.out.println(sql);
-                    dispose();
-                }
-                // Om credentials ikke er godkjent
-                else {
-                    System.out.println("Invalid user");
-                    System.out.println("Statusrapport ble ikke sendt inn, feil brukerinformasjon");
-                    System.out.println(user);
-                    System.out.println(pass);
-                 //   System.out.println(sql);
-                }
-                System.out.println(uke);
-                System.out.println(gått);
-                System.out.println(annerledes);
-                System.out.println(hjelp);
-                System.out.println(timer);
-                System.out.println(brukerId);
-                String sql = ("INSERT INTO statusrapport (statusUke,statusGått,statusAnnerledes,statusHjelp, statusTimer, Bruker_brukerId)" 
-                    + " VALUES ('"+uke+"', '"+gått+"','"+annerledes+"','"+hjelp+"',"
-                        + "'"+timer+"','"+brukerId+"')");
-                Statement stmt2 = con.createStatement( );
-                try {
-                stmt2.executeUpdate(sql);
-                }
-                catch (SQLException error){
-                    System.out.println(error);
-                }
-                
-              
-               
-            }
-            
-        }
-        catch (SQLException err) {
-            System.out.println(err.getMessage());
-        }
     }
     private void jButtonModul5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonModul5ActionPerformed
         // TODO add your handling code here:
@@ -1011,37 +911,6 @@ public class mainWindow extends javax.swing.JFrame {
     
     // TODO add your handling code here:
     }//GEN-LAST:event_jButtonModul1ActionPerformed
-
-    private void jButtonSendRapportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSendRapportActionPerformed
-        // TODO add your handling code here:
-        user = jTextFieldEpost.getText();
-        pass = jPasswordFieldPassord.getText();
-        
-        ukeString = jTextFieldUke.getText();
-        timerString = jTextFieldTimer.getText();
-        // Må gjøre om verdien i tekstfeltene til int før de skal inn i DB
-        // Try-catch for å håndtere feil format i feltene
-        try {
-        uke = Integer.parseInt(ukeString);
-        }
-        catch (NumberFormatException feilUke){
-            System.out.println(feilUke);
-        }
-        
-        try {
-        timer = Integer.parseInt(timerString);
-        }
-        catch (NumberFormatException feilTimer) {
-            System.out.println(feilTimer);
-        }
-        // Resten av verdiene er tekst også i databasen
-        gått = jTextAreaGått.getText();
-        annerledes = jTextAreaAnnerledes.getText();
-        hjelp = jTextAreaHjelp.getText();
-        
-        sendStatusrapport();
-        
-    }//GEN-LAST:event_jButtonSendRapportActionPerformed
 
     private void profilUploadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_profilUploadActionPerformed
         // TODO add your handling code here:
@@ -1060,6 +929,35 @@ public class mainWindow extends javax.swing.JFrame {
 
        
     }//GEN-LAST:event_profilUploadActionPerformed
+
+    private void jButtonSendRapportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSendRapportActionPerformed
+        // TODO add your handling code here:
+        // Setter variablene til queries
+        ukeString = jTextFieldUke.getText();
+        timerString = jTextFieldTimer.getText();
+        // Må gjøre om verdien i tekstfeltene til int før de skal inn i DB
+        // Try-catch for å håndtere feil format i feltene
+        try {
+            uke = Integer.parseInt(ukeString);
+        }
+        catch (NumberFormatException feilUke){
+            System.out.println(feilUke);
+        }
+
+        try {
+            timer = Integer.parseInt(timerString);
+        }
+        catch (NumberFormatException feilTimer) {
+            System.out.println(feilTimer);
+        }
+        // Resten av verdiene er tekst også i databasen
+        gått = jTextAreaGått.getText();
+        annerledes = jTextAreaAnnerledes.getText();
+        hjelp = jTextAreaHjelp.getText();
+
+        sendStatusrapport();
+
+    }//GEN-LAST:event_jButtonSendRapportActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1116,10 +1014,7 @@ public class mainWindow extends javax.swing.JFrame {
     private javax.swing.JButton jButtonModul9;
     private javax.swing.JButton jButtonSendRapport;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabelBekreftIdentitet;
     private javax.swing.JLabel jLabelModuler109;
     private javax.swing.JLabel jLabelModuler110;
     private javax.swing.JLabel jLabelStatusrapportQuestion1;
@@ -1152,7 +1047,6 @@ public class mainWindow extends javax.swing.JFrame {
     private javax.swing.JPanel jPanelTopMain;
     private javax.swing.JPanel jPanelTopTop;
     private javax.swing.JPanel jPanelVarslingerMain;
-    private javax.swing.JPasswordField jPasswordFieldPassord;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane11;
@@ -1185,7 +1079,6 @@ public class mainWindow extends javax.swing.JFrame {
     private javax.swing.JTextArea jTextAreaLeverte;
     private javax.swing.JTextArea jTextAreaName;
     private javax.swing.JTextArea jTextAreaSurname;
-    private javax.swing.JTextField jTextFieldEpost;
     private javax.swing.JTextField jTextFieldTimer;
     private javax.swing.JTextField jTextFieldUke;
     private javax.swing.JToggleButton jToggleButton1;
