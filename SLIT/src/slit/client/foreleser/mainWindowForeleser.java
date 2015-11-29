@@ -13,6 +13,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import slit.client.foreleser.moduleInformationWindowForeleser;
+import javax.swing.JOptionPane;
 /**
  *
  * @author Sondre
@@ -47,6 +48,14 @@ public class mainWindowForeleser extends javax.swing.JFrame {
         
         
     }
+    
+    private String user = "";
+    private String pass ="";
+    private String tidspunkt = "";
+    private String møtested ="";
+    private String tidspunktString = "";
+    private int id = 0;
+    private String idString = "";
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -983,7 +992,38 @@ public class mainWindowForeleser extends javax.swing.JFrame {
 
     private void jButtonLagreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLagreActionPerformed
         // TODO add your handling code here:
+        // Setter variablene til queries
+        tidspunkt = jTextFieldTidspunkt.getText();
+        idString = jTextFieldDeltaker.getText();
+        // Må gjøre om verdien i tekstfeltene til int før de skal inn i DB
+        // Try-catch for å håndtere feil format i feltene
         
+
+        try {
+            id = Integer.parseInt(idString);
+        }
+        catch (NumberFormatException feilId) {
+            System.out.println(feilId);
+        }
+        // Resten av verdiene er tekst også i databasen
+        møtested = jTextFieldSted.getText();
+
+        sendMøteInformasjon();
+        
+	jTextFieldSted.setText("");
+        jTextFieldTidspunkt.setText("");
+        jTextFieldDeltaker.setText("");
+        
+        JOptionPane.showMessageDialog(null, "<Møtet er blitt lagret>", "Alert", JOptionPane.INFORMATION_MESSAGE);
+            // TODO add your handling code here:
+        
+        
+        
+        
+    }                                            
+        private void sendMøteInformasjon() {
+        if (Main.user != null)
+        db.sendMøteInfo(id, tidspunkt, møtested);
         
         
         
