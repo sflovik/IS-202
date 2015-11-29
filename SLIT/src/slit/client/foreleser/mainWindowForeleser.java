@@ -21,7 +21,15 @@ public class mainWindowForeleser extends javax.swing.JFrame {
     /**
      * Creates new form mainWindow
      */
-    private ArrayList<mainWindowForeleser> test;
+   private static String modulTrykket = "";
+
+    public static String getModulTrykket() {
+        return modulTrykket;
+    }
+
+    public  void setModulTrykket(String modulTrykket) {
+        this.modulTrykket = modulTrykket;
+    }
     final static String newline = "\n";
     public mainWindowForeleser() {
         initComponents();
@@ -62,17 +70,6 @@ public class mainWindowForeleser extends javax.swing.JFrame {
         jPanelRightMain = new javax.swing.JPanel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanelHjem = new javax.swing.JPanel();
-        jPanelDagensMain = new javax.swing.JPanel();
-        jScrollPane12 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
-        jButton1 = new javax.swing.JButton();
-        jPanelDokumenterMain = new javax.swing.JPanel();
-        jScrollPane13 = new javax.swing.JScrollPane();
-        jTextArea8 = new javax.swing.JTextArea();
-        jButton2 = new javax.swing.JButton();
-        jPanelVarslingerMain = new javax.swing.JPanel();
-        jScrollPane14 = new javax.swing.JScrollPane();
-        jTextArea9 = new javax.swing.JTextArea();
         jPanelModuler = new javax.swing.JPanel();
         jScrollPaneModuloversikt = new javax.swing.JScrollPane();
         jTextArea2 = new javax.swing.JTextArea();
@@ -350,124 +347,23 @@ public class mainWindowForeleser extends javax.swing.JFrame {
 
         getContentPane().add(jPanelRightMain, java.awt.BorderLayout.LINE_END);
 
-        jScrollPane12.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Dagens", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 18), new java.awt.Color(0, 51, 255))); // NOI18N
-
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane12.setViewportView(jTextArea1);
-
-        jButton1.setText("Lagre endringer");
-
-        javax.swing.GroupLayout jPanelDagensMainLayout = new javax.swing.GroupLayout(jPanelDagensMain);
-        jPanelDagensMain.setLayout(jPanelDagensMainLayout);
-        jPanelDagensMainLayout.setHorizontalGroup(
-            jPanelDagensMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelDagensMainLayout.createSequentialGroup()
-                .addGap(442, 442, 442)
-                .addComponent(jButton1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanelDagensMainLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane12)
-                .addContainerGap())
-        );
-        jPanelDagensMainLayout.setVerticalGroup(
-            jPanelDagensMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelDagensMainLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane12, javax.swing.GroupLayout.PREFERRED_SIZE, 430, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1)
-                .addContainerGap(29, Short.MAX_VALUE))
-        );
-
-        jScrollPane13.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Dokumenter", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 18), new java.awt.Color(0, 51, 255))); // NOI18N
-
-        jTextArea8.setColumns(20);
-        jTextArea8.setRows(5);
-        jScrollPane13.setViewportView(jTextArea8);
-
-        jButton2.setText("Lagre endringer");
-
-        javax.swing.GroupLayout jPanelDokumenterMainLayout = new javax.swing.GroupLayout(jPanelDokumenterMain);
-        jPanelDokumenterMain.setLayout(jPanelDokumenterMainLayout);
-        jPanelDokumenterMainLayout.setHorizontalGroup(
-            jPanelDokumenterMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelDokumenterMainLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanelDokumenterMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane13)
-                    .addGroup(jPanelDokumenterMainLayout.createSequentialGroup()
-                        .addGap(0, 283, Short.MAX_VALUE)
-                        .addComponent(jButton2)))
-                .addContainerGap())
-        );
-        jPanelDokumenterMainLayout.setVerticalGroup(
-            jPanelDokumenterMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelDokumenterMainLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane13, javax.swing.GroupLayout.PREFERRED_SIZE, 430, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton2)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        jScrollPane14.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Varslinger", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 18), new java.awt.Color(0, 51, 255))); // NOI18N
-
-        jTextArea9.setColumns(20);
-        jTextArea9.setRows(5);
-        jScrollPane14.setViewportView(jTextArea9);
-
-        javax.swing.GroupLayout jPanelVarslingerMainLayout = new javax.swing.GroupLayout(jPanelVarslingerMain);
-        jPanelVarslingerMain.setLayout(jPanelVarslingerMainLayout);
-        jPanelVarslingerMainLayout.setHorizontalGroup(
-            jPanelVarslingerMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelVarslingerMainLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane14)
-                .addContainerGap())
-        );
-        jPanelVarslingerMainLayout.setVerticalGroup(
-            jPanelVarslingerMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelVarslingerMainLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane14, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-
         javax.swing.GroupLayout jPanelHjemLayout = new javax.swing.GroupLayout(jPanelHjem);
         jPanelHjem.setLayout(jPanelHjemLayout);
         jPanelHjemLayout.setHorizontalGroup(
             jPanelHjemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelHjemLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanelHjemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jPanelVarslingerMain, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(jPanelHjemLayout.createSequentialGroup()
-                        .addComponent(jPanelDagensMain, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPanelDokumenterMain, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
+            .addGap(0, 997, Short.MAX_VALUE)
         );
         jPanelHjemLayout.setVerticalGroup(
             jPanelHjemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelHjemLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanelHjemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanelDagensMain, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanelDokumenterMain, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
-                .addComponent(jPanelVarslingerMain, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+            .addGap(0, 677, Short.MAX_VALUE)
         );
 
         jTabbedPane1.addTab("Hjem", jPanelHjem);
 
-        jTextArea2.setEditable(false);
         jTextArea2.setBackground(new java.awt.Color(240, 240, 240));
         jTextArea2.setColumns(20);
         jTextArea2.setRows(5);
-        jTextArea2.setText("Her finner du en oversikt over kursets moduler.\nTrykk deg inn på en modul for å se læringsmål,\nressurser og annen informasjon om modulen du \njobber med.\n\nFor studenter av IS-109 er følgende moduler \nobligatoriske:\n- Modul 1\n- Modul 2\n- Modul 3\n- Modul 4\n\nModul 5 er valgfri i IS-109, men obligatorisk \ni IS-110 om den ikke er gjort.\n\nFor studenter av IS-110 er følgende moduler\nObligatoriske:\n- Modul 5 (om ikke gjort i IS-109)\n- Modul 6\n- Modul 7\n- Modul 8\n- Modul 9\n- Velg minst en av Modul 10,11,12,13 eller 14\n- Oppfordres til å ta så mange som mulig.");
+        jTextArea2.setText("\n");
         jTextArea2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jScrollPaneModuloversikt.setViewportView(jTextArea2);
 
@@ -485,6 +381,11 @@ public class mainWindowForeleser extends javax.swing.JFrame {
 
         jButtonModul2.setText("Modul 2");
         jButtonModul2.setPreferredSize(new java.awt.Dimension(81, 23));
+        jButtonModul2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonModul2ActionPerformed(evt);
+            }
+        });
 
         jButtonModul3.setText("Modul 3");
         jButtonModul3.setPreferredSize(new java.awt.Dimension(81, 23));
@@ -496,6 +397,11 @@ public class mainWindowForeleser extends javax.swing.JFrame {
 
         jButtonModul4.setText("Modul 4");
         jButtonModul4.setPreferredSize(new java.awt.Dimension(81, 23));
+        jButtonModul4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonModul4ActionPerformed(evt);
+            }
+        });
 
         jButtonModul5.setText("Modul 5");
         jButtonModul5.setPreferredSize(new java.awt.Dimension(81, 23));
@@ -509,30 +415,75 @@ public class mainWindowForeleser extends javax.swing.JFrame {
 
         jButtonModul6.setText("Modul 6");
         jButtonModul6.setPreferredSize(new java.awt.Dimension(81, 23));
+        jButtonModul6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonModul6ActionPerformed(evt);
+            }
+        });
 
         jButtonModul7.setText("Modul 7");
         jButtonModul7.setPreferredSize(new java.awt.Dimension(81, 23));
+        jButtonModul7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonModul7ActionPerformed(evt);
+            }
+        });
 
         jButtonModul8.setText("Modul 8");
         jButtonModul8.setPreferredSize(new java.awt.Dimension(81, 23));
+        jButtonModul8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonModul8ActionPerformed(evt);
+            }
+        });
 
         jButtonModul9.setText("Modul 9");
         jButtonModul9.setPreferredSize(new java.awt.Dimension(81, 23));
+        jButtonModul9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonModul9ActionPerformed(evt);
+            }
+        });
 
         jButtonModul10.setText("Modul 10");
         jButtonModul10.setPreferredSize(new java.awt.Dimension(81, 23));
+        jButtonModul10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonModul10ActionPerformed(evt);
+            }
+        });
 
         jButtonModul11.setText("Modul 11");
         jButtonModul11.setPreferredSize(new java.awt.Dimension(81, 23));
+        jButtonModul11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonModul11ActionPerformed(evt);
+            }
+        });
 
         jButtonModul12.setText("Modul 12");
         jButtonModul12.setPreferredSize(new java.awt.Dimension(81, 23));
+        jButtonModul12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonModul12ActionPerformed(evt);
+            }
+        });
 
         jButtonModul13.setText("Modul 13");
         jButtonModul13.setPreferredSize(new java.awt.Dimension(81, 23));
+        jButtonModul13.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonModul13ActionPerformed(evt);
+            }
+        });
 
         jButtonModul14.setText("Modul 14");
         jButtonModul14.setPreferredSize(new java.awt.Dimension(81, 23));
+        jButtonModul14.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonModul14ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanelModulerLayout = new javax.swing.GroupLayout(jPanelModuler);
         jPanelModuler.setLayout(jPanelModulerLayout);
@@ -963,15 +914,27 @@ public class mainWindowForeleser extends javax.swing.JFrame {
     }
     private void jButtonModul5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonModul5ActionPerformed
         // TODO add your handling code here:
+       setModulTrykket("modul 5");
+       moduleInformationWindowForeleser modul5 = new moduleInformationWindowForeleser();
+       modul5.hentPublisert();
+       modul5.setVisible(true);
     }//GEN-LAST:event_jButtonModul5ActionPerformed
 
     private void jButtonModul3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonModul3ActionPerformed
         // TODO add your handling code here:
+       setModulTrykket("modul 3");
+       moduleInformationWindowForeleser modul3 = new moduleInformationWindowForeleser();
+       modul3.hentPublisert();
+       modul3.setVisible(true);
     }//GEN-LAST:event_jButtonModul3ActionPerformed
 
     private void jButtonModul1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonModul1ActionPerformed
-    
+        
     // TODO add your handling code here:
+       setModulTrykket("modul 1");
+       moduleInformationWindowForeleser modul1 = new moduleInformationWindowForeleser();
+       modul1.hentPublisert();
+       modul1.setVisible(true);
     }//GEN-LAST:event_jButtonModul1ActionPerformed
 
     private void jTextFieldStedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldStedActionPerformed
@@ -985,6 +948,95 @@ public class mainWindowForeleser extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_jButtonLagreActionPerformed
+
+    private void jButtonModul2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonModul2ActionPerformed
+        // TODO add your handling code here:
+       setModulTrykket("modul 2");
+       moduleInformationWindowForeleser modul2 = new moduleInformationWindowForeleser();
+       modul2.hentPublisert();
+       modul2.setVisible(true);
+    }//GEN-LAST:event_jButtonModul2ActionPerformed
+
+    private void jButtonModul4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonModul4ActionPerformed
+        // TODO add your handling code here:
+       setModulTrykket("modul 4");
+       moduleInformationWindowForeleser modul4 = new moduleInformationWindowForeleser();
+       modul4.hentPublisert();
+       modul4.setVisible(true);
+    }//GEN-LAST:event_jButtonModul4ActionPerformed
+
+    private void jButtonModul6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonModul6ActionPerformed
+        // TODO add your handling code here:
+       setModulTrykket("modul 6");
+       moduleInformationWindowForeleser modul6 = new moduleInformationWindowForeleser();
+       modul6.hentPublisert();
+       modul6.setVisible(true);
+    }//GEN-LAST:event_jButtonModul6ActionPerformed
+
+    private void jButtonModul7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonModul7ActionPerformed
+        // TODO add your handling code here:
+       setModulTrykket("modul 7");
+       moduleInformationWindowForeleser modul7 = new moduleInformationWindowForeleser();
+       modul7.hentPublisert();
+       modul7.setVisible(true);
+    }//GEN-LAST:event_jButtonModul7ActionPerformed
+
+    private void jButtonModul8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonModul8ActionPerformed
+        // TODO add your handling code here:
+       setModulTrykket("modul 8");
+       moduleInformationWindowForeleser modul8 = new moduleInformationWindowForeleser();
+       modul8.hentPublisert();
+       modul8.setVisible(true);
+    }//GEN-LAST:event_jButtonModul8ActionPerformed
+
+    private void jButtonModul9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonModul9ActionPerformed
+        // TODO add your handling code here:
+       setModulTrykket("modul 9");
+       moduleInformationWindowForeleser modul9 = new moduleInformationWindowForeleser();
+       modul9.hentPublisert();
+       modul9.setVisible(true);
+    }//GEN-LAST:event_jButtonModul9ActionPerformed
+
+    private void jButtonModul10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonModul10ActionPerformed
+        // TODO add your handling code here:
+       setModulTrykket("modul 10");
+       moduleInformationWindowForeleser modul10 = new moduleInformationWindowForeleser();
+       modul10.hentPublisert();
+       modul10.setVisible(true);
+    }//GEN-LAST:event_jButtonModul10ActionPerformed
+
+    private void jButtonModul11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonModul11ActionPerformed
+        // TODO add your handling code here:
+       setModulTrykket("modul 11");
+       moduleInformationWindowForeleser modul11 = new moduleInformationWindowForeleser();
+       modul11.hentPublisert();
+       modul11.setVisible(true);
+       
+    }//GEN-LAST:event_jButtonModul11ActionPerformed
+
+    private void jButtonModul12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonModul12ActionPerformed
+        // TODO add your handling code here:
+       setModulTrykket("modul 12");
+       moduleInformationWindowForeleser modul12 = new moduleInformationWindowForeleser();
+       modul12.hentPublisert();
+       modul12.setVisible(true);
+    }//GEN-LAST:event_jButtonModul12ActionPerformed
+
+    private void jButtonModul13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonModul13ActionPerformed
+        // TODO add your handling code here:
+       setModulTrykket("modul 13");
+       moduleInformationWindowForeleser modul13 = new moduleInformationWindowForeleser();
+       modul13.hentPublisert();
+       modul13.setVisible(true);
+    }//GEN-LAST:event_jButtonModul13ActionPerformed
+
+    private void jButtonModul14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonModul14ActionPerformed
+        // TODO add your handling code here:
+       setModulTrykket("modul 14");
+       moduleInformationWindowForeleser modul14 = new moduleInformationWindowForeleser();
+       modul14.hentPublisert();
+       modul14.setVisible(true);
+    }//GEN-LAST:event_jButtonModul14ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1023,8 +1075,6 @@ public class mainWindowForeleser extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButtonLagre;
     private javax.swing.JButton jButtonModul1;
     private javax.swing.JButton jButtonModul10;
@@ -1057,8 +1107,6 @@ public class mainWindowForeleser extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelTidspunkt;
     private javax.swing.JLabel jLabelTittel;
     private javax.swing.JPanel jPanelBotMain;
-    private javax.swing.JPanel jPanelDagensMain;
-    private javax.swing.JPanel jPanelDokumenterMain;
     private javax.swing.JPanel jPanelHjem;
     private javax.swing.JPanel jPanelInnlevering;
     private javax.swing.JPanel jPanelLeftCentre;
@@ -1081,13 +1129,9 @@ public class mainWindowForeleser extends javax.swing.JFrame {
     private javax.swing.JPanel jPanelTopCentre;
     private javax.swing.JPanel jPanelTopMain;
     private javax.swing.JPanel jPanelTopTop;
-    private javax.swing.JPanel jPanelVarslingerMain;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane11;
-    private javax.swing.JScrollPane jScrollPane12;
-    private javax.swing.JScrollPane jScrollPane13;
-    private javax.swing.JScrollPane jScrollPane14;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
@@ -1103,15 +1147,12 @@ public class mainWindowForeleser extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeperatorTopBot;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextArea jTextArea2;
     private javax.swing.JTextArea jTextArea3;
     private javax.swing.JTextArea jTextArea4;
     private javax.swing.JTextArea jTextArea5;
     private javax.swing.JTextArea jTextArea6;
     private javax.swing.JTextArea jTextArea7;
-    private javax.swing.JTextArea jTextArea8;
-    private javax.swing.JTextArea jTextArea9;
     private javax.swing.JTextArea jTextAreaDate;
     private javax.swing.JTextArea jTextAreaId;
     private javax.swing.JTextArea jTextAreaLeverte;

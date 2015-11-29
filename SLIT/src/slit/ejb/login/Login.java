@@ -26,6 +26,14 @@ public class Login extends javax.swing.JFrame {
 private String user = "";
 private String pass = "";
 private String role = "";
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
     /**
      * Creates new form Login
      */
@@ -244,6 +252,16 @@ private void login() {
 
      localUser localuser = db.login(user, pass, role);
         if(localuser != null){
+            if (jComboBoxRoleLogin.getSelectedItem().toString().equals("Student")){
+                slit.mainWindow hjems = new slit.mainWindow();
+                hjems.setVisible(true);
+                hjems.setExtendedState(slit.mainWindow.MAXIMIZED_BOTH);
+            }
+            else {
+                slit.client.foreleser.mainWindowForeleser hjemf = new slit.client.foreleser.mainWindowForeleser();
+                hjemf.setVisible(true);
+                hjemf.setExtendedState(slit.client.foreleser.mainWindowForeleser.MAXIMIZED_BOTH);
+            }
         Main.user = localuser;
        
                 }
@@ -260,7 +278,7 @@ private void login() {
         // TODO add your handling code here:
         user = jTextFieldEmailLogin.getText();
         pass = jPasswordFieldLogin.getText();
-        role = jComboBoxRoleLogin.getSelectedItem().toString();
+        setRole((jComboBoxRoleLogin.getSelectedItem().toString()));
         localUser localuser = new localUser(user, pass, role);
         localuser.setUser(user);
         localuser.setPass(pass);

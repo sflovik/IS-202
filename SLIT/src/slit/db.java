@@ -120,10 +120,7 @@ public class db {
                 if (rs.next()) {
                     System.out.println(Main.user);
                     System.out.println("Valid user");
-                    System.out.println("User logged in:");
-                    slit.mainWindow guiHjem = new slit.mainWindow();
-                    guiHjem.setVisible(true);
-                    guiHjem.setExtendedState(slit.mainWindow.MAXIMIZED_BOTH);
+                    System.out.println("User logged in:");      
                     System.out.println (username);
                     System.out.println (role);
                     return Main.user = new localUser(rs.getString("brukerEmail"), rs.getString("brukerPassord"), rs.getString("brukerRolle"));
@@ -148,22 +145,7 @@ public class db {
         
         
     }
-    public void setModuleNumber() {
-        mainWindow modules = new mainWindow();
-        modules.getModulTrykket();
-        if (modules.getModulTrykket().equals("modul 1")) {
-            // last info for modul 1
-          
+   
         }
-        else if (modules.getModulTrykket().equals("modul 2")) {
-            // last info for modul 2
-        }
-        else if (modules.getModulTrykket().equals("modul 2")) {
-            // last info for modul 2
-        }
-        else if (modules.getModulTrykket().equals("modul 2")) {
-            // last info for modul 2
-        }
-        }
-}
+
   
