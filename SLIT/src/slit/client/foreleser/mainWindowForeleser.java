@@ -12,6 +12,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import slit.client.foreleser.moduleInformationWindowForeleser;
 /**
  *
  * @author Sondre
@@ -22,7 +23,14 @@ public class mainWindowForeleser extends javax.swing.JFrame {
      * Creates new form mainWindow
      */
    private static String modulTrykket = "";
-
+   private static String generellModul = "";
+   
+    public static String getGenerellModul () {
+        return generellModul;
+    }
+    public void setGenerellModul(String generellModul) {
+        this.generellModul = generellModul;       
+    }
     public static String getModulTrykket() {
         return modulTrykket;
     }
@@ -31,10 +39,12 @@ public class mainWindowForeleser extends javax.swing.JFrame {
         this.modulTrykket = modulTrykket;
     }
     final static String newline = "\n";
-    public mainWindowForeleser() {
+    public mainWindowForeleser() {  
         initComponents();
         statistikkVisning();
-            
+       
+        
+        
         
     }
 
@@ -72,7 +82,7 @@ public class mainWindowForeleser extends javax.swing.JFrame {
         jPanelHjem = new javax.swing.JPanel();
         jPanelModuler = new javax.swing.JPanel();
         jScrollPaneModuloversikt = new javax.swing.JScrollPane();
-        jTextArea2 = new javax.swing.JTextArea();
+        jTextAreaInfo = new javax.swing.JTextArea();
         jLabelModuler109 = new javax.swing.JLabel();
         jButtonModul1 = new javax.swing.JButton();
         jButtonModul2 = new javax.swing.JButton();
@@ -89,6 +99,8 @@ public class mainWindowForeleser extends javax.swing.JFrame {
         jButtonModul12 = new javax.swing.JButton();
         jButtonModul13 = new javax.swing.JButton();
         jButtonModul14 = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jButtonLagreInfo = new javax.swing.JButton();
         jPanelInnlevering = new javax.swing.JPanel();
         jPanelStatistikk = new javax.swing.JPanel();
         jPanelStatistikkMain = new javax.swing.JPanel();
@@ -347,6 +359,12 @@ public class mainWindowForeleser extends javax.swing.JFrame {
 
         getContentPane().add(jPanelRightMain, java.awt.BorderLayout.LINE_END);
 
+        jTabbedPane1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTabbedPane1MouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanelHjemLayout = new javax.swing.GroupLayout(jPanelHjem);
         jPanelHjem.setLayout(jPanelHjemLayout);
         jPanelHjemLayout.setHorizontalGroup(
@@ -360,12 +378,12 @@ public class mainWindowForeleser extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Hjem", jPanelHjem);
 
-        jTextArea2.setBackground(new java.awt.Color(240, 240, 240));
-        jTextArea2.setColumns(20);
-        jTextArea2.setRows(5);
-        jTextArea2.setText("\n");
-        jTextArea2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jScrollPaneModuloversikt.setViewportView(jTextArea2);
+        jTextAreaInfo.setBackground(new java.awt.Color(240, 240, 240));
+        jTextAreaInfo.setColumns(20);
+        jTextAreaInfo.setRows(5);
+        jTextAreaInfo.setText("\n");
+        jTextAreaInfo.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jScrollPaneModuloversikt.setViewportView(jTextAreaInfo);
 
         jLabelModuler109.setText("Moduler IS-109");
 
@@ -485,46 +503,62 @@ public class mainWindowForeleser extends javax.swing.JFrame {
             }
         });
 
+        jLabel2.setText("Skriv litt generell info om kurset");
+
+        jButtonLagreInfo.setText("Lagre");
+        jButtonLagreInfo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonLagreInfoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanelModulerLayout = new javax.swing.GroupLayout(jPanelModuler);
         jPanelModuler.setLayout(jPanelModulerLayout);
         jPanelModulerLayout.setHorizontalGroup(
             jPanelModulerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelModulerLayout.createSequentialGroup()
+                .addGap(149, 149, 149)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanelModulerLayout.createSequentialGroup()
                 .addGap(29, 29, 29)
                 .addComponent(jScrollPaneModuloversikt, javax.swing.GroupLayout.PREFERRED_SIZE, 424, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 196, Short.MAX_VALUE)
-                .addGroup(jPanelModulerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jButtonModul4, javax.swing.GroupLayout.DEFAULT_SIZE, 95, Short.MAX_VALUE)
-                    .addComponent(jLabelModuler109, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButtonModul2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButtonModul1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButtonModul3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButtonModul5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGroup(jPanelModulerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelModulerLayout.createSequentialGroup()
-                        .addGap(25, 25, 25)
-                        .addGroup(jPanelModulerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jButtonModul6, javax.swing.GroupLayout.DEFAULT_SIZE, 95, Short.MAX_VALUE)
-                            .addComponent(jButtonModul14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButtonModul7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButtonModul8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButtonModul9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButtonModul10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButtonModul11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButtonModul12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabelModuler110, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelModulerLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 197, Short.MAX_VALUE)
+                        .addGroup(jPanelModulerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jButtonModul4, javax.swing.GroupLayout.DEFAULT_SIZE, 95, Short.MAX_VALUE)
+                            .addComponent(jLabelModuler109, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButtonModul2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButtonModul1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButtonModul3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButtonModul5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(jPanelModulerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanelModulerLayout.createSequentialGroup()
+                                .addGap(25, 25, 25)
+                                .addGroup(jPanelModulerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jButtonModul6, javax.swing.GroupLayout.DEFAULT_SIZE, 95, Short.MAX_VALUE)
+                                    .addComponent(jButtonModul14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jButtonModul7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jButtonModul8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jButtonModul9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jButtonModul10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jButtonModul11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jButtonModul12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabelModuler110, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelModulerLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButtonModul13, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap(134, Short.MAX_VALUE))
+                    .addGroup(jPanelModulerLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButtonModul13, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(133, Short.MAX_VALUE))
+                        .addComponent(jButtonLagreInfo)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         jPanelModulerLayout.setVerticalGroup(
             jPanelModulerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelModulerLayout.createSequentialGroup()
                 .addGroup(jPanelModulerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanelModulerLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPaneModuloversikt, javax.swing.GroupLayout.PREFERRED_SIZE, 445, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanelModulerLayout.createSequentialGroup()
                         .addGap(19, 19, 19)
                         .addGroup(jPanelModulerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -557,8 +591,14 @@ public class mainWindowForeleser extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButtonModul13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButtonModul14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jButtonModul14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanelModulerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(jButtonLagreInfo)
+                        .addGroup(jPanelModulerLayout.createSequentialGroup()
+                            .addComponent(jLabel2)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jScrollPaneModuloversikt, javax.swing.GroupLayout.PREFERRED_SIZE, 445, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(216, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Moduler", jPanelModuler);
@@ -1038,6 +1078,20 @@ public class mainWindowForeleser extends javax.swing.JFrame {
        modul14.setVisible(true);
     }//GEN-LAST:event_jButtonModul14ActionPerformed
 
+    private void jButtonLagreInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLagreInfoActionPerformed
+        // TODO add your handling code here:
+        setGenerellModul(jTextAreaInfo.getText());
+        System.out.println(getGenerellModul());
+        slit.db.generellInfo();
+        slit.db.hentGammelBeskjed();
+    }//GEN-LAST:event_jButtonLagreInfoActionPerformed
+
+    private void jTabbedPane1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTabbedPane1MouseClicked
+        // TODO add your handling code here:
+        db.hentGammelBeskjed();
+        jTextAreaInfo.setText(getGenerellModul());
+    }//GEN-LAST:event_jTabbedPane1MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -1076,6 +1130,7 @@ public class mainWindowForeleser extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonLagre;
+    private javax.swing.JButton jButtonLagreInfo;
     private javax.swing.JButton jButtonModul1;
     private javax.swing.JButton jButtonModul10;
     private javax.swing.JButton jButtonModul11;
@@ -1094,6 +1149,7 @@ public class mainWindowForeleser extends javax.swing.JFrame {
     private javax.swing.JButton jButtonSendRapport;
     private javax.swing.JButton jButtonSlett;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabelModuler109;
     private javax.swing.JLabel jLabelModuler110;
@@ -1147,7 +1203,6 @@ public class mainWindowForeleser extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeperatorTopBot;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextArea jTextArea2;
     private javax.swing.JTextArea jTextArea3;
     private javax.swing.JTextArea jTextArea4;
     private javax.swing.JTextArea jTextArea5;
@@ -1155,6 +1210,7 @@ public class mainWindowForeleser extends javax.swing.JFrame {
     private javax.swing.JTextArea jTextArea7;
     private javax.swing.JTextArea jTextAreaDate;
     private javax.swing.JTextArea jTextAreaId;
+    private javax.swing.JTextArea jTextAreaInfo;
     private javax.swing.JTextArea jTextAreaLeverte;
     private javax.swing.JTextArea jTextAreaName;
     private javax.swing.JTextArea jTextAreaSurname;

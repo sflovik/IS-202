@@ -11,7 +11,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import slit.Constants;
+import slit.Constants;
 import slit.Main;
+import slit.Main;
+import slit.localUser;
 import slit.localUser;
 import static slit.mainWindow.newline;
 
@@ -24,7 +27,26 @@ public class db {
     
     
    
-
+    public static void generellInfo() {
+         try {
+                String test = slit.client.foreleser.mainWindowForeleser.getGenerellModul();
+        
+                System.out.println(test);
+                Connection con = DriverManager.getConnection(Constants.db_url, Constants.db_user, Constants.db_pass);
+       
+               
+                String SQL = ("UPDATE generellinfo SET generellModulInfo = '"+test+"'");      
+            
+                Statement setInfo = con.createStatement( );
+                setInfo.executeUpdate(SQL);
+           
+        }
+        catch (SQLException err) {
+            System.out.println(err);
+        }
+        
+                            
+    }
     public static localUser sendRapport(int uke, String gått, String annerledes,
         String hjelp, int timer) {
         String passord = Main.user.getPass();
@@ -144,6 +166,25 @@ public class db {
        
         
         
+    }
+    public static void hentGammelBeskjed() {
+        try {
+        Connection connect = DriverManager.getConnection(Constants.db_url, Constants.db_user, Constants.db_pass);
+       
+                Statement hentInfo = connect.createStatement();
+                String SQLgammelTekst = ("SELECT generellModulInfo FROM generellinfo");
+                String eksisterendeMelding = "";           
+                ResultSet testing = hentInfo.executeQuery(SQLgammelTekst);
+                if (testing.next()) {  
+                        eksisterendeMelding = testing.getString("generellModulInfo");
+                        slit.client.foreleser.mainWindowForeleser lagretvisning = new slit.client.foreleser.mainWindowForeleser();
+                        lagretvisning.setGenerellModul(eksisterendeMelding);
+                }     
+                    
+        }
+        catch (SQLException err) {
+            System.out.println(err);
+        }
     }
    
         }

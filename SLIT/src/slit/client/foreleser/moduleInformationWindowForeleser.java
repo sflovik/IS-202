@@ -862,6 +862,7 @@ public class moduleInformationWindowForeleser extends javax.swing.JFrame {
         jScrollPaneGodkjenning = new javax.swing.JScrollPane();
         jTextAreaKriterie = new javax.swing.JTextArea();
         jTextFieldFrist = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
         jPanelCentreLeft = new javax.swing.JPanel();
         jLabelLæringsmål = new javax.swing.JLabel();
         jLabelRessurser = new javax.swing.JLabel();
@@ -870,6 +871,8 @@ public class moduleInformationWindowForeleser extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextAreaRessurs = new javax.swing.JTextArea();
         jButton1 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -916,13 +919,12 @@ public class moduleInformationWindowForeleser extends javax.swing.JFrame {
         jTextAreaKriterie.setPreferredSize(new java.awt.Dimension(300, 50));
         jScrollPaneGodkjenning.setViewportView(jTextAreaKriterie);
 
+        jLabel3.setText("Tidsfrist: Format YYYY-MM-DD HH:MM:SS");
+
         javax.swing.GroupLayout jPanelCentreCentreLayout = new javax.swing.GroupLayout(jPanelCentreCentre);
         jPanelCentreCentre.setLayout(jPanelCentreCentreLayout);
         jPanelCentreCentreLayout.setHorizontalGroup(
             jPanelCentreCentreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelCentreCentreLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jTextFieldFrist, javax.swing.GroupLayout.PREFERRED_SIZE, 319, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(jPanelCentreCentreLayout.createSequentialGroup()
                 .addGroup(jPanelCentreCentreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelCentreCentreLayout.createSequentialGroup()
@@ -931,7 +933,11 @@ public class moduleInformationWindowForeleser extends javax.swing.JFrame {
                     .addGroup(jPanelCentreCentreLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabelGodkjenning)))
-                .addGap(11, 11, 11))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanelCentreCentreLayout.createSequentialGroup()
+                .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+            .addComponent(jTextFieldFrist)
         );
         jPanelCentreCentreLayout.setVerticalGroup(
             jPanelCentreCentreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -942,7 +948,8 @@ public class moduleInformationWindowForeleser extends javax.swing.JFrame {
                 .addComponent(jScrollPaneGodkjenning, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jTextFieldFrist, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel3))
         );
 
         jLabelLæringsmål.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
@@ -1005,6 +1012,10 @@ public class moduleInformationWindowForeleser extends javax.swing.JFrame {
             }
         });
 
+        jLabel1.setText("Skriv inn tittel, eks. modul 1");
+
+        jLabel2.setText("Skriv inn kapittel fra lærebok");
+
         javax.swing.GroupLayout jPanelCentreMainLayout = new javax.swing.GroupLayout(jPanelCentreMain);
         jPanelCentreMain.setLayout(jPanelCentreMainLayout);
         jPanelCentreMainLayout.setHorizontalGroup(
@@ -1016,16 +1027,25 @@ public class moduleInformationWindowForeleser extends javax.swing.JFrame {
                     .addGroup(jPanelCentreMainLayout.createSequentialGroup()
                         .addGap(107, 107, 107)
                         .addComponent(jPanelCentreCentre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(104, Short.MAX_VALUE))
+                        .addContainerGap(105, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelCentreMainLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(109, 109, 109))))
+            .addGroup(jPanelCentreMainLayout.createSequentialGroup()
+                .addGap(243, 243, 243)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(50, 50, 50)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanelCentreMainLayout.setVerticalGroup(
             jPanelCentreMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelCentreMainLayout.createSequentialGroup()
-                .addGap(43, 43, 43)
+                .addGroup(jPanelCentreMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel2))
+                .addGap(29, 29, 29)
                 .addGroup(jPanelCentreMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelCentreMainLayout.createSequentialGroup()
                         .addComponent(jPanelCentreCentre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1083,6 +1103,9 @@ public class moduleInformationWindowForeleser extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabelGodkjenning;
     private javax.swing.JLabel jLabelLæringsmål;
     private javax.swing.JLabel jLabelRessurser;

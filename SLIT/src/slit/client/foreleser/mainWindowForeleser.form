@@ -309,6 +309,9 @@
       </Layout>
     </Container>
     <Container class="javax.swing.JTabbedPane" name="jTabbedPane1">
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jTabbedPane1MouseClicked"/>
+      </Events>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout" value="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout$BorderConstraintsDescription">
           <BorderConstraints direction="Center"/>
@@ -351,39 +354,53 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="149" max="-2" attributes="0"/>
+                      <Component id="jLabel2" min="-2" pref="179" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
                       <Component id="jScrollPaneModuloversikt" min="-2" pref="424" max="-2" attributes="0"/>
-                      <EmptySpace pref="196" max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                          <Component id="jButtonModul4" alignment="1" pref="95" max="32767" attributes="0"/>
-                          <Component id="jLabelModuler109" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jButtonModul2" alignment="1" max="32767" attributes="0"/>
-                          <Component id="jButtonModul1" alignment="1" max="32767" attributes="0"/>
-                          <Component id="jButtonModul3" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jButtonModul5" alignment="0" max="32767" attributes="0"/>
-                      </Group>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="jButtonModul6" alignment="0" pref="95" max="32767" attributes="0"/>
-                                  <Component id="jButtonModul14" max="32767" attributes="0"/>
-                                  <Component id="jButtonModul7" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="jButtonModul8" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="jButtonModul9" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="jButtonModul10" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="jButtonModul11" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="jButtonModul12" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="jLabelModuler110" alignment="0" max="32767" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <EmptySpace pref="197" max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                  <Component id="jButtonModul4" alignment="1" pref="95" max="32767" attributes="0"/>
+                                  <Component id="jLabelModuler109" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jButtonModul2" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="jButtonModul1" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="jButtonModul3" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="jButtonModul5" alignment="0" max="32767" attributes="0"/>
                               </Group>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="jButtonModul6" alignment="0" pref="95" max="32767" attributes="0"/>
+                                          <Component id="jButtonModul14" max="32767" attributes="0"/>
+                                          <Component id="jButtonModul7" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="jButtonModul8" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="jButtonModul9" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="jButtonModul10" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="jButtonModul11" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="jButtonModul12" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="jLabelModuler110" alignment="0" max="32767" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="jButtonModul13" min="-2" pref="95" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <EmptySpace pref="134" max="32767" attributes="0"/>
                           </Group>
-                          <Group type="102" alignment="1" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jButtonModul13" min="-2" pref="95" max="-2" attributes="0"/>
+                              <Component id="jButtonLagreInfo" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace pref="133" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -391,10 +408,6 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jScrollPaneModuloversikt" min="-2" pref="445" max="-2" attributes="0"/>
-                          </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
@@ -435,8 +448,16 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jButtonModul14" min="-2" max="-2" attributes="0"/>
                           </Group>
+                          <Group type="103" alignment="0" groupAlignment="1" attributes="0">
+                              <Component id="jButtonLagreInfo" min="-2" max="-2" attributes="0"/>
+                              <Group type="102" attributes="0">
+                                  <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="jScrollPaneModuloversikt" min="-2" pref="445" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
                       </Group>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace pref="216" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -449,7 +470,7 @@
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
               <SubComponents>
-                <Component class="javax.swing.JTextArea" name="jTextArea2">
+                <Component class="javax.swing.JTextArea" name="jTextAreaInfo">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="f0" green="f0" red="f0" type="rgb"/>
@@ -634,6 +655,19 @@
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonModul14ActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel2">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Skriv litt generell info om kurset"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JButton" name="jButtonLagreInfo">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Lagre"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonLagreInfoActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>
