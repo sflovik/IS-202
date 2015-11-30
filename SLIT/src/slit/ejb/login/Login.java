@@ -8,6 +8,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
+import slit.Constants;
 import slit.Main;
 import slit.db;
 import slit.localUser;
@@ -26,6 +27,7 @@ public class Login extends javax.swing.JFrame {
 private String user = "";
 private String pass = "";
 private String role = "";
+private int id = 0;
 
     public String getRole() {
         return role;
@@ -254,7 +256,7 @@ private String role = "";
     }// </editor-fold>//GEN-END:initComponents
 private void login() {
 
-     localUser localuser = db.login(user, pass, role);
+     localUser localuser = db.login(user, pass, role, id);
         if(localuser != null){
             if (jComboBoxRoleLogin.getSelectedItem().toString().equals("Student")){
                 slit.mainWindow hjems = new slit.mainWindow();
@@ -283,11 +285,37 @@ private void login() {
         user = jTextFieldEmailLogin.getText();
         pass = jPasswordFieldLogin.getText();
         setRole((jComboBoxRoleLogin.getSelectedItem().toString()));
-        localUser localuser = new localUser(user, pass, role);
+        localUser localuser = new localUser(user, pass, role,id);
         localuser.setUser(user);
         localuser.setPass(pass);
         localuser.setRole(role);
-        login();
+        try {
+        String ID = "SELECT * FROM Bruker WHERE brukerEmail= '" 
+                        + user +"' AND brukerPassord='" + pass + "' ";
+         
+                Connection con = DriverManager.getConnection(Constants.db_url, Constants.db_user, Constants.db_pass);
+            
+                Statement stmt = con.createStatement( );
+                
+               
+                ResultSet result = stmt.executeQuery (ID);
+                
+                // Variabel brukerId som skal sendes inn med statusrapport
+                id = 0;
+              
+                 // Om credentials er godkjent, henter ut brukerId fra ID query
+                if (result.next()) {
+                    id = result.getInt("BrukerId");
+                }
+              
+                localuser.setId(id);
+                login();
+            
+                
+        }
+        catch (SQLException err) {
+                        System.out.println(err);
+                        }
         
     }//GEN-LAST:event_jButtonLoginActionPerformed
 
