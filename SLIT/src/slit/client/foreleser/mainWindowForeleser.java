@@ -43,6 +43,7 @@ public class mainWindowForeleser extends javax.swing.JFrame {
     public mainWindowForeleser() {  
         initComponents();
         statistikkVisning();
+        
        
         
         
@@ -111,6 +112,9 @@ public class mainWindowForeleser extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jButtonLagreInfo = new javax.swing.JButton();
         jPanelInnlevering = new javax.swing.JPanel();
+        jScrollPane12 = new javax.swing.JScrollPane();
+        jList1 = new javax.swing.JList();
+        jButton1 = new javax.swing.JButton();
         jPanelStatistikk = new javax.swing.JPanel();
         jPanelStatistikkMain = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -612,15 +616,37 @@ public class mainWindowForeleser extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Moduler", jPanelModuler);
 
+        jList1.setModel(new javax.swing.AbstractListModel() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public Object getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane12.setViewportView(jList1);
+
+        jButton1.setText("jButton1");
+
         javax.swing.GroupLayout jPanelInnleveringLayout = new javax.swing.GroupLayout(jPanelInnlevering);
         jPanelInnlevering.setLayout(jPanelInnleveringLayout);
         jPanelInnleveringLayout.setHorizontalGroup(
             jPanelInnleveringLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 997, Short.MAX_VALUE)
+            .addGroup(jPanelInnleveringLayout.createSequentialGroup()
+                .addGap(105, 105, 105)
+                .addComponent(jScrollPane12, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(75, 75, 75)
+                .addComponent(jButton1)
+                .addContainerGap(553, Short.MAX_VALUE))
         );
         jPanelInnleveringLayout.setVerticalGroup(
             jPanelInnleveringLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 677, Short.MAX_VALUE)
+            .addGroup(jPanelInnleveringLayout.createSequentialGroup()
+                .addGroup(jPanelInnleveringLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelInnleveringLayout.createSequentialGroup()
+                        .addGap(31, 31, 31)
+                        .addComponent(jScrollPane12, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanelInnleveringLayout.createSequentialGroup()
+                        .addGap(70, 70, 70)
+                        .addComponent(jButton1)))
+                .addContainerGap(469, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Innlevering", jPanelInnlevering);
@@ -961,6 +987,27 @@ public class mainWindowForeleser extends javax.swing.JFrame {
        
         
     }
+    public void hentBrukere () {
+                try {
+                String ID = "SELECT * FROM Bruker";
+         
+                // Definer login credentials på databasen med url, brukernavn og passord
+              
+                // Printer ut databasens URL (hjelp ved evt. feilsøking)
+                System.out.println("The URL is: " + Constants.db_url);
+                // Sett opp en ny connection ved bruk av variablene som er definert
+                Connection con = DriverManager.getConnection(Constants.db_url, Constants.db_user, Constants.db_pass);
+                // Definer en ny Statement (eks. "stmt") og nytt ResultSet (eks. "rs")
+                Statement stmt = con.createStatement( ); 
+                ResultSet result = stmt.executeQuery (ID);
+                    while (result.next()) {
+                    
+                    }
+                }
+                catch (SQLException err) {
+                    System.out.println(err);
+                }
+    }
     private void jButtonModul5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonModul5ActionPerformed
         // TODO add your handling code here:
        setModulTrykket("modul 5");
@@ -1169,6 +1216,7 @@ public class mainWindowForeleser extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButtonLagre;
     private javax.swing.JButton jButtonLagreInfo;
     private javax.swing.JButton jButtonModul1;
@@ -1202,6 +1250,7 @@ public class mainWindowForeleser extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelSted;
     private javax.swing.JLabel jLabelTidspunkt;
     private javax.swing.JLabel jLabelTittel;
+    private javax.swing.JList jList1;
     private javax.swing.JPanel jPanelBotMain;
     private javax.swing.JPanel jPanelHjem;
     private javax.swing.JPanel jPanelInnlevering;
@@ -1228,6 +1277,7 @@ public class mainWindowForeleser extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane11;
+    private javax.swing.JScrollPane jScrollPane12;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;

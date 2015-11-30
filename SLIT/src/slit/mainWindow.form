@@ -259,6 +259,9 @@
       <Layout class="org.netbeans.modules.form.compat2.layouts.DesignFlowLayout"/>
     </Container>
     <Container class="javax.swing.JTabbedPane" name="jTabbedPane1">
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jTabbedPane1MouseClicked"/>
+      </Events>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout" value="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout$BorderConstraintsDescription">
           <BorderConstraints direction="Center"/>
@@ -436,39 +439,34 @@
                           <Group type="102" attributes="0">
                               <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
                               <Component id="opplastTest" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="106" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                  <Component id="jButtonModul4" alignment="1" pref="95" max="32767" attributes="0"/>
+                                  <Component id="jButtonModul4" alignment="1" max="32767" attributes="0"/>
                                   <Component id="jLabelModuler109" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="jButtonModul2" alignment="1" max="32767" attributes="0"/>
                                   <Component id="jButtonModul1" alignment="1" max="32767" attributes="0"/>
                                   <Component id="jButtonModul3" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="jButtonModul5" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="jButtonModul5" alignment="0" min="-2" pref="95" max="-2" attributes="0"/>
                               </Group>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="jButtonModul6" alignment="0" pref="95" max="32767" attributes="0"/>
-                                          <Component id="jButtonModul14" max="32767" attributes="0"/>
-                                          <Component id="jButtonModul7" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="jButtonModul8" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="jButtonModul9" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="jButtonModul10" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="jButtonModul11" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="jButtonModul12" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="jLabelModuler110" alignment="0" max="32767" attributes="0"/>
-                                      </Group>
+                                  <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="jButtonModul6" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="jButtonModul14" max="32767" attributes="0"/>
+                                      <Component id="jButtonModul7" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="jButtonModul8" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="jButtonModul9" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="jButtonModul10" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="jButtonModul11" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="jButtonModul12" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="jLabelModuler110" alignment="0" min="-2" pref="95" max="-2" attributes="0"/>
                                   </Group>
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jButtonModul13" min="-2" pref="95" max="-2" attributes="0"/>
-                                  </Group>
+                                  <Component id="jButtonModul13" alignment="1" min="-2" pref="95" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Component id="nedlastTest" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="176" max="32767" attributes="0"/>
+                      <EmptySpace pref="291" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -534,7 +532,7 @@
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
               <SubComponents>
-                <Component class="javax.swing.JTextArea" name="jTextArea2">
+                <Component class="javax.swing.JTextArea" name="jTextAreaInfo">
                   <Properties>
                     <Property name="editable" type="boolean" value="false"/>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
