@@ -41,6 +41,7 @@ private int id = 0;
      */
     public Login() {
         initComponents();
+        getRootPane().setDefaultButton(jButtonLogin);
         addWindowListener(new WindowAdapter() {
         
             @Override
