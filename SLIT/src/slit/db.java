@@ -11,7 +11,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import slit.Constants;
+import slit.Constants;
 import slit.Main;
+import slit.Main;
+import slit.localUser;
 import slit.localUser;
 import static slit.mainWindow.newline;
 
@@ -24,7 +27,27 @@ public class db {
     
     
    
-
+    public static void generellInfo() {
+         try {
+                String test = slit.client.foreleser.mainWindowForeleser.getGenerellModul();
+        
+                System.out.println(test);
+                Connection con = DriverManager.getConnection(Constants.db_url, Constants.db_user, Constants.db_pass);
+       
+               
+                String SQL = ("UPDATE generellinfo SET generellModulInfo = '"+test+"'");      
+            
+                Statement setInfo = con.createStatement( );
+                setInfo.executeUpdate(SQL);
+           
+        }
+        catch (SQLException err) {
+            System.out.println(err);
+        }
+        
+                            
+    }
+    
     public static localUser sendRapport(int uke, String gått, String annerledes,
         String hjelp, int timer) {
         String passord = Main.user.getPass();
@@ -145,7 +168,108 @@ public class db {
         
         
     }
+    public static void hentGammelBeskjed() {
+        try {
+        Connection connect = DriverManager.getConnection(Constants.db_url, Constants.db_user, Constants.db_pass);
+       
+                Statement hentInfo = connect.createStatement();
+                String SQLgammelTekst = ("SELECT generellModulInfo FROM generellinfo");
+                String eksisterendeMelding = "";           
+                ResultSet testing = hentInfo.executeQuery(SQLgammelTekst);
+                if (testing.next()) {  
+                        eksisterendeMelding = testing.getString("generellModulInfo");
+                        slit.client.foreleser.mainWindowForeleser lagretvisning = new slit.client.foreleser.mainWindowForeleser();
+                        lagretvisning.setGenerellModul(eksisterendeMelding);
+                }     
+                    
+        }
+        catch (SQLException err) {
+            System.out.println(err);
+        }
+    }
    
+    
+    
+     public static localUser sendMøteInfo(int id, String tidspunkt, String møtested)   
+        {
+        String passord = Main.user.getPass();
+        String user = Main.user.getUser();
+        
+       //   System.out.println (Main.user.getPass());
+       // String role = Main.user.getRole();
+        
+        try {  
+                // Query for å hente ut brukerId ut fra gitt bruker som samsvarer med credentials
+                String ID = "SELECT * FROM Bruker WHERE brukerEmail= '" 
+                        + user +"' AND brukerPassord='" + passord + "' ";
+         
+                // Definer login credentials på databasen med url, brukernavn og passord
+              
+                // Printer ut databasens URL (hjelp ved evt. feilsøking)
+                System.out.println("The URL is: " + Constants.db_url);
+                // Sett opp en ny connection ved bruk av variablene som er definert
+                Connection con = DriverManager.getConnection(Constants.db_url, Constants.db_user, Constants.db_pass);
+                // Definer en ny Statement (eks. "stmt") og nytt ResultSet (eks. "rs")
+                Statement stmt = con.createStatement( );
+                
+                // kjører query for å finne brukerId
+                ResultSet result = stmt.executeQuery (ID);
+                
+                // Variabel brukerId som skal sendes inn med statusrapport
+                int brukerId = 0;
+              
+                 // Om credentials er godkjent, henter ut brukerId fra ID query
+                if (result.next()) {
+                    brukerId = result.getInt("BrukerId");
+                    System.out.println("Valid user");
+                    System.out.println("Møteinfo innsendt av:");
+                    System.out.println(user);
+
+                    // Setter inn variabelverdiene i databasen, variablene blir satt på knappen send/lagre, actionevent
+                    String sql = ("INSERT INTO møte (møteId,møteTidspunkt,møteSted)" 
+                    + " VALUES ('"+id+"', '"+tidspunkt+"','"+møtested+"')");
+                    Statement stmt3 = con.createStatement( );
+                    try {
+                        stmt3.executeUpdate(sql);
+                    }
+                    catch (SQLException error){
+                    System.out.println(error);
+                    }
+                    return Main.user;
+                   // System.out.println(sql);
+                   
+                }
+                // Om credentials ikke er godkjent
+                else {
+                    System.out.println("Invalid user");
+              //      System.out.println("Møteinfo ble ikke sendt inn, feil brukerinformasjon");
+                    System.out.println(user);
+                  
+                    
+                    return null;
+                 //   System.out.println(sql);
+                }
+                // For å kontrollere at variablene har rett verdi
+              //  System.out.println(uke);
+              //  System.out.println(gått);
+              //  System.out.println(annerledes);
+              //  System.out.println(hjelp);
+              //  System.out.println(timer);
+              //  System.out.println(brukerId);
+                
+                
+              
+               
+            }
+            
+        
+        catch (SQLException err) {
+            System.out.println(err.getMessage());
+            
+        }
+        return null;
+       
+        }
         }
 
   

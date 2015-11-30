@@ -15,6 +15,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane; 
+import static slit.client.foreleser.mainWindowForeleser.getGenerellModul;
 import slit.lastOpp.lastOpp;
 /**
  *
@@ -48,7 +49,8 @@ public class mainWindow extends javax.swing.JFrame {
     public mainWindow() {
         initComponents();
         statistikkVisning();
-        
+        profilVisning();
+        db.hentGammelBeskjed();
     }
 
     /**
@@ -92,7 +94,7 @@ public class mainWindow extends javax.swing.JFrame {
         jTextArea4 = new javax.swing.JTextArea();
         jPanelModuler = new javax.swing.JPanel();
         jScrollPaneModuloversikt = new javax.swing.JScrollPane();
-        jTextArea2 = new javax.swing.JTextArea();
+        jTextAreaInfo = new javax.swing.JTextArea();
         jLabelModuler109 = new javax.swing.JLabel();
         jButtonModul1 = new javax.swing.JButton();
         jButtonModul2 = new javax.swing.JButton();
@@ -153,8 +155,7 @@ public class mainWindow extends javax.swing.JFrame {
         profilTitle = new javax.swing.JLabel();
         profilUpload = new javax.swing.JButton();
         jScrollPane13 = new javax.swing.JScrollPane();
-        textarea = new javax.swing.JTextArea();
-        testLabel = new javax.swing.JLabel();
+        jTextAreaProfil = new javax.swing.JTextArea();
 
         jToggleButton1.setText("jToggleButton1");
 
@@ -175,7 +176,7 @@ public class mainWindow extends javax.swing.JFrame {
                 .addComponent(jLabel3)
                 .addGap(116, 116, 116)
                 .addComponent(jLabelTittel)
-                .addContainerGap(845, Short.MAX_VALUE))
+                .addContainerGap(847, Short.MAX_VALUE))
         );
         jPanelTopCentreLayout.setVerticalGroup(
             jPanelTopCentreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -195,7 +196,7 @@ public class mainWindow extends javax.swing.JFrame {
         jPanelTopTop.setLayout(jPanelTopTopLayout);
         jPanelTopTopLayout.setHorizontalGroup(
             jPanelTopTopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1522, Short.MAX_VALUE)
+            .addGap(0, 1524, Short.MAX_VALUE)
         );
         jPanelTopTopLayout.setVerticalGroup(
             jPanelTopTopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -211,7 +212,7 @@ public class mainWindow extends javax.swing.JFrame {
         jPanelTopBot.setLayout(jPanelTopBotLayout);
         jPanelTopBotLayout.setHorizontalGroup(
             jPanelTopBotLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSeperatorTopBot, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1522, Short.MAX_VALUE)
+            .addComponent(jSeperatorTopBot, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1524, Short.MAX_VALUE)
         );
         jPanelTopBotLayout.setVerticalGroup(
             jPanelTopBotLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -331,6 +332,12 @@ public class mainWindow extends javax.swing.JFrame {
         getContentPane().add(jPanelLeftMain, java.awt.BorderLayout.LINE_START);
         getContentPane().add(jPanelBotMain, java.awt.BorderLayout.PAGE_END);
 
+        jTabbedPane1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTabbedPane1MouseClicked(evt);
+            }
+        });
+
         jPanelDagensMain.setLayout(new java.awt.GridBagLayout());
 
         jScrollPane9.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Dagens", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 18), new java.awt.Color(0, 0, 255))); // NOI18N
@@ -404,7 +411,7 @@ public class mainWindow extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(jPanelDagensMain, javax.swing.GroupLayout.PREFERRED_SIZE, 563, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPanelFilerMain, javax.swing.GroupLayout.DEFAULT_SIZE, 535, Short.MAX_VALUE))
+                        .addComponent(jPanelFilerMain, javax.swing.GroupLayout.DEFAULT_SIZE, 518, Short.MAX_VALUE))
                     .addGroup(jPanelHjemLayout.createSequentialGroup()
                         .addGap(20, 20, 20)
                         .addComponent(jPanelVarslingerMain, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
@@ -418,18 +425,18 @@ public class mainWindow extends javax.swing.JFrame {
                     .addComponent(jPanelDagensMain, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanelFilerMain, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanelVarslingerMain, javax.swing.GroupLayout.DEFAULT_SIZE, 103, Short.MAX_VALUE)
+                .addComponent(jPanelVarslingerMain, javax.swing.GroupLayout.DEFAULT_SIZE, 86, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
         jTabbedPane1.addTab("Hjem", jPanelHjem);
 
-        jTextArea2.setEditable(false);
-        jTextArea2.setBackground(new java.awt.Color(240, 240, 240));
-        jTextArea2.setColumns(20);
-        jTextArea2.setRows(5);
-        jTextArea2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jScrollPaneModuloversikt.setViewportView(jTextArea2);
+        jTextAreaInfo.setEditable(false);
+        jTextAreaInfo.setBackground(new java.awt.Color(240, 240, 240));
+        jTextAreaInfo.setColumns(20);
+        jTextAreaInfo.setRows(5);
+        jTextAreaInfo.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jScrollPaneModuloversikt.setViewportView(jTextAreaInfo);
 
         jLabelModuler109.setText("Moduler IS-109");
 
@@ -575,32 +582,29 @@ public class mainWindow extends javax.swing.JFrame {
                     .addGroup(jPanelModulerLayout.createSequentialGroup()
                         .addGap(9, 9, 9)
                         .addComponent(opplastTest)
-                        .addGap(106, 106, 106)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanelModulerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jButtonModul4, javax.swing.GroupLayout.DEFAULT_SIZE, 95, Short.MAX_VALUE)
+                            .addComponent(jButtonModul4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabelModuler109, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jButtonModul2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jButtonModul1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jButtonModul3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButtonModul5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jButtonModul5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanelModulerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanelModulerLayout.createSequentialGroup()
-                                .addGap(25, 25, 25)
-                                .addGroup(jPanelModulerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jButtonModul6, javax.swing.GroupLayout.DEFAULT_SIZE, 95, Short.MAX_VALUE)
-                                    .addComponent(jButtonModul14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jButtonModul7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jButtonModul8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jButtonModul9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jButtonModul10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jButtonModul11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jButtonModul12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabelModuler110, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelModulerLayout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButtonModul13, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(jPanelModulerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jButtonModul6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButtonModul14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButtonModul7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButtonModul8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButtonModul9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButtonModul10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButtonModul11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButtonModul12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabelModuler110, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jButtonModul13, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(nedlastTest))
-                .addContainerGap(176, Short.MAX_VALUE))
+                .addContainerGap(274, Short.MAX_VALUE))
         );
         jPanelModulerLayout.setVerticalGroup(
             jPanelModulerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -655,6 +659,7 @@ public class mainWindow extends javax.swing.JFrame {
 
         jScrollPane2.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 
+        jTextAreaId.setEditable(false);
         jTextAreaId.setColumns(20);
         jTextAreaId.setRows(5);
         jScrollPane2.setViewportView(jTextAreaId);
@@ -663,6 +668,7 @@ public class mainWindow extends javax.swing.JFrame {
 
         jScrollPane3.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 
+        jTextAreaName.setEditable(false);
         jTextAreaName.setColumns(20);
         jTextAreaName.setRows(5);
         jScrollPane3.setViewportView(jTextAreaName);
@@ -671,6 +677,7 @@ public class mainWindow extends javax.swing.JFrame {
 
         jScrollPane4.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 
+        jTextAreaSurname.setEditable(false);
         jTextAreaSurname.setColumns(20);
         jTextAreaSurname.setRows(5);
         jScrollPane4.setViewportView(jTextAreaSurname);
@@ -679,6 +686,7 @@ public class mainWindow extends javax.swing.JFrame {
 
         jScrollPane5.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 
+        jTextAreaDate.setEditable(false);
         jTextAreaDate.setColumns(20);
         jTextAreaDate.setRows(5);
         jScrollPane5.setViewportView(jTextAreaDate);
@@ -687,6 +695,7 @@ public class mainWindow extends javax.swing.JFrame {
 
         jScrollPane6.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 
+        jTextAreaLeverte.setEditable(false);
         jTextAreaLeverte.setColumns(20);
         jTextAreaLeverte.setRows(5);
         jScrollPane6.setViewportView(jTextAreaLeverte);
@@ -803,7 +812,7 @@ public class mainWindow extends javax.swing.JFrame {
                         .addComponent(jTextFieldUke)
                         .addComponent(jTextFieldTimer))
                     .addComponent(jButtonSendRapport))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 491, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 474, Short.MAX_VALUE)
                 .addComponent(jPanelRightMain, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -856,42 +865,37 @@ public class mainWindow extends javax.swing.JFrame {
             }
         });
 
-        textarea.setColumns(20);
-        textarea.setRows(5);
-        jScrollPane13.setViewportView(textarea);
+        jTextAreaProfil.setColumns(20);
+        jTextAreaProfil.setRows(5);
+        jScrollPane13.setViewportView(jTextAreaProfil);
 
         javax.swing.GroupLayout mainRightLayout = new javax.swing.GroupLayout(mainRight);
         mainRight.setLayout(mainRightLayout);
         mainRightLayout.setHorizontalGroup(
             mainRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(mainRightLayout.createSequentialGroup()
+                .addContainerGap(21, Short.MAX_VALUE)
                 .addGroup(mainRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(mainRightLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(mainRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(profilUpload)
-                        .addGroup(mainRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(mainRightLayout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(profilTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, mainRightLayout.createSequentialGroup()
-                                .addGap(38, 38, 38)
-                                .addComponent(testLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(15, Short.MAX_VALUE))
+                        .addGap(48, 48, 48)
+                        .addComponent(profilTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(23, Short.MAX_VALUE))
+            .addGroup(mainRightLayout.createSequentialGroup()
+                .addGap(73, 73, 73)
+                .addComponent(profilUpload)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         mainRightLayout.setVerticalGroup(
             mainRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(mainRightLayout.createSequentialGroup()
                 .addGap(44, 44, 44)
                 .addComponent(profilTitle)
-                .addGap(45, 45, 45)
-                .addComponent(testLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(profilUpload)
-                .addGap(69, 69, 69)
-                .addComponent(jScrollPane13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(408, Short.MAX_VALUE))
+                .addContainerGap(545, Short.MAX_VALUE))
         );
 
         getContentPane().add(mainRight, java.awt.BorderLayout.LINE_END);
@@ -967,6 +971,14 @@ public class mainWindow extends javax.swing.JFrame {
         } 
        
         
+    }
+    public localUser profilVisning () {
+        String user = Main.user.getUser();
+        String rolle = Main.user.getRole();
+        jTextAreaProfil.append("Brukernavn:" + "   " +user);
+        jTextAreaProfil.append(newline);
+        jTextAreaProfil.append("Rolle:" + "   " + rolle);
+        return Main.user;
     }
     private void sendStatusrapport() {
         if (Main.user != null)
@@ -1136,6 +1148,12 @@ public class mainWindow extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_nedlastTestActionPerformed
 
+    private void jTabbedPane1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTabbedPane1MouseClicked
+        // TODO add your handling code here:
+        
+        jTextAreaInfo.setText(getGenerellModul());
+    }//GEN-LAST:event_jTabbedPane1MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -1244,7 +1262,6 @@ public class mainWindow extends javax.swing.JFrame {
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextArea jTextArea2;
     private javax.swing.JTextArea jTextArea3;
     private javax.swing.JTextArea jTextArea4;
     private javax.swing.JTextArea jTextAreaAnnerledes;
@@ -1252,8 +1269,10 @@ public class mainWindow extends javax.swing.JFrame {
     private javax.swing.JTextArea jTextAreaGått;
     private javax.swing.JTextArea jTextAreaHjelp;
     private javax.swing.JTextArea jTextAreaId;
+    private javax.swing.JTextArea jTextAreaInfo;
     private javax.swing.JTextArea jTextAreaLeverte;
     private javax.swing.JTextArea jTextAreaName;
+    private javax.swing.JTextArea jTextAreaProfil;
     private javax.swing.JTextArea jTextAreaSurname;
     private javax.swing.JTextField jTextFieldTimer;
     private javax.swing.JTextField jTextFieldUke;
@@ -1264,7 +1283,5 @@ public class mainWindow extends javax.swing.JFrame {
     private javax.swing.JButton opplastTest;
     private javax.swing.JLabel profilTitle;
     private javax.swing.JButton profilUpload;
-    private javax.swing.JLabel testLabel;
-    private javax.swing.JTextArea textarea;
     // End of variables declaration//GEN-END:variables
 }

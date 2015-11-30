@@ -73,6 +73,7 @@ public class RegistrerBruker extends javax.swing.JFrame {
         jTextFieldName = new javax.swing.JTextField();
         jTextFieldLastname = new javax.swing.JTextField();
         jButtonRegistrer = new javax.swing.JButton();
+        jButtonTilbake = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
 
@@ -161,6 +162,13 @@ public class RegistrerBruker extends javax.swing.JFrame {
             }
         });
 
+        jButtonTilbake.setText("Tilbake");
+        jButtonTilbake.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonTilbakeActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanelMainCenterLayout = new javax.swing.GroupLayout(jPanelMainCenter);
         jPanelMainCenter.setLayout(jPanelMainCenterLayout);
         jPanelMainCenterLayout.setHorizontalGroup(
@@ -168,26 +176,30 @@ public class RegistrerBruker extends javax.swing.JFrame {
             .addGroup(jPanelMainCenterLayout.createSequentialGroup()
                 .addGap(84, 84, 84)
                 .addGroup(jPanelMainCenterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanelMainCenterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabelÅrstall)
-                        .addComponent(jLabelEpost, javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jLabelPassord, javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jLabelFagkode, javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jLabelRolle, javax.swing.GroupLayout.Alignment.TRAILING))
-                    .addComponent(jLabelEtternavn)
-                    .addComponent(jLabelFornavn))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanelMainCenterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jComboBoxRolle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanelMainCenterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jButtonRegistrer)
-                        .addGroup(jPanelMainCenterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jComboBoxFagkode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextFieldLastname)
-                            .addComponent(jTextFieldEmail)
-                            .addComponent(jTextFieldName)
-                            .addComponent(jTextFieldKull)
-                            .addComponent(jPasswordFieldRegister, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE))))
+                    .addGroup(jPanelMainCenterLayout.createSequentialGroup()
+                        .addGroup(jPanelMainCenterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanelMainCenterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabelÅrstall)
+                                .addComponent(jLabelEpost, javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jLabelPassord, javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jLabelFagkode, javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jLabelRolle, javax.swing.GroupLayout.Alignment.TRAILING))
+                            .addComponent(jLabelEtternavn)
+                            .addComponent(jLabelFornavn))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanelMainCenterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jComboBoxRolle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanelMainCenterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jComboBoxFagkode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jTextFieldLastname)
+                                .addComponent(jTextFieldEmail)
+                                .addComponent(jTextFieldName)
+                                .addComponent(jTextFieldKull)
+                                .addComponent(jPasswordFieldRegister, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE))))
+                    .addGroup(jPanelMainCenterLayout.createSequentialGroup()
+                        .addComponent(jButtonTilbake)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButtonRegistrer)))
                 .addContainerGap(203, Short.MAX_VALUE))
         );
         jPanelMainCenterLayout.setVerticalGroup(
@@ -222,8 +234,10 @@ public class RegistrerBruker extends javax.swing.JFrame {
                     .addComponent(jPasswordFieldRegister, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabelPassord))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButtonRegistrer)
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addGroup(jPanelMainCenterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButtonRegistrer)
+                    .addComponent(jButtonTilbake))
+                .addContainerGap(70, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanelMainCenter, java.awt.BorderLayout.CENTER);
@@ -280,6 +294,10 @@ public class RegistrerBruker extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jButtonRegistrerActionPerformed
 
+    private void jButtonTilbakeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonTilbakeActionPerformed
+     dispose ();         // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonTilbakeActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -317,6 +335,7 @@ public class RegistrerBruker extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonRegistrer;
+    private javax.swing.JButton jButtonTilbake;
     private javax.swing.JComboBox jComboBoxFagkode;
     private javax.swing.JComboBox jComboBoxRolle;
     private javax.swing.JLabel jLabelEpost;
