@@ -3,30 +3,29 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package slit.lastOpp;
-import java.io.File;
-import java.io.FileInputStream;
-import java.sql.*;
+package slit.lastNed;
 import javax.swing.JFileChooser;
-import javax.swing.JOptionPane;
-
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.sql.Blob;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 /**
  *
  * @author Michael
  */
-public class lastOpp extends javax.swing.JFrame {
-    
-Connection connection=null;
-PreparedStatement ps=null;
-ResultSet rs=null;
-String filePath=null;
-
-
+public class lastNed extends javax.swing.JFrame {
+private static final int BUFFER_SIZE = 4096;    
     /**
      * Creates new form lastOpp
      */
-    public lastOpp() {
+    public lastNed() {
         initComponents();
     }
 
@@ -41,81 +40,62 @@ String filePath=null;
 
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        tittelField = new javax.swing.JTextField();
-        versjonField = new javax.swing.JTextField();
-        lastoppButton = new javax.swing.JButton();
-        lastoppExit = new javax.swing.JButton();
-        datoField = new javax.swing.JTextField();
-        modulField = new javax.swing.JTextField();
+        elevLastned = new javax.swing.JTextField();
+        lastnedButton = new javax.swing.JButton();
+        lastnedExit = new javax.swing.JButton();
+        modulLastned = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("Modul Opplastning");
+        jLabel1.setText("Modul Nedlastning");
 
-        jLabel2.setText("Tittel:");
+        jLabel2.setText("Elev:");
 
-        jLabel3.setText("Versjon:");
-
-        tittelField.addActionListener(new java.awt.event.ActionListener() {
+        elevLastned.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tittelFieldActionPerformed(evt);
+                elevLastnedActionPerformed(evt);
             }
         });
 
-        versjonField.addActionListener(new java.awt.event.ActionListener() {
+        lastnedButton.setText("Lagre som..");
+        lastnedButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                versjonFieldActionPerformed(evt);
+                lastnedButtonActionPerformed(evt);
             }
         });
 
-        lastoppButton.setText("Velg Fil");
-        lastoppButton.addActionListener(new java.awt.event.ActionListener() {
+        lastnedExit.setText("Ferdig");
+        lastnedExit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                lastoppButtonActionPerformed(evt);
-            }
-        });
-
-        lastoppExit.setText("Donezo");
-        lastoppExit.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                lastoppExitActionPerformed(evt);
+                lastnedExitActionPerformed(evt);
             }
         });
 
         jLabel4.setText("Modulnummer:");
-
-        jLabel5.setText("Dato:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(89, 89, 89)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jLabel3)
-                        .addComponent(jLabel2)
-                        .addComponent(jLabel5))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(12, 12, 12)
-                        .addComponent(jLabel4)))
-                .addGap(62, 62, 62)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(lastoppButton, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(53, 53, 53)
-                        .addComponent(lastoppExit))
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(datoField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 76, Short.MAX_VALUE)
-                        .addComponent(modulField, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(tittelField, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(versjonField, javax.swing.GroupLayout.Alignment.LEADING)))
-                .addContainerGap(168, Short.MAX_VALUE))
+                        .addGap(218, 218, 218)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(lastnedExit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lastnedButton, javax.swing.GroupLayout.DEFAULT_SIZE, 112, Short.MAX_VALUE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(101, 101, 101)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel4))
+                        .addGap(47, 47, 47)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 112, Short.MAX_VALUE)
+                            .addComponent(elevLastned)
+                            .addComponent(modulLastned))))
+                .addContainerGap(269, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -123,131 +103,103 @@ String filePath=null;
                 .addGap(30, 30, 30)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(modulField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel2)
-                                    .addComponent(tittelField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(25, 25, 25)
-                                        .addComponent(jLabel3))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(11, 11, 11)
-                                        .addComponent(versjonField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addComponent(jLabel4))
-                        .addGap(18, 18, 18)
-                        .addComponent(datoField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel5))
-                .addGap(57, 57, 57)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lastoppButton)
-                    .addComponent(lastoppExit))
-                .addContainerGap(136, Short.MAX_VALUE))
+                        .addComponent(modulLastned, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel2)
+                            .addComponent(elevLastned, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jLabel4))
+                .addGap(36, 36, 36)
+                .addComponent(lastnedButton)
+                .addGap(37, 37, 37)
+                .addComponent(lastnedExit)
+                .addContainerGap(174, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void versjonFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_versjonFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_versjonFieldActionPerformed
-
-    private void lastoppButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lastoppButtonActionPerformed
+    private void lastnedButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lastnedButtonActionPerformed
         {
     try
         {
          
 
-    Class.forName("com.mysql.jdbc.Driver");
-    connection=DriverManager.getConnection("jdbc:mysql://localhost:3306/slit","root","root");
-    System.out.println("Connection Established Succcesfully...");
+        String url = "jdbc:mysql://localhost:3306/slit";
+        String user = "root";
+        String password = "root";
+        Connection connection = DriverManager.getConnection(url, user, password);
+        
     
-    JFileChooser chooser=new JFileChooser(new File("E:\\"));
-    chooser.setMultiSelectionEnabled(false);
-    chooser.setVisible(true);
-    chooser.showOpenDialog(this);
+        JFileChooser chooser=new JFileChooser();
+        chooser.showSaveDialog(null);
+        String filePath=chooser.getSelectedFile().getAbsolutePath();
 
-    File file=chooser.getSelectedFile();
-    if(file!=null){filePath=file.getPath();}
-
-
-    if(filePath!=null && check())
+    if(filePath!=null)
     {
-    ps=connection.prepareStatement("INSERT INTO ressurser(ressurserTittel, ressurserFil, ressurserVersjon, Bruker_brukerId) VALUES (?,?,?,?);");
-    FileInputStream fileInputStream=new FileInputStream(filePath);
-    byte b[]=new byte[fileInputStream.available()];
-    fileInputStream.read(b);
-    fileInputStream.close();
-    ps.setObject(1, tittelField.getText());
-    ps.setBytes(2, b);
-    ps.setObject(3, versjonField.getText());
-    ps.setInt(4, 1);
-//    ps.setObject(5, datoField.getText());
-//    ps.setObject(5, modulField.getText());
-//    ps.setInt(6, 1);
-//    ps.setInt(7, 1);
-    int val=ps.executeUpdate();
-    if(val>=1)JOptionPane.showMessageDialog(this, "Din fil ble lastet opp til databasen");
-    else
-    JOptionPane.showMessageDialog(this, "Error");
-
-    }
-    else
+    String sql = "SELECT modulfilBlob FROM modulfil WHERE Modul_modulNummer=? AND Bruker_brukerId=? ";
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setObject(1, modulLastned.getText());
+            statement.setObject(2, elevLastned.getText());
+            
+ 
+            ResultSet result = statement.executeQuery();
+            if (result.next()) {
+                Blob blob = result.getBlob("modulfilBlob");
+                InputStream inputStream = blob.getBinaryStream();
+                OutputStream outputStream = new FileOutputStream(filePath);
+ 
+                int bytesRead = -1;
+                byte[] buffer = new byte[BUFFER_SIZE];
+                while ((bytesRead = inputStream.read(buffer)) != -1) {
+                    outputStream.write(buffer, 0, bytesRead);
+                }
+ 
+                inputStream.close();
+                outputStream.close();
+                System.out.println("File saved");
+            }
+            connection.close();
+    }}
+    catch (SQLException ex) 
     {
-    JOptionPane.showMessageDialog(this,"Velg riktig filtype");
-    }
+            ex.printStackTrace();
+    } 
+    catch (IOException ex) 
+                {
+        ex.printStackTrace();
+                }
+        }
+    
+    
 
-    }catch(Exception e)
-    {
 
-    JOptionPane.showMessageDialog(this, e.getMessage());
-    e.printStackTrace();
-    }
-    }
-    }//GEN-LAST:event_lastoppButtonActionPerformed
 
-    private void lastoppExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lastoppExitActionPerformed
+    }//GEN-LAST:event_lastnedButtonActionPerformed
+
+    private void lastnedExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lastnedExitActionPerformed
         // TODO add your handling code here:
         this.dispose();
-    }//GEN-LAST:event_lastoppExitActionPerformed
+    }//GEN-LAST:event_lastnedExitActionPerformed
 
-    private void tittelFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tittelFieldActionPerformed
+    private void elevLastnedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_elevLastnedActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_tittelFieldActionPerformed
+    }//GEN-LAST:event_elevLastnedActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField datoField;
+    private javax.swing.JTextField elevLastned;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JButton lastoppButton;
-    private javax.swing.JButton lastoppExit;
-    private javax.swing.JTextField modulField;
-    private javax.swing.JTextField tittelField;
-    private javax.swing.JTextField versjonField;
+    private javax.swing.JButton lastnedButton;
+    private javax.swing.JButton lastnedExit;
+    private javax.swing.JTextField modulLastned;
     // End of variables declaration//GEN-END:variables
 
 
-private boolean check() {
-if(filePath!=null)
-{
-if(filePath.endsWith(".jpeg")||filePath.endsWith(".jpg")||filePath.endsWith(".JPEG")||filePath.endsWith(".docx")||filePath.endsWith(".JPG") || filePath.endsWith(".rar") || filePath.endsWith(".jar") || filePath.endsWith(".zip") || filePath.endsWith(".doc"))
-{
-return true;
 }
-return false;
-}
-return false;
-}
-}
-
 
 
