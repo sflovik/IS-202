@@ -15,7 +15,7 @@ import static slit.mainWindow.newline;
 
 /**
  *
- * @author Sondre
+ * @author Sondre/Michael
  */
 public class moduleInformationWindow extends javax.swing.JFrame {
 
@@ -42,6 +42,8 @@ public class moduleInformationWindow extends javax.swing.JFrame {
                     String kriterie = "";
                     String ressurser = "";
                     String tidsfrist ="";
+                    String lærer ="";
+                    String kapittel ="";
                     
                     if (result.next() ) {
                         emne = result.getString("modulEmne");
@@ -49,12 +51,15 @@ public class moduleInformationWindow extends javax.swing.JFrame {
                         kriterie = result.getString("modulKriterie");
                         ressurser = result.getString("modulRessurs");
                         tidsfrist = result.getString("modulFrist");
+                        lærer = result.getString("modulLærer");
+                        kapittel = result.getString("modulKapittel");
                         jLabelTitle1.setText(emne);
                         jLabelTidsfrist.setText(tidsfrist);
                         jTextAreaLæringsmål.setText(læringsmål);
                         jTextAreaRessurs.setText(ressurser);
                         jTextAreaKriterie.append(kriterie);
-                        
+                        modulLærer.setText(lærer);
+                        modulKapittel.setText(kapittel);
                         
                     }
                     else  {
@@ -577,6 +582,8 @@ public class moduleInformationWindow extends javax.swing.JFrame {
         jPanelRightMain = new javax.swing.JPanel();
         jPanelCentreMain = new javax.swing.JPanel();
         jPanelCentreCentre = new javax.swing.JPanel();
+        modulLærer = new javax.swing.JLabel();
+        undervistAv = new javax.swing.JLabel();
         jLabelGodkjenning = new javax.swing.JLabel();
         jScrollPaneGodkjenning = new javax.swing.JScrollPane();
         jTextAreaKriterie = new javax.swing.JTextArea();
@@ -587,11 +594,15 @@ public class moduleInformationWindow extends javax.swing.JFrame {
         jTextAreaLæringsmål = new javax.swing.JTextArea();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextAreaRessurs = new javax.swing.JTextArea();
+        greetingLabel = new javax.swing.JLabel();
+        modulKapittel = new javax.swing.JLabel();
+        frist = new javax.swing.JLabel();
         jLabelTidsfrist = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jLabelTitle1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabelTitle1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLabelTitle1.setText("Hey hå");
         jPanelTopCentre.add(jLabelTitle1);
 
         javax.swing.GroupLayout jPanelTopMainLayout = new javax.swing.GroupLayout(jPanelTopMain);
@@ -618,8 +629,14 @@ public class moduleInformationWindow extends javax.swing.JFrame {
         jPanelRightMain.setLayout(new java.awt.BorderLayout());
         getContentPane().add(jPanelRightMain, java.awt.BorderLayout.LINE_END);
 
+        modulLærer.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        modulLærer.setText("lærer");
+
+        undervistAv.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        undervistAv.setText("Undervist av:");
+
         jLabelGodkjenning.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabelGodkjenning.setText("Godkjenning:");
+        jLabelGodkjenning.setText("Godkjenningkrav:");
 
         jScrollPaneGodkjenning.setMinimumSize(new java.awt.Dimension(320, 146));
         jScrollPaneGodkjenning.setPreferredSize(new java.awt.Dimension(320, 146));
@@ -637,20 +654,28 @@ public class moduleInformationWindow extends javax.swing.JFrame {
         jPanelCentreCentreLayout.setHorizontalGroup(
             jPanelCentreCentreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelCentreCentreLayout.createSequentialGroup()
-                .addGap(100, 100, 100)
-                .addComponent(jLabelGodkjenning))
-            .addGroup(jPanelCentreCentreLayout.createSequentialGroup()
-                .addGap(9, 9, 9)
-                .addComponent(jScrollPaneGodkjenning, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap()
+                .addGroup(jPanelCentreCentreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelCentreCentreLayout.createSequentialGroup()
+                        .addComponent(undervistAv)
+                        .addGap(27, 27, 27)
+                        .addComponent(modulLærer))
+                    .addComponent(jLabelGodkjenning)
+                    .addComponent(jScrollPaneGodkjenning, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(254, Short.MAX_VALUE))
         );
         jPanelCentreCentreLayout.setVerticalGroup(
             jPanelCentreCentreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelCentreCentreLayout.createSequentialGroup()
-                .addGap(5, 5, 5)
+                .addContainerGap()
+                .addGroup(jPanelCentreCentreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(modulLærer)
+                    .addComponent(undervistAv))
+                .addGap(76, 76, 76)
                 .addComponent(jLabelGodkjenning)
-                .addGap(5, 5, 5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 97, Short.MAX_VALUE)
                 .addComponent(jScrollPaneGodkjenning, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28))
+                .addContainerGap())
         );
 
         jLabelLæringsmål.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
@@ -669,41 +694,69 @@ public class moduleInformationWindow extends javax.swing.JFrame {
         jTextAreaRessurs.setRows(5);
         jScrollPane1.setViewportView(jTextAreaRessurs);
 
+        greetingLabel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        greetingLabel.setText("Velkommer til Kapittel:");
+
+        modulKapittel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        modulKapittel.setText("kapittel");
+
+        frist.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        frist.setText("Leveres innen:");
+
+        jLabelTidsfrist.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+
         javax.swing.GroupLayout jPanelCentreLeftLayout = new javax.swing.GroupLayout(jPanelCentreLeft);
         jPanelCentreLeft.setLayout(jPanelCentreLeftLayout);
         jPanelCentreLeftLayout.setHorizontalGroup(
             jPanelCentreLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelCentreLeftLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabelLæringsmål, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(16, 16, 16))
-            .addGroup(jPanelCentreLeftLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanelCentreLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabelRessurser)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanelCentreLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanelCentreLeftLayout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(jPanelCentreLeftLayout.createSequentialGroup()
+                        .addGroup(jPanelCentreLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelCentreLeftLayout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(greetingLabel)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(modulKapittel))
+                            .addGroup(jPanelCentreLeftLayout.createSequentialGroup()
+                                .addGroup(jPanelCentreLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabelLæringsmål, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(0, 0, Short.MAX_VALUE)))
+                        .addContainerGap())
+                    .addGroup(jPanelCentreLeftLayout.createSequentialGroup()
+                        .addGroup(jPanelCentreLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabelRessurser)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE))))
+            .addGroup(jPanelCentreLeftLayout.createSequentialGroup()
+                .addGap(60, 60, 60)
+                .addComponent(frist)
+                .addGap(18, 18, 18)
+                .addComponent(jLabelTidsfrist, javax.swing.GroupLayout.PREFERRED_SIZE, 319, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanelCentreLeftLayout.setVerticalGroup(
             jPanelCentreLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelCentreLeftLayout.createSequentialGroup()
                 .addContainerGap()
+                .addGroup(jPanelCentreLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(greetingLabel)
+                    .addComponent(modulKapittel))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
                 .addComponent(jLabelLæringsmål, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(152, 152, 152)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(35, 35, 35)
                 .addComponent(jLabelRessurser)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(36, 36, 36)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(308, Short.MAX_VALUE))
-            .addGroup(jPanelCentreLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanelCentreLeftLayout.createSequentialGroup()
-                    .addGap(55, 55, 55)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(474, Short.MAX_VALUE)))
+                .addGap(82, 82, 82)
+                .addGroup(jPanelCentreLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(frist)
+                    .addComponent(jLabelTidsfrist, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(84, 84, 84))
         );
 
         javax.swing.GroupLayout jPanelCentreMainLayout = new javax.swing.GroupLayout(jPanelCentreMain);
@@ -713,25 +766,18 @@ public class moduleInformationWindow extends javax.swing.JFrame {
             .addGroup(jPanelCentreMainLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanelCentreLeft, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(107, 107, 107)
-                .addGroup(jPanelCentreMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanelCentreMainLayout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(jLabelTidsfrist, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(jPanelCentreCentre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addGap(26, 26, 26)
+                .addComponent(jPanelCentreCentre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanelCentreMainLayout.setVerticalGroup(
             jPanelCentreMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelCentreMainLayout.createSequentialGroup()
                 .addGap(43, 43, 43)
                 .addGroup(jPanelCentreMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanelCentreMainLayout.createSequentialGroup()
-                        .addComponent(jPanelCentreCentre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabelTidsfrist, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jPanelCentreCentre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanelCentreLeft, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(60, Short.MAX_VALUE))
+                .addContainerGap(49, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanelCentreMain, java.awt.BorderLayout.CENTER);
@@ -776,6 +822,8 @@ public class moduleInformationWindow extends javax.swing.JFrame {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel frist;
+    private javax.swing.JLabel greetingLabel;
     private javax.swing.JLabel jLabelGodkjenning;
     private javax.swing.JLabel jLabelLæringsmål;
     private javax.swing.JLabel jLabelRessurser;
@@ -795,5 +843,8 @@ public class moduleInformationWindow extends javax.swing.JFrame {
     private javax.swing.JTextArea jTextAreaKriterie;
     private javax.swing.JTextArea jTextAreaLæringsmål;
     private javax.swing.JTextArea jTextAreaRessurs;
+    private javax.swing.JLabel modulKapittel;
+    private javax.swing.JLabel modulLærer;
+    private javax.swing.JLabel undervistAv;
     // End of variables declaration//GEN-END:variables
 }
