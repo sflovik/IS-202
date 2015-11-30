@@ -262,11 +262,13 @@ private void login() {
                 slit.mainWindow hjems = new slit.mainWindow();
                 hjems.setVisible(true);
                 hjems.setExtendedState(slit.mainWindow.MAXIMIZED_BOTH);
+                this.dispose();
             }
             else {
                 slit.client.foreleser.mainWindowForeleser hjemf = new slit.client.foreleser.mainWindowForeleser();
                 hjemf.setVisible(true);
                 hjemf.setExtendedState(slit.client.foreleser.mainWindowForeleser.MAXIMIZED_BOTH);
+                this.dispose();
             }
         Main.user = localuser;
        

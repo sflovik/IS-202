@@ -95,6 +95,7 @@
     <Component class="javax.swing.JButton" name="lastnedButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="Lagre som.."/>
+        <Property name="toolTipText" type="java.lang.String" value="Velg directory og skriv filtype etter navnet du velger, s&#xe5; hvis du skal lagre et bilde lagre det som bildejegvilse.jpg"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="lastnedButtonActionPerformed"/>
