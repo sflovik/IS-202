@@ -865,6 +865,7 @@ public class mainWindow extends javax.swing.JFrame {
             }
         });
 
+        jTextAreaProfil.setEditable(false);
         jTextAreaProfil.setColumns(20);
         jTextAreaProfil.setRows(5);
         jScrollPane13.setViewportView(jTextAreaProfil);
@@ -926,7 +927,7 @@ public class mainWindow extends javax.swing.JFrame {
                 id_col = result.getInt("Bruker_brukerId");
                 name = result.getString("brukerFornavn");
                 surname = result.getString("brukerEtternavn");
-                dato = result.getString("levertmodulDato");
+                dato = result.getString("modulfilDato");
                 antLeverte = result.getInt("COUNT(sensurId)");
               //  System.out.println("ID: "+ " " + id_col +"     " +  "Fornavn: " + 
               //      "     " + name + "     " + "Etternavn: " +" "+ surname + "     " 

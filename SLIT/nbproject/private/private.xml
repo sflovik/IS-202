@@ -3,9 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Sondre/Documents/GitHub/IS-202/SLIT/src/slit/client/foreleser/mainWindowForeleser.java</file>
-            <file>file:/C:/Users/Sondre/Documents/GitHub/IS-202/SLIT/src/slit/client/foreleser/moduleInformationWindowForeleser.java</file>
             <file>file:/C:/Users/Sondre/Documents/GitHub/IS-202/SLIT/src/slit/Main.java</file>
+            <file>file:/C:/Users/Sondre/Documents/GitHub/IS-202/SLIT/src/slit/mainWindow.java</file>
+            <file>file:/C:/Users/Sondre/Documents/GitHub/IS-202/SLIT/src/slit/db.java</file>
+            <file>file:/C:/Users/Sondre/Documents/GitHub/IS-202/SLIT/src/slit/client/foreleser/mainWindowForeleser.java</file>
+            <file>file:/C:/Users/Sondre/Documents/GitHub/IS-202/SLIT/src/slit/lastOpp/lastOpp.java</file>
+            <file>file:/C:/Users/Sondre/Documents/GitHub/IS-202/SLIT/src/slit/client/foreleser/BrukerProfil.java</file>
+            <file>file:/C:/Users/Sondre/Documents/GitHub/IS-202/SLIT/src/slit/client/foreleser/StudentProfil.java</file>
+            <file>file:/C:/Users/Sondre/Documents/GitHub/IS-202/SLIT/src/slit/client/foreleser/moduleInformationWindowForeleser.java</file>
         </group>
     </open-files>
 </project-private>

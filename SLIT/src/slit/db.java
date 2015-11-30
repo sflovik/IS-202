@@ -35,7 +35,7 @@ public class db {
                 Connection con = DriverManager.getConnection(Constants.db_url, Constants.db_user, Constants.db_pass);
        
                
-                String SQL = ("UPDATE generellinfo SET generellModulInfo = '"+test+"'");      
+                String SQL = ("INSERT INTO generellinfo (generellInfoBeskjed) VALUES ('"+test+"')");      
             
                 Statement setInfo = con.createStatement( );
                 setInfo.executeUpdate(SQL);
@@ -48,6 +48,10 @@ public class db {
                             
     }
     
+    public static void visProfil(String bruker) {
+        
+    }
+  
     public static localUser sendRapport(int uke, String gått, String annerledes,
         String hjelp, int timer) {
         String passord = Main.user.getPass();
@@ -173,11 +177,11 @@ public class db {
         Connection connect = DriverManager.getConnection(Constants.db_url, Constants.db_user, Constants.db_pass);
        
                 Statement hentInfo = connect.createStatement();
-                String SQLgammelTekst = ("SELECT generellModulInfo FROM generellinfo");
+                String SQLgammelTekst = ("SELECT generellInfoBeskjed FROM generellInfo");
                 String eksisterendeMelding = "";           
                 ResultSet testing = hentInfo.executeQuery(SQLgammelTekst);
                 if (testing.next()) {  
-                        eksisterendeMelding = testing.getString("generellModulInfo");
+                        eksisterendeMelding = testing.getString("generellInfoBeskjed");
                         slit.client.foreleser.mainWindowForeleser lagretvisning = new slit.client.foreleser.mainWindowForeleser();
                         lagretvisning.setGenerellModul(eksisterendeMelding);
                 }     

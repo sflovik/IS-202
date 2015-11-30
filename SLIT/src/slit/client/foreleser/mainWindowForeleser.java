@@ -24,9 +24,28 @@ public class mainWindowForeleser extends javax.swing.JFrame {
     /**
      * Creates new form mainWindow
      */
+   
+   // ArrayList<String> arrayList = new ArrayList<String>(); 
    private static String modulTrykket = "";
    private static String generellModul = "";
-   
+   private static String valgtBruker = "";
+   private static String brukerNavn = "";
+
+    public static String getBrukerNavn() {
+        return brukerNavn;
+    }
+
+    public static void setBrukerNavn(String brukerNavn) {
+        mainWindowForeleser.brukerNavn = brukerNavn;
+    }
+
+    public static String getValgtBruker() {
+        return valgtBruker;
+    }
+
+    public static void setValgtBruker(String valgtBruker) {
+        mainWindowForeleser.valgtBruker = valgtBruker;
+    }
     public static String getGenerellModul () {
         return generellModul;
     }
@@ -354,6 +373,7 @@ public class mainWindowForeleser extends javax.swing.JFrame {
         getContentPane().add(jPanelLeftMain, java.awt.BorderLayout.LINE_START);
         getContentPane().add(jPanelBotMain, java.awt.BorderLayout.PAGE_END);
 
+        jTextAreaProfil.setEditable(false);
         jTextAreaProfil.setColumns(20);
         jTextAreaProfil.setRows(5);
         jScrollPane13.setViewportView(jTextAreaProfil);
@@ -373,17 +393,15 @@ public class mainWindowForeleser extends javax.swing.JFrame {
         jPanelRightMain.setLayout(jPanelRightMainLayout);
         jPanelRightMainLayout.setHorizontalGroup(
             jPanelRightMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelRightMainLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelRightMainLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(profilUpload)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelRightMainLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(profilTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanelRightMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(profilTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanelRightMainLayout.setVerticalGroup(
@@ -971,7 +989,7 @@ public class mainWindowForeleser extends javax.swing.JFrame {
                 id_col = result.getInt("Bruker_brukerId");
                 name = result.getString("brukerFornavn");
                 surname = result.getString("brukerEtternavn");
-                dato = result.getString("levertmodulDato");
+                dato = result.getString("modulfilDato");
                 antLeverte = result.getInt("COUNT(sensurId)");
               //  System.out.println("ID: "+ " " + id_col +"     " +  "Fornavn: " + 
               //      "     " + name + "     " + "Etternavn: " +" "+ surname + "     " 
@@ -1025,7 +1043,33 @@ public class mainWindowForeleser extends javax.swing.JFrame {
         jTextAreaProfil.append("Rolle:" + "   " + rolle);
         return Main.user;
     }
-    
+    public void hentProfil() {
+        try {
+                String profilNavn = jList1.getSelectedValue().toString();
+                String SQL = ("SELECT * FROM Bruker where brukerEtternavn = '"+profilNavn+"'");
+                
+                Connection con = DriverManager.getConnection(Constants.db_url, Constants.db_user, Constants.db_pass);
+             
+                Statement stmt = con.createStatement( );
+                ResultSet rs = stmt.executeQuery (SQL);
+                
+                int brukerId = 0;
+                if (rs.next()) {
+                    brukerId = rs.getInt("brukerId");
+                    setBrukerNavn(rs.getString("brukerFornavn")); 
+                    System.out.println("Vis profilen til" + " " + profilNavn);
+                    StudentProfil profil = new StudentProfil();
+                    profil.setVisible(true);
+                }
+                String SQL2 = ("SELECT * FROM Bruker WHERE brukerId = '"+brukerId+"'");
+                
+                
+           
+        }
+        catch (SQLException err) {
+            System.out.println(err);
+        }
+    }
     public void hentBrukere () {
          try {
             DefaultListModel DML = new DefaultListModel();
@@ -1033,16 +1077,19 @@ public class mainWindowForeleser extends javax.swing.JFrame {
        
                
                 String SQL = ("SELECT * from Bruker WHERE brukerRolle = 'student'");      
-          
+                String brukerFornavn = "";
+                String brukerEtternavn = "";
                 Statement hentBrukere = con.createStatement( );
                 ResultSet rs = hentBrukere.executeQuery (SQL);
+                
                     while (rs.next()) {
-                      String name = rs.getString("brukerFornavn");
-                      String surname = rs.getString("brukerEtternavn");
-                      DML.addElement (surname +",  "+ name);
-                     
+                      brukerFornavn = rs.getString("brukerFornavn");
+                      brukerEtternavn = rs.getString("brukerEtternavn");
+                      DML.addElement (brukerEtternavn);
+                    //  arrayList.add(brukerFornavn + brukerEtternavn);
                 }
                 jList1.setModel(DML);
+        
         }
         catch (SQLException err) {
             System.out.println(err);
@@ -1238,6 +1285,11 @@ public class mainWindowForeleser extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+       setValgtBruker(jList1.getSelectedValue().toString());
+       hentProfil();
+       
+      
+       
        
     }//GEN-LAST:event_jButton1ActionPerformed
 

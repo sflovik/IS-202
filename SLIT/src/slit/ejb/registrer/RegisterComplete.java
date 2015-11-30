@@ -27,7 +27,7 @@ public class RegisterComplete extends javax.swing.JFrame {
      */
     private JLabel label;
     private Timer timer;
-    private int counter = 10; // the duration
+    private int counter = 5; // the duration
     private int delay = 1000; // every 1 second
     private static final long serialVersionUID = 1L;
     

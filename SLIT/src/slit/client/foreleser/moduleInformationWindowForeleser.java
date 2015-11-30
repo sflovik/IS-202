@@ -41,7 +41,7 @@ public class moduleInformationWindowForeleser extends javax.swing.JFrame {
                     ResultSet rs = stmt.executeQuery(check);
                     int modulNr = 0;
                     boolean fortsett = true;
-                    while (rs.next() && fortsett) {
+                    while (fortsett) {
                         modulNr = rs.getInt("modulNummer");
                             if (modulNr != 1) {
                                 Statement nyModul = con.createStatement();
@@ -52,7 +52,7 @@ public class moduleInformationWindowForeleser extends javax.swing.JFrame {
                                 String tidsfrist = jTextFieldFrist.getText();
                                 String kapittel = jTextFieldKapittel.getText();
                                 String foreleser = Main.user.getUser();
-                                String SQL = ("INSERT INTO `Modul`(modulNummer, modulKapittel, modulEmne, modulKriterie, modulFrist,"
+                                String SQL = ("INSERT INTO `modul`(modulNummer, modulKapittel, modulEmne, modulKriterie, modulFrist,"
                                     + " modulLærer, modulLæringsmål, modulRessurs)"
                                     + " VALUES ('"+1+"', '"+kapittel+"','"+emne+"','"+kriterie+"','"+tidsfrist+"','"+foreleser+"','"+læringsmål+"', '"+ressurser+"' )");
                                 nyModul.executeUpdate(SQL); 
@@ -67,7 +67,7 @@ public class moduleInformationWindowForeleser extends javax.swing.JFrame {
                                 String tidsfrist = jTextFieldFrist.getText();
                                 String foreleser = Main.user.getUser();
                                 String kapittel = jTextFieldKapittel.getText();       
-                                String SQL = ("UPDATE `Modul`SET modulEmne = '"+emne+"', modulKriterie = '"+kriterie+"'"
+                                String SQL = ("UPDATE `modul`SET modulEmne = '"+emne+"', modulKriterie = '"+kriterie+"'"
                                         + ",modulKapittel = '"+kapittel+"', modulFrist = '"+tidsfrist+"', modulLærer = '"+foreleser+"'"
                                         + " ,modulLæringsmål = '"+læringsmål+"' ,modulRessurs = '"+ressurser+"' WHERE modulNummer = 1");
                          
@@ -88,7 +88,7 @@ public class moduleInformationWindowForeleser extends javax.swing.JFrame {
                     
                     Connection con = DriverManager.getConnection(slit.Constants.db_url, slit.Constants.db_user, slit.Constants.db_pass);
                     Statement stmt = con.createStatement();
-                    String check = ("SELECT * FROM Modul");  
+                    String check = ("SELECT * FROM modul");  
                     ResultSet rs = stmt.executeQuery(check);
                     int modulNr = 0;
                     boolean fortsett = true;
@@ -763,6 +763,7 @@ public class moduleInformationWindowForeleser extends javax.swing.JFrame {
                     String hentKriterie = "";
                     String hentRessurser = "";
                     String hentTidsfrist = "";
+                    String hentKapittel = "";
                     Statement eksisterendeModul = connect.createStatement();
                    
                     String SQLhentModulNummer = ("SELECT * FROM Modul"); 
@@ -825,11 +826,13 @@ public class moduleInformationWindowForeleser extends javax.swing.JFrame {
                                 hentKriterie = testing.getString("modulKriterie");
                                 hentRessurser = testing.getString("modulRessurs");
                                 hentTidsfrist = testing.getString("modulFrist");
+                                hentKapittel = testing.getString("modulKapittel");
                                 jTextFieldTitle1.setText(hentEmne);
                                 jTextAreaLæringsmål.setText(hentLæringsmål);
                                 jTextAreaKriterie.setText(hentKriterie);
                                 jTextAreaRessurs.setText(hentRessurser);
                                 jTextFieldFrist.setText(hentTidsfrist);
+                                jTextFieldKapittel.setText(hentKapittel);
                             }
                             else {
                                 // gjør ingenting
