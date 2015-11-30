@@ -1095,177 +1095,6 @@ public class mainWindowForeleser extends javax.swing.JFrame {
             System.out.println(err);
         }
     }
-    private void jButtonModul5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonModul5ActionPerformed
-        // TODO add your handling code here:
-       setModulTrykket("modul 5");
-       moduleInformationWindowForeleser modul5 = new moduleInformationWindowForeleser();
-       modul5.hentPublisert();
-       modul5.setVisible(true);
-    }//GEN-LAST:event_jButtonModul5ActionPerformed
-
-    private void jButtonModul3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonModul3ActionPerformed
-        // TODO add your handling code here:
-       setModulTrykket("modul 3");
-       moduleInformationWindowForeleser modul3 = new moduleInformationWindowForeleser();
-       modul3.hentPublisert();
-       modul3.setVisible(true);
-    }//GEN-LAST:event_jButtonModul3ActionPerformed
-
-    private void jButtonModul1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonModul1ActionPerformed
-        
-    // TODO add your handling code here:
-       setModulTrykket("modul 1");
-       moduleInformationWindowForeleser modul1 = new moduleInformationWindowForeleser();
-       modul1.hentPublisert();
-       modul1.setVisible(true);
-    }//GEN-LAST:event_jButtonModul1ActionPerformed
-
-    private void jTextFieldStedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldStedActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldStedActionPerformed
-
-    private void jButtonLagreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLagreActionPerformed
-        // TODO add your handling code here:
-        // Setter variablene til queries
-        tidspunkt = jTextFieldTidspunkt.getText();
-        idString = jTextFieldDeltaker.getText();
-        // Må gjøre om verdien i tekstfeltene til int før de skal inn i DB
-        // Try-catch for å håndtere feil format i feltene
-        
-
-        try {
-            id = Integer.parseInt(idString);
-        }
-        catch (NumberFormatException feilId) {
-            System.out.println(feilId);
-        }
-        // Resten av verdiene er tekst også i databasen
-        møtested = jTextFieldSted.getText();
-
-        sendMøteInformasjon();
-        
-	jTextFieldSted.setText("");
-        jTextFieldTidspunkt.setText("");
-        jTextFieldDeltaker.setText("");
-        
-        JOptionPane.showMessageDialog(null, "<Møtet er blitt lagret>", "Alert", JOptionPane.INFORMATION_MESSAGE);
-            // TODO add your handling code here:
-        
-        
-        
-        
-    }                                            
-        private void sendMøteInformasjon() {
-        if (Main.user != null)
-        db.sendMøteInfo(id, tidspunkt, møtested);
-        
-        
-        
-    }//GEN-LAST:event_jButtonLagreActionPerformed
-
-    private void jButtonModul2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonModul2ActionPerformed
-        // TODO add your handling code here:
-       setModulTrykket("modul 2");
-       moduleInformationWindowForeleser modul2 = new moduleInformationWindowForeleser();
-       modul2.hentPublisert();
-       modul2.setVisible(true);
-    }//GEN-LAST:event_jButtonModul2ActionPerformed
-
-    private void jButtonModul4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonModul4ActionPerformed
-        // TODO add your handling code here:
-       setModulTrykket("modul 4");
-       moduleInformationWindowForeleser modul4 = new moduleInformationWindowForeleser();
-       modul4.hentPublisert();
-       modul4.setVisible(true);
-    }//GEN-LAST:event_jButtonModul4ActionPerformed
-
-    private void jButtonModul6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonModul6ActionPerformed
-        // TODO add your handling code here:
-       setModulTrykket("modul 6");
-       moduleInformationWindowForeleser modul6 = new moduleInformationWindowForeleser();
-       modul6.hentPublisert();
-       modul6.setVisible(true);
-    }//GEN-LAST:event_jButtonModul6ActionPerformed
-
-    private void jButtonModul7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonModul7ActionPerformed
-        // TODO add your handling code here:
-       setModulTrykket("modul 7");
-       moduleInformationWindowForeleser modul7 = new moduleInformationWindowForeleser();
-       modul7.hentPublisert();
-       modul7.setVisible(true);
-    }//GEN-LAST:event_jButtonModul7ActionPerformed
-
-    private void jButtonModul8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonModul8ActionPerformed
-        // TODO add your handling code here:
-       setModulTrykket("modul 8");
-       moduleInformationWindowForeleser modul8 = new moduleInformationWindowForeleser();
-       modul8.hentPublisert();
-       modul8.setVisible(true);
-    }//GEN-LAST:event_jButtonModul8ActionPerformed
-
-    private void jButtonModul9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonModul9ActionPerformed
-        // TODO add your handling code here:
-       setModulTrykket("modul 9");
-       moduleInformationWindowForeleser modul9 = new moduleInformationWindowForeleser();
-       modul9.hentPublisert();
-       modul9.setVisible(true);
-    }//GEN-LAST:event_jButtonModul9ActionPerformed
-
-    private void jButtonModul10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonModul10ActionPerformed
-        // TODO add your handling code here:
-       setModulTrykket("modul 10");
-       moduleInformationWindowForeleser modul10 = new moduleInformationWindowForeleser();
-       modul10.hentPublisert();
-       modul10.setVisible(true);
-    }//GEN-LAST:event_jButtonModul10ActionPerformed
-
-    private void jButtonModul11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonModul11ActionPerformed
-        // TODO add your handling code here:
-       setModulTrykket("modul 11");
-       moduleInformationWindowForeleser modul11 = new moduleInformationWindowForeleser();
-       modul11.hentPublisert();
-       modul11.setVisible(true);
-       
-    }//GEN-LAST:event_jButtonModul11ActionPerformed
-
-    private void jButtonModul12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonModul12ActionPerformed
-        // TODO add your handling code here:
-       setModulTrykket("modul 12");
-       moduleInformationWindowForeleser modul12 = new moduleInformationWindowForeleser();
-       modul12.hentPublisert();
-       modul12.setVisible(true);
-    }//GEN-LAST:event_jButtonModul12ActionPerformed
-
-    private void jButtonModul13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonModul13ActionPerformed
-        // TODO add your handling code here:
-       setModulTrykket("modul 13");
-       moduleInformationWindowForeleser modul13 = new moduleInformationWindowForeleser();
-       modul13.hentPublisert();
-       modul13.setVisible(true);
-    }//GEN-LAST:event_jButtonModul13ActionPerformed
-
-    private void jButtonModul14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonModul14ActionPerformed
-        // TODO add your handling code here:
-       setModulTrykket("modul 14");
-       moduleInformationWindowForeleser modul14 = new moduleInformationWindowForeleser();
-       modul14.hentPublisert();
-       modul14.setVisible(true);
-    }//GEN-LAST:event_jButtonModul14ActionPerformed
-
-    private void jButtonLagreInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLagreInfoActionPerformed
-        // TODO add your handling code here:
-        setGenerellModul(jTextAreaInfo.getText());
-        System.out.println(getGenerellModul());
-        slit.db.generellInfo();
-        slit.db.hentGammelBeskjed();
-    }//GEN-LAST:event_jButtonLagreInfoActionPerformed
-
-    private void jTabbedPane1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTabbedPane1MouseClicked
-        // TODO add your handling code here:
-        db.hentGammelBeskjed();
-        jTextAreaInfo.setText(getGenerellModul());
-    }//GEN-LAST:event_jTabbedPane1MouseClicked
-
     private void profilUploadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_profilUploadActionPerformed
         //        // TODO add your handling code here:
         //         int returnVal = fileChooser.showOpenDialog(this);
@@ -1283,15 +1112,177 @@ public class mainWindowForeleser extends javax.swing.JFrame {
 
     }//GEN-LAST:event_profilUploadActionPerformed
 
+    private void jTabbedPane1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTabbedPane1MouseClicked
+        // TODO add your handling code here:
+        db.hentGammelBeskjed();
+        jTextAreaInfo.setText(getGenerellModul());
+    }//GEN-LAST:event_jTabbedPane1MouseClicked
+
+    private void jButtonLagreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLagreActionPerformed
+        // TODO add your handling code here:
+        // Setter variablene til queries
+        tidspunkt = jTextFieldTidspunkt.getText();
+        idString = jTextFieldDeltaker.getText();
+        // Må gjøre om verdien i tekstfeltene til int før de skal inn i DB
+        // Try-catch for å håndtere feil format i feltene
+
+        try {
+            id = Integer.parseInt(idString);
+        }
+        catch (NumberFormatException feilId) {
+            System.out.println(feilId);
+        }
+        // Resten av verdiene er tekst også i databasen
+        møtested = jTextFieldSted.getText();
+
+        sendMøteInformasjon();
+
+        jTextFieldSted.setText("");
+        jTextFieldTidspunkt.setText("");
+        jTextFieldDeltaker.setText("");
+
+        JOptionPane.showMessageDialog(null, "<Møtet er blitt lagret>", "Alert", JOptionPane.INFORMATION_MESSAGE);
+        // TODO add your handling code here:
+
+        }
+        private void sendMøteInformasjon() {
+            if (Main.user != null)
+            db.sendMøteInfo(id, tidspunkt, møtested);
+
+    }//GEN-LAST:event_jButtonLagreActionPerformed
+
+    private void jTextFieldStedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldStedActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldStedActionPerformed
+
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-       setValgtBruker(jList1.getSelectedValue().toString());
-       hentProfil();
-       
-      
-       
-       
+        setValgtBruker(jList1.getSelectedValue().toString());
+        hentProfil();
+
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButtonLagreInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLagreInfoActionPerformed
+        // TODO add your handling code here:
+        setGenerellModul(jTextAreaInfo.getText());
+        System.out.println(getGenerellModul());
+        slit.db.generellInfo();
+        slit.db.hentGammelBeskjed();
+    }//GEN-LAST:event_jButtonLagreInfoActionPerformed
+
+    private void jButtonModul14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonModul14ActionPerformed
+        // TODO add your handling code here:
+        setModulTrykket("modul 14");
+        moduleInformationWindowForeleser modul14 = new moduleInformationWindowForeleser();
+        modul14.hentPublisert();
+        modul14.setVisible(true);
+    }//GEN-LAST:event_jButtonModul14ActionPerformed
+
+    private void jButtonModul13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonModul13ActionPerformed
+        // TODO add your handling code here:
+        setModulTrykket("modul 13");
+        moduleInformationWindowForeleser modul13 = new moduleInformationWindowForeleser();
+        modul13.hentPublisert();
+        modul13.setVisible(true);
+    }//GEN-LAST:event_jButtonModul13ActionPerformed
+
+    private void jButtonModul12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonModul12ActionPerformed
+        // TODO add your handling code here:
+        setModulTrykket("modul 12");
+        moduleInformationWindowForeleser modul12 = new moduleInformationWindowForeleser();
+        modul12.hentPublisert();
+        modul12.setVisible(true);
+    }//GEN-LAST:event_jButtonModul12ActionPerformed
+
+    private void jButtonModul11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonModul11ActionPerformed
+        // TODO add your handling code here:
+        setModulTrykket("modul 11");
+        moduleInformationWindowForeleser modul11 = new moduleInformationWindowForeleser();
+        modul11.hentPublisert();
+        modul11.setVisible(true);
+
+    }//GEN-LAST:event_jButtonModul11ActionPerformed
+
+    private void jButtonModul10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonModul10ActionPerformed
+        // TODO add your handling code here:
+        setModulTrykket("modul 10");
+        moduleInformationWindowForeleser modul10 = new moduleInformationWindowForeleser();
+        modul10.hentPublisert();
+        modul10.setVisible(true);
+    }//GEN-LAST:event_jButtonModul10ActionPerformed
+
+    private void jButtonModul9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonModul9ActionPerformed
+        // TODO add your handling code here:
+        setModulTrykket("modul 9");
+        moduleInformationWindowForeleser modul9 = new moduleInformationWindowForeleser();
+        modul9.hentPublisert();
+        modul9.setVisible(true);
+    }//GEN-LAST:event_jButtonModul9ActionPerformed
+
+    private void jButtonModul8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonModul8ActionPerformed
+        // TODO add your handling code here:
+        setModulTrykket("modul 8");
+        moduleInformationWindowForeleser modul8 = new moduleInformationWindowForeleser();
+        modul8.hentPublisert();
+        modul8.setVisible(true);
+    }//GEN-LAST:event_jButtonModul8ActionPerformed
+
+    private void jButtonModul7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonModul7ActionPerformed
+        // TODO add your handling code here:
+        setModulTrykket("modul 7");
+        moduleInformationWindowForeleser modul7 = new moduleInformationWindowForeleser();
+        modul7.hentPublisert();
+        modul7.setVisible(true);
+    }//GEN-LAST:event_jButtonModul7ActionPerformed
+
+    private void jButtonModul6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonModul6ActionPerformed
+        // TODO add your handling code here:
+        setModulTrykket("modul 6");
+        moduleInformationWindowForeleser modul6 = new moduleInformationWindowForeleser();
+        modul6.hentPublisert();
+        modul6.setVisible(true);
+    }//GEN-LAST:event_jButtonModul6ActionPerformed
+
+    private void jButtonModul5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonModul5ActionPerformed
+        // TODO add your handling code here:
+        setModulTrykket("modul 5");
+        moduleInformationWindowForeleser modul5 = new moduleInformationWindowForeleser();
+        modul5.hentPublisert();
+        modul5.setVisible(true);
+    }//GEN-LAST:event_jButtonModul5ActionPerformed
+
+    private void jButtonModul4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonModul4ActionPerformed
+        // TODO add your handling code here:
+        setModulTrykket("modul 4");
+        moduleInformationWindowForeleser modul4 = new moduleInformationWindowForeleser();
+        modul4.hentPublisert();
+        modul4.setVisible(true);
+    }//GEN-LAST:event_jButtonModul4ActionPerformed
+
+    private void jButtonModul3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonModul3ActionPerformed
+        // TODO add your handling code here:
+        setModulTrykket("modul 3");
+        moduleInformationWindowForeleser modul3 = new moduleInformationWindowForeleser();
+        modul3.hentPublisert();
+        modul3.setVisible(true);
+    }//GEN-LAST:event_jButtonModul3ActionPerformed
+
+    private void jButtonModul2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonModul2ActionPerformed
+        // TODO add your handling code here:
+        setModulTrykket("modul 2");
+        moduleInformationWindowForeleser modul2 = new moduleInformationWindowForeleser();
+        modul2.hentPublisert();
+        modul2.setVisible(true);
+    }//GEN-LAST:event_jButtonModul2ActionPerformed
+
+    private void jButtonModul1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonModul1ActionPerformed
+
+        // TODO add your handling code here:
+        setModulTrykket("modul 1");
+        moduleInformationWindowForeleser modul1 = new moduleInformationWindowForeleser();
+        modul1.hentPublisert();
+        modul1.setVisible(true);
+    }//GEN-LAST:event_jButtonModul1ActionPerformed
 
     /**
      * @param args the command line arguments
