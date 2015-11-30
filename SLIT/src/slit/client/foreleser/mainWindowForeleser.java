@@ -12,6 +12,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import javax.swing.DefaultListModel;
 import slit.client.foreleser.moduleInformationWindowForeleser;
 import javax.swing.JOptionPane;
 /**
@@ -44,7 +45,7 @@ public class mainWindowForeleser extends javax.swing.JFrame {
         initComponents();
         statistikkVisning();
         profilVisning ();
-       
+        hentBrukere();
         
         
         
@@ -643,14 +644,14 @@ public class mainWindowForeleser extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Moduler", jPanelModuler);
 
-        jList1.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
-        });
         jScrollPane12.setViewportView(jList1);
 
-        jButton1.setText("jButton1");
+        jButton1.setText("Vis profil");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanelInnleveringLayout = new javax.swing.GroupLayout(jPanelInnlevering);
         jPanelInnlevering.setLayout(jPanelInnleveringLayout);
@@ -658,22 +659,19 @@ public class mainWindowForeleser extends javax.swing.JFrame {
             jPanelInnleveringLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelInnleveringLayout.createSequentialGroup()
                 .addGap(105, 105, 105)
-                .addComponent(jScrollPane12, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(75, 75, 75)
+                .addComponent(jScrollPane12, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(jButton1)
                 .addContainerGap(483, Short.MAX_VALUE))
         );
         jPanelInnleveringLayout.setVerticalGroup(
             jPanelInnleveringLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelInnleveringLayout.createSequentialGroup()
+                .addGap(31, 31, 31)
                 .addGroup(jPanelInnleveringLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanelInnleveringLayout.createSequentialGroup()
-                        .addGap(31, 31, 31)
-                        .addComponent(jScrollPane12, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanelInnleveringLayout.createSequentialGroup()
-                        .addGap(70, 70, 70)
-                        .addComponent(jButton1)))
-                .addContainerGap(469, Short.MAX_VALUE))
+                    .addComponent(jButton1)
+                    .addComponent(jScrollPane12, javax.swing.GroupLayout.PREFERRED_SIZE, 313, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(337, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Innlevering", jPanelInnlevering);
@@ -1027,26 +1025,28 @@ public class mainWindowForeleser extends javax.swing.JFrame {
         jTextAreaProfil.append("Rolle:" + "   " + rolle);
         return Main.user;
     }
+    
     public void hentBrukere () {
-                try {
-                String ID = "SELECT * FROM Bruker";
-         
-                // Definer login credentials på databasen med url, brukernavn og passord
-              
-                // Printer ut databasens URL (hjelp ved evt. feilsøking)
-                System.out.println("The URL is: " + Constants.db_url);
-                // Sett opp en ny connection ved bruk av variablene som er definert
-                Connection con = DriverManager.getConnection(Constants.db_url, Constants.db_user, Constants.db_pass);
-                // Definer en ny Statement (eks. "stmt") og nytt ResultSet (eks. "rs")
-                Statement stmt = con.createStatement( ); 
-                ResultSet result = stmt.executeQuery (ID);
-                    while (result.next()) {
-                    
-                    }
+         try {
+            DefaultListModel DML = new DefaultListModel();
+             Connection con = DriverManager.getConnection(Constants.db_url, Constants.db_user, Constants.db_pass);
+       
+               
+                String SQL = ("SELECT * from Bruker WHERE brukerRolle = 'student'");      
+          
+                Statement hentBrukere = con.createStatement( );
+                ResultSet rs = hentBrukere.executeQuery (SQL);
+                    while (rs.next()) {
+                      String name = rs.getString("brukerFornavn");
+                      String surname = rs.getString("brukerEtternavn");
+                      DML.addElement (surname +",  "+ name);
+                     
                 }
-                catch (SQLException err) {
-                    System.out.println(err);
-                }
+                jList1.setModel(DML);
+        }
+        catch (SQLException err) {
+            System.out.println(err);
+        }
     }
     private void jButtonModul5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonModul5ActionPerformed
         // TODO add your handling code here:
@@ -1235,6 +1235,11 @@ public class mainWindowForeleser extends javax.swing.JFrame {
             //    }
 
     }//GEN-LAST:event_profilUploadActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+       
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments

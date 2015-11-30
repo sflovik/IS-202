@@ -156,7 +156,6 @@ public class mainWindow extends javax.swing.JFrame {
         profilUpload = new javax.swing.JButton();
         jScrollPane13 = new javax.swing.JScrollPane();
         jTextAreaProfil = new javax.swing.JTextArea();
-        testLabel = new javax.swing.JLabel();
 
         jToggleButton1.setText("jToggleButton1");
 
@@ -412,7 +411,7 @@ public class mainWindow extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(jPanelDagensMain, javax.swing.GroupLayout.PREFERRED_SIZE, 563, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPanelFilerMain, javax.swing.GroupLayout.DEFAULT_SIZE, 532, Short.MAX_VALUE))
+                        .addComponent(jPanelFilerMain, javax.swing.GroupLayout.DEFAULT_SIZE, 518, Short.MAX_VALUE))
                     .addGroup(jPanelHjemLayout.createSequentialGroup()
                         .addGap(20, 20, 20)
                         .addComponent(jPanelVarslingerMain, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
@@ -605,7 +604,7 @@ public class mainWindow extends javax.swing.JFrame {
                                 .addComponent(jLabelModuler110, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jButtonModul13, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(nedlastTest))
-                .addContainerGap(288, Short.MAX_VALUE))
+                .addContainerGap(274, Short.MAX_VALUE))
         );
         jPanelModulerLayout.setVerticalGroup(
             jPanelModulerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -813,7 +812,7 @@ public class mainWindow extends javax.swing.JFrame {
                         .addComponent(jTextFieldUke)
                         .addComponent(jTextFieldTimer))
                     .addComponent(jButtonSendRapport))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 488, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 474, Short.MAX_VALUE)
                 .addComponent(jPanelRightMain, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -875,19 +874,17 @@ public class mainWindow extends javax.swing.JFrame {
         mainRightLayout.setHorizontalGroup(
             mainRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(mainRightLayout.createSequentialGroup()
-                .addGap(38, 38, 38)
-                .addComponent(testLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addContainerGap(21, Short.MAX_VALUE)
+                .addGroup(mainRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(mainRightLayout.createSequentialGroup()
+                        .addGap(48, 48, 48)
+                        .addComponent(profilTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(23, Short.MAX_VALUE))
+            .addGroup(mainRightLayout.createSequentialGroup()
+                .addGap(73, 73, 73)
                 .addComponent(profilUpload)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainRightLayout.createSequentialGroup()
-                .addGap(0, 10, Short.MAX_VALUE)
-                .addComponent(jScrollPane13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainRightLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(profilTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(72, 72, 72))
         );
         mainRightLayout.setVerticalGroup(
             mainRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -896,13 +893,8 @@ public class mainWindow extends javax.swing.JFrame {
                 .addComponent(profilTitle)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(mainRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(mainRightLayout.createSequentialGroup()
-                        .addGap(1, 1, 1)
-                        .addComponent(testLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(mainRightLayout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(profilUpload)))
+                .addGap(18, 18, 18)
+                .addComponent(profilUpload)
                 .addContainerGap(545, Short.MAX_VALUE))
         );
 
@@ -1291,6 +1283,5 @@ public class mainWindow extends javax.swing.JFrame {
     private javax.swing.JButton opplastTest;
     private javax.swing.JLabel profilTitle;
     private javax.swing.JButton profilUpload;
-    private javax.swing.JLabel testLabel;
     // End of variables declaration//GEN-END:variables
 }
