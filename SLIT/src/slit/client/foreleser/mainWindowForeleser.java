@@ -112,7 +112,7 @@ public class mainWindowForeleser extends javax.swing.JFrame {
         jTextAreaProfil = new javax.swing.JTextArea();
         profilTitle = new javax.swing.JLabel();
         profilUpload = new javax.swing.JButton();
-        jTabbedPane1 = new javax.swing.JTabbedPane();
+        jTabbedPaneBrukerliste = new javax.swing.JTabbedPane();
         jPanelHjem = new javax.swing.JPanel();
         jPanelModuler = new javax.swing.JPanel();
         jScrollPaneModuloversikt = new javax.swing.JScrollPane();
@@ -151,28 +151,8 @@ public class mainWindowForeleser extends javax.swing.JFrame {
         jTextAreaDate = new javax.swing.JTextArea();
         jScrollPane6 = new javax.swing.JScrollPane();
         jTextAreaLeverte = new javax.swing.JTextArea();
-        jPanelStatusrapport = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabelStatusrapportQuestion1 = new javax.swing.JLabel();
-        jLabelStatusrapportQuestion3 = new javax.swing.JLabel();
-        jLabelStatusrapportQuestion5 = new javax.swing.JLabel();
-        jLabelStatusrapportQuestion4 = new javax.swing.JLabel();
-        jScrollPane7 = new javax.swing.JScrollPane();
-        jTextArea3 = new javax.swing.JTextArea();
-        jScrollPane8 = new javax.swing.JScrollPane();
-        jTextArea4 = new javax.swing.JTextArea();
-        jScrollPane9 = new javax.swing.JScrollPane();
-        jTextArea5 = new javax.swing.JTextArea();
-        jScrollPane10 = new javax.swing.JScrollPane();
-        jTextArea6 = new javax.swing.JTextArea();
-        jButtonSendRapport = new javax.swing.JButton();
-        jScrollPane11 = new javax.swing.JScrollPane();
-        jTextArea7 = new javax.swing.JTextArea();
-        jLabelStatusrapportQuestion2 = new javax.swing.JLabel();
         jPanelMøte = new javax.swing.JPanel();
         jPanelMøteLeft = new javax.swing.JPanel();
-        jTextFieldDeltaker = new javax.swing.JTextField();
-        jLabelMøtedeltaker = new javax.swing.JLabel();
         jLabelTidspunkt = new javax.swing.JLabel();
         jTextFieldTidspunkt = new javax.swing.JTextField();
         jLabelSted = new javax.swing.JLabel();
@@ -366,7 +346,7 @@ public class mainWindowForeleser extends javax.swing.JFrame {
         jPanelLeftMainLayout.setVerticalGroup(
             jPanelLeftMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanelLeftLeft, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanelLeftCentre, javax.swing.GroupLayout.DEFAULT_SIZE, 707, Short.MAX_VALUE)
+            .addComponent(jPanelLeftCentre, javax.swing.GroupLayout.DEFAULT_SIZE, 709, Short.MAX_VALUE)
             .addComponent(jPanelLeftRight, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jPanelLeftRightRight, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
@@ -419,9 +399,9 @@ public class mainWindowForeleser extends javax.swing.JFrame {
 
         getContentPane().add(jPanelRightMain, java.awt.BorderLayout.LINE_END);
 
-        jTabbedPane1.addMouseListener(new java.awt.event.MouseAdapter() {
+        jTabbedPaneBrukerliste.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTabbedPane1MouseClicked(evt);
+                jTabbedPaneBrukerlisteMouseClicked(evt);
             }
         });
 
@@ -433,10 +413,10 @@ public class mainWindowForeleser extends javax.swing.JFrame {
         );
         jPanelHjemLayout.setVerticalGroup(
             jPanelHjemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 677, Short.MAX_VALUE)
+            .addGap(0, 681, Short.MAX_VALUE)
         );
 
-        jTabbedPane1.addTab("Hjem", jPanelHjem);
+        jTabbedPaneBrukerliste.addTab("Hjem", jPanelHjem);
 
         jTextAreaInfo.setBackground(new java.awt.Color(240, 240, 240));
         jTextAreaInfo.setColumns(20);
@@ -661,7 +641,7 @@ public class mainWindowForeleser extends javax.swing.JFrame {
                 .addContainerGap(216, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Moduler", jPanelModuler);
+        jTabbedPaneBrukerliste.addTab("Moduler", jPanelModuler);
 
         jScrollPane12.setViewportView(jList1);
 
@@ -693,7 +673,7 @@ public class mainWindowForeleser extends javax.swing.JFrame {
                 .addContainerGap(337, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Innlevering", jPanelInnlevering);
+        jTabbedPaneBrukerliste.addTab("Brukerliste", jPanelInnlevering);
 
         jPanelStatistikk.setLayout(new java.awt.BorderLayout());
 
@@ -746,168 +726,19 @@ public class mainWindowForeleser extends javax.swing.JFrame {
 
         jPanelStatistikk.add(jPanelStatistikkMain, java.awt.BorderLayout.CENTER);
 
-        jTabbedPane1.addTab("Statistikk", jPanelStatistikk);
-
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(51, 51, 255));
-        jLabel1.setText("Statusrapport:");
-
-        jLabelStatusrapportQuestion1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabelStatusrapportQuestion1.setText("Hvilken modul har du jobbet med?");
-
-        jLabelStatusrapportQuestion3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabelStatusrapportQuestion3.setText("Har du møtt på noen problemer?");
-
-        jLabelStatusrapportQuestion5.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabelStatusrapportQuestion5.setText("Har du et tema du ønsker at vi skal gjennom gå i en forelsning? ");
-
-        jLabelStatusrapportQuestion4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabelStatusrapportQuestion4.setText("Hva har du lært?");
-
-        jTextArea3.setColumns(20);
-        jTextArea3.setRows(5);
-        jScrollPane7.setViewportView(jTextArea3);
-
-        jTextArea4.setColumns(20);
-        jTextArea4.setRows(5);
-        jScrollPane8.setViewportView(jTextArea4);
-
-        jTextArea5.setColumns(20);
-        jTextArea5.setRows(5);
-        jScrollPane9.setViewportView(jTextArea5);
-
-        jTextArea6.setColumns(20);
-        jTextArea6.setRows(5);
-        jScrollPane10.setViewportView(jTextArea6);
-
-        jButtonSendRapport.setText("Send/lagre");
-
-        jScrollPane11.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
-
-        jTextArea7.setColumns(20);
-        jTextArea7.setRows(5);
-        jScrollPane11.setViewportView(jTextArea7);
-
-        jLabelStatusrapportQuestion2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabelStatusrapportQuestion2.setText("Hva gar du jobbet med denne uken?");
-
-        javax.swing.GroupLayout jPanelStatusrapportLayout = new javax.swing.GroupLayout(jPanelStatusrapport);
-        jPanelStatusrapport.setLayout(jPanelStatusrapportLayout);
-        jPanelStatusrapportLayout.setHorizontalGroup(
-            jPanelStatusrapportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelStatusrapportLayout.createSequentialGroup()
-                .addGap(133, 133, 133)
-                .addGroup(jPanelStatusrapportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButtonSendRapport)
-                    .addGroup(jPanelStatusrapportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabelStatusrapportQuestion1)
-                        .addComponent(jLabel1)
-                        .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabelStatusrapportQuestion5)
-                        .addComponent(jLabelStatusrapportQuestion2)
-                        .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabelStatusrapportQuestion3)
-                        .addComponent(jLabelStatusrapportQuestion4)
-                        .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(850, Short.MAX_VALUE))
-        );
-        jPanelStatusrapportLayout.setVerticalGroup(
-            jPanelStatusrapportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelStatusrapportLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabelStatusrapportQuestion1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabelStatusrapportQuestion2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabelStatusrapportQuestion3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabelStatusrapportQuestion4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabelStatusrapportQuestion5, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButtonSendRapport)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        jTabbedPane1.addTab("Statusrapport", jPanelStatusrapport);
-
-        jPanelMøte.setLayout(new java.awt.GridBagLayout());
+        jTabbedPaneBrukerliste.addTab("Statistikk", jPanelStatistikk);
 
         jPanelMøteLeft.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanelMøteLeft.setLayout(new java.awt.GridBagLayout());
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.gridheight = 2;
-        gridBagConstraints.ipadx = 126;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(35, 25, 0, 0);
-        jPanelMøteLeft.add(jTextFieldDeltaker, gridBagConstraints);
-
-        jLabelMøtedeltaker.setText("Møtedeltaker:");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 3;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(38, 28, 0, 0);
-        jPanelMøteLeft.add(jLabelMøtedeltaker, gridBagConstraints);
 
         jLabelTidspunkt.setText("Tidspunkt:");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(45, 28, 0, 0);
-        jPanelMøteLeft.add(jLabelTidspunkt, gridBagConstraints);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.gridheight = 2;
-        gridBagConstraints.ipadx = 126;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(42, 25, 0, 0);
-        jPanelMøteLeft.add(jTextFieldTidspunkt, gridBagConstraints);
 
         jLabelSted.setText("Sted:");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(34, 28, 0, 0);
-        jPanelMøteLeft.add(jLabelSted, gridBagConstraints);
 
         jTextFieldSted.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldStedActionPerformed(evt);
             }
         });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.gridheight = 2;
-        gridBagConstraints.ipadx = 126;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(31, 25, 0, 0);
-        jPanelMøteLeft.add(jTextFieldSted, gridBagConstraints);
 
         jButtonLagre.setText("Lagre");
         jButtonLagre.addActionListener(new java.awt.event.ActionListener() {
@@ -915,52 +746,56 @@ public class mainWindowForeleser extends javax.swing.JFrame {
                 jButtonLagreActionPerformed(evt);
             }
         });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 6;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(33, 15, 243, 0);
-        jPanelMøteLeft.add(jButtonLagre, gridBagConstraints);
 
         jButtonSlett.setText("Slett");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 6;
-        gridBagConstraints.gridwidth = 3;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(33, 26, 243, 145);
-        jPanelMøteLeft.add(jButtonSlett, gridBagConstraints);
 
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridheight = 2;
-        gridBagConstraints.ipady = 134;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(31, 80, 47, 0);
-        jPanelMøte.add(jPanelMøteLeft, gridBagConstraints);
+        javax.swing.GroupLayout jPanelMøteLeftLayout = new javax.swing.GroupLayout(jPanelMøteLeft);
+        jPanelMøteLeft.setLayout(jPanelMøteLeftLayout);
+        jPanelMøteLeftLayout.setHorizontalGroup(
+            jPanelMøteLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelMøteLeftLayout.createSequentialGroup()
+                .addGroup(jPanelMøteLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelMøteLeftLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabelSted, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jTextFieldSted, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanelMøteLeftLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabelTidspunkt, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
+                        .addComponent(jTextFieldTidspunkt, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(20, Short.MAX_VALUE))
+            .addGroup(jPanelMøteLeftLayout.createSequentialGroup()
+                .addGap(91, 91, 91)
+                .addComponent(jButtonLagre)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButtonSlett)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanelMøteLeftLayout.setVerticalGroup(
+            jPanelMøteLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelMøteLeftLayout.createSequentialGroup()
+                .addGap(45, 45, 45)
+                .addGroup(jPanelMøteLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelTidspunkt)
+                    .addComponent(jTextFieldTidspunkt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanelMøteLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelSted)
+                    .addComponent(jTextFieldSted, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(43, 43, 43)
+                .addGroup(jPanelMøteLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButtonLagre)
+                    .addComponent(jButtonSlett))
+                .addGap(71, 71, 71))
+        );
 
         jPanelMøteTop.setLayout(new javax.swing.BoxLayout(jPanelMøteTop, javax.swing.BoxLayout.LINE_AXIS));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        jPanelMøte.add(jPanelMøteTop, gridBagConstraints);
 
         jPanelMøtebot.setLayout(new javax.swing.BoxLayout(jPanelMøtebot, javax.swing.BoxLayout.LINE_AXIS));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        jPanelMøte.add(jPanelMøtebot, gridBagConstraints);
 
         jPanelMøteRight.setLayout(new javax.swing.BoxLayout(jPanelMøteRight, javax.swing.BoxLayout.LINE_AXIS));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 285);
-        jPanelMøte.add(jPanelMøteRight, gridBagConstraints);
 
         jPanelMøteCentre.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Møteplan", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 18), new java.awt.Color(0, 0, 255))); // NOI18N
         jPanelMøteCentre.setLayout(new java.awt.GridBagLayout());
@@ -976,27 +811,49 @@ public class mainWindowForeleser extends javax.swing.JFrame {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.ipadx = 368;
-        gridBagConstraints.ipady = 411;
+        gridBagConstraints.ipadx = 376;
+        gridBagConstraints.ipady = 287;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(24, 6, 7, 6);
+        gridBagConstraints.insets = new java.awt.Insets(48, 12, 74, 6);
         jPanelMøteCentre.add(jScrollPane14, gridBagConstraints);
 
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridheight = 2;
-        gridBagConstraints.ipadx = 8;
-        gridBagConstraints.ipady = 103;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(31, 6, 47, 0);
-        jPanelMøte.add(jPanelMøteCentre, gridBagConstraints);
+        javax.swing.GroupLayout jPanelMøteLayout = new javax.swing.GroupLayout(jPanelMøte);
+        jPanelMøte.setLayout(jPanelMøteLayout);
+        jPanelMøteLayout.setHorizontalGroup(
+            jPanelMøteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelMøteLayout.createSequentialGroup()
+                .addGroup(jPanelMøteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanelMøteRight, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanelMøteTop, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanelMøtebot, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanelMøteLayout.createSequentialGroup()
+                        .addGap(63, 63, 63)
+                        .addComponent(jPanelMøteLeft, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jPanelMøteCentre, javax.swing.GroupLayout.PREFERRED_SIZE, 497, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(539, Short.MAX_VALUE))
+        );
+        jPanelMøteLayout.setVerticalGroup(
+            jPanelMøteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelMøteLayout.createSequentialGroup()
+                .addGroup(jPanelMøteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanelMøteRight, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanelMøteTop, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanelMøtebot, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanelMøteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelMøteLayout.createSequentialGroup()
+                        .addGap(97, 97, 97)
+                        .addComponent(jPanelMøteLeft, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanelMøteLayout.createSequentialGroup()
+                        .addGap(24, 24, 24)
+                        .addComponent(jPanelMøteCentre, javax.swing.GroupLayout.PREFERRED_SIZE, 394, javax.swing.GroupLayout.PREFERRED_SIZE))))
+        );
 
-        jTabbedPane1.addTab("Møte", jPanelMøte);
+        jTabbedPaneBrukerliste.addTab("Møte", jPanelMøte);
 
-        getContentPane().add(jTabbedPane1, java.awt.BorderLayout.CENTER);
+        getContentPane().add(jTabbedPaneBrukerliste, java.awt.BorderLayout.CENTER);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -1137,14 +994,14 @@ public class mainWindowForeleser extends javax.swing.JFrame {
        
                
                 String SQL = ("SELECT  * from møte");      
-                String møteId = "";
+                int møteId = 0;
                 String møteTidspunkt = "";
                 String møteSted = "";
                 Statement hentmøte = con.createStatement( );
                 ResultSet rs = hentmøte.executeQuery (SQL);
                 
                     while (rs.next()) {
-                      møteId = rs.getString("møteId");
+                      møteId = rs.getInt("møteId");
                       møteTidspunkt = rs.getString("møteTidspunkt");
                       møteSted = rs.getString("møteSted");
                       DML.addElement ("Møte ID:"+ " " +møteId + "   " + "Tidspunkt:" + " " + møteTidspunkt+ "   " + "Sted:" + " "+ møteSted);
@@ -1174,26 +1031,17 @@ public class mainWindowForeleser extends javax.swing.JFrame {
 
     }//GEN-LAST:event_profilUploadActionPerformed
 
-    private void jTabbedPane1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTabbedPane1MouseClicked
+    private void jTabbedPaneBrukerlisteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTabbedPaneBrukerlisteMouseClicked
         // TODO add your handling code here:
         db.hentGammelBeskjed();
         jTextAreaInfo.setText(getGenerellModul());
-    }//GEN-LAST:event_jTabbedPane1MouseClicked
+    }//GEN-LAST:event_jTabbedPaneBrukerlisteMouseClicked
 
     private void jButtonLagreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLagreActionPerformed
         // TODO add your handling code here:
         // Setter variablene til queries
         tidspunkt = jTextFieldTidspunkt.getText();
-        idString = jTextFieldDeltaker.getText();
-        // Må gjøre om verdien i tekstfeltene til int før de skal inn i DB
-        // Try-catch for å håndtere feil format i feltene
-
-        try {
-            id = Integer.parseInt(idString);
-        }
-        catch (NumberFormatException feilId) {
-            System.out.println(feilId);
-        }
+        
         // Resten av verdiene er tekst også i databasen
         møtested = jTextFieldSted.getText();
 
@@ -1201,7 +1049,7 @@ public class mainWindowForeleser extends javax.swing.JFrame {
 
         jTextFieldSted.setText("");
         jTextFieldTidspunkt.setText("");
-        jTextFieldDeltaker.setText("");
+       
 
         JOptionPane.showMessageDialog(null, "<Møtet er blitt lagret>", "Alert", JOptionPane.INFORMATION_MESSAGE);
         // TODO add your handling code here:
@@ -1210,20 +1058,13 @@ public class mainWindowForeleser extends javax.swing.JFrame {
         }
         private void sendMøteInformasjon() {
             if (Main.user != null)
-            db.sendMøteInfo(id, tidspunkt, møtested);
+            db.sendMøteInfo(tidspunkt, møtested);
 
     }//GEN-LAST:event_jButtonLagreActionPerformed
 
     private void jTextFieldStedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldStedActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldStedActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        setValgtBruker(jList1.getSelectedValue().toString());
-        hentProfil();
-
-    }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButtonLagreInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLagreInfoActionPerformed
         // TODO add your handling code here:
@@ -1347,6 +1188,12 @@ public class mainWindowForeleser extends javax.swing.JFrame {
         modul1.setVisible(true);
     }//GEN-LAST:event_jButtonModul1ActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        setValgtBruker(jList1.getSelectedValue().toString());
+        hentProfil();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1401,19 +1248,11 @@ public class mainWindowForeleser extends javax.swing.JFrame {
     private javax.swing.JButton jButtonModul7;
     private javax.swing.JButton jButtonModul8;
     private javax.swing.JButton jButtonModul9;
-    private javax.swing.JButton jButtonSendRapport;
     private javax.swing.JButton jButtonSlett;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabelModuler109;
     private javax.swing.JLabel jLabelModuler110;
-    private javax.swing.JLabel jLabelMøtedeltaker;
-    private javax.swing.JLabel jLabelStatusrapportQuestion1;
-    private javax.swing.JLabel jLabelStatusrapportQuestion2;
-    private javax.swing.JLabel jLabelStatusrapportQuestion3;
-    private javax.swing.JLabel jLabelStatusrapportQuestion4;
-    private javax.swing.JLabel jLabelStatusrapportQuestion5;
     private javax.swing.JLabel jLabelSted;
     private javax.swing.JLabel jLabelTidspunkt;
     private javax.swing.JLabel jLabelTittel;
@@ -1437,13 +1276,10 @@ public class mainWindowForeleser extends javax.swing.JFrame {
     private javax.swing.JPanel jPanelRightMain;
     private javax.swing.JPanel jPanelStatistikk;
     private javax.swing.JPanel jPanelStatistikkMain;
-    private javax.swing.JPanel jPanelStatusrapport;
     private javax.swing.JPanel jPanelTopBot;
     private javax.swing.JPanel jPanelTopCentre;
     private javax.swing.JPanel jPanelTopMain;
     private javax.swing.JPanel jPanelTopTop;
-    private javax.swing.JScrollPane jScrollPane10;
-    private javax.swing.JScrollPane jScrollPane11;
     private javax.swing.JScrollPane jScrollPane12;
     private javax.swing.JScrollPane jScrollPane13;
     private javax.swing.JScrollPane jScrollPane14;
@@ -1452,20 +1288,12 @@ public class mainWindowForeleser extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
-    private javax.swing.JScrollPane jScrollPane7;
-    private javax.swing.JScrollPane jScrollPane8;
-    private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JScrollPane jScrollPaneMeny;
     private javax.swing.JScrollPane jScrollPaneModuloversikt;
     private javax.swing.JSeparator jSeperatorLeftLeft;
     private javax.swing.JSeparator jSeperatorLeftRight;
     private javax.swing.JSeparator jSeperatorTopBot;
-    private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTextArea jTextArea3;
-    private javax.swing.JTextArea jTextArea4;
-    private javax.swing.JTextArea jTextArea5;
-    private javax.swing.JTextArea jTextArea6;
-    private javax.swing.JTextArea jTextArea7;
+    private javax.swing.JTabbedPane jTabbedPaneBrukerliste;
     private javax.swing.JTextArea jTextAreaDate;
     private javax.swing.JTextArea jTextAreaId;
     private javax.swing.JTextArea jTextAreaInfo;
@@ -1473,7 +1301,6 @@ public class mainWindowForeleser extends javax.swing.JFrame {
     private javax.swing.JTextArea jTextAreaName;
     private javax.swing.JTextArea jTextAreaProfil;
     private javax.swing.JTextArea jTextAreaSurname;
-    private javax.swing.JTextField jTextFieldDeltaker;
     private javax.swing.JTextField jTextFieldSted;
     private javax.swing.JTextField jTextFieldTidspunkt;
     private javax.swing.JToggleButton jToggleButton1;

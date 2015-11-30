@@ -195,7 +195,7 @@ public class db {
    
     
     
-     public static localUser sendMøteInfo(int id, String tidspunkt, String møtested)   
+     public static localUser sendMøteInfo(String tidspunkt, String møtested)   
         {
         String passord = Main.user.getPass();
         String user = Main.user.getUser();
@@ -231,8 +231,8 @@ public class db {
                     System.out.println(user);
 
                     // Setter inn variabelverdiene i databasen, variablene blir satt på knappen send/lagre, actionevent
-                    String sql = ("INSERT INTO møte (møteId,møteTidspunkt,møteSted)" 
-                    + " VALUES ('"+id+"', '"+tidspunkt+"','"+møtested+"')");
+                    String sql = ("INSERT INTO møte (møteTidspunkt,møteSted)" 
+                    + " VALUES ('"+tidspunkt+"','"+møtested+"')");
                     Statement stmt3 = con.createStatement( );
                     try {
                         stmt3.executeUpdate(sql);
