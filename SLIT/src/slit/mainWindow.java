@@ -70,8 +70,8 @@ public class mainWindow extends javax.swing.JFrame {
         fileChooser = new javax.swing.JFileChooser();
         jPanelTopMain = new javax.swing.JPanel();
         jPanelTopCentre = new javax.swing.JPanel();
-        jLabelTittel = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        jLabelTittel = new javax.swing.JLabel();
         jPanelTopTop = new javax.swing.JPanel();
         jPanelTopBot = new javax.swing.JPanel();
         jSeperatorTopBot = new javax.swing.JSeparator();
@@ -89,9 +89,6 @@ public class mainWindow extends javax.swing.JFrame {
         jPanelDagensMain = new javax.swing.JPanel();
         jScrollPane9 = new javax.swing.JScrollPane();
         jTextAreaDagens = new javax.swing.JTextArea();
-        jPanelVarslingerMain = new javax.swing.JPanel();
-        jScrollPane12 = new javax.swing.JScrollPane();
-        jTextArea4 = new javax.swing.JTextArea();
         jPanelModuler = new javax.swing.JPanel();
         jScrollPaneModuloversikt = new javax.swing.JScrollPane();
         jTextAreaInfo = new javax.swing.JTextArea();
@@ -111,8 +108,6 @@ public class mainWindow extends javax.swing.JFrame {
         jButtonModul12 = new javax.swing.JButton();
         jButtonModul13 = new javax.swing.JButton();
         jButtonModul14 = new javax.swing.JButton();
-        opplastTest = new javax.swing.JButton();
-        nedlastTest = new javax.swing.JButton();
         jPanelStatistikk = new javax.swing.JPanel();
         jPanelStatistikkMain = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -163,9 +158,10 @@ public class mainWindow extends javax.swing.JFrame {
 
         jPanelTopMain.setLayout(new java.awt.BorderLayout());
 
-        jLabelTittel.setText("Tittel på systemet IS109-IS110");
-
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/slit/UiA logo_middels_None.jpg"))); // NOI18N
+
+        jLabelTittel.setFont(new java.awt.Font("Franklin Gothic Demi", 0, 24)); // NOI18N
+        jLabelTittel.setText("Programmeringsprosjekt IS-202, Gruppe 109");
 
         javax.swing.GroupLayout jPanelTopCentreLayout = new javax.swing.GroupLayout(jPanelTopCentre);
         jPanelTopCentre.setLayout(jPanelTopCentreLayout);
@@ -174,20 +170,20 @@ public class mainWindow extends javax.swing.JFrame {
             .addGroup(jPanelTopCentreLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel3)
-                .addGap(116, 116, 116)
+                .addGap(18, 18, 18)
                 .addComponent(jLabelTittel)
-                .addContainerGap(1270, Short.MAX_VALUE))
+                .addContainerGap(1049, Short.MAX_VALUE))
         );
         jPanelTopCentreLayout.setVerticalGroup(
             jPanelTopCentreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelTopCentreLayout.createSequentialGroup()
                 .addGap(35, 35, 35)
-                .addGroup(jPanelTopCentreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3)
-                    .addGroup(jPanelTopCentreLayout.createSequentialGroup()
-                        .addGap(37, 37, 37)
-                        .addComponent(jLabelTittel)))
+                .addComponent(jLabel3)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelTopCentreLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabelTittel)
+                .addGap(45, 45, 45))
         );
 
         jPanelTopMain.add(jPanelTopCentre, java.awt.BorderLayout.CENTER);
@@ -351,58 +347,29 @@ public class mainWindow extends javax.swing.JFrame {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.ipadx = 429;
-        gridBagConstraints.ipady = 451;
+        gridBagConstraints.ipadx = 510;
+        gridBagConstraints.ipady = 329;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(11, 10, 11, 10);
+        gridBagConstraints.insets = new java.awt.Insets(11, 10, 0, 0);
         jPanelDagensMain.add(jScrollPane9, gridBagConstraints);
-
-        jPanelVarslingerMain.setLayout(new java.awt.GridBagLayout());
-
-        jScrollPane12.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Varslinger", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 18), new java.awt.Color(0, 0, 255))); // NOI18N
-
-        jTextArea4.setColumns(20);
-        jTextArea4.setRows(5);
-        jTextArea4.setText("Fyll\n\n\nFyllFyllFyllFyllFyllFyllFyllFyllFyllFyllFyllFyllFyllFyllFyll\n\n\nFyllFyllFyllFyllFyllFyllFyllFyllFyllFyllFyllFyllFyllFyllFyll");
-        jScrollPane12.setViewportView(jTextArea4);
-
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.ipadx = 1016;
-        gridBagConstraints.ipady = 12;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(11, 10, 11, 10);
-        jPanelVarslingerMain.add(jScrollPane12, gridBagConstraints);
 
         javax.swing.GroupLayout jPanelHjemLayout = new javax.swing.GroupLayout(jPanelHjem);
         jPanelHjem.setLayout(jPanelHjemLayout);
         jPanelHjemLayout.setHorizontalGroup(
             jPanelHjemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelHjemLayout.createSequentialGroup()
-                .addGroup(jPanelHjemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanelHjemLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jPanelDagensMain, javax.swing.GroupLayout.PREFERRED_SIZE, 563, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(jPanelHjemLayout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(jPanelVarslingerMain, javax.swing.GroupLayout.DEFAULT_SIZE, 1500, Short.MAX_VALUE)))
-                .addGap(0, 0, 0))
+                .addContainerGap()
+                .addComponent(jPanelDagensMain, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(814, Short.MAX_VALUE))
         );
         jPanelHjemLayout.setVerticalGroup(
             jPanelHjemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelHjemLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanelDagensMain, javax.swing.GroupLayout.PREFERRED_SIZE, 620, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanelVarslingerMain, javax.swing.GroupLayout.DEFAULT_SIZE, 86, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jPanelDagensMain, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(258, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Hjem", jPanelHjem);
@@ -532,20 +499,6 @@ public class mainWindow extends javax.swing.JFrame {
             }
         });
 
-        opplastTest.setText("Last Opp Modul");
-        opplastTest.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                opplastTestActionPerformed(evt);
-            }
-        });
-
-        nedlastTest.setText("Last Ned Modul");
-        nedlastTest.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nedlastTestActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanelModulerLayout = new javax.swing.GroupLayout(jPanelModuler);
         jPanelModuler.setLayout(jPanelModulerLayout);
         jPanelModulerLayout.setHorizontalGroup(
@@ -553,19 +506,14 @@ public class mainWindow extends javax.swing.JFrame {
             .addGroup(jPanelModulerLayout.createSequentialGroup()
                 .addGap(29, 29, 29)
                 .addComponent(jScrollPaneModuloversikt, javax.swing.GroupLayout.PREFERRED_SIZE, 424, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(57, 57, 57)
-                .addGroup(jPanelModulerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanelModulerLayout.createSequentialGroup()
-                        .addComponent(opplastTest)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanelModulerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jButtonModul4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabelModuler109, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButtonModul2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButtonModul1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButtonModul3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButtonModul5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(nedlastTest))
+                .addGap(170, 170, 170)
+                .addGroup(jPanelModulerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jButtonModul4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabelModuler109, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButtonModul2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButtonModul1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButtonModul3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButtonModul5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanelModulerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelModulerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -596,8 +544,7 @@ public class mainWindow extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanelModulerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jButtonModul1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButtonModul6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(opplastTest))
+                            .addComponent(jButtonModul6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanelModulerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jButtonModul2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -621,9 +568,7 @@ public class mainWindow extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButtonModul13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanelModulerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButtonModul14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(nedlastTest))))
+                        .addComponent(jButtonModul14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(278, Short.MAX_VALUE))
         );
 
@@ -1207,15 +1152,6 @@ public class mainWindow extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jButtonModul14ActionPerformed
 
-    private void opplastTestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opplastTestActionPerformed
-        //@Michael opplast
-        new lastOpp().setVisible(true);
-    }//GEN-LAST:event_opplastTestActionPerformed
-
-    private void nedlastTestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nedlastTestActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_nedlastTestActionPerformed
-
     private void jTabbedPane1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTabbedPane1MouseClicked
         // TODO add your handling code here:
         
@@ -1313,9 +1249,7 @@ public class mainWindow extends javax.swing.JFrame {
     private javax.swing.JPanel jPanelTopCentre;
     private javax.swing.JPanel jPanelTopMain;
     private javax.swing.JPanel jPanelTopTop;
-    private javax.swing.JPanel jPanelVarslingerMain;
     private javax.swing.JScrollPane jScrollPane10;
-    private javax.swing.JScrollPane jScrollPane12;
     private javax.swing.JScrollPane jScrollPane13;
     private javax.swing.JScrollPane jScrollPane14;
     private javax.swing.JScrollPane jScrollPane2;
@@ -1332,7 +1266,6 @@ public class mainWindow extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeperatorLeftRight;
     private javax.swing.JSeparator jSeperatorTopBot;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTextArea jTextArea4;
     private javax.swing.JTextArea jTextAreaAnnerledes;
     private javax.swing.JTextArea jTextAreaDagens;
     private javax.swing.JTextArea jTextAreaDate;
@@ -1349,8 +1282,6 @@ public class mainWindow extends javax.swing.JFrame {
     private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JTree jTreeMeny;
     private javax.swing.JPanel mainRight;
-    private javax.swing.JButton nedlastTest;
-    private javax.swing.JButton opplastTest;
     private javax.swing.JLabel profilTitle;
     private javax.swing.JButton profilUpload;
     // End of variables declaration//GEN-END:variables

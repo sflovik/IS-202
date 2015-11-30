@@ -54,9 +54,9 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="116" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="jLabelTittel" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="1270" max="32767" attributes="0"/>
+                      <EmptySpace pref="1049" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -64,29 +64,31 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Group type="102" attributes="0">
-                              <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
-                              <Component id="jLabelTittel" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
+                      <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="jLabelTittel" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JLabel" name="jLabelTittel">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Tittel p&#xe5; systemet IS109-IS110"/>
-              </Properties>
-            </Component>
             <Component class="javax.swing.JLabel" name="jLabel3">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/slit/UiA logo_middels_None.jpg"/>
                 </Property>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabelTittel">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Franklin Gothic Demi" size="24" style="0"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Programmeringsprosjekt IS-202, Gruppe 109"/>
               </Properties>
             </Component>
           </SubComponents>
@@ -283,18 +285,9 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jPanelDagensMain" min="-2" pref="563" max="-2" attributes="0"/>
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                          </Group>
-                          <Group type="102" attributes="0">
-                              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                              <Component id="jPanelVarslingerMain" pref="1500" max="32767" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <EmptySpace min="-2" pref="0" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jPanelDagensMain" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="814" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -302,10 +295,8 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jPanelDagensMain" min="-2" pref="620" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jPanelVarslingerMain" pref="86" max="32767" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jPanelDagensMain" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="258" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -328,7 +319,7 @@
                   </Properties>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-                      <GridBagConstraints gridX="0" gridY="0" gridWidth="1" gridHeight="1" fill="1" ipadX="429" ipadY="451" insetsTop="11" insetsLeft="10" insetsBottom="11" insetsRight="10" anchor="18" weightX="1.0" weightY="1.0"/>
+                      <GridBagConstraints gridX="0" gridY="0" gridWidth="1" gridHeight="1" fill="1" ipadX="510" ipadY="329" insetsTop="11" insetsLeft="10" insetsBottom="0" insetsRight="0" anchor="18" weightX="1.0" weightY="1.0"/>
                     </Constraint>
                   </Constraints>
 
@@ -339,40 +330,6 @@
                         <Property name="editable" type="boolean" value="false"/>
                         <Property name="columns" type="int" value="20"/>
                         <Property name="rows" type="int" value="5"/>
-                      </Properties>
-                    </Component>
-                  </SubComponents>
-                </Container>
-              </SubComponents>
-            </Container>
-            <Container class="javax.swing.JPanel" name="jPanelVarslingerMain">
-
-              <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout"/>
-              <SubComponents>
-                <Container class="javax.swing.JScrollPane" name="jScrollPane12">
-                  <Properties>
-                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                      <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                        <TitledBorder title="Varslinger">
-                          <Font PropertyName="font" name="Tahoma" size="18" style="0"/>
-                          <Color PropertyName="color" blue="ff" green="0" red="0" type="rgb"/>
-                        </TitledBorder>
-                      </Border>
-                    </Property>
-                  </Properties>
-                  <Constraints>
-                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-                      <GridBagConstraints gridX="0" gridY="0" gridWidth="1" gridHeight="1" fill="1" ipadX="1016" ipadY="12" insetsTop="11" insetsLeft="10" insetsBottom="11" insetsRight="10" anchor="18" weightX="1.0" weightY="1.0"/>
-                    </Constraint>
-                  </Constraints>
-
-                  <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
-                  <SubComponents>
-                    <Component class="javax.swing.JTextArea" name="jTextArea4">
-                      <Properties>
-                        <Property name="columns" type="int" value="20"/>
-                        <Property name="rows" type="int" value="5"/>
-                        <Property name="text" type="java.lang.String" value="Fyll&#xa;&#xa;&#xa;FyllFyllFyllFyllFyllFyllFyllFyllFyllFyllFyllFyllFyllFyllFyll&#xa;&#xa;&#xa;FyllFyllFyllFyllFyllFyllFyllFyllFyllFyllFyllFyllFyllFyllFyll"/>
                       </Properties>
                     </Component>
                   </SubComponents>
@@ -396,21 +353,14 @@
                   <Group type="102" attributes="0">
                       <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
                       <Component id="jScrollPaneModuloversikt" min="-2" pref="424" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Component id="opplastTest" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                  <Component id="jButtonModul4" alignment="1" max="32767" attributes="0"/>
-                                  <Component id="jLabelModuler109" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jButtonModul2" alignment="1" max="32767" attributes="0"/>
-                                  <Component id="jButtonModul1" alignment="1" max="32767" attributes="0"/>
-                                  <Component id="jButtonModul3" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="jButtonModul5" alignment="0" min="-2" pref="95" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <Component id="nedlastTest" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="170" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                          <Component id="jButtonModul4" alignment="1" max="32767" attributes="0"/>
+                          <Component id="jLabelModuler109" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jButtonModul2" alignment="1" max="32767" attributes="0"/>
+                          <Component id="jButtonModul1" alignment="1" max="32767" attributes="0"/>
+                          <Component id="jButtonModul3" alignment="0" max="32767" attributes="0"/>
+                          <Component id="jButtonModul5" alignment="0" min="-2" pref="95" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -449,7 +399,6 @@
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jButtonModul1" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="jButtonModul6" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="opplastTest" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
@@ -478,10 +427,7 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jButtonModul13" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jButtonModul14" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="nedlastTest" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
+                              <Component id="jButtonModul14" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace pref="278" max="32767" attributes="0"/>
@@ -682,22 +628,6 @@
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonModul14ActionPerformed"/>
-              </Events>
-            </Component>
-            <Component class="javax.swing.JButton" name="opplastTest">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Last Opp Modul"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="opplastTestActionPerformed"/>
-              </Events>
-            </Component>
-            <Component class="javax.swing.JButton" name="nedlastTest">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Last Ned Modul"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="nedlastTestActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>

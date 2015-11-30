@@ -66,6 +66,7 @@ public class mainWindowForeleser extends javax.swing.JFrame {
         profilVisning ();
         hentBrukere();
         hentMøte();
+        hentDagens();
         
         
         
@@ -113,6 +114,10 @@ public class mainWindowForeleser extends javax.swing.JFrame {
         profilTitle = new javax.swing.JLabel();
         jTabbedPaneBrukerliste = new javax.swing.JTabbedPane();
         jPanelHjem = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextAreaDagens = new javax.swing.JTextArea();
+        jButton4 = new javax.swing.JButton();
         jPanelModuler = new javax.swing.JPanel();
         jScrollPaneModuloversikt = new javax.swing.JScrollPane();
         jTextAreaInfo = new javax.swing.JTextArea();
@@ -173,7 +178,8 @@ public class mainWindowForeleser extends javax.swing.JFrame {
 
         jPanelTopMain.setLayout(new java.awt.BorderLayout());
 
-        jLabelTittel.setText("Tittel på systemet IS109-IS110");
+        jLabelTittel.setFont(new java.awt.Font("Franklin Gothic Demi", 0, 24)); // NOI18N
+        jLabelTittel.setText("Programmeringsprosjekt IS-202, Gruppe 109");
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/slit/UiA logo_middels_None.jpg"))); // NOI18N
 
@@ -184,20 +190,20 @@ public class mainWindowForeleser extends javax.swing.JFrame {
             .addGroup(jPanelTopCentreLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel3)
-                .addGap(116, 116, 116)
+                .addGap(18, 18, 18)
                 .addComponent(jLabelTittel)
-                .addContainerGap(1160, Short.MAX_VALUE))
+                .addContainerGap(939, Short.MAX_VALUE))
         );
         jPanelTopCentreLayout.setVerticalGroup(
             jPanelTopCentreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelTopCentreLayout.createSequentialGroup()
                 .addGap(35, 35, 35)
-                .addGroup(jPanelTopCentreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3)
-                    .addGroup(jPanelTopCentreLayout.createSequentialGroup()
-                        .addGap(37, 37, 37)
-                        .addComponent(jLabelTittel)))
+                .addComponent(jLabel3)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelTopCentreLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabelTittel)
+                .addGap(38, 38, 38))
         );
 
         jPanelTopMain.add(jPanelTopCentre, java.awt.BorderLayout.CENTER);
@@ -395,15 +401,43 @@ public class mainWindowForeleser extends javax.swing.JFrame {
             }
         });
 
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel1.setText("Skriv inn dagens melding");
+
+        jTextAreaDagens.setColumns(20);
+        jTextAreaDagens.setRows(5);
+        jScrollPane1.setViewportView(jTextAreaDagens);
+
+        jButton4.setText("Lagre");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanelHjemLayout = new javax.swing.GroupLayout(jPanelHjem);
         jPanelHjem.setLayout(jPanelHjemLayout);
         jPanelHjemLayout.setHorizontalGroup(
             jPanelHjemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1363, Short.MAX_VALUE)
+            .addGroup(jPanelHjemLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanelHjemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanelHjemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 338, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 601, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(752, Short.MAX_VALUE))
         );
         jPanelHjemLayout.setVerticalGroup(
             jPanelHjemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 681, Short.MAX_VALUE)
+            .addGroup(jPanelHjemLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton4)
+                .addContainerGap(280, Short.MAX_VALUE))
         );
 
         jTabbedPaneBrukerliste.addTab("Hjem", jPanelHjem);
@@ -866,6 +900,43 @@ public class mainWindowForeleser extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+    public  void sendDagens() {
+         try {
+                String dagens = jTextAreaDagens.getText();
+        
+                String SQLsjekk = ("SELECT * FROM dagens");
+                Connection con = DriverManager.getConnection(Constants.db_url, Constants.db_user, Constants.db_pass);
+                Statement sjekk = con.createStatement();
+                ResultSet rs = sjekk.executeQuery(SQLsjekk);
+                boolean melding = true;
+                String dagensMelding = "";
+                while (rs.next()) {
+                    dagensMelding = rs.getString("dagensBeskjed");
+                    if (dagensMelding == null) {
+                        melding = true;
+                    }
+                    else {
+                        melding = false;
+                    }
+                }
+                if (melding) {
+                String SQL = ("INSERT INTO dagens (dagensBeskjed, Bruker_brukerId) VALUES ('"+dagens+"', '"+Main.user.getId()+"')");      
+                Statement setInfo = con.createStatement( );
+                setInfo.executeUpdate(SQL);
+                
+                }
+                else {
+                String SQL = ("UPDATE dagens SET dagensBeskjed='"+dagens+"', Bruker_brukerId = '"+Main.user.getId()+"'");
+                Statement setInfo = con.createStatement( );
+                setInfo.executeUpdate(SQL);
+                }
+        }
+        catch (SQLException err) {
+            System.out.println(err);
+        }
+        
+                            
+    }
     public void statistikkVisning() {
         try {
 
@@ -995,6 +1066,24 @@ public class mainWindowForeleser extends javax.swing.JFrame {
         catch (SQLException err) {
             System.out.println(err);
         }
+    }
+     public void hentDagens() {
+        try {
+            
+            String SQL = ("SELECT dagensBeskjed FROM dagens");
+            Connection con = DriverManager.getConnection(Constants.db_url,Constants.db_user, Constants.db_pass);
+            Statement stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery(SQL);
+            String dagensMelding = "";
+            while (rs.next()) {
+            dagensMelding = rs.getString("dagensBeskjed");
+            jTextAreaDagens.append(dagensMelding);
+            }
+        }
+        catch (SQLException err) {
+            System.out.println(err);
+        }
+            
     }
     public void hentMøte () {
          try {
@@ -1196,6 +1285,13 @@ public class mainWindowForeleser extends javax.swing.JFrame {
         new Sensur().setVisible(true);
     }//GEN-LAST:event_jButton3ActionPerformed
 
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+        sendDagens();
+        JOptionPane.showMessageDialog(null, "Dagens melding er nå lagt ut");
+        
+    }//GEN-LAST:event_jButton4ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1236,6 +1332,7 @@ public class mainWindowForeleser extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JButton jButtonLagre;
     private javax.swing.JButton jButtonLagreInfo;
     private javax.swing.JButton jButtonModul1;
@@ -1253,6 +1350,7 @@ public class mainWindowForeleser extends javax.swing.JFrame {
     private javax.swing.JButton jButtonModul8;
     private javax.swing.JButton jButtonModul9;
     private javax.swing.JButton jButtonSlett;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabelModuler109;
@@ -1284,6 +1382,7 @@ public class mainWindowForeleser extends javax.swing.JFrame {
     private javax.swing.JPanel jPanelTopCentre;
     private javax.swing.JPanel jPanelTopMain;
     private javax.swing.JPanel jPanelTopTop;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane12;
     private javax.swing.JScrollPane jScrollPane13;
     private javax.swing.JScrollPane jScrollPane14;
@@ -1298,6 +1397,7 @@ public class mainWindowForeleser extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeperatorLeftRight;
     private javax.swing.JSeparator jSeperatorTopBot;
     private javax.swing.JTabbedPane jTabbedPaneBrukerliste;
+    private javax.swing.JTextArea jTextAreaDagens;
     private javax.swing.JTextArea jTextAreaDate;
     private javax.swing.JTextArea jTextAreaId;
     private javax.swing.JTextArea jTextAreaInfo;
