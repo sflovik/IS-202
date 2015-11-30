@@ -11,10 +11,10 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ArrayList;
 import javax.swing.DefaultListModel;
-import slit.client.foreleser.moduleInformationWindowForeleser;
 import javax.swing.JOptionPane;
+import slit.Sensur.Sensur;
+import slit.lastNed.lastNed;
 /**
  *
  * @author Sondre
@@ -111,7 +111,6 @@ public class mainWindowForeleser extends javax.swing.JFrame {
         jScrollPane13 = new javax.swing.JScrollPane();
         jTextAreaProfil = new javax.swing.JTextArea();
         profilTitle = new javax.swing.JLabel();
-        profilUpload = new javax.swing.JButton();
         jTabbedPaneBrukerliste = new javax.swing.JTabbedPane();
         jPanelHjem = new javax.swing.JPanel();
         jPanelModuler = new javax.swing.JPanel();
@@ -135,6 +134,8 @@ public class mainWindowForeleser extends javax.swing.JFrame {
         jButtonModul14 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jButtonLagreInfo = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
         jPanelInnlevering = new javax.swing.JPanel();
         jScrollPane12 = new javax.swing.JScrollPane();
         jList1 = new javax.swing.JList();
@@ -363,38 +364,27 @@ public class mainWindowForeleser extends javax.swing.JFrame {
         profilTitle.setForeground(new java.awt.Color(0, 0, 204));
         profilTitle.setText("Profil");
 
-        profilUpload.setText("Upload");
-        profilUpload.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                profilUploadActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanelRightMainLayout = new javax.swing.GroupLayout(jPanelRightMain);
         jPanelRightMain.setLayout(jPanelRightMainLayout);
         jPanelRightMainLayout.setHorizontalGroup(
             jPanelRightMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelRightMainLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(profilUpload)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelRightMainLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanelRightMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(profilTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelRightMainLayout.createSequentialGroup()
+                        .addComponent(profilTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(50, 50, 50)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanelRightMainLayout.setVerticalGroup(
             jPanelRightMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelRightMainLayout.createSequentialGroup()
-                .addGap(98, 98, 98)
+                .addGap(91, 91, 91)
                 .addComponent(profilTitle)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(profilUpload)
-                .addContainerGap(438, Short.MAX_VALUE))
+                .addComponent(jScrollPane13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(479, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanelRightMain, java.awt.BorderLayout.LINE_END);
@@ -552,6 +542,20 @@ public class mainWindowForeleser extends javax.swing.JFrame {
             }
         });
 
+        jButton2.setText("Last ned modulfiler fra elevene");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        jButton3.setText("Gi sensur på elevenes innleveringer");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanelModulerLayout = new javax.swing.GroupLayout(jPanelModuler);
         jPanelModuler.setLayout(jPanelModulerLayout);
         jPanelModulerLayout.setHorizontalGroup(
@@ -565,7 +569,15 @@ public class mainWindowForeleser extends javax.swing.JFrame {
                 .addComponent(jScrollPaneModuloversikt, javax.swing.GroupLayout.PREFERRED_SIZE, 424, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(jPanelModulerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelModulerLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 378, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButtonLagreInfo)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanelModulerLayout.createSequentialGroup()
+                        .addGap(81, 81, 81)
+                        .addGroup(jPanelModulerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 159, Short.MAX_VALUE)
                         .addGroup(jPanelModulerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(jButtonModul4, javax.swing.GroupLayout.DEFAULT_SIZE, 95, Short.MAX_VALUE)
                             .addComponent(jLabelModuler109, javax.swing.GroupLayout.Alignment.LEADING)
@@ -589,11 +601,7 @@ public class mainWindowForeleser extends javax.swing.JFrame {
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelModulerLayout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jButtonModul13, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap(317, Short.MAX_VALUE))
-                    .addGroup(jPanelModulerLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButtonLagreInfo)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addContainerGap(252, Short.MAX_VALUE))))
         );
         jPanelModulerLayout.setVerticalGroup(
             jPanelModulerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -607,7 +615,8 @@ public class mainWindowForeleser extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanelModulerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jButtonModul1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButtonModul6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jButtonModul6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton2))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanelModulerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jButtonModul2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -619,7 +628,8 @@ public class mainWindowForeleser extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanelModulerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jButtonModul4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButtonModul9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jButtonModul9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton3))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanelModulerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jButtonModul5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -754,14 +764,13 @@ public class mainWindowForeleser extends javax.swing.JFrame {
         jPanelMøteLeftLayout.setHorizontalGroup(
             jPanelMøteLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelMøteLeftLayout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(jPanelMøteLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelMøteLeftLayout.createSequentialGroup()
-                        .addContainerGap()
                         .addComponent(jLabelSted, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jTextFieldSted, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanelMøteLeftLayout.createSequentialGroup()
-                        .addContainerGap()
                         .addComponent(jLabelTidspunkt, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
                         .addComponent(jTextFieldTidspunkt, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -1014,23 +1023,6 @@ public class mainWindowForeleser extends javax.swing.JFrame {
             System.out.println(err);
         }
     }
-    private void profilUploadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_profilUploadActionPerformed
-        //        // TODO add your handling code here:
-        //         int returnVal = fileChooser.showOpenDialog(this);
-        //    if (returnVal == JFileChooser.APPROVE_OPTION) {
-            //        File file = fileChooser.getSelectedFile();
-            //        try {
-                //          // What to do with the file, e.g. display it in a TextArea
-                //          textarea.read(new FileReader( file.getAbsolutePath() ), null );
-                //        } catch (IOException ex) {
-                //          System.out.println("problem accessing file"+file.getAbsolutePath());
-                //        }
-            //    } else {
-            //        System.out.println("File access cancelled by user.");
-            //    }
-
-    }//GEN-LAST:event_profilUploadActionPerformed
-
     private void jTabbedPaneBrukerlisteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTabbedPaneBrukerlisteMouseClicked
         // TODO add your handling code here:
         db.hentGammelBeskjed();
@@ -1194,6 +1186,16 @@ public class mainWindowForeleser extends javax.swing.JFrame {
         hentProfil();
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        new lastNed().setVisible(true);
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        new Sensur().setVisible(true);
+    }//GEN-LAST:event_jButton3ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1232,6 +1234,8 @@ public class mainWindowForeleser extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButtonLagre;
     private javax.swing.JButton jButtonLagreInfo;
     private javax.swing.JButton jButtonModul1;
@@ -1306,6 +1310,5 @@ public class mainWindowForeleser extends javax.swing.JFrame {
     private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JTree jTreeMeny;
     private javax.swing.JLabel profilTitle;
-    private javax.swing.JButton profilUpload;
     // End of variables declaration//GEN-END:variables
 }

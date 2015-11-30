@@ -52,7 +52,7 @@ ResultSet rs=null;
         godkjentField = new javax.swing.JTextField();
         kommentarField = new javax.swing.JTextField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         jLabel1.setText("Sensur");
@@ -213,7 +213,7 @@ ResultSet rs=null;
         }
         }
         
-
+this.dispose();
     }//GEN-LAST:event_submitSensurActionPerformed
 
     /**
