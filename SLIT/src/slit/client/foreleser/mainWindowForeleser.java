@@ -65,6 +65,7 @@ public class mainWindowForeleser extends javax.swing.JFrame {
         statistikkVisning();
         profilVisning ();
         hentBrukere();
+        hentMøte();
         
         
         
@@ -182,8 +183,8 @@ public class mainWindowForeleser extends javax.swing.JFrame {
         jPanelMøtebot = new javax.swing.JPanel();
         jPanelMøteRight = new javax.swing.JPanel();
         jPanelMøteCentre = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jScrollPane14 = new javax.swing.JScrollPane();
+        jListMøte = new javax.swing.JList();
 
         jToggleButton1.setText("jToggleButton1");
 
@@ -204,7 +205,7 @@ public class mainWindowForeleser extends javax.swing.JFrame {
                 .addComponent(jLabel3)
                 .addGap(116, 116, 116)
                 .addComponent(jLabelTittel)
-                .addContainerGap(726, Short.MAX_VALUE))
+                .addContainerGap(1160, Short.MAX_VALUE))
         );
         jPanelTopCentreLayout.setVerticalGroup(
             jPanelTopCentreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -224,7 +225,7 @@ public class mainWindowForeleser extends javax.swing.JFrame {
         jPanelTopTop.setLayout(jPanelTopTopLayout);
         jPanelTopTopLayout.setHorizontalGroup(
             jPanelTopTopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1403, Short.MAX_VALUE)
+            .addGap(0, 1837, Short.MAX_VALUE)
         );
         jPanelTopTopLayout.setVerticalGroup(
             jPanelTopTopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -240,7 +241,7 @@ public class mainWindowForeleser extends javax.swing.JFrame {
         jPanelTopBot.setLayout(jPanelTopBotLayout);
         jPanelTopBotLayout.setHorizontalGroup(
             jPanelTopBotLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSeperatorTopBot, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1403, Short.MAX_VALUE)
+            .addComponent(jSeperatorTopBot, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1837, Short.MAX_VALUE)
         );
         jPanelTopBotLayout.setVerticalGroup(
             jPanelTopBotLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -428,7 +429,7 @@ public class mainWindowForeleser extends javax.swing.JFrame {
         jPanelHjem.setLayout(jPanelHjemLayout);
         jPanelHjemLayout.setHorizontalGroup(
             jPanelHjemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 929, Short.MAX_VALUE)
+            .addGap(0, 1363, Short.MAX_VALUE)
         );
         jPanelHjemLayout.setVerticalGroup(
             jPanelHjemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -584,7 +585,7 @@ public class mainWindowForeleser extends javax.swing.JFrame {
                 .addComponent(jScrollPaneModuloversikt, javax.swing.GroupLayout.PREFERRED_SIZE, 424, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(jPanelModulerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelModulerLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 162, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 378, Short.MAX_VALUE)
                         .addGroup(jPanelModulerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(jButtonModul4, javax.swing.GroupLayout.DEFAULT_SIZE, 95, Short.MAX_VALUE)
                             .addComponent(jLabelModuler109, javax.swing.GroupLayout.Alignment.LEADING)
@@ -608,7 +609,7 @@ public class mainWindowForeleser extends javax.swing.JFrame {
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelModulerLayout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jButtonModul13, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap(99, Short.MAX_VALUE))
+                        .addContainerGap(317, Short.MAX_VALUE))
                     .addGroup(jPanelModulerLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButtonLagreInfo)
@@ -680,7 +681,7 @@ public class mainWindowForeleser extends javax.swing.JFrame {
                 .addComponent(jScrollPane12, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jButton1)
-                .addContainerGap(483, Short.MAX_VALUE))
+                .addContainerGap(917, Short.MAX_VALUE))
         );
         jPanelInnleveringLayout.setVerticalGroup(
             jPanelInnleveringLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -810,7 +811,7 @@ public class mainWindowForeleser extends javax.swing.JFrame {
                         .addComponent(jLabelStatusrapportQuestion4)
                         .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(416, Short.MAX_VALUE))
+                .addContainerGap(850, Short.MAX_VALUE))
         );
         jPanelStatusrapportLayout.setVerticalGroup(
             jPanelStatusrapportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -843,6 +844,8 @@ public class mainWindowForeleser extends javax.swing.JFrame {
         );
 
         jTabbedPane1.addTab("Statusrapport", jPanelStatusrapport);
+
+        jPanelMøte.setLayout(new java.awt.GridBagLayout());
 
         jPanelMøteLeft.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanelMøteLeft.setLayout(new java.awt.GridBagLayout());
@@ -928,36 +931,68 @@ public class mainWindowForeleser extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(33, 26, 243, 145);
         jPanelMøteLeft.add(jButtonSlett, gridBagConstraints);
 
-        jPanelMøte.add(jPanelMøteLeft);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.ipady = 134;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(31, 80, 47, 0);
+        jPanelMøte.add(jPanelMøteLeft, gridBagConstraints);
 
         jPanelMøteTop.setLayout(new javax.swing.BoxLayout(jPanelMøteTop, javax.swing.BoxLayout.LINE_AXIS));
-        jPanelMøte.add(jPanelMøteTop);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        jPanelMøte.add(jPanelMøteTop, gridBagConstraints);
 
         jPanelMøtebot.setLayout(new javax.swing.BoxLayout(jPanelMøtebot, javax.swing.BoxLayout.LINE_AXIS));
-        jPanelMøte.add(jPanelMøtebot);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        jPanelMøte.add(jPanelMøtebot, gridBagConstraints);
 
         jPanelMøteRight.setLayout(new javax.swing.BoxLayout(jPanelMøteRight, javax.swing.BoxLayout.LINE_AXIS));
-        jPanelMøte.add(jPanelMøteRight);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 285);
+        jPanelMøte.add(jPanelMøteRight, gridBagConstraints);
 
         jPanelMøteCentre.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Møteplan", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 18), new java.awt.Color(0, 0, 255))); // NOI18N
-        jPanelMøteCentre.setLayout(new javax.swing.BoxLayout(jPanelMøteCentre, javax.swing.BoxLayout.LINE_AXIS));
+        jPanelMøteCentre.setLayout(new java.awt.GridBagLayout());
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane1.setViewportView(jTable1);
+        jListMøte.setModel(new javax.swing.AbstractListModel() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public Object getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane14.setViewportView(jListMøte);
 
-        jPanelMøteCentre.add(jScrollPane1);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.ipadx = 368;
+        gridBagConstraints.ipady = 411;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(24, 6, 7, 6);
+        jPanelMøteCentre.add(jScrollPane14, gridBagConstraints);
 
-        jPanelMøte.add(jPanelMøteCentre);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.ipadx = 8;
+        gridBagConstraints.ipady = 103;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(31, 6, 47, 0);
+        jPanelMøte.add(jPanelMøteCentre, gridBagConstraints);
 
         jTabbedPane1.addTab("Møte", jPanelMøte);
 
@@ -1095,6 +1130,33 @@ public class mainWindowForeleser extends javax.swing.JFrame {
             System.out.println(err);
         }
     }
+    public void hentMøte () {
+         try {
+            DefaultListModel DML = new DefaultListModel();
+             Connection con = DriverManager.getConnection(Constants.db_url, Constants.db_user, Constants.db_pass);
+       
+               
+                String SQL = ("SELECT  * from møte");      
+                String møteId = "";
+                String møteTidspunkt = "";
+                String møteSted = "";
+                Statement hentmøte = con.createStatement( );
+                ResultSet rs = hentmøte.executeQuery (SQL);
+                
+                    while (rs.next()) {
+                      møteId = rs.getString("møteId");
+                      møteTidspunkt = rs.getString("møteTidspunkt");
+                      møteSted = rs.getString("møteSted");
+                      DML.addElement ("Møte ID:"+ " " +møteId + "   " + "Tidspunkt:" + " " + møteTidspunkt+ "   " + "Sted:" + " "+ møteSted);
+                    //  arrayList.add(brukerFornavn + brukerEtternavn);
+                }
+                jListMøte.setModel(DML);
+        
+        }
+        catch (SQLException err) {
+            System.out.println(err);
+        }
+    }
     private void profilUploadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_profilUploadActionPerformed
         //        // TODO add your handling code here:
         //         int returnVal = fileChooser.showOpenDialog(this);
@@ -1143,6 +1205,7 @@ public class mainWindowForeleser extends javax.swing.JFrame {
 
         JOptionPane.showMessageDialog(null, "<Møtet er blitt lagret>", "Alert", JOptionPane.INFORMATION_MESSAGE);
         // TODO add your handling code here:
+        hentMøte();
 
         }
         private void sendMøteInformasjon() {
@@ -1355,6 +1418,7 @@ public class mainWindowForeleser extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelTidspunkt;
     private javax.swing.JLabel jLabelTittel;
     private javax.swing.JList jList1;
+    private javax.swing.JList jListMøte;
     private javax.swing.JPanel jPanelBotMain;
     private javax.swing.JPanel jPanelHjem;
     private javax.swing.JPanel jPanelInnlevering;
@@ -1378,11 +1442,11 @@ public class mainWindowForeleser extends javax.swing.JFrame {
     private javax.swing.JPanel jPanelTopCentre;
     private javax.swing.JPanel jPanelTopMain;
     private javax.swing.JPanel jPanelTopTop;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane11;
     private javax.swing.JScrollPane jScrollPane12;
     private javax.swing.JScrollPane jScrollPane13;
+    private javax.swing.JScrollPane jScrollPane14;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
@@ -1397,7 +1461,6 @@ public class mainWindowForeleser extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeperatorLeftRight;
     private javax.swing.JSeparator jSeperatorTopBot;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTextArea jTextArea3;
     private javax.swing.JTextArea jTextArea4;
     private javax.swing.JTextArea jTextArea5;
