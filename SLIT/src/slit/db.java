@@ -134,11 +134,11 @@ public class db {
        
     }
     
-    public static localUser login(String username, String password, String role){
+    public static localUser login(String username, String password, String role, int id){
         
         try {
                 String sql = "SELECT * FROM Bruker WHERE brukerEmail= '" 
-                        + username +"' AND brukerPassord='" + password + "' AND brukerRolle='"+ role +"'";
+                        + username +"' AND brukerPassord='" + password + "' AND brukerRolle='"+ role +"' AND brukerId='"+id+"'";
                 // Definer en ny Statement (eks. "stmt") og nytt ResultSet (eks. "rs")
                 Connection con = DriverManager.getConnection(Constants.db_url, Constants.db_user, Constants.db_pass);
                 Statement stmt = con.createStatement( );
@@ -150,7 +150,8 @@ public class db {
                     System.out.println("User logged in:");      
                     System.out.println (username);
                     System.out.println (role);
-                    return Main.user = new localUser(rs.getString("brukerEmail"), rs.getString("brukerPassord"), rs.getString("brukerRolle"));
+                    System.out.println (id);
+                    return Main.user = new localUser(rs.getString("brukerEmail"), rs.getString("brukerPassord"), rs.getString("brukerRolle"), rs.getInt("brukerId"));
                    
                 }
                 // Om credentials ikke er godkjent

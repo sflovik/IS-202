@@ -13,15 +13,17 @@ public class localUser {
     private String user;
     private String pass;
     private String role;
+    private int id;
   
     //private ArrayList<Module> modules;
 
 
 
-    public localUser(String user, String pass, String role){
+    public localUser(String user, String pass, String role, int id){
         this.user = user;
         this.pass = pass;
         this.role = role;
+        this.id = id;
     }
 
     public String getRole() {
@@ -46,6 +48,12 @@ public class localUser {
 
     public void setPass(String pass) {
         this.pass = pass;
+    }
+    public int getId() {
+        return id;
+    }
+    public void setId(int id) {
+        this.id = id;
     }
     
     //@Override
