@@ -659,6 +659,7 @@ public class mainWindow extends javax.swing.JFrame {
 
         jScrollPane2.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 
+        jTextAreaId.setEditable(false);
         jTextAreaId.setColumns(20);
         jTextAreaId.setRows(5);
         jScrollPane2.setViewportView(jTextAreaId);
@@ -667,6 +668,7 @@ public class mainWindow extends javax.swing.JFrame {
 
         jScrollPane3.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 
+        jTextAreaName.setEditable(false);
         jTextAreaName.setColumns(20);
         jTextAreaName.setRows(5);
         jScrollPane3.setViewportView(jTextAreaName);
@@ -675,6 +677,7 @@ public class mainWindow extends javax.swing.JFrame {
 
         jScrollPane4.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 
+        jTextAreaSurname.setEditable(false);
         jTextAreaSurname.setColumns(20);
         jTextAreaSurname.setRows(5);
         jScrollPane4.setViewportView(jTextAreaSurname);
@@ -683,6 +686,7 @@ public class mainWindow extends javax.swing.JFrame {
 
         jScrollPane5.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 
+        jTextAreaDate.setEditable(false);
         jTextAreaDate.setColumns(20);
         jTextAreaDate.setRows(5);
         jScrollPane5.setViewportView(jTextAreaDate);
@@ -691,6 +695,7 @@ public class mainWindow extends javax.swing.JFrame {
 
         jScrollPane6.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 
+        jTextAreaLeverte.setEditable(false);
         jTextAreaLeverte.setColumns(20);
         jTextAreaLeverte.setRows(5);
         jScrollPane6.setViewportView(jTextAreaLeverte);
