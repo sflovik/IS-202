@@ -53,7 +53,7 @@ public class mainWindow extends javax.swing.JFrame {
         profilVisning();
         db.hentGammelBeskjed();
         hentMøte();
-        
+        hentDagens();
     }
 
     /**
@@ -88,10 +88,7 @@ public class mainWindow extends javax.swing.JFrame {
         jPanelHjem = new javax.swing.JPanel();
         jPanelDagensMain = new javax.swing.JPanel();
         jScrollPane9 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
-        jPanelFilerMain = new javax.swing.JPanel();
-        jScrollPane11 = new javax.swing.JScrollPane();
-        jTextArea3 = new javax.swing.JTextArea();
+        jTextAreaDagens = new javax.swing.JTextArea();
         jPanelVarslingerMain = new javax.swing.JPanel();
         jScrollPane12 = new javax.swing.JScrollPane();
         jTextArea4 = new javax.swing.JTextArea();
@@ -345,10 +342,10 @@ public class mainWindow extends javax.swing.JFrame {
 
         jScrollPane9.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Dagens", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 18), new java.awt.Color(0, 0, 255))); // NOI18N
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jTextArea1.setText("Fyll\n\nFyllFyll\n\nFyllFyll\n\nFyllFyll\n\nFyllFyll\n\nFyllFyll\n\nFyllFyll\n\nFyllFyll\n\nFyllFyll\n\nFyllFyll\n\nFyllFyll\n\nFyllFyll\n\nFyllFyll\n\nFyllFyll\n\nFyllFyll\n\n\n\n\n\n\n\nFyllFyllFyllFyllFyllFyllFyllFyllFyllFyllFyllFyllFyllFyllFyll");
-        jScrollPane9.setViewportView(jTextArea1);
+        jTextAreaDagens.setEditable(false);
+        jTextAreaDagens.setColumns(20);
+        jTextAreaDagens.setRows(5);
+        jScrollPane9.setViewportView(jTextAreaDagens);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -361,27 +358,6 @@ public class mainWindow extends javax.swing.JFrame {
         gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(11, 10, 11, 10);
         jPanelDagensMain.add(jScrollPane9, gridBagConstraints);
-
-        jPanelFilerMain.setLayout(new java.awt.GridBagLayout());
-
-        jScrollPane11.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Dokumenter", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 18), new java.awt.Color(0, 0, 255))); // NOI18N
-
-        jTextArea3.setColumns(20);
-        jTextArea3.setRows(5);
-        jTextArea3.setText("FyllFyllFyllFyllFyllFyllFyllFyllFyllFyllFyllFyllFyllFyllFyll\n\n\nFyllFyllFyllFyllFyllFyllFyllFyllFyllFyllFyllFyllFyllFyllFyll\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFyllFyllFyllFyllFyllFyllFyllFyllFyllFyllFyllFyllFyllFyllFyll");
-        jScrollPane11.setViewportView(jTextArea3);
-
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.ipadx = 453;
-        gridBagConstraints.ipady = 456;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(11, 10, 11, 10);
-        jPanelFilerMain.add(jScrollPane11, gridBagConstraints);
 
         jPanelVarslingerMain.setLayout(new java.awt.GridBagLayout());
 
@@ -413,20 +389,17 @@ public class mainWindow extends javax.swing.JFrame {
                     .addGroup(jPanelHjemLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jPanelDagensMain, javax.swing.GroupLayout.PREFERRED_SIZE, 563, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPanelFilerMain, javax.swing.GroupLayout.DEFAULT_SIZE, 941, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanelHjemLayout.createSequentialGroup()
                         .addGap(20, 20, 20)
-                        .addComponent(jPanelVarslingerMain, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
+                        .addComponent(jPanelVarslingerMain, javax.swing.GroupLayout.DEFAULT_SIZE, 1500, Short.MAX_VALUE)))
                 .addGap(0, 0, 0))
         );
         jPanelHjemLayout.setVerticalGroup(
             jPanelHjemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelHjemLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanelHjemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanelDagensMain, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanelFilerMain, javax.swing.GroupLayout.DEFAULT_SIZE, 620, Short.MAX_VALUE))
+                .addComponent(jPanelDagensMain, javax.swing.GroupLayout.PREFERRED_SIZE, 620, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanelVarslingerMain, javax.swing.GroupLayout.DEFAULT_SIZE, 86, Short.MAX_VALUE)
                 .addContainerGap())
@@ -1035,6 +1008,24 @@ public class mainWindow extends javax.swing.JFrame {
         db.sendRapport(uke, gått, annerledes, hjelp, timer);
               
     }
+    public void hentDagens() {
+        try {
+            
+            String SQL = ("SELECT dagensBeskjed FROM dagens");
+            Connection con = DriverManager.getConnection(Constants.db_url,Constants.db_user, Constants.db_pass);
+            Statement stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery(SQL);
+            String dagensMelding = "";
+            while (rs.next()) {
+            dagensMelding = rs.getString("dagensBeskjed");
+            jTextAreaDagens.append(dagensMelding);
+            }
+        }
+        catch (SQLException err) {
+            System.out.println(err);
+        }
+            
+    }
      public void hentMøte () {
          try {
             DefaultListModel DML = new DefaultListModel();
@@ -1303,7 +1294,6 @@ public class mainWindow extends javax.swing.JFrame {
     private javax.swing.JList jListMøte;
     private javax.swing.JPanel jPanelBotMain;
     private javax.swing.JPanel jPanelDagensMain;
-    private javax.swing.JPanel jPanelFilerMain;
     private javax.swing.JPanel jPanelHjem;
     private javax.swing.JPanel jPanelLeftCentre;
     private javax.swing.JPanel jPanelLeftLeft;
@@ -1325,7 +1315,6 @@ public class mainWindow extends javax.swing.JFrame {
     private javax.swing.JPanel jPanelTopTop;
     private javax.swing.JPanel jPanelVarslingerMain;
     private javax.swing.JScrollPane jScrollPane10;
-    private javax.swing.JScrollPane jScrollPane11;
     private javax.swing.JScrollPane jScrollPane12;
     private javax.swing.JScrollPane jScrollPane13;
     private javax.swing.JScrollPane jScrollPane14;
@@ -1343,10 +1332,9 @@ public class mainWindow extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeperatorLeftRight;
     private javax.swing.JSeparator jSeperatorTopBot;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextArea jTextArea3;
     private javax.swing.JTextArea jTextArea4;
     private javax.swing.JTextArea jTextAreaAnnerledes;
+    private javax.swing.JTextArea jTextAreaDagens;
     private javax.swing.JTextArea jTextAreaDate;
     private javax.swing.JTextArea jTextAreaGått;
     private javax.swing.JTextArea jTextAreaHjelp;
