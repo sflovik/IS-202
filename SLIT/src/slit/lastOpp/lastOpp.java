@@ -167,7 +167,7 @@ String filePath=null;
     ps.setBytes(3, b);
     ps.setObject(2, versjonField.getText());
     ps.setObject(4, modulField.getText());
-    ps.setInt(5, 1);
+    ps.setInt(5, slit.Main.user.getId());
 
 
     int val=ps.executeUpdate();

@@ -41,7 +41,7 @@ public class moduleInformationWindowForeleser extends javax.swing.JFrame {
                     ResultSet rs = stmt.executeQuery(check);
                     int modulNr = 0;
                     boolean fortsett = true;
-                    while (fortsett) {
+                    while (rs.next() && fortsett) {
                         modulNr = rs.getInt("modulNummer");
                             if (modulNr != 1) {
                                 Statement nyModul = con.createStatement();
@@ -82,6 +82,9 @@ public class moduleInformationWindowForeleser extends javax.swing.JFrame {
                 catch (SQLException feil) {
                     System.out.println(feil);
                 }
+                
+                
+           
             break;
         case "modul 2":
                 try {
@@ -833,6 +836,7 @@ public class moduleInformationWindowForeleser extends javax.swing.JFrame {
                                 jTextAreaRessurs.setText(hentRessurser);
                                 jTextFieldFrist.setText(hentTidsfrist);
                                 jTextFieldKapittel.setText(hentKapittel);
+                               
                             }
                             else {
                                 // gjør ingenting
@@ -1065,6 +1069,9 @@ public class moduleInformationWindowForeleser extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
             publiserModul();
+            JOptionPane.showMessageDialog(null, "Modulen er publisert. Vinduet vil lukkes");
+            dispose();
+         
 // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
