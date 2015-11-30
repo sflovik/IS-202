@@ -29,7 +29,6 @@
                   <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="62" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -38,7 +37,6 @@
                   <Component id="tittelField" alignment="0" max="32767" attributes="0"/>
                   <Component id="lastoppButton" alignment="0" max="32767" attributes="0"/>
                   <Component id="lastoppExit" alignment="0" max="32767" attributes="0"/>
-                  <Component id="datoField" alignment="0" max="32767" attributes="0"/>
                   <Component id="versjonField" alignment="0" max="32767" attributes="0"/>
               </Group>
               <EmptySpace pref="254" max="32767" attributes="0"/>
@@ -67,16 +65,11 @@
                   </Group>
                   <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="datoField" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
               <Component id="lastoppButton" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="lastoppExit" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="142" max="32767" attributes="0"/>
+              <EmptySpace pref="169" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -123,18 +116,11 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="lastoppExitActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="datoField">
-    </Component>
     <Component class="javax.swing.JTextField" name="modulField">
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel4">
       <Properties>
         <Property name="text" type="java.lang.String" value="Modulnummer:"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="jLabel5">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Dato:"/>
       </Properties>
     </Component>
   </SubComponents>

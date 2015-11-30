@@ -8,6 +8,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
+import slit.Constants;
 import slit.Main;
 import slit.db;
 import slit.localUser;
@@ -26,6 +27,7 @@ public class Login extends javax.swing.JFrame {
 private String user = "";
 private String pass = "";
 private String role = "";
+private int id = 0;
 
     public String getRole() {
         return role;
@@ -39,6 +41,7 @@ private String role = "";
      */
     public Login() {
         initComponents();
+        getRootPane().setDefaultButton(jButtonLogin);
         addWindowListener(new WindowAdapter() {
         
             @Override
@@ -105,7 +108,7 @@ private String role = "";
         jPanelMainTop.setLayout(jPanelMainTopLayout);
         jPanelMainTopLayout.setHorizontalGroup(
             jPanelMainTopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 595, Short.MAX_VALUE)
+            .addGap(0, 581, Short.MAX_VALUE)
         );
         jPanelMainTopLayout.setVerticalGroup(
             jPanelMainTopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -131,7 +134,7 @@ private String role = "";
         jPanelMainBotoom.setLayout(jPanelMainBotoomLayout);
         jPanelMainBotoomLayout.setHorizontalGroup(
             jPanelMainBotoomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 595, Short.MAX_VALUE)
+            .addGap(0, 581, Short.MAX_VALUE)
         );
         jPanelMainBotoomLayout.setVerticalGroup(
             jPanelMainBotoomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -183,16 +186,20 @@ private String role = "";
                         .addComponent(jButtonRegBruker))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jLabelEpost, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabelPassord, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel1))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(jLabelEpost, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabelPassord, javax.swing.GroupLayout.DEFAULT_SIZE, 67, Short.MAX_VALUE))
+                                .addGap(15, 15, 15))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addGap(55, 55, 55)))
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextFieldEmailLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jPasswordFieldLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jComboBoxRoleLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(249, 249, 249))
+                            .addComponent(jComboBoxRoleLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jPasswordFieldLogin, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jTextFieldEmailLogin, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addGap(220, 220, 220))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -250,17 +257,19 @@ private String role = "";
     }// </editor-fold>//GEN-END:initComponents
 private void login() {
 
-     localUser localuser = db.login(user, pass, role);
+     localUser localuser = db.login(user, pass, role, id);
         if(localuser != null){
             if (jComboBoxRoleLogin.getSelectedItem().toString().equals("Student")){
                 slit.mainWindow hjems = new slit.mainWindow();
                 hjems.setVisible(true);
                 hjems.setExtendedState(slit.mainWindow.MAXIMIZED_BOTH);
+                this.dispose();
             }
             else {
                 slit.client.foreleser.mainWindowForeleser hjemf = new slit.client.foreleser.mainWindowForeleser();
                 hjemf.setVisible(true);
                 hjemf.setExtendedState(slit.client.foreleser.mainWindowForeleser.MAXIMIZED_BOTH);
+                this.dispose();
             }
         Main.user = localuser;
        
@@ -279,11 +288,37 @@ private void login() {
         user = jTextFieldEmailLogin.getText();
         pass = jPasswordFieldLogin.getText();
         setRole((jComboBoxRoleLogin.getSelectedItem().toString()));
-        localUser localuser = new localUser(user, pass, role);
+        localUser localuser = new localUser(user, pass, role,id);
         localuser.setUser(user);
         localuser.setPass(pass);
         localuser.setRole(role);
-        login();
+        try {
+        String ID = "SELECT * FROM Bruker WHERE brukerEmail= '" 
+                        + user +"' AND brukerPassord='" + pass + "' ";
+         
+                Connection con = DriverManager.getConnection(Constants.db_url, Constants.db_user, Constants.db_pass);
+            
+                Statement stmt = con.createStatement( );
+                
+               
+                ResultSet result = stmt.executeQuery (ID);
+                
+                // Variabel brukerId som skal sendes inn med statusrapport
+                id = 0;
+              
+                 // Om credentials er godkjent, henter ut brukerId fra ID query
+                if (result.next()) {
+                    id = result.getInt("BrukerId");
+                }
+              
+                localuser.setId(id);
+                login();
+            
+                
+        }
+        catch (SQLException err) {
+                        System.out.println(err);
+                        }
         
     }//GEN-LAST:event_jButtonLoginActionPerformed
 

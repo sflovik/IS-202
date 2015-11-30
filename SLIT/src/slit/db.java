@@ -35,7 +35,7 @@ public class db {
                 Connection con = DriverManager.getConnection(Constants.db_url, Constants.db_user, Constants.db_pass);
        
                
-                String SQL = ("UPDATE generellinfo SET generellModulInfo = '"+test+"'");      
+                String SQL = ("INSERT INTO generellinfo (generellInfoBeskjed) VALUES ('"+test+"')");      
             
                 Statement setInfo = con.createStatement( );
                 setInfo.executeUpdate(SQL);
@@ -48,6 +48,10 @@ public class db {
                             
     }
     
+    public static void visProfil(String bruker) {
+        
+    }
+  
     public static localUser sendRapport(int uke, String gått, String annerledes,
         String hjelp, int timer) {
         String passord = Main.user.getPass();
@@ -130,11 +134,11 @@ public class db {
        
     }
     
-    public static localUser login(String username, String password, String role){
+    public static localUser login(String username, String password, String role, int id){
         
         try {
                 String sql = "SELECT * FROM Bruker WHERE brukerEmail= '" 
-                        + username +"' AND brukerPassord='" + password + "' AND brukerRolle='"+ role +"'";
+                        + username +"' AND brukerPassord='" + password + "' AND brukerRolle='"+ role +"' AND brukerId='"+id+"'";
                 // Definer en ny Statement (eks. "stmt") og nytt ResultSet (eks. "rs")
                 Connection con = DriverManager.getConnection(Constants.db_url, Constants.db_user, Constants.db_pass);
                 Statement stmt = con.createStatement( );
@@ -146,7 +150,8 @@ public class db {
                     System.out.println("User logged in:");      
                     System.out.println (username);
                     System.out.println (role);
-                    return Main.user = new localUser(rs.getString("brukerEmail"), rs.getString("brukerPassord"), rs.getString("brukerRolle"));
+                    System.out.println (id);
+                    return Main.user = new localUser(rs.getString("brukerEmail"), rs.getString("brukerPassord"), rs.getString("brukerRolle"), rs.getInt("brukerId"));
                    
                 }
                 // Om credentials ikke er godkjent
@@ -173,11 +178,11 @@ public class db {
         Connection connect = DriverManager.getConnection(Constants.db_url, Constants.db_user, Constants.db_pass);
        
                 Statement hentInfo = connect.createStatement();
-                String SQLgammelTekst = ("SELECT generellModulInfo FROM generellinfo");
+                String SQLgammelTekst = ("SELECT generellInfoBeskjed FROM generellInfo");
                 String eksisterendeMelding = "";           
                 ResultSet testing = hentInfo.executeQuery(SQLgammelTekst);
                 if (testing.next()) {  
-                        eksisterendeMelding = testing.getString("generellModulInfo");
+                        eksisterendeMelding = testing.getString("generellInfoBeskjed");
                         slit.client.foreleser.mainWindowForeleser lagretvisning = new slit.client.foreleser.mainWindowForeleser();
                         lagretvisning.setGenerellModul(eksisterendeMelding);
                 }     
@@ -190,7 +195,7 @@ public class db {
    
     
     
-     public static localUser sendMøteInfo(int id, String tidspunkt, String møtested)   
+     public static localUser sendMøteInfo(String tidspunkt, String møtested)   
         {
         String passord = Main.user.getPass();
         String user = Main.user.getUser();
@@ -226,8 +231,8 @@ public class db {
                     System.out.println(user);
 
                     // Setter inn variabelverdiene i databasen, variablene blir satt på knappen send/lagre, actionevent
-                    String sql = ("INSERT INTO møte (møteId,møteTidspunkt,møteSted)" 
-                    + " VALUES ('"+id+"', '"+tidspunkt+"','"+møtested+"')");
+                    String sql = ("INSERT INTO møte (møteTidspunkt,møteSted)" 
+                    + " VALUES ('"+tidspunkt+"','"+møtested+"')");
                     Statement stmt3 = con.createStatement( );
                     try {
                         stmt3.executeUpdate(sql);

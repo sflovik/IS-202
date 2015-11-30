@@ -24,9 +24,28 @@ public class mainWindowForeleser extends javax.swing.JFrame {
     /**
      * Creates new form mainWindow
      */
+   
+   // ArrayList<String> arrayList = new ArrayList<String>(); 
    private static String modulTrykket = "";
    private static String generellModul = "";
-   
+   private static String valgtBruker = "";
+   private static String brukerNavn = "";
+
+    public static String getBrukerNavn() {
+        return brukerNavn;
+    }
+
+    public static void setBrukerNavn(String brukerNavn) {
+        mainWindowForeleser.brukerNavn = brukerNavn;
+    }
+
+    public static String getValgtBruker() {
+        return valgtBruker;
+    }
+
+    public static void setValgtBruker(String valgtBruker) {
+        mainWindowForeleser.valgtBruker = valgtBruker;
+    }
     public static String getGenerellModul () {
         return generellModul;
     }
@@ -46,6 +65,7 @@ public class mainWindowForeleser extends javax.swing.JFrame {
         statistikkVisning();
         profilVisning ();
         hentBrukere();
+        hentMøte();
         
         
         
@@ -92,7 +112,7 @@ public class mainWindowForeleser extends javax.swing.JFrame {
         jTextAreaProfil = new javax.swing.JTextArea();
         profilTitle = new javax.swing.JLabel();
         profilUpload = new javax.swing.JButton();
-        jTabbedPane1 = new javax.swing.JTabbedPane();
+        jTabbedPaneBrukerliste = new javax.swing.JTabbedPane();
         jPanelHjem = new javax.swing.JPanel();
         jPanelModuler = new javax.swing.JPanel();
         jScrollPaneModuloversikt = new javax.swing.JScrollPane();
@@ -131,28 +151,8 @@ public class mainWindowForeleser extends javax.swing.JFrame {
         jTextAreaDate = new javax.swing.JTextArea();
         jScrollPane6 = new javax.swing.JScrollPane();
         jTextAreaLeverte = new javax.swing.JTextArea();
-        jPanelStatusrapport = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabelStatusrapportQuestion1 = new javax.swing.JLabel();
-        jLabelStatusrapportQuestion3 = new javax.swing.JLabel();
-        jLabelStatusrapportQuestion5 = new javax.swing.JLabel();
-        jLabelStatusrapportQuestion4 = new javax.swing.JLabel();
-        jScrollPane7 = new javax.swing.JScrollPane();
-        jTextArea3 = new javax.swing.JTextArea();
-        jScrollPane8 = new javax.swing.JScrollPane();
-        jTextArea4 = new javax.swing.JTextArea();
-        jScrollPane9 = new javax.swing.JScrollPane();
-        jTextArea5 = new javax.swing.JTextArea();
-        jScrollPane10 = new javax.swing.JScrollPane();
-        jTextArea6 = new javax.swing.JTextArea();
-        jButtonSendRapport = new javax.swing.JButton();
-        jScrollPane11 = new javax.swing.JScrollPane();
-        jTextArea7 = new javax.swing.JTextArea();
-        jLabelStatusrapportQuestion2 = new javax.swing.JLabel();
         jPanelMøte = new javax.swing.JPanel();
         jPanelMøteLeft = new javax.swing.JPanel();
-        jTextFieldDeltaker = new javax.swing.JTextField();
-        jLabelMøtedeltaker = new javax.swing.JLabel();
         jLabelTidspunkt = new javax.swing.JLabel();
         jTextFieldTidspunkt = new javax.swing.JTextField();
         jLabelSted = new javax.swing.JLabel();
@@ -163,8 +163,8 @@ public class mainWindowForeleser extends javax.swing.JFrame {
         jPanelMøtebot = new javax.swing.JPanel();
         jPanelMøteRight = new javax.swing.JPanel();
         jPanelMøteCentre = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jScrollPane14 = new javax.swing.JScrollPane();
+        jListMøte = new javax.swing.JList();
 
         jToggleButton1.setText("jToggleButton1");
 
@@ -185,7 +185,7 @@ public class mainWindowForeleser extends javax.swing.JFrame {
                 .addComponent(jLabel3)
                 .addGap(116, 116, 116)
                 .addComponent(jLabelTittel)
-                .addContainerGap(726, Short.MAX_VALUE))
+                .addContainerGap(1160, Short.MAX_VALUE))
         );
         jPanelTopCentreLayout.setVerticalGroup(
             jPanelTopCentreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -205,7 +205,7 @@ public class mainWindowForeleser extends javax.swing.JFrame {
         jPanelTopTop.setLayout(jPanelTopTopLayout);
         jPanelTopTopLayout.setHorizontalGroup(
             jPanelTopTopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1403, Short.MAX_VALUE)
+            .addGap(0, 1837, Short.MAX_VALUE)
         );
         jPanelTopTopLayout.setVerticalGroup(
             jPanelTopTopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -221,7 +221,7 @@ public class mainWindowForeleser extends javax.swing.JFrame {
         jPanelTopBot.setLayout(jPanelTopBotLayout);
         jPanelTopBotLayout.setHorizontalGroup(
             jPanelTopBotLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSeperatorTopBot, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1403, Short.MAX_VALUE)
+            .addComponent(jSeperatorTopBot, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1837, Short.MAX_VALUE)
         );
         jPanelTopBotLayout.setVerticalGroup(
             jPanelTopBotLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -346,7 +346,7 @@ public class mainWindowForeleser extends javax.swing.JFrame {
         jPanelLeftMainLayout.setVerticalGroup(
             jPanelLeftMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanelLeftLeft, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanelLeftCentre, javax.swing.GroupLayout.DEFAULT_SIZE, 707, Short.MAX_VALUE)
+            .addComponent(jPanelLeftCentre, javax.swing.GroupLayout.DEFAULT_SIZE, 709, Short.MAX_VALUE)
             .addComponent(jPanelLeftRight, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jPanelLeftRightRight, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
@@ -354,6 +354,7 @@ public class mainWindowForeleser extends javax.swing.JFrame {
         getContentPane().add(jPanelLeftMain, java.awt.BorderLayout.LINE_START);
         getContentPane().add(jPanelBotMain, java.awt.BorderLayout.PAGE_END);
 
+        jTextAreaProfil.setEditable(false);
         jTextAreaProfil.setColumns(20);
         jTextAreaProfil.setRows(5);
         jScrollPane13.setViewportView(jTextAreaProfil);
@@ -373,17 +374,15 @@ public class mainWindowForeleser extends javax.swing.JFrame {
         jPanelRightMain.setLayout(jPanelRightMainLayout);
         jPanelRightMainLayout.setHorizontalGroup(
             jPanelRightMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelRightMainLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelRightMainLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(profilUpload)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelRightMainLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(profilTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanelRightMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(profilTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanelRightMainLayout.setVerticalGroup(
@@ -400,9 +399,9 @@ public class mainWindowForeleser extends javax.swing.JFrame {
 
         getContentPane().add(jPanelRightMain, java.awt.BorderLayout.LINE_END);
 
-        jTabbedPane1.addMouseListener(new java.awt.event.MouseAdapter() {
+        jTabbedPaneBrukerliste.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTabbedPane1MouseClicked(evt);
+                jTabbedPaneBrukerlisteMouseClicked(evt);
             }
         });
 
@@ -410,14 +409,14 @@ public class mainWindowForeleser extends javax.swing.JFrame {
         jPanelHjem.setLayout(jPanelHjemLayout);
         jPanelHjemLayout.setHorizontalGroup(
             jPanelHjemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 929, Short.MAX_VALUE)
+            .addGap(0, 1363, Short.MAX_VALUE)
         );
         jPanelHjemLayout.setVerticalGroup(
             jPanelHjemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 677, Short.MAX_VALUE)
+            .addGap(0, 681, Short.MAX_VALUE)
         );
 
-        jTabbedPane1.addTab("Hjem", jPanelHjem);
+        jTabbedPaneBrukerliste.addTab("Hjem", jPanelHjem);
 
         jTextAreaInfo.setBackground(new java.awt.Color(240, 240, 240));
         jTextAreaInfo.setColumns(20);
@@ -566,7 +565,7 @@ public class mainWindowForeleser extends javax.swing.JFrame {
                 .addComponent(jScrollPaneModuloversikt, javax.swing.GroupLayout.PREFERRED_SIZE, 424, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(jPanelModulerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelModulerLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 162, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 378, Short.MAX_VALUE)
                         .addGroup(jPanelModulerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(jButtonModul4, javax.swing.GroupLayout.DEFAULT_SIZE, 95, Short.MAX_VALUE)
                             .addComponent(jLabelModuler109, javax.swing.GroupLayout.Alignment.LEADING)
@@ -590,7 +589,7 @@ public class mainWindowForeleser extends javax.swing.JFrame {
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelModulerLayout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jButtonModul13, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap(99, Short.MAX_VALUE))
+                        .addContainerGap(317, Short.MAX_VALUE))
                     .addGroup(jPanelModulerLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButtonLagreInfo)
@@ -642,7 +641,7 @@ public class mainWindowForeleser extends javax.swing.JFrame {
                 .addContainerGap(216, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Moduler", jPanelModuler);
+        jTabbedPaneBrukerliste.addTab("Moduler", jPanelModuler);
 
         jScrollPane12.setViewportView(jList1);
 
@@ -662,7 +661,7 @@ public class mainWindowForeleser extends javax.swing.JFrame {
                 .addComponent(jScrollPane12, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jButton1)
-                .addContainerGap(483, Short.MAX_VALUE))
+                .addContainerGap(917, Short.MAX_VALUE))
         );
         jPanelInnleveringLayout.setVerticalGroup(
             jPanelInnleveringLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -674,7 +673,7 @@ public class mainWindowForeleser extends javax.swing.JFrame {
                 .addContainerGap(337, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Innlevering", jPanelInnlevering);
+        jTabbedPaneBrukerliste.addTab("Brukerliste", jPanelInnlevering);
 
         jPanelStatistikk.setLayout(new java.awt.BorderLayout());
 
@@ -727,166 +726,19 @@ public class mainWindowForeleser extends javax.swing.JFrame {
 
         jPanelStatistikk.add(jPanelStatistikkMain, java.awt.BorderLayout.CENTER);
 
-        jTabbedPane1.addTab("Statistikk", jPanelStatistikk);
-
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(51, 51, 255));
-        jLabel1.setText("Statusrapport:");
-
-        jLabelStatusrapportQuestion1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabelStatusrapportQuestion1.setText("Hvilken modul har du jobbet med?");
-
-        jLabelStatusrapportQuestion3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabelStatusrapportQuestion3.setText("Har du møtt på noen problemer?");
-
-        jLabelStatusrapportQuestion5.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabelStatusrapportQuestion5.setText("Har du et tema du ønsker at vi skal gjennom gå i en forelsning? ");
-
-        jLabelStatusrapportQuestion4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabelStatusrapportQuestion4.setText("Hva har du lært?");
-
-        jTextArea3.setColumns(20);
-        jTextArea3.setRows(5);
-        jScrollPane7.setViewportView(jTextArea3);
-
-        jTextArea4.setColumns(20);
-        jTextArea4.setRows(5);
-        jScrollPane8.setViewportView(jTextArea4);
-
-        jTextArea5.setColumns(20);
-        jTextArea5.setRows(5);
-        jScrollPane9.setViewportView(jTextArea5);
-
-        jTextArea6.setColumns(20);
-        jTextArea6.setRows(5);
-        jScrollPane10.setViewportView(jTextArea6);
-
-        jButtonSendRapport.setText("Send/lagre");
-
-        jScrollPane11.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
-
-        jTextArea7.setColumns(20);
-        jTextArea7.setRows(5);
-        jScrollPane11.setViewportView(jTextArea7);
-
-        jLabelStatusrapportQuestion2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabelStatusrapportQuestion2.setText("Hva gar du jobbet med denne uken?");
-
-        javax.swing.GroupLayout jPanelStatusrapportLayout = new javax.swing.GroupLayout(jPanelStatusrapport);
-        jPanelStatusrapport.setLayout(jPanelStatusrapportLayout);
-        jPanelStatusrapportLayout.setHorizontalGroup(
-            jPanelStatusrapportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelStatusrapportLayout.createSequentialGroup()
-                .addGap(133, 133, 133)
-                .addGroup(jPanelStatusrapportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButtonSendRapport)
-                    .addGroup(jPanelStatusrapportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabelStatusrapportQuestion1)
-                        .addComponent(jLabel1)
-                        .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabelStatusrapportQuestion5)
-                        .addComponent(jLabelStatusrapportQuestion2)
-                        .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabelStatusrapportQuestion3)
-                        .addComponent(jLabelStatusrapportQuestion4)
-                        .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(416, Short.MAX_VALUE))
-        );
-        jPanelStatusrapportLayout.setVerticalGroup(
-            jPanelStatusrapportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelStatusrapportLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabelStatusrapportQuestion1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabelStatusrapportQuestion2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabelStatusrapportQuestion3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabelStatusrapportQuestion4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabelStatusrapportQuestion5, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButtonSendRapport)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        jTabbedPane1.addTab("Statusrapport", jPanelStatusrapport);
+        jTabbedPaneBrukerliste.addTab("Statistikk", jPanelStatistikk);
 
         jPanelMøteLeft.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanelMøteLeft.setLayout(new java.awt.GridBagLayout());
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.gridheight = 2;
-        gridBagConstraints.ipadx = 126;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(35, 25, 0, 0);
-        jPanelMøteLeft.add(jTextFieldDeltaker, gridBagConstraints);
-
-        jLabelMøtedeltaker.setText("Møtedeltaker:");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 3;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(38, 28, 0, 0);
-        jPanelMøteLeft.add(jLabelMøtedeltaker, gridBagConstraints);
 
         jLabelTidspunkt.setText("Tidspunkt:");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(45, 28, 0, 0);
-        jPanelMøteLeft.add(jLabelTidspunkt, gridBagConstraints);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.gridheight = 2;
-        gridBagConstraints.ipadx = 126;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(42, 25, 0, 0);
-        jPanelMøteLeft.add(jTextFieldTidspunkt, gridBagConstraints);
 
         jLabelSted.setText("Sted:");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(34, 28, 0, 0);
-        jPanelMøteLeft.add(jLabelSted, gridBagConstraints);
 
         jTextFieldSted.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldStedActionPerformed(evt);
             }
         });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.gridheight = 2;
-        gridBagConstraints.ipadx = 126;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(31, 25, 0, 0);
-        jPanelMøteLeft.add(jTextFieldSted, gridBagConstraints);
 
         jButtonLagre.setText("Lagre");
         jButtonLagre.addActionListener(new java.awt.event.ActionListener() {
@@ -894,56 +746,114 @@ public class mainWindowForeleser extends javax.swing.JFrame {
                 jButtonLagreActionPerformed(evt);
             }
         });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 6;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(33, 15, 243, 0);
-        jPanelMøteLeft.add(jButtonLagre, gridBagConstraints);
 
         jButtonSlett.setText("Slett");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 6;
-        gridBagConstraints.gridwidth = 3;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(33, 26, 243, 145);
-        jPanelMøteLeft.add(jButtonSlett, gridBagConstraints);
 
-        jPanelMøte.add(jPanelMøteLeft);
+        javax.swing.GroupLayout jPanelMøteLeftLayout = new javax.swing.GroupLayout(jPanelMøteLeft);
+        jPanelMøteLeft.setLayout(jPanelMøteLeftLayout);
+        jPanelMøteLeftLayout.setHorizontalGroup(
+            jPanelMøteLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelMøteLeftLayout.createSequentialGroup()
+                .addGroup(jPanelMøteLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelMøteLeftLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabelSted, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jTextFieldSted, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanelMøteLeftLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabelTidspunkt, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
+                        .addComponent(jTextFieldTidspunkt, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(20, Short.MAX_VALUE))
+            .addGroup(jPanelMøteLeftLayout.createSequentialGroup()
+                .addGap(91, 91, 91)
+                .addComponent(jButtonLagre)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButtonSlett)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanelMøteLeftLayout.setVerticalGroup(
+            jPanelMøteLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelMøteLeftLayout.createSequentialGroup()
+                .addGap(45, 45, 45)
+                .addGroup(jPanelMøteLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelTidspunkt)
+                    .addComponent(jTextFieldTidspunkt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanelMøteLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelSted)
+                    .addComponent(jTextFieldSted, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(43, 43, 43)
+                .addGroup(jPanelMøteLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButtonLagre)
+                    .addComponent(jButtonSlett))
+                .addGap(71, 71, 71))
+        );
 
         jPanelMøteTop.setLayout(new javax.swing.BoxLayout(jPanelMøteTop, javax.swing.BoxLayout.LINE_AXIS));
-        jPanelMøte.add(jPanelMøteTop);
 
         jPanelMøtebot.setLayout(new javax.swing.BoxLayout(jPanelMøtebot, javax.swing.BoxLayout.LINE_AXIS));
-        jPanelMøte.add(jPanelMøtebot);
 
         jPanelMøteRight.setLayout(new javax.swing.BoxLayout(jPanelMøteRight, javax.swing.BoxLayout.LINE_AXIS));
-        jPanelMøte.add(jPanelMøteRight);
 
         jPanelMøteCentre.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Møteplan", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 18), new java.awt.Color(0, 0, 255))); // NOI18N
-        jPanelMøteCentre.setLayout(new javax.swing.BoxLayout(jPanelMøteCentre, javax.swing.BoxLayout.LINE_AXIS));
+        jPanelMøteCentre.setLayout(new java.awt.GridBagLayout());
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane1.setViewportView(jTable1);
+        jListMøte.setModel(new javax.swing.AbstractListModel() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public Object getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane14.setViewportView(jListMøte);
 
-        jPanelMøteCentre.add(jScrollPane1);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.ipadx = 376;
+        gridBagConstraints.ipady = 287;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(48, 12, 74, 6);
+        jPanelMøteCentre.add(jScrollPane14, gridBagConstraints);
 
-        jPanelMøte.add(jPanelMøteCentre);
+        javax.swing.GroupLayout jPanelMøteLayout = new javax.swing.GroupLayout(jPanelMøte);
+        jPanelMøte.setLayout(jPanelMøteLayout);
+        jPanelMøteLayout.setHorizontalGroup(
+            jPanelMøteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelMøteLayout.createSequentialGroup()
+                .addGroup(jPanelMøteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanelMøteRight, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanelMøteTop, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanelMøtebot, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanelMøteLayout.createSequentialGroup()
+                        .addGap(63, 63, 63)
+                        .addComponent(jPanelMøteLeft, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jPanelMøteCentre, javax.swing.GroupLayout.PREFERRED_SIZE, 497, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(539, Short.MAX_VALUE))
+        );
+        jPanelMøteLayout.setVerticalGroup(
+            jPanelMøteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelMøteLayout.createSequentialGroup()
+                .addGroup(jPanelMøteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanelMøteRight, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanelMøteTop, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanelMøtebot, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanelMøteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelMøteLayout.createSequentialGroup()
+                        .addGap(97, 97, 97)
+                        .addComponent(jPanelMøteLeft, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanelMøteLayout.createSequentialGroup()
+                        .addGap(24, 24, 24)
+                        .addComponent(jPanelMøteCentre, javax.swing.GroupLayout.PREFERRED_SIZE, 394, javax.swing.GroupLayout.PREFERRED_SIZE))))
+        );
 
-        jTabbedPane1.addTab("Møte", jPanelMøte);
+        jTabbedPaneBrukerliste.addTab("Møte", jPanelMøte);
 
-        getContentPane().add(jTabbedPane1, java.awt.BorderLayout.CENTER);
+        getContentPane().add(jTabbedPaneBrukerliste, java.awt.BorderLayout.CENTER);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -971,7 +881,7 @@ public class mainWindowForeleser extends javax.swing.JFrame {
                 id_col = result.getInt("Bruker_brukerId");
                 name = result.getString("brukerFornavn");
                 surname = result.getString("brukerEtternavn");
-                dato = result.getString("levertmodulDato");
+                dato = result.getString("modulfilDato");
                 antLeverte = result.getInt("COUNT(sensurId)");
               //  System.out.println("ID: "+ " " + id_col +"     " +  "Fornavn: " + 
               //      "     " + name + "     " + "Etternavn: " +" "+ surname + "     " 
@@ -1025,7 +935,33 @@ public class mainWindowForeleser extends javax.swing.JFrame {
         jTextAreaProfil.append("Rolle:" + "   " + rolle);
         return Main.user;
     }
-    
+    public void hentProfil() {
+        try {
+                String profilNavn = jList1.getSelectedValue().toString();
+                String SQL = ("SELECT * FROM Bruker where brukerEtternavn = '"+profilNavn+"'");
+                
+                Connection con = DriverManager.getConnection(Constants.db_url, Constants.db_user, Constants.db_pass);
+             
+                Statement stmt = con.createStatement( );
+                ResultSet rs = stmt.executeQuery (SQL);
+                
+                int brukerId = 0;
+                if (rs.next()) {
+                    brukerId = rs.getInt("brukerId");
+                    setBrukerNavn(rs.getString("brukerFornavn")); 
+                    System.out.println("Vis profilen til" + " " + profilNavn);
+                    StudentProfil profil = new StudentProfil();
+                    profil.setVisible(true);
+                }
+                String SQL2 = ("SELECT * FROM Bruker WHERE brukerId = '"+brukerId+"'");
+                
+                
+           
+        }
+        catch (SQLException err) {
+            System.out.println(err);
+        }
+    }
     public void hentBrukere () {
          try {
             DefaultListModel DML = new DefaultListModel();
@@ -1033,192 +969,51 @@ public class mainWindowForeleser extends javax.swing.JFrame {
        
                
                 String SQL = ("SELECT * from Bruker WHERE brukerRolle = 'student'");      
-          
+                String brukerFornavn = "";
+                String brukerEtternavn = "";
                 Statement hentBrukere = con.createStatement( );
                 ResultSet rs = hentBrukere.executeQuery (SQL);
+                
                     while (rs.next()) {
-                      String name = rs.getString("brukerFornavn");
-                      String surname = rs.getString("brukerEtternavn");
-                      DML.addElement (surname +",  "+ name);
-                     
+                      brukerFornavn = rs.getString("brukerFornavn");
+                      brukerEtternavn = rs.getString("brukerEtternavn");
+                      DML.addElement (brukerEtternavn);
+                    //  arrayList.add(brukerFornavn + brukerEtternavn);
                 }
                 jList1.setModel(DML);
+        
         }
         catch (SQLException err) {
             System.out.println(err);
         }
     }
-    private void jButtonModul5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonModul5ActionPerformed
-        // TODO add your handling code here:
-       setModulTrykket("modul 5");
-       moduleInformationWindowForeleser modul5 = new moduleInformationWindowForeleser();
-       modul5.hentPublisert();
-       modul5.setVisible(true);
-    }//GEN-LAST:event_jButtonModul5ActionPerformed
-
-    private void jButtonModul3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonModul3ActionPerformed
-        // TODO add your handling code here:
-       setModulTrykket("modul 3");
-       moduleInformationWindowForeleser modul3 = new moduleInformationWindowForeleser();
-       modul3.hentPublisert();
-       modul3.setVisible(true);
-    }//GEN-LAST:event_jButtonModul3ActionPerformed
-
-    private void jButtonModul1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonModul1ActionPerformed
-        
-    // TODO add your handling code here:
-       setModulTrykket("modul 1");
-       moduleInformationWindowForeleser modul1 = new moduleInformationWindowForeleser();
-       modul1.hentPublisert();
-       modul1.setVisible(true);
-    }//GEN-LAST:event_jButtonModul1ActionPerformed
-
-    private void jTextFieldStedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldStedActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldStedActionPerformed
-
-    private void jButtonLagreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLagreActionPerformed
-        // TODO add your handling code here:
-        // Setter variablene til queries
-        tidspunkt = jTextFieldTidspunkt.getText();
-        idString = jTextFieldDeltaker.getText();
-        // Må gjøre om verdien i tekstfeltene til int før de skal inn i DB
-        // Try-catch for å håndtere feil format i feltene
-        
-
-        try {
-            id = Integer.parseInt(idString);
-        }
-        catch (NumberFormatException feilId) {
-            System.out.println(feilId);
-        }
-        // Resten av verdiene er tekst også i databasen
-        møtested = jTextFieldSted.getText();
-
-        sendMøteInformasjon();
-        
-	jTextFieldSted.setText("");
-        jTextFieldTidspunkt.setText("");
-        jTextFieldDeltaker.setText("");
-        
-        JOptionPane.showMessageDialog(null, "<Møtet er blitt lagret>", "Alert", JOptionPane.INFORMATION_MESSAGE);
-            // TODO add your handling code here:
-        
-        
-        
-        
-    }                                            
-        private void sendMøteInformasjon() {
-        if (Main.user != null)
-        db.sendMøteInfo(id, tidspunkt, møtested);
-        
-        
-        
-    }//GEN-LAST:event_jButtonLagreActionPerformed
-
-    private void jButtonModul2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonModul2ActionPerformed
-        // TODO add your handling code here:
-       setModulTrykket("modul 2");
-       moduleInformationWindowForeleser modul2 = new moduleInformationWindowForeleser();
-       modul2.hentPublisert();
-       modul2.setVisible(true);
-    }//GEN-LAST:event_jButtonModul2ActionPerformed
-
-    private void jButtonModul4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonModul4ActionPerformed
-        // TODO add your handling code here:
-       setModulTrykket("modul 4");
-       moduleInformationWindowForeleser modul4 = new moduleInformationWindowForeleser();
-       modul4.hentPublisert();
-       modul4.setVisible(true);
-    }//GEN-LAST:event_jButtonModul4ActionPerformed
-
-    private void jButtonModul6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonModul6ActionPerformed
-        // TODO add your handling code here:
-       setModulTrykket("modul 6");
-       moduleInformationWindowForeleser modul6 = new moduleInformationWindowForeleser();
-       modul6.hentPublisert();
-       modul6.setVisible(true);
-    }//GEN-LAST:event_jButtonModul6ActionPerformed
-
-    private void jButtonModul7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonModul7ActionPerformed
-        // TODO add your handling code here:
-       setModulTrykket("modul 7");
-       moduleInformationWindowForeleser modul7 = new moduleInformationWindowForeleser();
-       modul7.hentPublisert();
-       modul7.setVisible(true);
-    }//GEN-LAST:event_jButtonModul7ActionPerformed
-
-    private void jButtonModul8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonModul8ActionPerformed
-        // TODO add your handling code here:
-       setModulTrykket("modul 8");
-       moduleInformationWindowForeleser modul8 = new moduleInformationWindowForeleser();
-       modul8.hentPublisert();
-       modul8.setVisible(true);
-    }//GEN-LAST:event_jButtonModul8ActionPerformed
-
-    private void jButtonModul9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonModul9ActionPerformed
-        // TODO add your handling code here:
-       setModulTrykket("modul 9");
-       moduleInformationWindowForeleser modul9 = new moduleInformationWindowForeleser();
-       modul9.hentPublisert();
-       modul9.setVisible(true);
-    }//GEN-LAST:event_jButtonModul9ActionPerformed
-
-    private void jButtonModul10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonModul10ActionPerformed
-        // TODO add your handling code here:
-       setModulTrykket("modul 10");
-       moduleInformationWindowForeleser modul10 = new moduleInformationWindowForeleser();
-       modul10.hentPublisert();
-       modul10.setVisible(true);
-    }//GEN-LAST:event_jButtonModul10ActionPerformed
-
-    private void jButtonModul11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonModul11ActionPerformed
-        // TODO add your handling code here:
-       setModulTrykket("modul 11");
-       moduleInformationWindowForeleser modul11 = new moduleInformationWindowForeleser();
-       modul11.hentPublisert();
-       modul11.setVisible(true);
+    public void hentMøte () {
+         try {
+            DefaultListModel DML = new DefaultListModel();
+             Connection con = DriverManager.getConnection(Constants.db_url, Constants.db_user, Constants.db_pass);
        
-    }//GEN-LAST:event_jButtonModul11ActionPerformed
-
-    private void jButtonModul12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonModul12ActionPerformed
-        // TODO add your handling code here:
-       setModulTrykket("modul 12");
-       moduleInformationWindowForeleser modul12 = new moduleInformationWindowForeleser();
-       modul12.hentPublisert();
-       modul12.setVisible(true);
-    }//GEN-LAST:event_jButtonModul12ActionPerformed
-
-    private void jButtonModul13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonModul13ActionPerformed
-        // TODO add your handling code here:
-       setModulTrykket("modul 13");
-       moduleInformationWindowForeleser modul13 = new moduleInformationWindowForeleser();
-       modul13.hentPublisert();
-       modul13.setVisible(true);
-    }//GEN-LAST:event_jButtonModul13ActionPerformed
-
-    private void jButtonModul14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonModul14ActionPerformed
-        // TODO add your handling code here:
-       setModulTrykket("modul 14");
-       moduleInformationWindowForeleser modul14 = new moduleInformationWindowForeleser();
-       modul14.hentPublisert();
-       modul14.setVisible(true);
-    }//GEN-LAST:event_jButtonModul14ActionPerformed
-
-    private void jButtonLagreInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLagreInfoActionPerformed
-        // TODO add your handling code here:
-        setGenerellModul(jTextAreaInfo.getText());
-        System.out.println(getGenerellModul());
-        slit.db.generellInfo();
-        slit.db.hentGammelBeskjed();
-    }//GEN-LAST:event_jButtonLagreInfoActionPerformed
-
-    private void jTabbedPane1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTabbedPane1MouseClicked
-        // TODO add your handling code here:
-        db.hentGammelBeskjed();
-        jTextAreaInfo.setText(getGenerellModul());
-    }//GEN-LAST:event_jTabbedPane1MouseClicked
-
+               
+                String SQL = ("SELECT  * from møte");      
+                int møteId = 0;
+                String møteTidspunkt = "";
+                String møteSted = "";
+                Statement hentmøte = con.createStatement( );
+                ResultSet rs = hentmøte.executeQuery (SQL);
+                
+                    while (rs.next()) {
+                      møteId = rs.getInt("møteId");
+                      møteTidspunkt = rs.getString("møteTidspunkt");
+                      møteSted = rs.getString("møteSted");
+                      DML.addElement ("Møte ID:"+ " " +møteId + "   " + "Tidspunkt:" + " " + møteTidspunkt+ "   " + "Sted:" + " "+ møteSted);
+                    //  arrayList.add(brukerFornavn + brukerEtternavn);
+                }
+                jListMøte.setModel(DML);
+        
+        }
+        catch (SQLException err) {
+            System.out.println(err);
+        }
+    }
     private void profilUploadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_profilUploadActionPerformed
         //        // TODO add your handling code here:
         //         int returnVal = fileChooser.showOpenDialog(this);
@@ -1236,9 +1031,167 @@ public class mainWindowForeleser extends javax.swing.JFrame {
 
     }//GEN-LAST:event_profilUploadActionPerformed
 
+    private void jTabbedPaneBrukerlisteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTabbedPaneBrukerlisteMouseClicked
+        // TODO add your handling code here:
+        db.hentGammelBeskjed();
+        jTextAreaInfo.setText(getGenerellModul());
+    }//GEN-LAST:event_jTabbedPaneBrukerlisteMouseClicked
+
+    private void jButtonLagreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLagreActionPerformed
+        // TODO add your handling code here:
+        // Setter variablene til queries
+        tidspunkt = jTextFieldTidspunkt.getText();
+        
+        // Resten av verdiene er tekst også i databasen
+        møtested = jTextFieldSted.getText();
+
+        sendMøteInformasjon();
+
+        jTextFieldSted.setText("");
+        jTextFieldTidspunkt.setText("");
+       
+
+        JOptionPane.showMessageDialog(null, "<Møtet er blitt lagret>", "Alert", JOptionPane.INFORMATION_MESSAGE);
+        // TODO add your handling code here:
+        hentMøte();
+
+        }
+        private void sendMøteInformasjon() {
+            if (Main.user != null)
+            db.sendMøteInfo(tidspunkt, møtested);
+
+    }//GEN-LAST:event_jButtonLagreActionPerformed
+
+    private void jTextFieldStedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldStedActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldStedActionPerformed
+
+    private void jButtonLagreInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLagreInfoActionPerformed
+        // TODO add your handling code here:
+        setGenerellModul(jTextAreaInfo.getText());
+        System.out.println(getGenerellModul());
+        slit.db.generellInfo();
+        slit.db.hentGammelBeskjed();
+    }//GEN-LAST:event_jButtonLagreInfoActionPerformed
+
+    private void jButtonModul14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonModul14ActionPerformed
+        // TODO add your handling code here:
+        setModulTrykket("modul 14");
+        moduleInformationWindowForeleser modul14 = new moduleInformationWindowForeleser();
+        modul14.hentPublisert();
+        modul14.setVisible(true);
+    }//GEN-LAST:event_jButtonModul14ActionPerformed
+
+    private void jButtonModul13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonModul13ActionPerformed
+        // TODO add your handling code here:
+        setModulTrykket("modul 13");
+        moduleInformationWindowForeleser modul13 = new moduleInformationWindowForeleser();
+        modul13.hentPublisert();
+        modul13.setVisible(true);
+    }//GEN-LAST:event_jButtonModul13ActionPerformed
+
+    private void jButtonModul12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonModul12ActionPerformed
+        // TODO add your handling code here:
+        setModulTrykket("modul 12");
+        moduleInformationWindowForeleser modul12 = new moduleInformationWindowForeleser();
+        modul12.hentPublisert();
+        modul12.setVisible(true);
+    }//GEN-LAST:event_jButtonModul12ActionPerformed
+
+    private void jButtonModul11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonModul11ActionPerformed
+        // TODO add your handling code here:
+        setModulTrykket("modul 11");
+        moduleInformationWindowForeleser modul11 = new moduleInformationWindowForeleser();
+        modul11.hentPublisert();
+        modul11.setVisible(true);
+
+    }//GEN-LAST:event_jButtonModul11ActionPerformed
+
+    private void jButtonModul10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonModul10ActionPerformed
+        // TODO add your handling code here:
+        setModulTrykket("modul 10");
+        moduleInformationWindowForeleser modul10 = new moduleInformationWindowForeleser();
+        modul10.hentPublisert();
+        modul10.setVisible(true);
+    }//GEN-LAST:event_jButtonModul10ActionPerformed
+
+    private void jButtonModul9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonModul9ActionPerformed
+        // TODO add your handling code here:
+        setModulTrykket("modul 9");
+        moduleInformationWindowForeleser modul9 = new moduleInformationWindowForeleser();
+        modul9.hentPublisert();
+        modul9.setVisible(true);
+    }//GEN-LAST:event_jButtonModul9ActionPerformed
+
+    private void jButtonModul8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonModul8ActionPerformed
+        // TODO add your handling code here:
+        setModulTrykket("modul 8");
+        moduleInformationWindowForeleser modul8 = new moduleInformationWindowForeleser();
+        modul8.hentPublisert();
+        modul8.setVisible(true);
+    }//GEN-LAST:event_jButtonModul8ActionPerformed
+
+    private void jButtonModul7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonModul7ActionPerformed
+        // TODO add your handling code here:
+        setModulTrykket("modul 7");
+        moduleInformationWindowForeleser modul7 = new moduleInformationWindowForeleser();
+        modul7.hentPublisert();
+        modul7.setVisible(true);
+    }//GEN-LAST:event_jButtonModul7ActionPerformed
+
+    private void jButtonModul6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonModul6ActionPerformed
+        // TODO add your handling code here:
+        setModulTrykket("modul 6");
+        moduleInformationWindowForeleser modul6 = new moduleInformationWindowForeleser();
+        modul6.hentPublisert();
+        modul6.setVisible(true);
+    }//GEN-LAST:event_jButtonModul6ActionPerformed
+
+    private void jButtonModul5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonModul5ActionPerformed
+        // TODO add your handling code here:
+        setModulTrykket("modul 5");
+        moduleInformationWindowForeleser modul5 = new moduleInformationWindowForeleser();
+        modul5.hentPublisert();
+        modul5.setVisible(true);
+    }//GEN-LAST:event_jButtonModul5ActionPerformed
+
+    private void jButtonModul4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonModul4ActionPerformed
+        // TODO add your handling code here:
+        setModulTrykket("modul 4");
+        moduleInformationWindowForeleser modul4 = new moduleInformationWindowForeleser();
+        modul4.hentPublisert();
+        modul4.setVisible(true);
+    }//GEN-LAST:event_jButtonModul4ActionPerformed
+
+    private void jButtonModul3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonModul3ActionPerformed
+        // TODO add your handling code here:
+        setModulTrykket("modul 3");
+        moduleInformationWindowForeleser modul3 = new moduleInformationWindowForeleser();
+        modul3.hentPublisert();
+        modul3.setVisible(true);
+    }//GEN-LAST:event_jButtonModul3ActionPerformed
+
+    private void jButtonModul2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonModul2ActionPerformed
+        // TODO add your handling code here:
+        setModulTrykket("modul 2");
+        moduleInformationWindowForeleser modul2 = new moduleInformationWindowForeleser();
+        modul2.hentPublisert();
+        modul2.setVisible(true);
+    }//GEN-LAST:event_jButtonModul2ActionPerformed
+
+    private void jButtonModul1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonModul1ActionPerformed
+
+        // TODO add your handling code here:
+        setModulTrykket("modul 1");
+        moduleInformationWindowForeleser modul1 = new moduleInformationWindowForeleser();
+        modul1.hentPublisert();
+        modul1.setVisible(true);
+    }//GEN-LAST:event_jButtonModul1ActionPerformed
+
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-       
+        setValgtBruker(jList1.getSelectedValue().toString());
+        hentProfil();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
@@ -1295,23 +1248,16 @@ public class mainWindowForeleser extends javax.swing.JFrame {
     private javax.swing.JButton jButtonModul7;
     private javax.swing.JButton jButtonModul8;
     private javax.swing.JButton jButtonModul9;
-    private javax.swing.JButton jButtonSendRapport;
     private javax.swing.JButton jButtonSlett;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabelModuler109;
     private javax.swing.JLabel jLabelModuler110;
-    private javax.swing.JLabel jLabelMøtedeltaker;
-    private javax.swing.JLabel jLabelStatusrapportQuestion1;
-    private javax.swing.JLabel jLabelStatusrapportQuestion2;
-    private javax.swing.JLabel jLabelStatusrapportQuestion3;
-    private javax.swing.JLabel jLabelStatusrapportQuestion4;
-    private javax.swing.JLabel jLabelStatusrapportQuestion5;
     private javax.swing.JLabel jLabelSted;
     private javax.swing.JLabel jLabelTidspunkt;
     private javax.swing.JLabel jLabelTittel;
     private javax.swing.JList jList1;
+    private javax.swing.JList jListMøte;
     private javax.swing.JPanel jPanelBotMain;
     private javax.swing.JPanel jPanelHjem;
     private javax.swing.JPanel jPanelInnlevering;
@@ -1330,36 +1276,24 @@ public class mainWindowForeleser extends javax.swing.JFrame {
     private javax.swing.JPanel jPanelRightMain;
     private javax.swing.JPanel jPanelStatistikk;
     private javax.swing.JPanel jPanelStatistikkMain;
-    private javax.swing.JPanel jPanelStatusrapport;
     private javax.swing.JPanel jPanelTopBot;
     private javax.swing.JPanel jPanelTopCentre;
     private javax.swing.JPanel jPanelTopMain;
     private javax.swing.JPanel jPanelTopTop;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane10;
-    private javax.swing.JScrollPane jScrollPane11;
     private javax.swing.JScrollPane jScrollPane12;
     private javax.swing.JScrollPane jScrollPane13;
+    private javax.swing.JScrollPane jScrollPane14;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
-    private javax.swing.JScrollPane jScrollPane7;
-    private javax.swing.JScrollPane jScrollPane8;
-    private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JScrollPane jScrollPaneMeny;
     private javax.swing.JScrollPane jScrollPaneModuloversikt;
     private javax.swing.JSeparator jSeperatorLeftLeft;
     private javax.swing.JSeparator jSeperatorLeftRight;
     private javax.swing.JSeparator jSeperatorTopBot;
-    private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextArea jTextArea3;
-    private javax.swing.JTextArea jTextArea4;
-    private javax.swing.JTextArea jTextArea5;
-    private javax.swing.JTextArea jTextArea6;
-    private javax.swing.JTextArea jTextArea7;
+    private javax.swing.JTabbedPane jTabbedPaneBrukerliste;
     private javax.swing.JTextArea jTextAreaDate;
     private javax.swing.JTextArea jTextAreaId;
     private javax.swing.JTextArea jTextAreaInfo;
@@ -1367,7 +1301,6 @@ public class mainWindowForeleser extends javax.swing.JFrame {
     private javax.swing.JTextArea jTextAreaName;
     private javax.swing.JTextArea jTextAreaProfil;
     private javax.swing.JTextArea jTextAreaSurname;
-    private javax.swing.JTextField jTextFieldDeltaker;
     private javax.swing.JTextField jTextFieldSted;
     private javax.swing.JTextField jTextFieldTidspunkt;
     private javax.swing.JToggleButton jToggleButton1;

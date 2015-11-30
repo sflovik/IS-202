@@ -59,6 +59,7 @@ private static final int BUFFER_SIZE = 4096;
         });
 
         lastnedButton.setText("Lagre som..");
+        lastnedButton.setToolTipText("Velg directory og skriv filtype etter navnet du velger, så hvis du skal lagre et bilde lagre det som bildejegvilse.jpg");
         lastnedButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 lastnedButtonActionPerformed(evt);
