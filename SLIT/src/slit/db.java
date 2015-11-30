@@ -47,6 +47,7 @@ public class db {
         
                             
     }
+    
     public static localUser sendRapport(int uke, String gått, String annerledes,
         String hjelp, int timer) {
         String passord = Main.user.getPass();
