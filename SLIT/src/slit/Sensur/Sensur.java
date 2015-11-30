@@ -5,12 +5,22 @@
  */
 package slit.Sensur;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
+import javax.swing.JOptionPane;
+import java.sql.*;
 /**
  *
  * @author Michael
  */
 public class Sensur extends javax.swing.JFrame {
-
+    
+Connection connection=null;
+PreparedStatement ps=null;
+ResultSet rs=null;
+    
     /**
      * Creates new form Sensur
      */
@@ -28,38 +38,183 @@ public class Sensur extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        sensorField = new javax.swing.JTextField();
+        sensorLabel = new javax.swing.JLabel();
+        beskrivelseLabel = new javax.swing.JLabel();
+        elevField = new javax.swing.JTextField();
+        vurderingLabel = new javax.swing.JLabel();
+        besvarelseLabel = new javax.swing.JLabel();
+        elevLabel = new javax.swing.JLabel();
+        modulField = new javax.swing.JTextField();
+        besvarelseField = new javax.swing.JTextField();
+        submitSensur = new javax.swing.JButton();
+        godkjentLabel = new javax.swing.JLabel();
+        godkjentField = new javax.swing.JTextField();
+        kommentarField = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         jLabel1.setText("Sensur");
 
-        jTextField1.setText("jTextField1");
+        sensorField.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
+
+        sensorLabel.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
+        sensorLabel.setText("Sensor:");
+
+        beskrivelseLabel.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
+        beskrivelseLabel.setText("Modulbeskrivelse:");
+
+        elevField.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
+        elevField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                elevFieldActionPerformed(evt);
+            }
+        });
+
+        vurderingLabel.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
+        vurderingLabel.setText("Sensors kommentar:");
+
+        besvarelseLabel.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
+        besvarelseLabel.setText("Besvarelse:");
+
+        elevLabel.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
+        elevLabel.setText("Elev:");
+
+        modulField.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
+
+        besvarelseField.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
+        besvarelseField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                besvarelseFieldActionPerformed(evt);
+            }
+        });
+
+        submitSensur.setText("Ferdig");
+        submitSensur.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                submitSensurActionPerformed(evt);
+            }
+        });
+
+        godkjentLabel.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
+        godkjentLabel.setText("Godkjent/Ikke godkjent:");
+
+        godkjentField.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
+
+        kommentarField.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(128, 128, 128)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(192, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(69, 69, 69)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(elevLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(sensorLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(beskrivelseLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(besvarelseLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(vurderingLabel)
+                            .addComponent(godkjentLabel))
+                        .addGap(97, 97, 97)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(godkjentField)
+                            .addComponent(elevField)
+                            .addComponent(sensorField)
+                            .addComponent(besvarelseField, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(modulField, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(submitSensur, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
+                            .addComponent(kommentarField)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(290, 290, 290)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(140, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addGap(32, 32, 32)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(215, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(26, 26, 26)
+                        .addComponent(sensorLabel))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(sensorField, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(23, 23, 23)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(elevField, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(beskrivelseLabel)
+                            .addComponent(modulField, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(19, 19, 19)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(besvarelseField, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(besvarelseLabel)))
+                    .addComponent(elevLabel))
+                .addGap(27, 27, 27)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(vurderingLabel)
+                    .addComponent(kommentarField, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(48, 48, 48)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(godkjentField, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(godkjentLabel))
+                .addGap(39, 39, 39)
+                .addComponent(submitSensur, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void elevFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_elevFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_elevFieldActionPerformed
+
+    private void besvarelseFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_besvarelseFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_besvarelseFieldActionPerformed
+
+    private void submitSensurActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitSensurActionPerformed
+        // TODO add your handling code here:
+        {
+    try
+        {
+         
+        Class.forName("com.mysql.jdbc.Driver");
+        connection=DriverManager.getConnection("jdbc:mysql://localhost:3306/slit","root","root");
+        System.out.println("Connection Established Succcesfully...");
+        
+        ps=connection.prepareStatement("INSERT INTO sensur(sensurSensor, sensurModul, sensurVurdering, Modulfil_modulfilId, Bruker_brukerId, sensurResultat) VALUES(?,?,?,?,?,?)");
+        ps.setObject(1, sensorField.getText());
+        ps.setObject(2, modulField.getText());
+        ps.setObject(3, kommentarField.getText());
+        ps.setInt(4, Integer.parseInt(besvarelseField.getText()));
+        ps.setInt(5, Integer.parseInt(elevField.getText()));
+        ps.setObject(6, godkjentField.getText());
+        
+        int val=ps.executeUpdate();
+        if(val>=1)JOptionPane.showMessageDialog(this, "Sensuren er gitt");
+        else
+        JOptionPane.showMessageDialog(this, "Error");
+        }catch(Exception e)
+        {
+
+        JOptionPane.showMessageDialog(this, e.getMessage());
+        e.printStackTrace();
+        }
+        }
+        
+
+    }//GEN-LAST:event_submitSensurActionPerformed
 
     /**
      * @param args the command line arguments
@@ -97,7 +252,19 @@ public class Sensur extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel beskrivelseLabel;
+    private javax.swing.JTextField besvarelseField;
+    private javax.swing.JLabel besvarelseLabel;
+    private javax.swing.JTextField elevField;
+    private javax.swing.JLabel elevLabel;
+    private javax.swing.JTextField godkjentField;
+    private javax.swing.JLabel godkjentLabel;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField kommentarField;
+    private javax.swing.JTextField modulField;
+    private javax.swing.JTextField sensorField;
+    private javax.swing.JLabel sensorLabel;
+    private javax.swing.JButton submitSensur;
+    private javax.swing.JLabel vurderingLabel;
     // End of variables declaration//GEN-END:variables
 }
