@@ -12,6 +12,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
 import static slit.mainWindow.newline;
+import slit.lastOpp.lastOpp;
 
 /**
  *
@@ -25,7 +26,6 @@ public class moduleInformationWindow extends javax.swing.JFrame {
    
     public moduleInformationWindow() {
         initComponents();
-    
         
         switch (mainWindow.getModulTrykket()) {
             case "modul 1":
@@ -55,9 +55,9 @@ public class moduleInformationWindow extends javax.swing.JFrame {
                         kapittel = result.getString("modulKapittel");
                         jLabelTitle1.setText(emne);
                         jLabelTidsfrist.setText(tidsfrist);
-                        jTextAreaLæringsmål.setText(læringsmål);
+                        jTextFieldLæringsmål.setText(læringsmål);
                         jTextAreaRessurs.setText(ressurser);
-                        jTextAreaKriterie.append(kriterie);
+                        jTextAreaKriterie.setText(kriterie);
                         modulLærer.setText(lærer);
                         modulKapittel.setText(kapittel);
                         
@@ -93,9 +93,9 @@ public class moduleInformationWindow extends javax.swing.JFrame {
                         ressurser = result.getString("modulRessurs");
                         tidsfrist = result.getString("modulFrist");
                         jLabelTidsfrist.setText(tidsfrist);
-                        jTextAreaLæringsmål.setText(læringsmål);
+                        jTextFieldLæringsmål.setText(læringsmål);
                         jTextAreaRessurs.setText(ressurser);
-                        jTextAreaKriterie.append(kriterie);
+                        jTextAreaKriterie.setText(kriterie);
                         jLabelTitle1.setText(emne);
                         
                         
@@ -132,9 +132,9 @@ public class moduleInformationWindow extends javax.swing.JFrame {
                         tidsfrist = result.getString("modulFrist");
                         jLabelTitle1.setText(emne);
                         jLabelTidsfrist.setText(tidsfrist);
-                        jTextAreaLæringsmål.setText(læringsmål);
+                        jTextFieldLæringsmål.setText(læringsmål);
                         jTextAreaRessurs.setText(ressurser);
-                        jTextAreaKriterie.append(kriterie);
+                        jTextAreaKriterie.setText(kriterie);
                         
                         
                     }
@@ -172,9 +172,9 @@ public class moduleInformationWindow extends javax.swing.JFrame {
                         ressurser = result.getString("modulRessurs");
                         tidsfrist = result.getString("modulFrist");
                         jLabelTidsfrist.setText(tidsfrist);
-                        jTextAreaLæringsmål.setText(læringsmål);
+                        jTextFieldLæringsmål.setText(læringsmål);
                         jTextAreaRessurs.setText(ressurser);
-                        jTextAreaKriterie.append(kriterie);
+                        jTextAreaKriterie.setText(kriterie);
                         jLabelTitle1.setText(emne); 
                         
                     }
@@ -210,9 +210,9 @@ public class moduleInformationWindow extends javax.swing.JFrame {
                         ressurser = result.getString("modulRessurs");
                         tidsfrist = result.getString("modulFrist");
                         jLabelTidsfrist.setText(tidsfrist);
-                        jTextAreaLæringsmål.setText(læringsmål);
+                        jTextFieldLæringsmål.setText(læringsmål);
                         jTextAreaRessurs.setText(ressurser);
-                        jTextAreaKriterie.append(kriterie);
+                        jTextAreaKriterie.setText(kriterie);
                         jLabelTitle1.setText(emne);
                         
                         
@@ -248,9 +248,9 @@ public class moduleInformationWindow extends javax.swing.JFrame {
                         ressurser = result.getString("modulRessurs");
                         tidsfrist = result.getString("modulFrist");
                         jLabelTidsfrist.setText(tidsfrist);
-                        jTextAreaLæringsmål.setText(læringsmål);
+                        jTextFieldLæringsmål.setText(læringsmål);
                         jTextAreaRessurs.setText(ressurser);
-                        jTextAreaKriterie.append(kriterie);
+                        jTextAreaKriterie.setText(kriterie);
                         jLabelTitle1.setText(emne);
                         
                     }
@@ -285,9 +285,9 @@ public class moduleInformationWindow extends javax.swing.JFrame {
                         ressurser = result.getString("modulRessurs");
                         tidsfrist = result.getString("modulFrist");
                         jLabelTidsfrist.setText(tidsfrist);
-                        jTextAreaLæringsmål.setText(læringsmål);
+                        jTextFieldLæringsmål.setText(læringsmål);
                         jTextAreaRessurs.setText(ressurser);
-                        jTextAreaKriterie.append(kriterie);
+                        jTextAreaKriterie.setText(kriterie);
                         jLabelTitle1.setText(emne);
                         
                     }
@@ -322,9 +322,9 @@ public class moduleInformationWindow extends javax.swing.JFrame {
                         ressurser = result.getString("modulRessurs");
                         tidsfrist = result.getString("modulFrist");
                         jLabelTidsfrist.setText(tidsfrist);
-                        jTextAreaLæringsmål.setText(læringsmål);
+                        jTextFieldLæringsmål.setText(læringsmål);
                         jTextAreaRessurs.setText(ressurser);
-                        jTextAreaKriterie.append(kriterie);
+                        jTextAreaKriterie.setText(kriterie);
                         jLabelTitle1.setText(emne);
                         
                     }
@@ -359,9 +359,9 @@ public class moduleInformationWindow extends javax.swing.JFrame {
                         ressurser = result.getString("modulRessurs");
                         tidsfrist = result.getString("modulFrist");
                         jLabelTidsfrist.setText(tidsfrist);
-                        jTextAreaLæringsmål.setText(læringsmål);
+                        jTextFieldLæringsmål.setText(læringsmål);
                         jTextAreaRessurs.setText(ressurser);
-                        jTextAreaKriterie.append(kriterie);
+                        jTextAreaKriterie.setText(kriterie);
                         jLabelTitle1.setText(emne);
                         
                     }
@@ -396,9 +396,9 @@ public class moduleInformationWindow extends javax.swing.JFrame {
                         ressurser = result.getString("modulRessurs");
                         tidsfrist = result.getString("modulFrist");
                         jLabelTidsfrist.setText(tidsfrist);
-                        jTextAreaLæringsmål.setText(læringsmål);
+                        jTextFieldLæringsmål.setText(læringsmål);
                         jTextAreaRessurs.setText(ressurser);
-                        jTextAreaKriterie.append(kriterie);
+                        jTextAreaKriterie.setText(kriterie);
                         jLabelTitle1.setText(emne);
                         
                     }
@@ -433,9 +433,9 @@ public class moduleInformationWindow extends javax.swing.JFrame {
                         ressurser = result.getString("modulRessurs");
                         tidsfrist = result.getString("modulFrist");
                         jLabelTidsfrist.setText(tidsfrist);
-                        jTextAreaLæringsmål.setText(læringsmål);
+                        jTextFieldLæringsmål.setText(læringsmål);
                         jTextAreaRessurs.setText(ressurser);
-                        jTextAreaKriterie.append(kriterie);
+                        jTextAreaKriterie.setText(kriterie);
                         jLabelTitle1.setText(emne);
                         
                     }
@@ -470,9 +470,9 @@ public class moduleInformationWindow extends javax.swing.JFrame {
                         ressurser = result.getString("modulRessurs");
                         tidsfrist = result.getString("modulFrist");
                         jLabelTidsfrist.setText(tidsfrist);
-                        jTextAreaLæringsmål.setText(læringsmål);
+                        jTextFieldLæringsmål.setText(læringsmål);
                         jTextAreaRessurs.setText(ressurser);
-                        jTextAreaKriterie.append(kriterie);
+                        jTextAreaKriterie.setText(kriterie);
                         jLabelTitle1.setText(emne);
                     }
                     else  {
@@ -506,9 +506,9 @@ public class moduleInformationWindow extends javax.swing.JFrame {
                         ressurser = result.getString("modulRessurs");
                         tidsfrist = result.getString("modulFrist");
                         jLabelTidsfrist.setText(tidsfrist);
-                        jTextAreaLæringsmål.setText(læringsmål);
+                        jTextFieldLæringsmål.setText(læringsmål);
                         jTextAreaRessurs.setText(ressurser);
-                        jTextAreaKriterie.append(kriterie);
+                        jTextAreaKriterie.setText(kriterie);
                         jLabelTitle1.setText(emne);
                         
                     }
@@ -544,9 +544,9 @@ public class moduleInformationWindow extends javax.swing.JFrame {
                         tidsfrist = result.getString("modulFrist");
                         jLabelTitle1.setText(emne);
                         jLabelTidsfrist.setText(tidsfrist);
-                        jTextAreaLæringsmål.setText(læringsmål);
+                        jTextFieldLæringsmål.setText(læringsmål);
                         jTextAreaRessurs.setText(ressurser);
-                        jTextAreaKriterie.append(kriterie);
+                        jTextAreaKriterie.setText(kriterie);
                         jLabelTitle1.setText(emne);
                         
                     }
@@ -585,19 +585,20 @@ public class moduleInformationWindow extends javax.swing.JFrame {
         modulLærer = new javax.swing.JLabel();
         undervistAv = new javax.swing.JLabel();
         jLabelGodkjenning = new javax.swing.JLabel();
-        jScrollPaneGodkjenning = new javax.swing.JScrollPane();
+        frist = new javax.swing.JLabel();
+        jLabelTidsfrist = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jScrollPane3 = new javax.swing.JScrollPane();
         jTextAreaKriterie = new javax.swing.JTextArea();
         jPanelCentreLeft = new javax.swing.JPanel();
         jLabelLæringsmål = new javax.swing.JLabel();
-        jLabelRessurser = new javax.swing.JLabel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTextAreaLæringsmål = new javax.swing.JTextArea();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTextAreaRessurs = new javax.swing.JTextArea();
         greetingLabel = new javax.swing.JLabel();
         modulKapittel = new javax.swing.JLabel();
-        frist = new javax.swing.JLabel();
-        jLabelTidsfrist = new javax.swing.JLabel();
+        jLabelRessurser = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextAreaRessurs = new javax.swing.JTextArea();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        jTextFieldLæringsmål = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -609,11 +610,14 @@ public class moduleInformationWindow extends javax.swing.JFrame {
         jPanelTopMain.setLayout(jPanelTopMainLayout);
         jPanelTopMainLayout.setHorizontalGroup(
             jPanelTopMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanelTopCentre, javax.swing.GroupLayout.PREFERRED_SIZE, 652, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(jPanelTopMainLayout.createSequentialGroup()
+                .addGap(248, 248, 248)
+                .addComponent(jPanelTopCentre, javax.swing.GroupLayout.PREFERRED_SIZE, 652, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(261, Short.MAX_VALUE))
         );
         jPanelTopMainLayout.setVerticalGroup(
             jPanelTopMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelTopMainLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelTopMainLayout.createSequentialGroup()
                 .addComponent(jPanelTopCentre, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
@@ -638,16 +642,21 @@ public class moduleInformationWindow extends javax.swing.JFrame {
         jLabelGodkjenning.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabelGodkjenning.setText("Godkjenningkrav:");
 
-        jScrollPaneGodkjenning.setMinimumSize(new java.awt.Dimension(320, 146));
-        jScrollPaneGodkjenning.setPreferredSize(new java.awt.Dimension(320, 146));
+        frist.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        frist.setText("Leveres innen:");
 
-        jTextAreaKriterie.setEditable(false);
+        jLabelTidsfrist.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+
+        jButton1.setText("Last opp modul");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         jTextAreaKriterie.setColumns(20);
         jTextAreaKriterie.setRows(5);
-        jTextAreaKriterie.setText("\n");
-        jTextAreaKriterie.setMinimumSize(new java.awt.Dimension(320, 146));
-        jTextAreaKriterie.setPreferredSize(new java.awt.Dimension(300, 50));
-        jScrollPaneGodkjenning.setViewportView(jTextAreaKriterie);
+        jScrollPane3.setViewportView(jTextAreaKriterie);
 
         javax.swing.GroupLayout jPanelCentreCentreLayout = new javax.swing.GroupLayout(jPanelCentreCentre);
         jPanelCentreCentre.setLayout(jPanelCentreCentreLayout);
@@ -656,13 +665,21 @@ public class moduleInformationWindow extends javax.swing.JFrame {
             .addGroup(jPanelCentreCentreLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanelCentreCentreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane3)
                     .addGroup(jPanelCentreCentreLayout.createSequentialGroup()
-                        .addComponent(undervistAv)
-                        .addGap(27, 27, 27)
-                        .addComponent(modulLærer))
-                    .addComponent(jLabelGodkjenning)
-                    .addComponent(jScrollPaneGodkjenning, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(254, Short.MAX_VALUE))
+                        .addGroup(jPanelCentreCentreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanelCentreCentreLayout.createSequentialGroup()
+                                .addComponent(undervistAv)
+                                .addGap(27, 27, 27)
+                                .addComponent(modulLærer))
+                            .addComponent(jLabelGodkjenning)
+                            .addComponent(jButton1)
+                            .addGroup(jPanelCentreCentreLayout.createSequentialGroup()
+                                .addComponent(frist)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabelTidsfrist, javax.swing.GroupLayout.PREFERRED_SIZE, 319, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 145, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         jPanelCentreCentreLayout.setVerticalGroup(
             jPanelCentreCentreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -671,39 +688,39 @@ public class moduleInformationWindow extends javax.swing.JFrame {
                 .addGroup(jPanelCentreCentreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(modulLærer)
                     .addComponent(undervistAv))
-                .addGap(76, 76, 76)
+                .addGap(37, 37, 37)
                 .addComponent(jLabelGodkjenning)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 97, Short.MAX_VALUE)
-                .addComponent(jScrollPaneGodkjenning, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(45, 45, 45)
+                .addGroup(jPanelCentreCentreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(frist)
+                    .addComponent(jLabelTidsfrist, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jButton1)
+                .addContainerGap(180, Short.MAX_VALUE))
         );
 
         jLabelLæringsmål.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabelLæringsmål.setText("Læringsmål:");
 
+        greetingLabel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        greetingLabel.setText("Velkommen til Kapittel:");
+
+        modulKapittel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        modulKapittel.setText("kapittel");
+
         jLabelRessurser.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabelRessurser.setText("Ressurser:");
-
-        jTextAreaLæringsmål.setEditable(false);
-        jTextAreaLæringsmål.setColumns(20);
-        jTextAreaLæringsmål.setRows(5);
-        jScrollPane2.setViewportView(jTextAreaLæringsmål);
 
         jTextAreaRessurs.setEditable(false);
         jTextAreaRessurs.setColumns(20);
         jTextAreaRessurs.setRows(5);
         jScrollPane1.setViewportView(jTextAreaRessurs);
 
-        greetingLabel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        greetingLabel.setText("Velkommer til Kapittel:");
-
-        modulKapittel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        modulKapittel.setText("kapittel");
-
-        frist.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        frist.setText("Leveres innen:");
-
-        jLabelTidsfrist.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jTextFieldLæringsmål.setColumns(20);
+        jTextFieldLæringsmål.setRows(5);
+        jScrollPane4.setViewportView(jTextFieldLæringsmål);
 
         javax.swing.GroupLayout jPanelCentreLeftLayout = new javax.swing.GroupLayout(jPanelCentreLeft);
         jPanelCentreLeft.setLayout(jPanelCentreLeftLayout);
@@ -713,29 +730,18 @@ public class moduleInformationWindow extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanelCentreLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelCentreLeftLayout.createSequentialGroup()
-                        .addGroup(jPanelCentreLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelCentreLeftLayout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jLabelLæringsmål, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanelCentreLeftLayout.createSequentialGroup()
+                        .addGroup(jPanelCentreLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jScrollPane4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 479, Short.MAX_VALUE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanelCentreLeftLayout.createSequentialGroup()
                                 .addComponent(greetingLabel)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(modulKapittel))
-                            .addGroup(jPanelCentreLeftLayout.createSequentialGroup()
-                                .addGroup(jPanelCentreLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabelLæringsmål, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(0, 0, Short.MAX_VALUE)))
-                        .addContainerGap())
-                    .addGroup(jPanelCentreLeftLayout.createSequentialGroup()
-                        .addGroup(jPanelCentreLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabelRessurser)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE))))
-            .addGroup(jPanelCentreLeftLayout.createSequentialGroup()
-                .addGap(60, 60, 60)
-                .addComponent(frist)
-                .addGap(18, 18, 18)
-                .addComponent(jLabelTidsfrist, javax.swing.GroupLayout.PREFERRED_SIZE, 319, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabelRessurser, javax.swing.GroupLayout.Alignment.LEADING))
+                        .addContainerGap(22, Short.MAX_VALUE))))
         );
         jPanelCentreLeftLayout.setVerticalGroup(
             jPanelCentreLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -744,19 +750,15 @@ public class moduleInformationWindow extends javax.swing.JFrame {
                 .addGroup(jPanelCentreLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(greetingLabel)
                     .addComponent(modulKapittel))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
-                .addComponent(jLabelLæringsmål, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35)
+                .addGap(38, 38, 38)
+                .addComponent(jLabelLæringsmål)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabelRessurser)
-                .addGap(36, 36, 36)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(82, 82, 82)
-                .addGroup(jPanelCentreLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(frist)
-                    .addComponent(jLabelTidsfrist, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(84, 84, 84))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(57, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanelCentreMainLayout = new javax.swing.GroupLayout(jPanelCentreMain);
@@ -775,15 +777,20 @@ public class moduleInformationWindow extends javax.swing.JFrame {
             .addGroup(jPanelCentreMainLayout.createSequentialGroup()
                 .addGap(43, 43, 43)
                 .addGroup(jPanelCentreMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanelCentreCentre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanelCentreLeft, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(49, Short.MAX_VALUE))
+                    .addComponent(jPanelCentreLeft, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanelCentreCentre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanelCentreMain, java.awt.BorderLayout.CENTER);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        new lastOpp().setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -824,6 +831,7 @@ public class moduleInformationWindow extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel frist;
     private javax.swing.JLabel greetingLabel;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabelGodkjenning;
     private javax.swing.JLabel jLabelLæringsmål;
     private javax.swing.JLabel jLabelRessurser;
@@ -838,11 +846,11 @@ public class moduleInformationWindow extends javax.swing.JFrame {
     private javax.swing.JPanel jPanelTopCentre;
     private javax.swing.JPanel jPanelTopMain;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPaneGodkjenning;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTextArea jTextAreaKriterie;
-    private javax.swing.JTextArea jTextAreaLæringsmål;
     private javax.swing.JTextArea jTextAreaRessurs;
+    private javax.swing.JTextArea jTextFieldLæringsmål;
     private javax.swing.JLabel modulKapittel;
     private javax.swing.JLabel modulLærer;
     private javax.swing.JLabel undervistAv;

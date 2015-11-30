@@ -850,19 +850,21 @@ public class moduleInformationWindowForeleser extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanelTopMain = new javax.swing.JPanel();
-        jPanelTopCentre = new javax.swing.JPanel();
-        jTextFieldTitle1 = new javax.swing.JTextField();
-        jTextFieldKapittel = new javax.swing.JTextField();
         jPanelBotMain = new javax.swing.JPanel();
         jPanelLeftMain = new javax.swing.JPanel();
         jPanelRightMain = new javax.swing.JPanel();
         jPanelCentreMain = new javax.swing.JPanel();
         jPanelCentreCentre = new javax.swing.JPanel();
-        jLabelGodkjenning = new javax.swing.JLabel();
-        jScrollPaneGodkjenning = new javax.swing.JScrollPane();
-        jTextAreaKriterie = new javax.swing.JTextArea();
         jTextFieldFrist = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jScrollPaneGodkjenning = new javax.swing.JScrollPane();
+        jTextAreaKriterie = new javax.swing.JTextArea();
+        jLabelGodkjenning = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jTextFieldTitle1 = new javax.swing.JTextField();
+        jTextFieldKapittel = new javax.swing.JTextField();
         jPanelCentreLeft = new javax.swing.JPanel();
         jLabelLæringsmål = new javax.swing.JLabel();
         jLabelRessurser = new javax.swing.JLabel();
@@ -870,29 +872,20 @@ public class moduleInformationWindowForeleser extends javax.swing.JFrame {
         jTextAreaLæringsmål = new javax.swing.JTextArea();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextAreaRessurs = new javax.swing.JTextArea();
-        jButton1 = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-
-        jTextFieldTitle1.setPreferredSize(new java.awt.Dimension(350, 20));
-        jPanelTopCentre.add(jTextFieldTitle1);
-
-        jTextFieldKapittel.setPreferredSize(new java.awt.Dimension(100, 20));
-        jPanelTopCentre.add(jTextFieldKapittel);
 
         javax.swing.GroupLayout jPanelTopMainLayout = new javax.swing.GroupLayout(jPanelTopMain);
         jPanelTopMain.setLayout(jPanelTopMainLayout);
         jPanelTopMainLayout.setHorizontalGroup(
             jPanelTopMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanelTopCentre, javax.swing.GroupLayout.PREFERRED_SIZE, 652, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGap(0, 1159, Short.MAX_VALUE)
         );
         jPanelTopMainLayout.setVerticalGroup(
             jPanelTopMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelTopMainLayout.createSequentialGroup()
-                .addComponent(jPanelTopCentre, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addGap(0, 50, Short.MAX_VALUE)
         );
 
         getContentPane().add(jPanelTopMain, java.awt.BorderLayout.PAGE_START);
@@ -906,8 +899,20 @@ public class moduleInformationWindowForeleser extends javax.swing.JFrame {
         jPanelRightMain.setLayout(new java.awt.BorderLayout());
         getContentPane().add(jPanelRightMain, java.awt.BorderLayout.LINE_END);
 
-        jLabelGodkjenning.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabelGodkjenning.setText("Skriv kriterier for godkjenning:");
+        jTextFieldFrist.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldFristActionPerformed(evt);
+            }
+        });
+
+        jLabel3.setText("Tidsfrist: Format YYYY-MM-DD HH:MM:SS");
+
+        jButton1.setText("Publiser modul");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jScrollPaneGodkjenning.setMinimumSize(new java.awt.Dimension(320, 146));
         jScrollPaneGodkjenning.setPreferredSize(new java.awt.Dimension(320, 146));
@@ -919,7 +924,16 @@ public class moduleInformationWindowForeleser extends javax.swing.JFrame {
         jTextAreaKriterie.setPreferredSize(new java.awt.Dimension(300, 50));
         jScrollPaneGodkjenning.setViewportView(jTextAreaKriterie);
 
-        jLabel3.setText("Tidsfrist: Format YYYY-MM-DD HH:MM:SS");
+        jLabelGodkjenning.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabelGodkjenning.setText("Skriv kriterier for godkjenning:");
+
+        jLabel1.setText("Skriv inn tittel, eks. modul 1");
+
+        jLabel2.setText("Skriv inn kapittel fra lærebok");
+
+        jTextFieldTitle1.setPreferredSize(new java.awt.Dimension(350, 20));
+
+        jTextFieldKapittel.setPreferredSize(new java.awt.Dimension(100, 20));
 
         javax.swing.GroupLayout jPanelCentreCentreLayout = new javax.swing.GroupLayout(jPanelCentreCentre);
         jPanelCentreCentre.setLayout(jPanelCentreCentreLayout);
@@ -927,29 +941,49 @@ public class moduleInformationWindowForeleser extends javax.swing.JFrame {
             jPanelCentreCentreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelCentreCentreLayout.createSequentialGroup()
                 .addGroup(jPanelCentreCentreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanelCentreCentreLayout.createSequentialGroup()
-                        .addGap(9, 9, 9)
-                        .addComponent(jScrollPaneGodkjenning, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelCentreCentreLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanelCentreCentreLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jLabelGodkjenning)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanelCentreCentreLayout.createSequentialGroup()
-                .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanelCentreCentreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanelCentreCentreLayout.createSequentialGroup()
+                                .addComponent(jLabelGodkjenning)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(jScrollPaneGodkjenning, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(jPanelCentreCentreLayout.createSequentialGroup()
+                                .addGroup(jPanelCentreCentreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jTextFieldTitle1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextFieldKapittel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextFieldFrist, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(0, 196, Short.MAX_VALUE)))))
                 .addContainerGap())
-            .addComponent(jTextFieldFrist)
         );
         jPanelCentreCentreLayout.setVerticalGroup(
             jPanelCentreCentreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelCentreCentreLayout.createSequentialGroup()
-                .addGap(4, 4, 4)
+                .addGap(74, 74, 74)
                 .addComponent(jLabelGodkjenning)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPaneGodkjenning, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPaneGodkjenning, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(53, 53, 53)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTextFieldTitle1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTextFieldKapittel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTextFieldFrist, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel3))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 113, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addContainerGap())
         );
 
         jLabelLæringsmål.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
@@ -973,48 +1007,34 @@ public class moduleInformationWindowForeleser extends javax.swing.JFrame {
         jPanelCentreLeftLayout.setHorizontalGroup(
             jPanelCentreLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelCentreLeftLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabelLæringsmål, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(16, 16, 16))
-            .addGroup(jPanelCentreLeftLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanelCentreLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabelRessurser)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanelCentreLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanelCentreLeftLayout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 543, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1)
+                    .addGroup(jPanelCentreLeftLayout.createSequentialGroup()
+                        .addGroup(jPanelCentreLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabelLæringsmål, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabelRessurser))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         jPanelCentreLeftLayout.setVerticalGroup(
             jPanelCentreLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelCentreLeftLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabelLæringsmål, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(152, 152, 152)
+                .addGap(66, 66, 66)
+                .addComponent(jLabelLæringsmål)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(jLabelRessurser)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(308, Short.MAX_VALUE))
-            .addGroup(jPanelCentreLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanelCentreLeftLayout.createSequentialGroup()
-                    .addGap(55, 55, 55)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(474, Short.MAX_VALUE)))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jButton1.setText("Publiser modul");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
-        jLabel1.setText("Skriv inn tittel, eks. modul 1");
-
-        jLabel2.setText("Skriv inn kapittel fra lærebok");
+        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLabel4.setText("Publiser Modul");
+        jPanel1.add(jLabel4);
 
         javax.swing.GroupLayout jPanelCentreMainLayout = new javax.swing.GroupLayout(jPanelCentreMain);
         jPanelCentreMain.setLayout(jPanelCentreMainLayout);
@@ -1022,37 +1042,24 @@ public class moduleInformationWindowForeleser extends javax.swing.JFrame {
             jPanelCentreMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelCentreMainLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanelCentreLeft, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(jPanelCentreMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanelCentreMainLayout.createSequentialGroup()
-                        .addGap(107, 107, 107)
-                        .addComponent(jPanelCentreCentre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(105, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelCentreMainLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(109, 109, 109))))
-            .addGroup(jPanelCentreMainLayout.createSequentialGroup()
-                .addGap(243, 243, 243)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(50, 50, 50)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                        .addComponent(jPanelCentreLeft, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jPanelCentreCentre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
         );
         jPanelCentreMainLayout.setVerticalGroup(
             jPanelCentreMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelCentreMainLayout.createSequentialGroup()
-                .addGroup(jPanelCentreMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2))
-                .addGap(29, 29, 29)
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanelCentreMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanelCentreMainLayout.createSequentialGroup()
-                        .addComponent(jPanelCentreCentre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton1))
-                    .addComponent(jPanelCentreLeft, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(60, Short.MAX_VALUE))
+                    .addComponent(jPanelCentreCentre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanelCentreLeft, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         getContentPane().add(jPanelCentreMain, java.awt.BorderLayout.CENTER);
@@ -1064,6 +1071,10 @@ public class moduleInformationWindowForeleser extends javax.swing.JFrame {
             publiserModul();
 // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jTextFieldFristActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldFristActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldFristActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1106,16 +1117,17 @@ public class moduleInformationWindowForeleser extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabelGodkjenning;
     private javax.swing.JLabel jLabelLæringsmål;
     private javax.swing.JLabel jLabelRessurser;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanelBotMain;
     private javax.swing.JPanel jPanelCentreCentre;
     private javax.swing.JPanel jPanelCentreLeft;
     private javax.swing.JPanel jPanelCentreMain;
     private javax.swing.JPanel jPanelLeftMain;
     private javax.swing.JPanel jPanelRightMain;
-    private javax.swing.JPanel jPanelTopCentre;
     private javax.swing.JPanel jPanelTopMain;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
