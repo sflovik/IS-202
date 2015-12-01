@@ -1,22 +1,25 @@
 Bruker guide:
 
-Start med å legge til mysql-connector-java-5.1.37 bin.jar
+Start med Ã¥ legge til mysql-connector-java-5.1.37 bin.jar
 
-Gjør følgende: høyrekligg på SLIT prosjektet ---> properties --> velg så libraries og klikk på add Add JAR/Folder og velg riktig fil.
+GjÃ¸r fÃ¸lgende: hÃ¸yrekligg pÃ¥ SLIT prosjektet ---> properties --> velg sÃ¥ libraries og klikk pÃ¥ add Add JAR/Folder og velg riktig fil.
 
-Kjør databasescript for å opprette databasen (slitDB) deretter kan du trykk gå inn i netbeans og trykke Run på prosjektet SLIT.
+KjÃ¸r databasescript for Ã¥ opprette databasen (slitDB) deretter kan du trykk gÃ¥ inn i netbeans og trykke Run pÃ¥ prosjektet SLIT.
 
 
 Registrering av bruker:
-Velg først rolle og fyll ut feltene for å opprette bruker. Foreleser/Hjelpelærer vil gi en annen visning en student, lag gjerne en av hver.
+Velg fÃ¸rst rolle og fyll ut feltene for Ã¥ opprette bruker. Foreleser/HjelpelÃ¦rer vil gi en annen visning en student, lag gjerne en av hver.
 
 
 Litt generelt om brukerhistoriene:
-Hjem: visning skal kunne redigeres av foreleser/hjelpelærer der studenten skal kunne se dagens beskjeder, nye opplastede dokumenter og varslinger på innleveringer.
+Hjem: visning skal kunne redigeres av foreleser/hjelpelÃ¦rer der studenten skal kunne se dagens beskjeder, nye opplastede dokumenter og varslinger pÃ¥ innleveringer.
 
-Moduler: I hoved vinduet her skal foreleser kunne legge inn generell info om kur og lagre tekst på lagre knappen.
-Publisering av modul gjøres ved at foreleser trykker seg inn på modul nr og fyller ut tekst boksene og deretter publiserer modul. Disse blir ikke synlige for studenten før lærer har publiser modul.
+Moduler: I hoved vinduet her skal foreleser kunne legge inn generell info om kur og lagre tekst pÃ¥ lagre knappen.
+Publisering av modul gjÃ¸res ved at foreleser trykker seg inn pÃ¥ modul nr og fyller ut tekst boksene og deretter publiserer modul. Disse blir ikke synlige for studenten fÃ¸r lÃ¦rer har publiser modul. For Ã¸yeblikket fÃ¥r man ikke publisert moduler om det ikke eksisterer en modul i databasen i utgangspunktet, av ukjente grunner. Men om en modul eksisterer kan man fritt redigere denne eller opprette nye moduler.
+
 Statistikk: Siden er en visning fra en view i databasen som lister alle brukerne som har godkjent minst 1 modul.
-Statusrapport: Her skal studenten fylle ut statusrapport for å slippe ekstern blogg og heller gi foreleser en bedre oversikt over hvordan studenten ligger an i faget. Studenten fyller ut tekstboksene og sender inn statusrapport.
-Brukerliste: foreleser skal kunne velge student fra listen og trykke på vis profil knappen for å få oversikt over valgt students arbeid, her skal foreleser kunne gi sensur og se på filer som studenten har lastet opp.
-Møte: Her skal foreleser kunne publisere møtetidspunkter som studenter kan booke.
+
+Statusrapport: Her skal studenten fylle ut statusrapport for Ã¥ slippe ekstern blogg og heller gi foreleser en bedre oversikt over hvordan studenten ligger an i faget. Studenten fyller ut tekstboksene og sender inn statusrapport.
+
+Brukerliste: foreleser skal kunne velge student fra listen og trykke pÃ¥ vis profil knappen for Ã¥ fÃ¥ oversikt over valgt students arbeid, her skal foreleser kunne gi sensur og se pÃ¥ filer som studenten har lastet opp.
+MÃ¸te: Her skal foreleser kunne publisere mÃ¸tetidspunkter som studenter kan booke.
