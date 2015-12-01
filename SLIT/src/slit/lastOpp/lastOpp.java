@@ -138,6 +138,9 @@ String filePath=null;
     }//GEN-LAST:event_versjonFieldActionPerformed
 
     private void lastoppButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lastoppButtonActionPerformed
+        /**
+         * man skriver inn informasjonen den ber om og så bruker man filvelger til å velge hvilken fil man vil laste opp til databasen
+         */
         {
     try
         {

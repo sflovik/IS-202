@@ -184,7 +184,7 @@ ResultSet rs=null;
     }//GEN-LAST:event_besvarelseFieldActionPerformed
 
     private void submitSensurActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitSensurActionPerformed
-        // TODO add your handling code here:
+        // fyll ut skjema, elev og besvarelsefeltene fylles inn med brukerId og filId foreløpig. 
         {
     try
         {

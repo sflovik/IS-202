@@ -123,6 +123,11 @@ private static final int BUFFER_SIZE = 4096;
     }// </editor-fold>//GEN-END:initComponents
 
     private void lastnedButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lastnedButtonActionPerformed
+        /**
+         * man entrer i textfeltene hvilken modul filen du vil laste ned hører til, og så brukerid på eleven som lastet den opp
+         * deretter bruker man filevelger til å velge hvor man vil lagre filen og navn. Man må selv velge filtype foreløpig.
+         * support for navn input til brukerid coming soon
+         */
         {
     try
         {
