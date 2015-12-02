@@ -21,7 +21,8 @@ import slit.localUser;
 
 /**
  *
- * @author erik-
+ * @author Sondre, Michael, Erik, Christian Fredrik, Thomas, Gruppe 109
+ * GUI klasse for login
  */
 public class Login extends javax.swing.JFrame {
 private String user = "";
@@ -255,7 +256,10 @@ private int id = 0;
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-private void login() {
+    /**
+     * Kaller db.login metoden fra db.java
+     */
+    private void login() {
 
      localUser localuser = db.login(user, pass, role, id);
         if(localuser != null){
@@ -285,6 +289,8 @@ private void login() {
 
     private void jButtonLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLoginActionPerformed
         // TODO add your handling code here:
+        // Kaller login metoden som kaller db.login, lager en localUser basert på login credentials
+       
         user = jTextFieldEmailLogin.getText();
         pass = jPasswordFieldLogin.getText();
         setRole((jComboBoxRoleLogin.getSelectedItem().toString()));
@@ -323,7 +329,7 @@ private void login() {
     }//GEN-LAST:event_jButtonLoginActionPerformed
 
     private void jButtonRegBrukerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegBrukerActionPerformed
-        // TODO add your handling code here:
+        // Om man trykket på registrer bruker, nytt registreringsvindu kommer frem
         slit.ejb.registrer.RegistrerBruker RegisterWindow = new slit.ejb.registrer.RegistrerBruker(); 
         RegisterWindow.setVisible(true);
        

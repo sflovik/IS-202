@@ -17,12 +17,15 @@ import slit.Sensur.Sensur;
 import slit.lastNed.lastNed;
 /**
  *
- * @author Sondre
+ * @author Sondre, Michael, Erik, Christian Fredrik, Thomas, Gruppe 109
+ * GUI klasse for foreleser, mainWindowForelser. Også her en del logikk grunnet mangel på tid
+ * til å gjøre endringer i hele systemet.
  */
 public class mainWindowForeleser extends javax.swing.JFrame {
 
     /**
      * Creates new form mainWindow
+     * 
      */
    
    // ArrayList<String> arrayList = new ArrayList<String>(); 
@@ -900,6 +903,11 @@ public class mainWindowForeleser extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+    /**
+     * Foreleser sender dagens melding på hjem-tab.
+     * dagens melding skal kun ha 1 oppføring i databasen (gamle meldinger skal ikke vises)
+     * og har derfor tilpasset koden til dette. Se kommentarer i metode
+     */
     public  void sendDagens() {
          try {
                 String dagens = jTextAreaDagens.getText();
@@ -908,23 +916,30 @@ public class mainWindowForeleser extends javax.swing.JFrame {
                 Connection con = DriverManager.getConnection(Constants.db_url, Constants.db_user, Constants.db_pass);
                 Statement sjekk = con.createStatement();
                 ResultSet rs = sjekk.executeQuery(SQLsjekk);
+                // lager en boolean
                 boolean melding = true;
+                // lager en string
                 String dagensMelding = "";
                 while (rs.next()) {
+                    // setter string til dagensBeskjed fra database
                     dagensMelding = rs.getString("dagensBeskjed");
                     if (dagensMelding == null) {
+                        // Om string er null, true
                         melding = true;
                     }
                     else {
+                        // om string har innhold, false
                         melding = false;
                     }
                 }
+                // om det ikke eksisterer en melding i databasen / når melding = true
                 if (melding) {
                 String SQL = ("INSERT INTO dagens (dagensBeskjed, Bruker_brukerId) VALUES ('"+dagens+"', '"+Main.user.getId()+"')");      
                 Statement setInfo = con.createStatement( );
                 setInfo.executeUpdate(SQL);
                 
                 }
+                // Om det eksisterer en melding kjør kun en update på dagensMelding og brukerId som sendte meldingen
                 else {
                 String SQL = ("UPDATE dagens SET dagensBeskjed='"+dagens+"', Bruker_brukerId = '"+Main.user.getId()+"'");
                 Statement setInfo = con.createStatement( );
@@ -937,6 +952,10 @@ public class mainWindowForeleser extends javax.swing.JFrame {
         
                             
     }
+    /**
+     * Lik metoden i mainWindow for student. Kjøres når systemet starter 
+     * for å hente data til Statistikk-tab
+     */
     public void statistikkVisning() {
         try {
 
@@ -1007,6 +1026,10 @@ public class mainWindowForeleser extends javax.swing.JFrame {
        
         
     }
+    /**
+     * For å vise profilen til innlogget bruker i høyremargen på systemet
+     * @return 
+     */
     public localUser profilVisning () {
         String user = Main.user.getUser();
         String rolle = Main.user.getRole();
@@ -1015,6 +1038,9 @@ public class mainWindowForeleser extends javax.swing.JFrame {
         jTextAreaProfil.append("Rolle:" + "   " + rolle);
         return Main.user;
     }
+    /**
+     * henter ut profilen til en bruker som er valgt i listen på Brukerliste-tab
+     */
     public void hentProfil() {
         try {
                 String profilNavn = jList1.getSelectedValue().toString();
@@ -1042,6 +1068,9 @@ public class mainWindowForeleser extends javax.swing.JFrame {
             System.out.println(err);
         }
     }
+    /**
+     * Henter ut alle brukere med rollen Student i en liste på Brukerliste-tab
+     */
     public void hentBrukere () {
          try {
             DefaultListModel DML = new DefaultListModel();
@@ -1067,6 +1096,9 @@ public class mainWindowForeleser extends javax.swing.JFrame {
             System.out.println(err);
         }
     }
+    /**
+     * Henter ut eksisterende melding på hjem-tab.
+     */
      public void hentDagens() {
         try {
             
@@ -1085,6 +1117,9 @@ public class mainWindowForeleser extends javax.swing.JFrame {
         }
             
     }
+     /**
+      * Henter lagrede møtetider på Møte-tab
+      */
     public void hentMøte () {
          try {
             DefaultListModel DML = new DefaultListModel();
@@ -1119,13 +1154,13 @@ public class mainWindowForeleser extends javax.swing.JFrame {
     }//GEN-LAST:event_jTabbedPaneBrukerlisteMouseClicked
 
     private void jButtonLagreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLagreActionPerformed
-        // TODO add your handling code here:
+        // Setter møtetider
         // Setter variablene til queries
         tidspunkt = jTextFieldTidspunkt.getText();
         
         // Resten av verdiene er tekst også i databasen
         møtested = jTextFieldSted.getText();
-
+        // kaller sendMøteInformasjon, metode som sender møtetid til databasen
         sendMøteInformasjon();
 
         jTextFieldSted.setText("");
@@ -1133,10 +1168,13 @@ public class mainWindowForeleser extends javax.swing.JFrame {
        
 
         JOptionPane.showMessageDialog(null, "<Møtet er blitt lagret>", "Alert", JOptionPane.INFORMATION_MESSAGE);
-        // TODO add your handling code here:
+        // Kaller også hentMøte for å oppdatere møtelisten med en gang man lagrer et nytt møte
         hentMøte();
 
         }
+    /**
+     * Metoden kaller metode fra db.java, der logikken ligger
+     */
         private void sendMøteInformasjon() {
             if (Main.user != null)
             db.sendMøteInfo(tidspunkt, møtested);

@@ -7,7 +7,9 @@ package slit;
 import java.sql.*;
 /**
  *
- * @author Sondre
+ * @author Sondre, Michael, Erik, Christian Fredrik, Thomas, Gruppe 109
+ * Main klasse som initierer systemet, åpner innloggingsvindu.
+ * Statisk object localUser som blir laget når man logger inn (lagre brukersession)
  */
 public class Main {
 

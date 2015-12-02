@@ -16,7 +16,8 @@ import static slit.client.foreleser.mainWindowForeleser.newline;
 
 /**
  *
- * @author Sondre
+ * @author Sondre, Michael, Erik, Christian Fredrik, Thomas, Gruppe 109
+ * Modulinformasjonsvindu for foreleser. Relativt likt som for student, men her publiseres modulene
  */
 public class moduleInformationWindowForeleser extends javax.swing.JFrame {
 
@@ -30,6 +31,9 @@ public class moduleInformationWindowForeleser extends javax.swing.JFrame {
         
         
     }
+    /**
+     * Switch med 14 caser, også her er dette løst tungvindt. Senere i klassen kommer et mye bedre eksempel
+     */
     public void publiserModul() {
         switch (mainWindowForeleser.getModulTrykket()) {
             case "modul 1":
@@ -756,8 +760,10 @@ public class moduleInformationWindowForeleser extends javax.swing.JFrame {
         }
     }
     /**
-     * Ny og bedre måte på å hente rett modul
+     * Ny og bedre måte på å hente rett modul. En switch med 14 caser, men her blir en variabel
+     * satt i hver case, og så kjøres koden basert på denne variabelen, så koden må bare skrives en gang.
      */
+    
     public void hentPublisert() {
         try {
                     Connection connect = DriverManager.getConnection(slit.Constants.db_url, slit.Constants.db_user, slit.Constants.db_pass);
@@ -771,9 +777,10 @@ public class moduleInformationWindowForeleser extends javax.swing.JFrame {
                    
                     String SQLhentModulNummer = ("SELECT * FROM Modul"); 
                     ResultSet eksisterer = eksisterendeModul.executeQuery(SQLhentModulNummer);
+                    // Setter opp en variabel lastModul
                     int lastModul = 0;
                     while (eksisterer.next()) {
-                   
+                    // Setter lastModul basert på hvilken modulknapp som er trykket
                     switch (mainWindowForeleser.getModulTrykket()) {
                         case "modul 1":
                             lastModul = 1;
@@ -819,7 +826,7 @@ public class moduleInformationWindowForeleser extends javax.swing.JFrame {
                         break;
         }
                    }
-
+                    // Og her henter vi rett modul basert på variabelen som settes av en gitt case
                     String SQLhentModul = ("SELECT * FROM Modul where modulNummer = '"+lastModul+"'");
                     
                     ResultSet testing = eksisterendeModul.executeQuery(SQLhentModul);

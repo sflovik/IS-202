@@ -16,14 +16,19 @@ import slit.lastOpp.lastOpp;
 
 /**
  *
- * @author Sondre/Michael
+ * @author Sondre, Michael, Erik, Christian Fredrik, Thomas, Gruppe 109
+ * GUI-klasse for moduler, viser modulinformasjon (popup-vindu)
  */
 public class moduleInformationWindow extends javax.swing.JFrame {
 
     /**
      * Creates new form moduleInformationWindow
      */
-   
+   /**
+    * Her blir koden avgjort av hvilken modulknapp som er trykket, knappene kjører en setModulTrykket()
+    * En switch med 14 caser avgjør hvilken modul som vises. Dette er gjort på en dårlig måte med mye gjentagelser
+    * og vi har andre steder i systemet tatt læring av dette og løst det på en mye bedre måte.
+    */
     public moduleInformationWindow() {
         initComponents();
         
