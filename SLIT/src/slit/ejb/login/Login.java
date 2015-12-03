@@ -267,13 +267,13 @@ private int id = 0;
                 slit.mainWindow hjems = new slit.mainWindow();
                 hjems.setVisible(true);
                 hjems.setExtendedState(slit.mainWindow.MAXIMIZED_BOTH);
-                this.dispose();
+                dispose();
             }
             else {
                 slit.client.foreleser.mainWindowForeleser hjemf = new slit.client.foreleser.mainWindowForeleser();
                 hjemf.setVisible(true);
                 hjemf.setExtendedState(slit.client.foreleser.mainWindowForeleser.MAXIMIZED_BOTH);
-                this.dispose();
+                dispose();
             }
         Main.user = localuser;
        
@@ -319,7 +319,7 @@ private int id = 0;
               
                 localuser.setId(id);
                 login();
-                dispose();
+                
             
                 
         }

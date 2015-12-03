@@ -172,6 +172,7 @@ public class db {
                     System.out.println (role);
                     System.out.println (id);
                     return Main.user = new localUser(rs.getString("brukerEmail"), rs.getString("brukerPassord"), rs.getString("brukerRolle"), rs.getInt("brukerId"));
+                    
                    
                 }
                 // Om credentials ikke er godkjent
