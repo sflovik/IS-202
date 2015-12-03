@@ -14,6 +14,7 @@ public class StudentProfil extends javax.swing.JFrame {
     /**
      * Creates new form StudentProfil
      */
+   
     public StudentProfil() {
        
         initComponents();

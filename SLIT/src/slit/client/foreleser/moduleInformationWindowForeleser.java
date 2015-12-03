@@ -33,9 +33,11 @@ public class moduleInformationWindowForeleser extends javax.swing.JFrame {
     }
     /**
      * Switch med 14 caser, også her er dette løst tungvindt. Senere i klassen kommer et mye bedre eksempel
+     * Løst problemet ang. å ikke få publisere moduler i tom database, case "modul 1" viser hvordan.
      */
     public void publiserModul() {
         switch (mainWindowForeleser.getModulTrykket()) {
+            // Får publisert moduler i tom database
             case "modul 1":
                 try {
                     
@@ -43,12 +45,12 @@ public class moduleInformationWindowForeleser extends javax.swing.JFrame {
                     Statement stmt = con.createStatement();
                     String check = ("SELECT * FROM Modul");  
                     ResultSet rs = stmt.executeQuery(check);
+                    
                     int modulNr = 0;
-                    boolean fortsett = true;
-                    while (rs.next() && fortsett) {
-                        modulNr = rs.getInt("modulNummer");
-                            if (modulNr != 1) {
-                                Statement nyModul = con.createStatement();
+                    
+                    if (!rs.next()) {
+                        System.out.println("DB er tom, oppretter ny modul");
+                        Statement nyModul = con.createStatement();
                                 String emne = jTextFieldTitle1.getText();
                                 String læringsmål = jTextAreaLæringsmål.getText();
                                 String kriterie = jTextAreaKriterie.getText();
@@ -59,10 +61,11 @@ public class moduleInformationWindowForeleser extends javax.swing.JFrame {
                                 String SQL = ("INSERT INTO `modul`(modulNummer, modulKapittel, modulEmne, modulKriterie, modulFrist,"
                                     + " modulLærer, modulLæringsmål, modulRessurs)"
                                     + " VALUES ('"+1+"', '"+kapittel+"','"+emne+"','"+kriterie+"','"+tidsfrist+"','"+foreleser+"','"+læringsmål+"', '"+ressurser+"' )");
-                                nyModul.executeUpdate(SQL); 
-                                fortsett = false;
-                            }
-                            else if (modulNr == 1) {
+                                nyModul.executeUpdate(SQL);
+                    }
+                    else {
+                        modulNr = rs.getInt("modulNummer");
+                            if (modulNr == 1) {
                                 Statement redigerModul = con.createStatement();
                                 String emne = jTextFieldTitle1.getText();
                                 String læringsmål = jTextAreaLæringsmål.getText();
@@ -77,11 +80,11 @@ public class moduleInformationWindowForeleser extends javax.swing.JFrame {
                          
                                     
                                 redigerModul.executeUpdate(SQL); 
-                                fortsett = false;
                             }
+                            System.out.println("sjekker");
                     }
                     
-                    
+                        
                 }
                 catch (SQLException feil) {
                     System.out.println(feil);
