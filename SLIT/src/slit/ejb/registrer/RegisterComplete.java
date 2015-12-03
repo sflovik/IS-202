@@ -18,7 +18,9 @@ import javax.swing.Timer;
 
 /**
  *
- * @author Sondre
+ * @author Sondre, Michael, Erik, Christian Fredrik, Thomas, Gruppe 109
+ * GUI klasse som kommer frem etter man har registrert seg, og sender deg tilbake til login-GUI 
+ * ved hjelp av en timer.
  */
 public class RegisterComplete extends javax.swing.JFrame {
 
@@ -37,6 +39,7 @@ public class RegisterComplete extends javax.swing.JFrame {
         addWindowListener(new WindowAdapter() {
         
             @Override
+            // Forsikrer seg om at brukeren ikke kan lukke programmet
             public void windowClosing(WindowEvent e) {
                 JOptionPane.showMessageDialog(null, "Du kan ikke lukke programmet på dette tidspunktet");
             }
@@ -50,6 +53,7 @@ public class RegisterComplete extends javax.swing.JFrame {
         
         ActionListener action = new ActionListener() {
             @Override
+            // Initierer login-gui når timeren utløper
             public void actionPerformed(ActionEvent event) {
                 if (counter == 0) {
                     timer.stop();

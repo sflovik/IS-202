@@ -20,7 +20,9 @@ import static slit.client.foreleser.mainWindowForeleser.getGenerellModul;
 import slit.lastOpp.lastOpp;
 /**
  *
- * @author Sondre
+ * @author Sondre, Michael, Erik, Christian Fredrik, Thomas, Gruppe 109
+ * GUI for student, mainWindow. Her ligger det meste av GUI og en del logikk.
+ * Vi begynte å forandre på strukturen for å redusere logikk i GUI-klasser, men rakk ikke gjøre endringer for hele systemet.
  */
 public class mainWindow extends javax.swing.JFrame {
 
@@ -870,6 +872,9 @@ public class mainWindow extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+    /**
+     * Henter ut statistikken for "Statistikk" tab i GUI
+     */
     public void statistikkVisning() {
         try {
 
@@ -940,6 +945,10 @@ public class mainWindow extends javax.swing.JFrame {
        
         
     }
+    /**
+     * For å laste en brukers profil
+     * @return 
+     */
     public localUser profilVisning () {
         String user = Main.user.getUser();
         String rolle = Main.user.getRole();
@@ -948,11 +957,17 @@ public class mainWindow extends javax.swing.JFrame {
         jTextAreaProfil.append("Rolle:" + "   " + rolle);
         return Main.user;
     }
+    /**
+     * kaller metoden db.sendRapport, angitt i db.java
+     */
     private void sendStatusrapport() {
         if (Main.user != null)
         db.sendRapport(uke, gått, annerledes, hjelp, timer);
               
     }
+    /**
+     * Henter dagens melding på startskjermen / hjem-tab når systemet starter
+     */
     public void hentDagens() {
         try {
             
@@ -971,6 +986,9 @@ public class mainWindow extends javax.swing.JFrame {
         }
             
     }
+    /**
+     * Henter ut møtetider for møte-tab i GUI
+     */
      public void hentMøte () {
          try {
             DefaultListModel DML = new DefaultListModel();
@@ -999,7 +1017,7 @@ public class mainWindow extends javax.swing.JFrame {
         }
     }
     private void jButtonModul5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonModul5ActionPerformed
-        // TODO add your handling code here:
+        // Setter en variabel til et modulnummer, kan nå lage "caser" (eventuelt if/else if) i koden for å laste rett modul.
         setModulTrykket("modul 5");
         moduleInformationWindow modul5 = new moduleInformationWindow();
        modul5.setVisible(true);
@@ -1153,7 +1171,7 @@ public class mainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonModul14ActionPerformed
 
     private void jTabbedPane1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTabbedPane1MouseClicked
-        // TODO add your handling code here:
+        // henter ut generell info på modul-tab når man klikker på tabbed pane
         
         jTextAreaInfo.setText(getGenerellModul());
     }//GEN-LAST:event_jTabbedPane1MouseClicked

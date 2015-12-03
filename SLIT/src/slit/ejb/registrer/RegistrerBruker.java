@@ -16,7 +16,8 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author erik-
+ * @author Sondre, Michael, Erik, Christian Fredrik, Thomas, Gruppe 109
+ * GUI-klasse for registrering av brukere
  */
 public class RegistrerBruker extends javax.swing.JFrame {
 
@@ -248,7 +249,12 @@ public class RegistrerBruker extends javax.swing.JFrame {
     private void jTextFieldEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldEmailActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldEmailActionPerformed
-
+    /**
+     * Gammel struktur på kode, noe av det første vi skrev. All logikk ligger direkte på en knapp, og ikke i en metode.
+     * For det første burde knappen bare kalt en metode, og for det andre burde denne metoden kalt en logikkmetode fra db.java klassen
+     * for å unngå store mengder logikk direkte i GUI.
+     * @param evt event
+     */
     private void jButtonRegistrerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegistrerActionPerformed
         // TODO add your handling code here:
          try {   

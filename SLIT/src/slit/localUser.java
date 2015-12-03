@@ -7,7 +7,9 @@ package slit;
 
 /**
  *
- * @author Sondre
+ * @author Sondre, Michael, Erik, Christian Fredrik, Thomas, Gruppe 109
+ * Klasse for å lage et objekt av innlogget bruker
+ * for å lagre brukersession og vite hvem som er innlogget.
  */
 public class localUser {
     private String user;

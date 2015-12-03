@@ -20,13 +20,17 @@ import static slit.mainWindow.newline;
 
 /**
  *
- * @author Sondre
+ * @author Sondre, Michael, Erik, Christian Fredrik, Thomas, Gruppe 109
+ * Klasse med DB-logikk. Lager metoder her og kaller de i interface, fremfor å skrive logikk rett i interface.
+ * Rakk ikke gjøre disse endringene for hele systemet, men noen metoder ble skrevet om.
  */
 public class db {
    
     
     
-   
+   /**
+    * Henter ut informasjonsmelding fra databasen på "Modul" taben.
+    */
     public static void generellInfo() {
          try {
                 String test = slit.client.foreleser.mainWindowForeleser.getGenerellModul();
@@ -51,7 +55,14 @@ public class db {
     public static void visProfil(String bruker) {
         
     }
-  
+    /**
+     * Sender statusrapport for innlogget bruker (localUser) til databasen
+     * @param uke et av spørsmålene som besvares i statusrapport
+     * @param gått et av spørsmålene som besvares i statusrapport
+     * @param annerledes et av spørsmålene som besvares i statusrapport
+     * @param hjelp et av spørsmålene som besvares i statusrapport
+     * @param timer et av spørsmålene som besvares i statusrapport 
+     */
     public static localUser sendRapport(int uke, String gått, String annerledes,
         String hjelp, int timer) {
         String passord = Main.user.getPass();
@@ -133,7 +144,16 @@ public class db {
         return null;
        
     }
-    
+    /**
+     * 
+     * @param username innskrevet brukernavn / epost i brukerfelt
+     * @param password innskrevet passord i passordfelt
+     * @param role valgt rolle i dropdown-menyen
+     * @param id git localUser en ID, henter ut brukerId i databasen fra innlogget bruker
+     * for å slippe å hente ut brukerId manuelt andre steder i systemet. 
+     * Endringen kom sent og de fleste stedene er dette løst på en manuell måte.
+     * @return 
+     */
     public static localUser login(String username, String password, String role, int id){
         
         try {
@@ -173,6 +193,10 @@ public class db {
         
         
     }
+    /**
+     * Henter ut den gamle beskjeden på "Generell info"-modul tab for foreleser, slik at man ser 
+     * beskjeden som er publisert.
+     */
     public static void hentGammelBeskjed() {
         try {
         Connection connect = DriverManager.getConnection(Constants.db_url, Constants.db_user, Constants.db_pass);
@@ -194,7 +218,12 @@ public class db {
     }
    
     
-    
+    /**
+     * Foreleser setter opp nye møtetider 
+     * @param tidspunkt angir møtetidspunkt (YYYY-MM-DD HH:MM:SS)
+     * @param møtested angir møtested, f.eks HK 051
+     * @return 
+     */
      public static localUser sendMøteInfo(String tidspunkt, String møtested)   
         {
         String passord = Main.user.getPass();
