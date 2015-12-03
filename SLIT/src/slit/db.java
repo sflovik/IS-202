@@ -14,6 +14,7 @@ import slit.Constants;
 import slit.Constants;
 import slit.Main;
 import slit.Main;
+import slit.client.foreleser.mainWindowForeleser;
 import slit.localUser;
 import slit.localUser;
 import static slit.mainWindow.newline;
@@ -31,6 +32,7 @@ public class db {
    /**
     * Henter ut informasjonsmelding fra databasen på "Modul" taben.
     */
+    final static String newline = "\n";
     public static void generellInfo() {
          try {
                 String test = slit.client.foreleser.mainWindowForeleser.getGenerellModul();
@@ -305,6 +307,46 @@ public class db {
         return null;
        
         }
+    public static void profilStatusrapport() {
+        try {
+            Connection con = DriverManager.getConnection(Constants.db_url, Constants.db_user, Constants.db_pass);
+            String bruker = mainWindowForeleser.getBrukerNavn();
+            String SQL = ("SELECT * FROM Bruker where brukerFornavn = '"+bruker+"'");
+            Statement stmt2 = con.createStatement( );
+            ResultSet result = stmt2.executeQuery (SQL);
+            int brukerId = 0;
+            if (result.next()) {
+                brukerId = result.getInt("brukerId");
+                con.close();
+            }
+            Connection con2 = DriverManager.getConnection(Constants.db_url, Constants.db_user, Constants.db_pass);
+            String SQL2 = ("SELECT * FROM Statusrapport WHERE Bruker_brukerId = '"+brukerId+"' ORDER BY idStatusrapport DESC");
+            Statement stmt = con2.createStatement( );
+                ResultSet rs = stmt.executeQuery (SQL2);
+                int uke = 0;
+                String gått = "";
+                String annerledes = "";
+                String hjelp = "";
+                int timer = 0;
+                
+                if (rs.next()) {
+                    uke = rs.getInt ("statusUke");
+                    gått = rs.getString("statusGått");
+                    annerledes = rs.getString("statusAnnerledes");
+                    hjelp = rs.getString("statusHjelp");
+                    timer = rs.getInt("statusTimer");
+                    slit.client.foreleser.StudentProfil profilrapport = new slit.client.foreleser.StudentProfil();
+                    profilrapport.setProfilStatusrapport("Hvordan har det gått:" + "  " + gått + newline +
+                            "Hva kunne blitt gjort annerledes:"+ " " + annerledes + newline + "Hjelp til noe:" + " " + hjelp);
+                    profilrapport.setProfilStatusrapportInt(uke + timer);
+                    con2.close();
+                }
         }
+         catch (SQLException err) {
+            System.out.println(err);
+         }
+        
+    }
+ }
 
   
