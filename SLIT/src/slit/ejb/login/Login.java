@@ -319,6 +319,7 @@ private int id = 0;
               
                 localuser.setId(id);
                 login();
+                dispose();
             
                 
         }
