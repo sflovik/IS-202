@@ -58,21 +58,16 @@ public class StudentProfil extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextAreaStatusrapport = new javax.swing.JTextArea();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTextAreaStatusrapportTimer = new javax.swing.JTextArea();
         jButtonStatusrapport = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
 
+        jTextAreaStatusrapport.setEditable(false);
         jTextAreaStatusrapport.setColumns(20);
         jTextAreaStatusrapport.setRows(5);
         jScrollPane1.setViewportView(jTextAreaStatusrapport);
-
-        jTextAreaStatusrapportTimer.setColumns(20);
-        jTextAreaStatusrapportTimer.setRows(5);
-        jScrollPane2.setViewportView(jTextAreaStatusrapportTimer);
 
         jButtonStatusrapport.setText("Hent statusrapport");
         jButtonStatusrapport.addActionListener(new java.awt.event.ActionListener() {
@@ -88,9 +83,8 @@ public class StudentProfil extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 380, Short.MAX_VALUE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 380, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jButtonStatusrapport)))
@@ -105,8 +99,7 @@ public class StudentProfil extends javax.swing.JFrame {
                 .addComponent(jButtonStatusrapport)
                 .addGap(2, 2, 2)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(130, Short.MAX_VALUE))
         );
 
         pack();
@@ -116,7 +109,7 @@ public class StudentProfil extends javax.swing.JFrame {
         // TODO add your handling code here:
         slit.db.profilStatusrapport();
         jTextAreaStatusrapport.setText(getProfilStatusrapport());
-        jTextAreaStatusrapportTimer.setText("Timer og ukenummer:" + String.valueOf(getProfilStatusrapportInt()));
+      //  jTextAreaStatusrapportTimer.setText("Timer og ukenummer:" + String.valueOf(getProfilStatusrapportInt()));
     }//GEN-LAST:event_jButtonStatusrapportActionPerformed
 
     /**
@@ -158,8 +151,6 @@ public class StudentProfil extends javax.swing.JFrame {
     private javax.swing.JButton jButtonStatusrapport;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextArea jTextAreaStatusrapport;
-    private javax.swing.JTextArea jTextAreaStatusrapportTimer;
     // End of variables declaration//GEN-END:variables
 }
