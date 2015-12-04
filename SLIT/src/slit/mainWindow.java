@@ -953,20 +953,18 @@ String filePath=null;
             .addGroup(mainRightLayout.createSequentialGroup()
                 .addGroup(mainRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(mainRightLayout.createSequentialGroup()
-                        .addGroup(mainRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, mainRightLayout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(profilbilde, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, mainRightLayout.createSequentialGroup()
-                                .addGap(73, 73, 73)
-                                .addComponent(profilTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addGap(73, 73, 73)
+                        .addComponent(profilTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 63, Short.MAX_VALUE))
                     .addGroup(mainRightLayout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(mainRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(profilnavnLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(testProfil, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(profilrolleLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(profilrolleLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainRightLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(profilbilde, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         mainRightLayout.setVerticalGroup(
@@ -978,11 +976,11 @@ String filePath=null;
                 .addComponent(profilnavnLabel)
                 .addGap(18, 18, 18)
                 .addComponent(profilrolleLabel)
-                .addGap(123, 123, 123)
+                .addGap(18, 18, 18)
                 .addComponent(profilbilde, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(42, 42, 42)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(testProfil, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(245, Short.MAX_VALUE))
+                .addContainerGap(381, Short.MAX_VALUE))
         );
 
         getContentPane().add(mainRight, java.awt.BorderLayout.LINE_END);
@@ -1380,6 +1378,7 @@ String filePath=null;
 
     int val=ps.executeUpdate();
     if(val>=1)JOptionPane.showMessageDialog(this, "Din fil ble lastet opp til databasen");
+            
     else
     JOptionPane.showMessageDialog(this, "Error");
 
@@ -1396,6 +1395,7 @@ String filePath=null;
     e.printStackTrace();
     }
     }
+        displayPhoto();
     }//GEN-LAST:event_testProfilActionPerformed
 private boolean check() {
 if(filePath!=null)
