@@ -5,19 +5,23 @@
  */
 package slit;
 
+import java.awt.Image;
+import java.awt.image.BufferedImage;
 import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.io.FileInputStream;
+import java.io.InputStream;
 import java.sql.Statement;
 import javax.swing.DefaultListModel;
-import javax.swing.JFileChooser;
 import javax.swing.JOptionPane; 
 import static slit.client.foreleser.mainWindowForeleser.getGenerellModul;
-import slit.lastOpp.lastOpp;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
 /**
  *
  * @author Sondre, Michael, Erik, Christian Fredrik, Thomas, Gruppe 109
@@ -25,7 +29,10 @@ import slit.lastOpp.lastOpp;
  * Vi begynte å forandre på strukturen for å redusere logikk i GUI-klasser, men rakk ikke gjøre endringer for hele systemet.
  */
 public class mainWindow extends javax.swing.JFrame {
-
+Connection connection=null;
+PreparedStatement ps=null;
+ResultSet rs=null;
+String filePath=null;
     /**
      * Creates new form mainWindow
      */
@@ -56,6 +63,7 @@ public class mainWindow extends javax.swing.JFrame {
         db.hentGammelBeskjed();
         hentMøte();
         hentDagens();
+        displayPhoto();
     }
 
     /**
@@ -150,9 +158,12 @@ public class mainWindow extends javax.swing.JFrame {
         jTextFieldTimer = new javax.swing.JTextField();
         mainRight = new javax.swing.JPanel();
         profilTitle = new javax.swing.JLabel();
-        profilUpload = new javax.swing.JButton();
-        jScrollPane13 = new javax.swing.JScrollPane();
-        jTextAreaProfil = new javax.swing.JTextArea();
+        profilbilde = new javax.swing.JLabel();
+        testProfil = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        profilnavnLabel = new javax.swing.JTextArea();
+        jScrollPane11 = new javax.swing.JScrollPane();
+        profilrolleLabel = new javax.swing.JTextArea();
 
         jToggleButton1.setText("jToggleButton1");
 
@@ -174,7 +185,7 @@ public class mainWindow extends javax.swing.JFrame {
                 .addComponent(jLabel3)
                 .addGap(18, 18, 18)
                 .addComponent(jLabelTittel)
-                .addContainerGap(1049, Short.MAX_VALUE))
+                .addContainerGap(1091, Short.MAX_VALUE))
         );
         jPanelTopCentreLayout.setVerticalGroup(
             jPanelTopCentreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -194,7 +205,7 @@ public class mainWindow extends javax.swing.JFrame {
         jPanelTopTop.setLayout(jPanelTopTopLayout);
         jPanelTopTopLayout.setHorizontalGroup(
             jPanelTopTopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1947, Short.MAX_VALUE)
+            .addGap(0, 1989, Short.MAX_VALUE)
         );
         jPanelTopTopLayout.setVerticalGroup(
             jPanelTopTopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -210,7 +221,7 @@ public class mainWindow extends javax.swing.JFrame {
         jPanelTopBot.setLayout(jPanelTopBotLayout);
         jPanelTopBotLayout.setHorizontalGroup(
             jPanelTopBotLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSeperatorTopBot, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1947, Short.MAX_VALUE)
+            .addComponent(jSeperatorTopBot, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1989, Short.MAX_VALUE)
         );
         jPanelTopBotLayout.setVerticalGroup(
             jPanelTopBotLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -364,7 +375,7 @@ public class mainWindow extends javax.swing.JFrame {
             .addGroup(jPanelHjemLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanelDagensMain, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(814, Short.MAX_VALUE))
+                .addContainerGap(859, Short.MAX_VALUE))
         );
         jPanelHjemLayout.setVerticalGroup(
             jPanelHjemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -529,7 +540,7 @@ public class mainWindow extends javax.swing.JFrame {
                         .addComponent(jButtonModul12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabelModuler110, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jButtonModul13, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(697, Short.MAX_VALUE))
+                .addContainerGap(742, Short.MAX_VALUE))
         );
         jPanelModulerLayout.setVerticalGroup(
             jPanelModulerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -754,7 +765,7 @@ public class mainWindow extends javax.swing.JFrame {
         jPanelRightMain.setLayout(jPanelRightMainLayout);
         jPanelRightMainLayout.setHorizontalGroup(
             jPanelRightMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
+            .addGap(0, 129, Short.MAX_VALUE)
         );
         jPanelRightMainLayout.setVerticalGroup(
             jPanelRightMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -781,7 +792,7 @@ public class mainWindow extends javax.swing.JFrame {
                         .addComponent(jTextFieldUke)
                         .addComponent(jTextFieldTimer))
                     .addComponent(jButtonSendRapport))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 897, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 913, Short.MAX_VALUE)
                 .addComponent(jPanelRightMain, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -827,45 +838,60 @@ public class mainWindow extends javax.swing.JFrame {
         profilTitle.setForeground(new java.awt.Color(0, 0, 204));
         profilTitle.setText("Profil");
 
-        profilUpload.setText("Upload");
-        profilUpload.addActionListener(new java.awt.event.ActionListener() {
+        testProfil.setText("Last Opp Profilbilde");
+        testProfil.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                profilUploadActionPerformed(evt);
+                testProfilActionPerformed(evt);
             }
         });
 
-        jTextAreaProfil.setEditable(false);
-        jTextAreaProfil.setColumns(20);
-        jTextAreaProfil.setRows(5);
-        jScrollPane13.setViewportView(jTextAreaProfil);
+        profilnavnLabel.setColumns(1);
+        profilnavnLabel.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        profilnavnLabel.setRows(1);
+        jScrollPane1.setViewportView(profilnavnLabel);
+
+        profilrolleLabel.setColumns(1);
+        profilrolleLabel.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        profilrolleLabel.setRows(1);
+        jScrollPane11.setViewportView(profilrolleLabel);
 
         javax.swing.GroupLayout mainRightLayout = new javax.swing.GroupLayout(mainRight);
         mainRight.setLayout(mainRightLayout);
         mainRightLayout.setHorizontalGroup(
             mainRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(mainRightLayout.createSequentialGroup()
-                .addContainerGap(21, Short.MAX_VALUE)
                 .addGroup(mainRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainRightLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(testProfil, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(mainRightLayout.createSequentialGroup()
-                        .addGap(48, 48, 48)
-                        .addComponent(profilTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(23, Short.MAX_VALUE))
-            .addGroup(mainRightLayout.createSequentialGroup()
-                .addGap(73, 73, 73)
-                .addComponent(profilUpload)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap()
+                        .addComponent(profilbilde, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(mainRightLayout.createSequentialGroup()
+                        .addGap(73, 73, 73)
+                        .addComponent(profilTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(mainRightLayout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addGroup(mainRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1)
+                            .addComponent(jScrollPane11))
+                        .addGap(14, 14, 14)))
+                .addContainerGap())
         );
         mainRightLayout.setVerticalGroup(
             mainRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(mainRightLayout.createSequentialGroup()
                 .addGap(44, 44, 44)
                 .addComponent(profilTitle)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(profilUpload)
-                .addContainerGap(545, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(36, 36, 36)
+                .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(59, 59, 59)
+                .addComponent(profilbilde, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(42, 42, 42)
+                .addComponent(testProfil, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(245, Short.MAX_VALUE))
         );
 
         getContentPane().add(mainRight, java.awt.BorderLayout.LINE_END);
@@ -952,9 +978,8 @@ public class mainWindow extends javax.swing.JFrame {
     public localUser profilVisning () {
         String user = Main.user.getUser();
         String rolle = Main.user.getRole();
-        jTextAreaProfil.append("Brukernavn:" + "   " +user);
-        jTextAreaProfil.append(newline);
-        jTextAreaProfil.append("Rolle:" + "   " + rolle);
+        profilnavnLabel.append("   " +user);
+        profilrolleLabel.append("   " + rolle);
         return Main.user;
     }
     /**
@@ -986,6 +1011,48 @@ public class mainWindow extends javax.swing.JFrame {
         }
             
     }
+    
+    public void displayPhoto() {
+
+    BufferedImage bufImg = null;
+    
+    {
+    try
+    {
+        String url = "jdbc:mysql://localhost:3306/slit";
+        String user = "root";
+        String password = "root";
+        Connection connection = DriverManager.getConnection(url, user, password);
+        
+        String sql = "select profilbildeBlob from profilbilde where Bruker_brukerId =?";
+         
+        PreparedStatement statement = connection.prepareStatement(sql);
+        statement.setInt(1, slit.Main.user.getId());
+
+        rs = statement.executeQuery();
+        while (rs.next()) {
+        InputStream in = rs.getBinaryStream("profilbildeBlob");
+        bufImg = ImageIO.read(in);
+        ImageIcon ii = new ImageIcon(bufImg);
+        Image image = ii.getImage();
+        image = image.getScaledInstance(187, 187, Image.SCALE_SMOOTH);
+        ii = new ImageIcon(image);
+        profilbilde.setIcon(ii);
+        }
+    
+    }
+    catch(Exception e)
+    {    
+    JOptionPane.showMessageDialog(null, e);
+    }
+    }
+    
+   
+    }
+    
+    
+        
+    
     /**
      * Henter ut møtetider for møte-tab i GUI
      */
@@ -1036,24 +1103,6 @@ public class mainWindow extends javax.swing.JFrame {
        modul1.setVisible(true);
     // TODO add your handling code here:
     }//GEN-LAST:event_jButtonModul1ActionPerformed
-
-    private void profilUploadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_profilUploadActionPerformed
-//        // TODO add your handling code here:
-//         int returnVal = fileChooser.showOpenDialog(this);
-//    if (returnVal == JFileChooser.APPROVE_OPTION) {
-//        File file = fileChooser.getSelectedFile();
-//        try {
-//          // What to do with the file, e.g. display it in a TextArea
-//          textarea.read(new FileReader( file.getAbsolutePath() ), null );
-//        } catch (IOException ex) {
-//          System.out.println("problem accessing file"+file.getAbsolutePath());
-//        }
-//    } else {
-//        System.out.println("File access cancelled by user.");
-//    }
-
-       
-    }//GEN-LAST:event_profilUploadActionPerformed
 
     private void jButtonSendRapportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSendRapportActionPerformed
         // TODO add your handling code here:
@@ -1181,6 +1230,68 @@ public class mainWindow extends javax.swing.JFrame {
        
     }//GEN-LAST:event_jPanelMøteMouseClicked
 
+    private void testProfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_testProfilActionPerformed
+        // TODO add your handling code here:
+
+        {
+    try
+        {
+    
+        
+    Class.forName("com.mysql.jdbc.Driver");
+    connection=DriverManager.getConnection("jdbc:mysql://localhost:3306/slit","root","root");
+    System.out.println("Connection Established Succcesfully...");
+    
+    JFileChooser chooser=new JFileChooser(new File("E:\\"));
+    chooser.setMultiSelectionEnabled(false);
+    chooser.setVisible(true);
+    chooser.showOpenDialog(this);
+
+    File file=chooser.getSelectedFile();
+    if(file!=null){filePath=file.getPath();}
+
+
+    if(filePath!=null && check())
+    {
+    ps=connection.prepareStatement("INSERT INTO profilbilde(profilbildeBlob, Bruker_brukerId) VALUES(?,?);");
+    FileInputStream fileInputStream=new FileInputStream(filePath);
+    byte b[]=new byte[fileInputStream.available()];
+    fileInputStream.read(b);
+    fileInputStream.close();
+    ps.setBytes(1, b);
+    ps.setInt(2, slit.Main.user.getId());
+
+    int val=ps.executeUpdate();
+    if(val>=1)JOptionPane.showMessageDialog(this, "Din fil ble lastet opp til databasen");
+    else
+    JOptionPane.showMessageDialog(this, "Error");
+
+    }
+    else
+    {
+    JOptionPane.showMessageDialog(this,"Velg riktig filtype");
+    }
+
+    }catch(Exception e)
+    {
+
+    JOptionPane.showMessageDialog(this, e.getMessage());
+    e.printStackTrace();
+    }
+    }
+    }//GEN-LAST:event_testProfilActionPerformed
+private boolean check() {
+if(filePath!=null)
+{
+if(filePath.endsWith(".jpeg")||filePath.endsWith(".jpg")||filePath.endsWith(".JPEG")||filePath.endsWith(".docx")||filePath.endsWith(".JPG") || filePath.endsWith(".rar") || filePath.endsWith(".jar") || filePath.endsWith(".zip") || filePath.endsWith(".doc"))
+{
+return true;
+}
+return false;
+}
+return false;
+}
+
     /**
      * @param args the command line arguments
      */
@@ -1267,8 +1378,9 @@ public class mainWindow extends javax.swing.JFrame {
     private javax.swing.JPanel jPanelTopCentre;
     private javax.swing.JPanel jPanelTopMain;
     private javax.swing.JPanel jPanelTopTop;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane10;
-    private javax.swing.JScrollPane jScrollPane13;
+    private javax.swing.JScrollPane jScrollPane11;
     private javax.swing.JScrollPane jScrollPane14;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
@@ -1293,7 +1405,6 @@ public class mainWindow extends javax.swing.JFrame {
     private javax.swing.JTextArea jTextAreaInfo;
     private javax.swing.JTextArea jTextAreaLeverte;
     private javax.swing.JTextArea jTextAreaName;
-    private javax.swing.JTextArea jTextAreaProfil;
     private javax.swing.JTextArea jTextAreaSurname;
     private javax.swing.JTextField jTextFieldTimer;
     private javax.swing.JTextField jTextFieldUke;
@@ -1301,6 +1412,9 @@ public class mainWindow extends javax.swing.JFrame {
     private javax.swing.JTree jTreeMeny;
     private javax.swing.JPanel mainRight;
     private javax.swing.JLabel profilTitle;
-    private javax.swing.JButton profilUpload;
+    private javax.swing.JLabel profilbilde;
+    private javax.swing.JTextArea profilnavnLabel;
+    private javax.swing.JTextArea profilrolleLabel;
+    private javax.swing.JButton testProfil;
     // End of variables declaration//GEN-END:variables
 }

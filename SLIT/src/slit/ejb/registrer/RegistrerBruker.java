@@ -363,3 +363,4 @@ public class RegistrerBruker extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldName;
     // End of variables declaration//GEN-END:variables
 }
+
