@@ -659,6 +659,7 @@ public class moduleInformationWindow extends javax.swing.JFrame {
             }
         });
 
+        jTextAreaKriterie.setEditable(false);
         jTextAreaKriterie.setColumns(20);
         jTextAreaKriterie.setRows(5);
         jScrollPane3.setViewportView(jTextAreaKriterie);
@@ -723,6 +724,7 @@ public class moduleInformationWindow extends javax.swing.JFrame {
         jTextAreaRessurs.setRows(5);
         jScrollPane1.setViewportView(jTextAreaRessurs);
 
+        jTextFieldLæringsmål.setEditable(false);
         jTextFieldLæringsmål.setColumns(20);
         jTextFieldLæringsmål.setRows(5);
         jScrollPane4.setViewportView(jTextFieldLæringsmål);
