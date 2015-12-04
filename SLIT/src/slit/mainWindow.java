@@ -160,10 +160,8 @@ String filePath=null;
         profilTitle = new javax.swing.JLabel();
         profilbilde = new javax.swing.JLabel();
         testProfil = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        profilnavnLabel = new javax.swing.JTextArea();
-        jScrollPane11 = new javax.swing.JScrollPane();
-        profilrolleLabel = new javax.swing.JTextArea();
+        profilnavnLabel = new javax.swing.JLabel();
+        profilrolleLabel = new javax.swing.JLabel();
 
         jToggleButton1.setText("jToggleButton1");
 
@@ -845,15 +843,9 @@ String filePath=null;
             }
         });
 
-        profilnavnLabel.setColumns(1);
-        profilnavnLabel.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        profilnavnLabel.setRows(1);
-        jScrollPane1.setViewportView(profilnavnLabel);
+        profilnavnLabel.setText("jLabel2");
 
-        profilrolleLabel.setColumns(1);
-        profilrolleLabel.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        profilrolleLabel.setRows(1);
-        jScrollPane11.setViewportView(profilrolleLabel);
+        profilrolleLabel.setText("jLabel2");
 
         javax.swing.GroupLayout mainRightLayout = new javax.swing.GroupLayout(mainRight);
         mainRight.setLayout(mainRightLayout);
@@ -861,21 +853,21 @@ String filePath=null;
             mainRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(mainRightLayout.createSequentialGroup()
                 .addGroup(mainRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainRightLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(testProfil, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(mainRightLayout.createSequentialGroup()
+                        .addGroup(mainRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, mainRightLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(profilbilde, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, mainRightLayout.createSequentialGroup()
+                                .addGap(73, 73, 73)
+                                .addComponent(profilTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(mainRightLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(profilbilde, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(mainRightLayout.createSequentialGroup()
-                        .addGap(73, 73, 73)
-                        .addComponent(profilTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(mainRightLayout.createSequentialGroup()
-                        .addGap(20, 20, 20)
                         .addGroup(mainRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1)
-                            .addComponent(jScrollPane11))
-                        .addGap(14, 14, 14)))
+                            .addComponent(profilnavnLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(testProfil, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(profilrolleLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap())
         );
         mainRightLayout.setVerticalGroup(
@@ -883,11 +875,11 @@ String filePath=null;
             .addGroup(mainRightLayout.createSequentialGroup()
                 .addGap(44, 44, 44)
                 .addComponent(profilTitle)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(36, 36, 36)
-                .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(59, 59, 59)
+                .addGap(18, 18, 18)
+                .addComponent(profilnavnLabel)
+                .addGap(18, 18, 18)
+                .addComponent(profilrolleLabel)
+                .addGap(123, 123, 123)
                 .addComponent(profilbilde, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(42, 42, 42)
                 .addComponent(testProfil, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -978,8 +970,8 @@ String filePath=null;
     public localUser profilVisning () {
         String user = Main.user.getUser();
         String rolle = Main.user.getRole();
-        profilnavnLabel.append("   " +user);
-        profilrolleLabel.append("   " + rolle);
+        profilnavnLabel.setText("   " +user);
+        profilrolleLabel.setText("   " + rolle);
         return Main.user;
     }
     /**
@@ -1378,9 +1370,7 @@ return false;
     private javax.swing.JPanel jPanelTopCentre;
     private javax.swing.JPanel jPanelTopMain;
     private javax.swing.JPanel jPanelTopTop;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane10;
-    private javax.swing.JScrollPane jScrollPane11;
     private javax.swing.JScrollPane jScrollPane14;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
@@ -1413,8 +1403,8 @@ return false;
     private javax.swing.JPanel mainRight;
     private javax.swing.JLabel profilTitle;
     private javax.swing.JLabel profilbilde;
-    private javax.swing.JTextArea profilnavnLabel;
-    private javax.swing.JTextArea profilrolleLabel;
+    private javax.swing.JLabel profilnavnLabel;
+    private javax.swing.JLabel profilrolleLabel;
     private javax.swing.JButton testProfil;
     // End of variables declaration//GEN-END:variables
 }
