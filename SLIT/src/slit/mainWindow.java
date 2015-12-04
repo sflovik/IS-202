@@ -64,6 +64,7 @@ String filePath=null;
         hentMøte();
         hentDagens();
         displayPhoto();
+        visInnleveringer();
     }
 
     /**
@@ -94,7 +95,7 @@ String filePath=null;
         jPanelLeftRight = new javax.swing.JPanel();
         jSeperatorLeftRight = new javax.swing.JSeparator();
         jPanelBotMain = new javax.swing.JPanel();
-        jTabbedPane1 = new javax.swing.JTabbedPane();
+        jTabbedPaneInnleveringer = new javax.swing.JTabbedPane();
         jPanelHjem = new javax.swing.JPanel();
         jPanelDagensMain = new javax.swing.JPanel();
         jScrollPane9 = new javax.swing.JScrollPane();
@@ -156,6 +157,15 @@ String filePath=null;
         jPanelRightMain = new javax.swing.JPanel();
         jTextFieldUke = new javax.swing.JTextField();
         jTextFieldTimer = new javax.swing.JTextField();
+        jPanel1 = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
+        jPanel4 = new javax.swing.JPanel();
+        jPanel5 = new javax.swing.JPanel();
+        jPanel6 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextAreaModulResultat = new javax.swing.JTextArea();
         mainRight = new javax.swing.JPanel();
         profilTitle = new javax.swing.JLabel();
         profilbilde = new javax.swing.JLabel();
@@ -339,9 +349,9 @@ String filePath=null;
         getContentPane().add(jPanelLeftMain, java.awt.BorderLayout.LINE_START);
         getContentPane().add(jPanelBotMain, java.awt.BorderLayout.PAGE_END);
 
-        jTabbedPane1.addMouseListener(new java.awt.event.MouseAdapter() {
+        jTabbedPaneInnleveringer.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTabbedPane1MouseClicked(evt);
+                jTabbedPaneInnleveringerMouseClicked(evt);
             }
         });
 
@@ -383,7 +393,7 @@ String filePath=null;
                 .addContainerGap(258, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Hjem", jPanelHjem);
+        jTabbedPaneInnleveringer.addTab("Hjem", jPanelHjem);
 
         jTextAreaInfo.setEditable(false);
         jTextAreaInfo.setBackground(new java.awt.Color(240, 240, 240));
@@ -583,7 +593,7 @@ String filePath=null;
                 .addContainerGap(278, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Moduler", jPanelModuler);
+        jTabbedPaneInnleveringer.addTab("Moduler", jPanelModuler);
 
         jPanelStatistikk.setLayout(new java.awt.BorderLayout());
 
@@ -636,7 +646,7 @@ String filePath=null;
 
         jPanelStatistikk.add(jPanelStatistikkMain, java.awt.BorderLayout.CENTER);
 
-        jTabbedPane1.addTab("Statistikk", jPanelStatistikk);
+        jTabbedPaneInnleveringer.addTab("Statistikk", jPanelStatistikk);
 
         jPanelMøte.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -719,7 +729,7 @@ String filePath=null;
                 .addContainerGap(376, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Møte", jPanelMøte);
+        jTabbedPaneInnleveringer.addTab("Møte", jPanelMøte);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(51, 51, 255));
@@ -828,9 +838,98 @@ String filePath=null;
                 .addContainerGap())
         );
 
-        jTabbedPane1.addTab("Statusrapport", jPanelStatusrapport);
+        jTabbedPaneInnleveringer.addTab("Statusrapport", jPanelStatusrapport);
 
-        getContentPane().add(jTabbedPane1, java.awt.BorderLayout.CENTER);
+        jPanel1.setLayout(new java.awt.BorderLayout());
+
+        jLabel2.setText("Oversikt over innleveringer som har gjennomgått sensur");
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(109, 109, 109)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 621, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(835, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(75, Short.MAX_VALUE)
+                .addComponent(jLabel2)
+                .addContainerGap())
+        );
+
+        jPanel1.add(jPanel2, java.awt.BorderLayout.PAGE_START);
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 534, Short.MAX_VALUE)
+        );
+
+        jPanel1.add(jPanel3, java.awt.BorderLayout.LINE_START);
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 534, Short.MAX_VALUE)
+        );
+
+        jPanel1.add(jPanel4, java.awt.BorderLayout.LINE_END);
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1565, Short.MAX_VALUE)
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
+        jPanel1.add(jPanel5, java.awt.BorderLayout.PAGE_END);
+
+        jTextAreaModulResultat.setEditable(false);
+        jTextAreaModulResultat.setBackground(new java.awt.Color(240, 240, 240));
+        jTextAreaModulResultat.setColumns(20);
+        jTextAreaModulResultat.setRows(5);
+        jScrollPane1.setViewportView(jTextAreaModulResultat);
+
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 614, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(741, Short.MAX_VALUE))
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(319, Short.MAX_VALUE))
+        );
+
+        jPanel1.add(jPanel6, java.awt.BorderLayout.CENTER);
+
+        jTabbedPaneInnleveringer.addTab("Mine innleveringer", jPanel1);
+
+        getContentPane().add(jTabbedPaneInnleveringer, java.awt.BorderLayout.CENTER);
 
         profilTitle.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
         profilTitle.setForeground(new java.awt.Color(0, 0, 204));
@@ -1044,7 +1143,32 @@ String filePath=null;
     
     
         
-    
+    public void visInnleveringer() {
+        try {
+        String SQL = ("SELECT * FROM Sensur WHERE Bruker_brukerId = '"+Main.user.getId()+"' ORDER BY Modulfil_modulfilId");
+        Connection con = DriverManager.getConnection(Constants.db_url,Constants.db_user, Constants.db_pass);
+        Statement stmt = con.createStatement();
+        ResultSet rs = stmt.executeQuery(SQL);
+        String vurdering = "";
+        int modulFilId = 0;
+        String modulFilIdString = "";
+        String resultat = "";
+        String modul = "";
+        if (rs.next()) {
+            vurdering = rs.getString("sensurVurdering");
+            modulFilIdString = String.valueOf(rs.getInt("Modulfil_modulfilId"));
+            resultat = rs.getString("sensurResultat");
+            modul = rs.getString("sensurModul");
+        }
+        jTextAreaModulResultat.append ("Modul fil ID:" + " " + modulFilIdString + newline + 
+                "Modul:" + " " + modul + newline +
+                "Forelesers vurdering:" + " " +vurdering + newline +
+                "Resultat:" + " " + resultat + newline + newline);
+        }
+        catch (SQLException err) {
+            System.out.println(err);
+        }
+    }
     /**
      * Henter ut møtetider for møte-tab i GUI
      */
@@ -1211,11 +1335,11 @@ String filePath=null;
         
     }//GEN-LAST:event_jButtonModul14ActionPerformed
 
-    private void jTabbedPane1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTabbedPane1MouseClicked
+    private void jTabbedPaneInnleveringerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTabbedPaneInnleveringerMouseClicked
         // henter ut generell info på modul-tab når man klikker på tabbed pane
         
         jTextAreaInfo.setText(getGenerellModul());
-    }//GEN-LAST:event_jTabbedPane1MouseClicked
+    }//GEN-LAST:event_jTabbedPaneInnleveringerMouseClicked
 
     private void jPanelMøteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelMøteMouseClicked
         // TODO add your handling code here:
@@ -1339,6 +1463,7 @@ return false;
     private javax.swing.JButton jButtonModul9;
     private javax.swing.JButton jButtonSendRapport;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabelModuler109;
     private javax.swing.JLabel jLabelModuler110;
@@ -1349,6 +1474,12 @@ return false;
     private javax.swing.JLabel jLabelStatusrapportQuestion5;
     private javax.swing.JLabel jLabelTittel;
     private javax.swing.JList jListMøte;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanelBotMain;
     private javax.swing.JPanel jPanelDagensMain;
     private javax.swing.JPanel jPanelHjem;
@@ -1370,6 +1501,7 @@ return false;
     private javax.swing.JPanel jPanelTopCentre;
     private javax.swing.JPanel jPanelTopMain;
     private javax.swing.JPanel jPanelTopTop;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane14;
     private javax.swing.JScrollPane jScrollPane2;
@@ -1385,7 +1517,7 @@ return false;
     private javax.swing.JSeparator jSeperatorLeftLeft;
     private javax.swing.JSeparator jSeperatorLeftRight;
     private javax.swing.JSeparator jSeperatorTopBot;
-    private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTabbedPane jTabbedPaneInnleveringer;
     private javax.swing.JTextArea jTextAreaAnnerledes;
     private javax.swing.JTextArea jTextAreaDagens;
     private javax.swing.JTextArea jTextAreaDate;
@@ -1394,6 +1526,7 @@ return false;
     private javax.swing.JTextArea jTextAreaId;
     private javax.swing.JTextArea jTextAreaInfo;
     private javax.swing.JTextArea jTextAreaLeverte;
+    private javax.swing.JTextArea jTextAreaModulResultat;
     private javax.swing.JTextArea jTextAreaName;
     private javax.swing.JTextArea jTextAreaSurname;
     private javax.swing.JTextField jTextFieldTimer;

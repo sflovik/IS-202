@@ -193,6 +193,7 @@ ResultSet rs=null;
         connection=DriverManager.getConnection("jdbc:mysql://localhost:3306/slit","root","root");
         System.out.println("Connection Established Succcesfully...");
         
+        
         ps=connection.prepareStatement("INSERT INTO sensur(sensurSensor, sensurModul, sensurVurdering, Modulfil_modulfilId, Bruker_brukerId, sensurResultat) VALUES(?,?,?,?,?,?)");
         ps.setObject(1, sensorField.getText());
         ps.setObject(2, modulField.getText());
