@@ -1145,7 +1145,7 @@ String filePath=null;
         
     public void visInnleveringer() {
         try {
-        String SQL = ("SELECT * FROM Sensur WHERE Bruker_brukerId = '"+Main.user.getId()+"' ORDER BY Modulfil_modulfilId");
+        String SQL = ("SELECT * FROM Sensur WHERE Bruker_brukerId = '"+Main.user.getId()+"'");
         Connection con = DriverManager.getConnection(Constants.db_url,Constants.db_user, Constants.db_pass);
         Statement stmt = con.createStatement();
         ResultSet rs = stmt.executeQuery(SQL);
@@ -1154,16 +1154,17 @@ String filePath=null;
         String modulFilIdString = "";
         String resultat = "";
         String modul = "";
-        if (rs.next()) {
+        while (rs.next()) {
             vurdering = rs.getString("sensurVurdering");
             modulFilIdString = String.valueOf(rs.getInt("Modulfil_modulfilId"));
             resultat = rs.getString("sensurResultat");
             modul = rs.getString("sensurModul");
-        }
-        jTextAreaModulResultat.append ("Modul fil ID:" + " " + modulFilIdString + newline + 
+            jTextAreaModulResultat.append ("Modul fil ID:" + " " + modulFilIdString + newline + 
                 "Modul:" + " " + modul + newline +
                 "Forelesers vurdering:" + " " +vurdering + newline +
                 "Resultat:" + " " + resultat + newline + newline);
+        }
+                 
         }
         catch (SQLException err) {
             System.out.println(err);

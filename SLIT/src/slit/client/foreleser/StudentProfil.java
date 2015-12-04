@@ -5,12 +5,21 @@
  */
 package slit.client.foreleser;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import javax.swing.JTextArea;
+import slit.Constants;
+import slit.Main;
 
 /**
  *
  * @author Sondre
+ * 
  */
+
 public class StudentProfil extends javax.swing.JFrame {
 
     /**
@@ -18,7 +27,7 @@ public class StudentProfil extends javax.swing.JFrame {
      */
     private static String profilStatusrapport = "";
     private int profilStatusrapportInt = 0;
-
+    final static String newline = "\n";
     public String getProfilStatusrapport() {
         return profilStatusrapport;
     }
@@ -43,9 +52,44 @@ public class StudentProfil extends javax.swing.JFrame {
        
         initComponents();
         jLabel1.setText(mainWindowForeleser.getBrukerNavn());
+        visInnleveringer();
          
     }
-
+    public void visInnleveringer() {
+        try {
+        String SQL1 = ("SELECT * FROM Bruker WHERE brukerFornavn = '"+mainWindowForeleser.getBrukerNavn()+"'");
+        Connection con = DriverManager.getConnection(Constants.db_url,Constants.db_user, Constants.db_pass);
+        Statement stmt2 = con.createStatement();
+        ResultSet result = stmt2.executeQuery(SQL1);
+        int brukerId = 0;
+        if (result.next()) {
+            brukerId = result.getInt("brukerId");
+        }
+        String SQL2 = ("SELECT * FROM Sensur WHERE Bruker_brukerId = '"+brukerId+"'");
+        
+        Statement stmt = con.createStatement();
+        ResultSet rs = stmt.executeQuery(SQL2);
+        String vurdering = "";
+        int modulFilId = 0;
+        String modulFilIdString = "";
+        String resultat = "";
+        String modul = "";
+        while (rs.next()) {
+            vurdering = rs.getString("sensurVurdering");
+            modulFilIdString = String.valueOf(rs.getInt("Modulfil_modulfilId"));
+            resultat = rs.getString("sensurResultat");
+            modul = rs.getString("sensurModul");
+            jTextAreaModulResultat.append ("Modul fil ID:" + " " + modulFilIdString + newline + 
+                "Modul:" + " " + modul + newline +
+                "Forelesers vurdering:" + " " +vurdering + newline +
+                "Resultat:" + " " + resultat + newline + newline);
+        }
+                 
+        }
+        catch (SQLException err) {
+            System.out.println(err);
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -59,6 +103,9 @@ public class StudentProfil extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextAreaStatusrapport = new javax.swing.JTextArea();
         jButtonStatusrapport = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTextAreaModulResultat = new javax.swing.JTextArea();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -76,6 +123,13 @@ public class StudentProfil extends javax.swing.JFrame {
             }
         });
 
+        jTextAreaModulResultat.setEditable(false);
+        jTextAreaModulResultat.setColumns(20);
+        jTextAreaModulResultat.setRows(5);
+        jScrollPane2.setViewportView(jTextAreaModulResultat);
+
+        jLabel2.setText("Innleveringer med tilbakemelding:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -83,11 +137,15 @@ public class StudentProfil extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 380, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 603, Short.MAX_VALUE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jButtonStatusrapport)))
+                        .addComponent(jButtonStatusrapport))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 603, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -99,7 +157,11 @@ public class StudentProfil extends javax.swing.JFrame {
                 .addComponent(jButtonStatusrapport)
                 .addGap(2, 2, 2)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(130, Short.MAX_VALUE))
+                .addGap(9, 9, 9)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(53, Short.MAX_VALUE))
         );
 
         pack();
@@ -150,7 +212,10 @@ public class StudentProfil extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonStatusrapport;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTextArea jTextAreaModulResultat;
     private javax.swing.JTextArea jTextAreaStatusrapport;
     // End of variables declaration//GEN-END:variables
 }
